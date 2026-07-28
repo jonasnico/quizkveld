@@ -66,9 +66,21 @@ hjelper den som kjenner det gamle navnet, og det er ærlig om at inndelingen er 
 og ikke noe kilden har sagt. `formerFylker()` utleder linja fra dataene, så den forsvinner av
 seg selv den dagen kilden skriver moderne navn.
 
-Det er bevisst ingen omdirigeringssider fra de gamle URL-ene: sida hadde ingen innlenker da
-inndelingen ble byttet, så åtte ekstra sider ville vært vedlikehold uten mottaker. En setning
-som forklarer forskjellen er mer nyttig enn en omdirigering som skjuler den.
+**Men to ulike ting ser like ut her, og må ikke formuleres likt.** Vestland *var* Hordaland
+og Sogn og Fjordane: kilden skriver aldri «Vestland», så alle stedene der bærer et gammelt
+navn. Akershus ble derimot aldri omdøpt — det finnes fortsatt under sitt eget navn, og 26 av
+28 steder er ført under Akershus hos kilden. Det som skjedde er at én kommune, Jevnaker,
+flyttet inn da Oppland ble delt. «Tidligere Oppland» på den sida ville vært en påstand som
+er usann om nesten hele fylket. Sida skriver «Jevnaker lå tidligere i Oppland» i stedet.
+
+De to skilles på om kilden bruker fylkets eget navn i det hele tatt. Å droppe linja fra
+Akershus ville strandet nettopp den leseren som kjenner det gamle navnet: Opplands seks
+andre steder ligger i Innlandet, så ingen side ville nevnt Jevnaker.
+
+Det er bevisst ingen omdirigeringssider fra de gamle URL-ene. Avgjørende var Oppland, det
+eneste fylket som ble delt: en omdirigering må velge én destinasjon og blir dermed stille gal
+for de andre, mens en setning kan si sant om en splitt. Oppland står navngitt på både
+Innlandet og Akershus.
 
 Kildens egen skrivemåte står også i rettings-e-posten: den skal hjelpe en frivillig å finne
 raden i *deres* tabell, og deres tabell sier Hordaland.
