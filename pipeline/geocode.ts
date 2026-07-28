@@ -36,8 +36,13 @@ import {
  * anything it cannot confirm.
  */
 
-export interface GeoResult {
-  lat: number;
+/**
+ * Above this many venues in one kommune, the centroid fallback is refused. Three venues
+ * on one pin is a coarse answer; thirty is a lie.
+ */
+export const MAX_VENUES_FOR_CENTROID = 3;
+
+export interface GeoResult {  lat: number;
   lon: number;
   geoSource: GeoSource;
   geoConfidence: GeoConfidence;
@@ -51,6 +56,8 @@ export interface GeoContext {
   aliases: KommuneAliases;
   /** Overpass results per kommune number, fetched at most once each. */
   osmByKommune: Map<string, OsmPlace[]>;
+  /** How many venues in this run belong to each kommune. Gates the centroid fallback. */
+  venuesPerKommune: Map<string, number>;
   log: (message: string) => void;
   /** Records a candidate we threw away because it failed validation. */
   reject: (message: string) => void;
@@ -267,13 +274,27 @@ const stedsnavnProvider: GeoProvider = {
  *
  * This is not where the pub is - it is where the kommune is. Confidence is "low" and the
  * site must never present it as a precise location.
+ *
+ * It is also only honest in a small kommune. Writing the centroid for every unmatched
+ * venue in Oslo stacks dozens of pubs on one pin several kilometres from all of them,
+ * which is worse than an empty field: a "nearest quiz" list would sort by that pin and
+ * confidently rank the wrong places first. Above the threshold the venue is left without
+ * a coordinate instead.
  */
-const centroidProvider: GeoProvider = {
+export const centroidProvider: GeoProvider = {
   name: "centroid",
   async lookup(venue, ctx) {
     const { kommune, fallbackPoint } = kommuneFor(venue, ctx);
     const point = kommune?.point ?? fallbackPoint;
     if (!point) return null;
+
+    const venuesHere = ctx.venuesPerKommune.get(venue.kommuneNr ?? "") ?? 1;
+    if (venuesHere > MAX_VENUES_FOR_CENTROID) {
+      ctx.log(
+        `  ${venue.name} (${venue.kommune}): sentroide droppet, ${venuesHere} steder i kommunen ville havnet pa samme punkt`,
+      );
+      return null;
+    }
 
     if (!checkInNorway(point.lat, point.lon).ok) return null;
 
@@ -296,6 +317,19 @@ const centroidProvider: GeoProvider = {
  */
 export function defaultProviders(): GeoProvider[] {
   return [addressProvider, osmProvider, stedsnavnProvider, centroidProvider];
+}
+
+/**
+ * Counts against the whole venue list, not just the uncached ones, so a resumed run
+ * gates the centroid the same way the first run did.
+ */
+export function countVenuesPerKommune(venues: Venue[]): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const venue of venues) {
+    if (!venue.kommuneNr) continue;
+    counts.set(venue.kommuneNr, (counts.get(venue.kommuneNr) ?? 0) + 1);
+  }
+  return counts;
 }
 
 export interface GeocodeStats {
@@ -356,6 +390,7 @@ export async function runGeocode(
     index: indexRegister(register.kommuner),
     aliases,
     osmByKommune: new Map(),
+    venuesPerKommune: countVenuesPerKommune(venues),
     log,
     reject: (message) => {
       stats.rejected.push(message);

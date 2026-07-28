@@ -76,7 +76,7 @@ Krediteringen er **avledet, ikke hardkodet**. `dataCredits()` i `src/lib/attribu
 ser på hvilke `geoSource`-verdier som faktisk står på et sted *som har koordinater*, og
 viser bare de kildene. Bruker vi ingen OSM-koordinater, krediterer vi ikke OSM — å påstå
 at vi bruker en kilde vi ikke bruker er samme slags overdrivelse som å påstå at en quiz
-går en kveld kilden aldri lovet. Etter geokodingen i fase 2b har 321 av 322 steder
+går en kveld kilden aldri lovet. Etter geokodingen i fase 2b har 245 av 322 steder
 koordinat, så både OpenStreetMap og Kartverket krediteres.
 
 `address` og `centroid` regnes som Kartverket-produkter (Adresse-API-et og kommunegeometri
@@ -423,7 +423,13 @@ kommune*. Stigen i `pipeline/geocode.ts`:
 | 1 | Kartverket Adresse | Stedet har `addressHint`. Svarer umiddelbart nei ellers, så det koster ingenting å ha først |
 | 2 | Overpass / OpenStreetMap | Hovedkilden. Ett kall per kommune, ikke per sted |
 | 3 | Kartverket Stedsnavn | Navnefallback for det OSM ikke kjenner |
-| 4 | Kommunesentrum | Siste utvei, alltid `geoConfidence: 'low'` |
+| 4 | Kommunesentrum | Siste utvei, alltid `geoConfidence: 'low'`, og bare i kommuner med høyst 3 steder |
+
+Sentroiden er ikke der puben er - den er der kommunen er. I en liten kommune er det et
+grovt, men ærlig svar. I Oslo stabler den 30 puber på ett punkt flere kilometer fra dem
+alle, og det er verre enn et tomt felt: en «nærmeste quiz»-liste ville sortert på den
+nålen og rangert feil steder først med full selvtillit. Over grensen
+(`MAX_VENUES_FOR_CENTROID`) blir stedet heller stående uten koordinat.
 
 Hvert treff verifiseres mot Kartverkets punkt-i-kommune-API før det godtas. Et treff på
 «Samfundet» i feil by er verre enn ingen treff, fordi det ser riktig ut i kartet.
@@ -441,10 +447,11 @@ som går ned uten forvarsel, og gårsdagens koordinater er fortsatt gode. Jobben
 `--only-new` og er `continue-on-error`, så et Overpass-utfall verken velter oppdateringen
 eller blokkerer en deploy.
 
-Etter første fulle kjøring har 321 av 322 steder koordinat: 182 fra OSM, 136
-kommunesentrum, 2 fra adresse og 1 fra stedsnavn. Nettstedet kan derfor vise kart, men
-bør skille tydelig på `geoConfidence` - `low` betyr «et sted i denne kommunen», ikke
-«her er puben».
+Etter første fulle kjøring har 245 av 322 steder koordinat: 182 fra OSM, 60
+kommunesentrum, 2 fra adresse og 1 fra stedsnavn. De 77 uten koordinat er stort sett
+steder i store kommuner som OSM ikke kjenner; de står heller uten enn på en sentroide de
+deler med 30 andre. Nettstedet kan derfor vise kart, men bør skille tydelig på
+`geoConfidence` - `low` betyr «et sted i denne kommunen», ikke «her er puben».
 
 ### Automatisk oppdatering
 

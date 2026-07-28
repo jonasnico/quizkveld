@@ -2,9 +2,17 @@ import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { GeoCache, defaultProviders, runGeocode } from "../geocode.js";
-import type { GeoProvider, GeoResult } from "../geocode.js";
-import type { Venue } from "../schema.js";
+import {
+  GeoCache,
+  MAX_VENUES_FOR_CENTROID,
+  centroidProvider,
+  countVenuesPerKommune,
+  defaultProviders,
+  runGeocode,
+} from "../geocode.js";
+import type { GeoContext, GeoProvider, GeoResult } from "../geocode.js";
+import { indexRegister } from "../kommune.js";
+import type { Kommune, Venue } from "../schema.js";
 
 const tempFiles: string[] = [];
 
@@ -197,5 +205,57 @@ describe("runGeocode", () => {
       "kartverket",
       "centroid",
     ]);
+  });
+});
+
+describe("sentroidegrensen", () => {
+  const OSLO: Kommune = {
+    nr: "0301",
+    navn: "Oslo",
+    fylkesnr: "03",
+    fylke: "Oslo",
+    point: { lat: 59.9724, lon: 10.7757 },
+    bbox: [10.49, 59.81, 10.95, 60.14],
+  };
+
+  function ctxWith(count: number): GeoContext {
+    return {
+      index: indexRegister([OSLO]),
+      aliases: { generatedAt: "", aliases: {} } as never,
+      osmByKommune: new Map(),
+      venuesPerKommune: new Map([["0301", count]]),
+      log: () => {},
+      reject: () => {},
+    };
+  }
+
+  const venue: Venue = {
+    id: "oslo-vippa",
+    name: "Vippa",
+    rawName: "Vippa",
+    kommune: "Oslo",
+    fylke: "Oslo",
+    kommuneNr: "0301",
+  };
+
+  it("gives a coarse answer where a coarse answer is still honest", async () => {
+    const hit = await centroidProvider.lookup(venue, ctxWith(MAX_VENUES_FOR_CENTROID));
+    expect(hit).toMatchObject({ geoSource: "centroid", geoConfidence: "low" });
+  });
+
+  it("refuses to stack a whole city on one pin", async () => {
+    expect(await centroidProvider.lookup(venue, ctxWith(31))).toBeNull();
+  });
+
+  it("counts every venue in the kommune, not just the uncached ones", () => {
+    const counts = countVenuesPerKommune([
+      venue,
+      { ...venue, id: "oslo-salt", name: "SALT" },
+      { ...venue, id: "bergen-kvarteret", kommune: "Bergen", kommuneNr: "4601" },
+      { ...venue, id: "ukjent", kommuneNr: undefined },
+    ]);
+    expect(counts.get("0301")).toBe(2);
+    expect(counts.get("4601")).toBe(1);
+    expect(counts.size).toBe(2);
   });
 });
