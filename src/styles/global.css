@@ -407,6 +407,13 @@ main {
   margin-top: var(--space-1);
 }
 
+.quiz-card__caveat {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .badges {
   display: flex;
   flex-wrap: wrap;

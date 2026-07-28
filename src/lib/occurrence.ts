@@ -18,12 +18,41 @@ const { RRule } = rrulePkg;
  *                Tuesday but not *which* Tuesday. 48 quizzes are in this bucket, so
  *                dropping them would gut the site, and promoting them to `certain` would
  *                be a lie. They are shown with a "sjekk selv" badge.
+ *                Quizzes whose source text carries a caveat the RRULE cannot express land
+ *                here too - see `hasCaveat`.
  * - `undated`  - no date can be derived at all. The 20 `irregular` quizzes, whose raw text
  *                says things like "Hver fjerde søndag" or "Torsdag (eller fredag)". These
  *                never appear in a dated list; they get their own section that quotes the
  *                source text verbatim.
  */
 export type Occurrence = "certain" | "likely" | "no" | "undated";
+
+/**
+ * Words that mean the recurrence rule is narrower than the source text.
+ *
+ * An RRULE can say "the last Friday of every month" but not "except December", so a rule
+ * built from `Fredag (siste hver måned, ikke desember)` is wrong once a year, and one built
+ * from `Torsdag (sent i måneden)` is a guess about what "late" means. Six of the 352 rows
+ * carry something like this, five of which would otherwise render as `certain`:
+ *
+ *   Torsdag (sent i måneden)                        - "late" is not "last"
+ *   Fredag (siste hver måned, ikke desember)        - fires in December
+ *   1. tirsdag hver måned (ikke januar 2025)        - fires in January
+ *   Fredag (unntatt sommer)                         - fires all summer
+ *   Torsdag (vanligvis)                             - the source hedges itself
+ *   Onsdager (annenhver – høstsesong 2024 fra 28/8 til 4/12)  - a season that has ended
+ *
+ * Matching on words rather than on ids means new caveats are caught the day the source
+ * writes them, without anyone here noticing first. The list is deliberately short: a false
+ * positive puts "sjekk selv" on a quiz that runs like clockwork, and a badge that shows up
+ * everywhere is a badge nobody reads.
+ */
+const CAVEAT =
+  /\b(ikke|unntatt|utenom|vanligvis|som regel|av og til|sjelden|foreløpig|omtrent|cirka|ca\.)\b|\b(sent|tidlig) i\b|sesong/i;
+
+export function hasCaveat(raw: string): boolean {
+  return CAVEAT.test(raw);
+}
 
 /** Whether a quiz can ever be placed on a calendar at all. */
 export function isUndated(quiz: Quiz): boolean {
@@ -54,6 +83,13 @@ function matchesMonthlyRule(rrule: string, date: CivilDate): boolean {
 }
 
 export function occurrenceOn(quiz: Quiz, date: CivilDate): Occurrence {
+  const result = occurrenceFromRule(quiz, date);
+  // A caveat can only ever soften the answer, never harden it.
+  if (result === "certain" && hasCaveat(quiz.recurrence.raw)) return "likely";
+  return result;
+}
+
+function occurrenceFromRule(quiz: Quiz, date: CivilDate): Occurrence {
   if (isUndated(quiz)) return "undated";
 
   // Guarded by isUndated, but narrowing needs the check.

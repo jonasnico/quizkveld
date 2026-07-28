@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { Quiz, Recurrence, Weekday } from "../../../pipeline/schema.js";
-import { isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
+import { hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
 import { weekWindow } from "../date.js";
 
 function quiz(overrides: Partial<Quiz> & { recurrence: Recurrence }): Quiz {
@@ -197,3 +197,95 @@ describe("splitByDates", () => {
     expect(appearances).toHaveLength(1);
   });
 });
+
+describe("kildens egne forbehold", () => {
+  // Verified against the live dataset: six rows carry a caveat the RRULE cannot express,
+  // five of which would otherwise render as fully certain.
+  const REAL_CAVEATS = [
+    "Torsdag (sent i måneden)",
+    "Fredag (siste hver måned, ikke desember)",
+    "1. tirsdag hver måned (ikke januar 2025)",
+    "Fredag (unntatt sommer)",
+    "Torsdag (vanligvis)",
+    "Onsdager (annenhver – høstsesong 2024 fra 28/8 til 4/12)",
+  ];
+
+  it.each(REAL_CAVEATS)("flags %s", (raw) => {
+    expect(hasCaveat(raw)).toBe(true);
+  });
+
+  // The badge is only worth anything if it stays rare, so the ordinary phrasings that make
+  // up the other 346 rows must not trip it.
+  const PLAIN = [
+    "Torsdager",
+    "Hver tirsdag",
+    "Fredag (siste i måneden)",
+    "1. tirsdag hver måned",
+    "Onsdag (1. onsdag i måneden)",
+    "Mandag (den andre i hver måned)",
+    "Fredag (1. og 3. i mnd)",
+    "Lørdag (siste i mnd)",
+  ];
+
+  it.each(PLAIN)("leaves %s alone", (raw) => {
+    expect(hasCaveat(raw)).toBe(false);
+  });
+
+  it("downgrades a caveated weekly from certain to likely", () => {
+    const q = quiz({
+      weekday: "fredag",
+      recurrence: {
+        kind: "weekly",
+        rrule: "FREQ=WEEKLY;BYDAY=FR",
+        raw: "Fredag (unntatt sommer)",
+      },
+    });
+    expect(occurrenceOn(q, FRIDAY)).toBe("likely");
+  });
+
+  it("downgrades a caveated monthly rule too", () => {
+    const q = quiz({
+      weekday: "torsdag",
+      recurrence: {
+        kind: "last-of-month",
+        rrule: "FREQ=MONTHLY;BYDAY=TH;BYSETPOS=-1",
+        raw: "Torsdag (sent i måneden)",
+      },
+    });
+    // 2026-07-30 is the last Thursday of July, so the rule matches - but "sent i" is not
+    // "siste", and the source never promised the last one.
+    expect(occurrenceOn(q, THURSDAY)).toBe("likely");
+  });
+
+  it("still keeps a caveated quiz off days the rule excludes", () => {
+    const q = quiz({
+      weekday: "fredag",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=FR", raw: "Fredag (vanligvis)" },
+    });
+    expect(occurrenceOn(q, THURSDAY)).toBe("no");
+  });
+
+  it("never promotes: a caveat cannot turn no into likely", () => {
+    const q = quiz({
+      weekday: "fredag",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=FR", raw: "Fredag (ikke juli)" },
+    });
+    expect(occurrenceOn(q, THURSDAY)).toBe("no");
+    expect(occursOn(q, THURSDAY)).toBe(false);
+  });
+
+  it("keeps caveated quizzes in dated lists rather than hiding them", () => {
+    const q = quiz({
+      weekday: "fredag",
+      recurrence: {
+        kind: "weekly",
+        rrule: "FREQ=WEEKLY;BYDAY=FR",
+        raw: "Fredag (unntatt sommer)",
+      },
+    });
+    const { dated, undated } = splitByDates([{ quiz: q }], [FRIDAY]);
+    expect(undated).toHaveLength(0);
+    expect(dated.get(FRIDAY)).toHaveLength(1);
+  });
+});
+

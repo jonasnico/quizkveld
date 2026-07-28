@@ -5,6 +5,7 @@ import DaySection from "../../components/DaySection.astro";
 import Filters from "../../components/Filters.astro";
 import IrregularSection from "../../components/IrregularSection.astro";
 import QuizList from "../../components/QuizList.astro";
+import StaleSection from "../../components/StaleSection.astro";
 import { loadSiteData } from "../../lib/data.js";
 import { osloDate, weekWindow } from "../../lib/date.js";
 import { isUndated, splitByDates } from "../../lib/occurrence.js";
@@ -12,18 +13,22 @@ import { quizCount, venueCount } from "../../lib/format.js";
 import { href } from "../../lib/url.js";
 
 export const getStaticPaths = (async () => {
-  const { items, slugs } = await loadSiteData();
+  const { items, staleItems, slugs } = await loadSiteData();
 
   return [...slugs.bySted].map(([sted, slug]) => ({
     params: { sted: slug },
-    props: { sted, items: items.filter((item) => item.venue.kommune === sted) },
+    props: {
+      sted,
+      items: items.filter((item) => item.venue.kommune === sted),
+      staleItems: staleItems.filter((item) => item.venue.kommune === sted),
+    },
   }));
 }) satisfies GetStaticPaths;
 
-const { sted, items } = Astro.props;
+const { sted, items, staleItems } = Astro.props;
 const { slugs, meta } = await loadSiteData();
 
-const fylke = items[0]?.venue.fylke ?? "";
+const fylke = (items[0] ?? staleItems[0])?.venue.fylke ?? "";
 const today = osloDate();
 const dates = weekWindow(today);
 const { dated, undated } = splitByDates(items, dates);
@@ -82,4 +87,6 @@ const hasIrregular = items.some((item) => isUndated(item.quiz));
     </p>
     <QuizList items={items} slugs={slugs} grouping="none" showPlace={false} />
   </section>
+
+  <StaleSection items={staleItems} slugs={slugs} showPlace={false} />
 </Base>

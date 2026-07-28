@@ -35,7 +35,7 @@ går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
 | `src/lib/date.ts` | Sivil dato og ukedag i **Europe/Oslo** |
 | `src/lib/occurrence.ts` | Om en quiz treffer en gitt dato, og hvor sikkert |
 | `src/lib/place.ts` | Slugger for sted og fylke, med deterministisk kollisjonsløsning |
-| `src/lib/model.ts` | Kobler quiz til sted, sorterer, grupperer, teller |
+| `src/lib/model.ts` | Kobler quiz til sted, sorterer, grupperer, teller, skiller ut stale rader |
 | `src/lib/format.ts` | All norsk visningstekst ett sted |
 | `src/scripts/filters.ts` | Klientfilter som skjuler kort som allerede er sendt ut |
 
@@ -57,6 +57,15 @@ sommertid å snuble i.
 | `biweekly` | Datofestet, men merket «annenhver uke - sjekk selv». RRULE-en har ingen DTSTART, så vi vet ukedagen, ikke hvilken uke i syklusen |
 | `irregular` | Aldri datofestet. Egen seksjon nederst med `recurrence.raw` ordrett |
 
+I tillegg degraderes en quiz fra sikker til «sjekk selv» hvis kildeteksten tar et forbehold
+RRULE-en ikke kan uttrykke. En regel kan si «siste fredag hver måned», men ikke «unntatt
+desember». Seks rader er slik i dag - `Fredag (unntatt sommer)`, `Torsdag (sent i
+måneden)`, `Torsdag (vanligvis)` og tre til - og kortet siterer kildens egen formulering
+framfor å oppsummere den. `hasCaveat()` i `src/lib/occurrence.ts` matcher på ord, ikke
+id-er, så nye forbehold fanges den dagen kilden skriver dem. Lista er bevisst kort: et
+merke som dukker opp overalt er et merke ingen leser, og det finnes en test som feiler hvis
+den treffer mer enn en tiendedel av datasettet.
+
 De 20 uregelmessige quizene (5 uten ukedag) forsvinner aldri stille - det finnes en test
 som holder på det. `time: null` (16 quizer) vises som «tidspunkt ikke oppgitt» og sorteres
 sist innenfor dagen, aldri som 00:00.
@@ -64,11 +73,37 @@ sist innenfor dagen, aldri som 00:00.
 `categoryNorm` er en array, så kategorifilteret matcher **inneholder**, ikke likhet.
 Sjangertellingene summerer derfor til mer enn antall quizer, og UI-et sier det rett ut.
 
+### Når kilden fjerner noe
+
+Pipelinen sletter ikke rader, den merker dem `stale: true` og beholder gammel `lastSeen`.
+Nettstedet holder dem ute av alle datofestede visninger - «i kveld» som peker på en pub
+som har lagt ned er det verste denne sida kan gjøre - men `/pub/<id>/` og `/sted/<sted>/`
+genereres fortsatt, og radene vises der i et eget merket avsnitt. Ellers ville lenker folk
+allerede har delt blitt 404 den dagen kilden rydder.
+
+Ingen rader er stale i dag, så oppførselen er testet med syntetiske rader framfor ekte.
+
+### En dårlig rad skal ikke ta ned hele sida
+
+Bygget kjører daglig på data ingen her kontrollerer, så en feil i én rad må ikke stoppe
+publiseringen. `QuizDataSchema` har ingen kryssjekk av `venueId`, så en quiz kan i prinsippet
+peke på et sted som ikke finnes; den raden droppes med en tydelig `console.warn` framfor å
+kaste. Det samme gjelder sluggkollisjoner, som løses deterministisk framfor å feile.
+
+Manglende `generatedAt`/`sourceUpdatedAt` kaster fortsatt. Det er ikke en rad som er feil,
+det er fila som ikke er det vi tror.
+
 ### Filtrering uten rammeverk
 
 Serveren rendrer hvert kort; `src/scripts/filters.ts` skrur bare `hidden` av og på og
 speiler valget i query-strengen (`?sted=Asker&ukedag=fredag&kategori=musikk`). Uten
 JavaScript får man hele lista, som fortsatt er brukbar.
+
+Grensen er satt med vilje: **filterskriptet skal aldri bli en tilstandsmaskin.** Kartet i
+fase 2b (MapLibre, ~200 KB) blir en isolert øy på egen side som laster sitt eget JS.
+`filters.ts` skal ikke lære om kart, og kartet skal ikke lære om filtre. Blir skriptet
+større enn ~150 linjer, eller begynner filterlogikk å bli duplisert mellom server og
+klient, er det signalet om å stoppe og tenke framfor å presse videre.
 
 ## Hosting
 

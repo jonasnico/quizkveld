@@ -1,6 +1,7 @@
 ---
 import type { QuizAtVenue } from "../lib/model.js";
 import type { Occurrence } from "../lib/occurrence.js";
+import { hasCaveat } from "../lib/occurrence.js";
 import { categoryLabel, recurrenceLabel, timeLabel } from "../lib/format.js";
 import { href } from "../lib/url.js";
 
@@ -23,6 +24,16 @@ const { quiz, venue } = item;
 
 const uncertain = occurrence === "likely";
 const undated = occurrence === "undated";
+
+// `likely` has two causes and they deserve different wording. Biweekly means we know the
+// weekday but not the week; a caveat means the source itself hedged, in which case its own
+// words say it better than any label we could write.
+const biweekly = quiz.recurrence.kind === "biweekly";
+const caveat = !undated && hasCaveat(quiz.recurrence.raw);
+const badgeLabel = biweekly ? "Annenhver uke – sjekk selv" : "Sjekk selv";
+const badgeTitle = biweekly
+  ? "Kilden sier annenhver uke, men ikke hvilken. Sjekk med stedet før du drar."
+  : `Kilden tar forbehold: «${quiz.recurrence.raw}». Sjekk med stedet før du drar.`;
 ---
 
 <li
@@ -69,6 +80,8 @@ const undated = occurrence === "undated";
     )
   }
 
+  {caveat && <p class="quiz-card__caveat">Kilden skriver: «{quiz.recurrence.raw}»</p>}
+
   <ul class="badges">
     {
       quiz.categoryNorm.map((category) => (
@@ -77,8 +90,8 @@ const undated = occurrence === "undated";
     }
     {
       uncertain && (
-        <li class="badge badge--uncertain" title="Kilden sier annenhver uke, men ikke hvilken. Sjekk med stedet før du drar.">
-          Annenhver uke – sjekk selv
+        <li class="badge badge--uncertain" title={badgeTitle}>
+          {badgeLabel}
         </li>
       )
     }

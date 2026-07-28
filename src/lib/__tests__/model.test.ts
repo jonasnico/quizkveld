@@ -7,6 +7,7 @@ import {
   groupBy,
   hasCategory,
   joinQuizzes,
+  partitionByFreshness,
   placeSummary,
   sortQuizzes,
   type QuizAtVenue,
@@ -137,3 +138,50 @@ describe("placeSummary", () => {
     ]);
   });
 });
+
+describe("partitionByFreshness", () => {
+  const v = venue("a", "Alfa");
+
+  it("keeps ordinary rows on the fresh side", () => {
+    const { fresh, stale } = partitionByFreshness([pair(quiz("q1", "a"), v)]);
+    expect(fresh).toHaveLength(1);
+    expect(stale).toHaveLength(0);
+  });
+
+  it("separates a quiz the source stopped listing", () => {
+    const gone = quiz("q2", "a", { stale: true, lastSeen: "2025-01-04" });
+    const { fresh, stale } = partitionByFreshness([pair(quiz("q1", "a"), v), pair(gone, v)]);
+    expect(fresh.map((i) => i.quiz.id)).toEqual(["q1"]);
+    expect(stale.map((i) => i.quiz.id)).toEqual(["q2"]);
+  });
+
+  it("treats a stale venue as staleness too, even when the quiz is not flagged", () => {
+    const closed: Venue = { ...venue("b", "Beta"), stale: true };
+    const { fresh, stale } = partitionByFreshness([pair(quiz("q3", "b"), closed)]);
+    expect(fresh).toHaveLength(0);
+    expect(stale).toHaveLength(1);
+  });
+
+  it("loses nothing", () => {
+    const items = [
+      pair(quiz("q1", "a"), v),
+      pair(quiz("q2", "a", { stale: true }), v),
+      pair(quiz("q3", "a"), v),
+    ];
+    const { fresh, stale } = partitionByFreshness(items);
+    expect(fresh.length + stale.length).toBe(items.length);
+  });
+});
+
+describe("joinQuizzes reports orphans rather than losing them silently", () => {
+  it("returns the good rows and names the bad ones", () => {
+    // The site drops orphans with a warning instead of throwing: the build runs daily from
+    // data nobody here controls, and one bad row must not stop the publish.
+    const venues = [venue("a", "Alfa")];
+    const quizzes = [quiz("q1", "a"), quiz("q2", "does-not-exist")];
+    const { items, orphans } = joinQuizzes(quizzes, venues);
+    expect(items.map((i) => i.quiz.id)).toEqual(["q1"]);
+    expect(orphans).toEqual(["q2"]);
+  });
+});
+

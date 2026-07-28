@@ -34,6 +34,32 @@ export function joinQuizzes(
 }
 
 /**
+ * Splits joined rows into the ones the source still lists and the ones it has dropped.
+ *
+ * The pipeline soft-deletes: a quiz that disappears from the source keeps its id and its
+ * old `lastSeen` and gains `stale: true`. Both halves are needed, and for opposite reasons.
+ * Stale rows must stay out of every dated view, because "i kveld" pointing at a pub that
+ * stopped hosting quizzes is the worst mistake this site can make. But deleting them
+ * outright would break `/pub/<id>/` and `/sted/<sted>/` URLs people have already shared,
+ * so they still render - clearly marked, never under a date.
+ *
+ * A venue can go stale while its quizzes have not been marked yet, so both flags count.
+ */
+export function partitionByFreshness(items: QuizAtVenue[]): {
+  fresh: QuizAtVenue[];
+  stale: QuizAtVenue[];
+} {
+  const fresh: QuizAtVenue[] = [];
+  const stale: QuizAtVenue[] = [];
+
+  for (const item of items) {
+    (item.quiz.stale || item.venue.stale ? stale : fresh).push(item);
+  }
+
+  return { fresh, stale };
+}
+
+/**
  * Sorts by start time, then venue name.
  *
  * 16 quizzes have `time: null` because the source writes "?" there. They sort last rather

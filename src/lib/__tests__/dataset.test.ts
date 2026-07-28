@@ -4,9 +4,9 @@ import { describe, expect, it } from "vitest";
 
 import { QuizDataSchema } from "../../../pipeline/schema.js";
 import { addDays, weekWindow } from "../date.js";
-import { isUndated, occursOn, splitByDates } from "../occurrence.js";
+import { hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
 import { buildPlaceSlugs } from "../place.js";
-import { countByCategory, joinQuizzes, sortQuizzes } from "../model.js";
+import { countByCategory, joinQuizzes, partitionByFreshness, sortQuizzes } from "../model.js";
 
 /**
  * Checks the site logic against the dataset that will actually be published.
@@ -124,3 +124,52 @@ describe("sorting the real data", () => {
     expect(sorted.slice(firstUntimed).every((item) => item.quiz.time === null)).toBe(true);
   });
 });
+
+describe("caveats in the published dataset", () => {
+  const dated = data.quizzes.filter((quiz) => !isUndated(quiz));
+
+  it("flags only a small minority, so the badge keeps meaning something", () => {
+    const flagged = dated.filter((quiz) => hasCaveat(quiz.recurrence.raw));
+    expect(flagged.length).toBeGreaterThan(0);
+    // Today it is 6 of 332. If a source rewording ever pushed this past a tenth of the
+    // dataset, "sjekk selv" would be on so many cards that nobody would read it, and the
+    // marker list would need rethinking rather than quietly spreading.
+    expect(flagged.length).toBeLessThan(dated.length / 10);
+  });
+
+  it("catches the phrasings we know are in there", () => {
+    const flagged = dated
+      .filter((quiz) => hasCaveat(quiz.recurrence.raw))
+      .map((quiz) => quiz.recurrence.raw);
+    expect(flagged).toContain("Torsdag (sent i måneden)");
+    expect(flagged).toContain("Fredag (unntatt sommer)");
+    expect(flagged).toContain("Torsdag (vanligvis)");
+  });
+
+  it("never shows a caveated quiz as certain", () => {
+    const window = weekWindow("2026-07-28");
+    for (const quiz of dated) {
+      if (!hasCaveat(quiz.recurrence.raw)) continue;
+      for (const date of window) {
+        expect(occurrenceOn(quiz, date)).not.toBe("certain");
+      }
+    }
+  });
+
+  it("still lists caveated quizzes rather than hiding them", () => {
+    // The whole point is a softer label, not a smaller site.
+    const flagged = dated.filter((quiz) => hasCaveat(quiz.recurrence.raw));
+    const window = weekWindow("2026-07-28");
+    const shown = flagged.filter((quiz) => window.some((date) => occursOn(quiz, date)));
+    expect(shown.length).toBeGreaterThan(0);
+  });
+});
+
+describe("staleness in the published dataset", () => {
+  it("keeps stale rows out of the fresh half", () => {
+    const { fresh, stale } = partitionByFreshness(items);
+    expect(fresh.length + stale.length).toBe(items.length);
+    expect(fresh.every((item) => !item.quiz.stale && !item.venue.stale)).toBe(true);
+  });
+});
+

@@ -3,18 +3,24 @@ import Base from "../layouts/Base.astro";
 import { loadSiteData } from "../lib/data.js";
 import { REPO_URL, SOURCE_NAME, SOURCE_URL } from "../lib/source.js";
 import { longDate, quizCount, timestampLabel, venueCount } from "../lib/format.js";
-import { isUndated } from "../lib/occurrence.js";
+import { hasCaveat, isUndated } from "../lib/occurrence.js";
 import { placeSummary } from "../lib/model.js";
 import { href } from "../lib/url.js";
 
 const { items, venues, meta } = await loadSiteData();
 
+// `venues` includes soft-deleted rows so their pages keep resolving; the headline numbers
+// should only describe what is actually current.
+const activeVenues = venues.filter((venue) => !venue.stale);
 const places = placeSummary(items);
-const fylker = new Set(venues.map((venue) => venue.fylke)).size;
+const fylker = new Set(activeVenues.map((venue) => venue.fylke)).size;
 const irregular = items.filter((item) => isUndated(item.quiz)).length;
 const withoutTime = items.filter((item) => item.quiz.time === null).length;
 const multiGenre = items.filter((item) => item.quiz.categoryNorm.length > 1).length;
-const withUrl = venues.filter((venue) => venue.url).length;
+const withUrl = activeVenues.filter((venue) => venue.url).length;
+const caveated = items.filter(
+  (item) => !isUndated(item.quiz) && hasCaveat(item.quiz.recurrence.raw),
+).length;
 ---
 
 <Base
@@ -51,7 +57,7 @@ const withUrl = venues.filter((venue) => venue.url).length;
 
       <dt>Omfang</dt>
       <dd>
-        {quizCount(items.length)} på {venueCount(venues.length)}, fordelt på {places.length}
+        {quizCount(items.length)} på {venueCount(activeVenues.length)}, fordelt på {places.length}
         steder i {fylker} fylker.
       </dd>
     </dl>
@@ -92,6 +98,12 @@ const withUrl = venues.filter((venue) => venue.url).length;
         et tydelig forbehold framfor å bli utelatt eller framstilt som sikker.
       </li>
       <li>
+        <strong>Noen quizer har forbehold vi ikke kan regne på.</strong> {caveated} av dem
+        sier ting som «unntatt sommer», «ikke desember» eller rett og slett «vanligvis».
+        Ukedagen stemmer, men unntaket lar seg ikke uttrykke i en gjentakelsesregel, så de
+        er merket «sjekk selv» de også.
+      </li>
+      <li>
         <strong>{withoutTime} quizer mangler klokkeslett.</strong> Kilden skriver «?». De
         står nederst i listene med «tidspunkt ikke oppgitt», ikke som midnatt.
       </li>
@@ -101,7 +113,7 @@ const withUrl = venues.filter((venue) => venue.url).length;
         sjangertallene til mer enn antall quizer.
       </li>
       <li>
-        <strong>Lenkene er som kilden oppgir dem.</strong> {withUrl} av {venues.length}
+        <strong>Lenkene er som kilden oppgir dem.</strong> {withUrl} av {activeVenues.length}
         steder har en lenke, og en del av dem er døde. Vi lagrer dem likevel, men lover
         ingenting om at de virker.
       </li>

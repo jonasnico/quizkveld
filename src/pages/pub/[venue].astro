@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import Base from "../../layouts/Base.astro";
 import QuizList from "../../components/QuizList.astro";
+import StaleSection from "../../components/StaleSection.astro";
 import { loadSiteData } from "../../lib/data.js";
 import { osloDate, weekWindow } from "../../lib/date.js";
 import { occursOn } from "../../lib/occurrence.js";
@@ -9,15 +10,19 @@ import { dayHeading, quizCount } from "../../lib/format.js";
 import { href } from "../../lib/url.js";
 
 export const getStaticPaths = (async () => {
-  const { items, venues } = await loadSiteData();
+  const { items, staleItems, venues } = await loadSiteData();
 
   return venues.map((venue) => ({
     params: { venue: venue.id },
-    props: { venue, items: items.filter((item) => item.venue.id === venue.id) },
+    props: {
+      venue,
+      items: items.filter((item) => item.venue.id === venue.id),
+      staleItems: staleItems.filter((item) => item.venue.id === venue.id),
+    },
   }));
 }) satisfies GetStaticPaths;
 
-const { venue, items } = Astro.props;
+const { venue, items, staleItems } = Astro.props;
 const { slugs, meta } = await loadSiteData();
 
 const stedSlug = slugs.bySted.get(venue.kommune) ?? "";
@@ -61,7 +66,13 @@ const upcoming = weekWindow(today)
   </div>
 
   <h2>Quizer her</h2>
-  <QuizList items={items} slugs={slugs} showVenue={false} showPlace={false} />
+  <QuizList
+    items={items}
+    slugs={slugs}
+    showVenue={false}
+    showPlace={false}
+    emptyText="Ingen aktive quizer oppført her nå."
+  />
 
   <section class="irregular">
     <h2>De neste sju dagene</h2>
@@ -84,4 +95,6 @@ const upcoming = weekWindow(today)
       )
     }
   </section>
+
+  <StaleSection items={staleItems} slugs={slugs} showPlace={false} />
 </Base>

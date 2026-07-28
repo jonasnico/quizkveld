@@ -1,0 +1,48 @@
+---
+import type { QuizAtVenue } from "../lib/model.js";
+import type { PlaceSlugs } from "../lib/place.js";
+import { quizCount, longDate } from "../lib/format.js";
+import QuizList from "./QuizList.astro";
+
+/**
+ * Quizzes the source has stopped listing.
+ *
+ * The pipeline soft-deletes rather than deletes, so ids stay stable and `lastSeen` records
+ * when the row was last in the source. Those rows must never reach a dated view - sending
+ * someone to a pub that stopped hosting quizzes is the worst thing this site could do - but
+ * dropping them entirely would take down `/pub/<id>/` and `/sted/<sted>/` pages that people
+ * have already linked to. So they live here: still reachable, clearly not current.
+ *
+ * No rows are stale today. This exists so the first time the source removes a pub, the
+ * behaviour is something we chose rather than something we discover.
+ */
+
+interface Props {
+  items: QuizAtVenue[];
+  slugs: PlaceSlugs;
+  grouping?: "fylke" | "sted" | "none";
+  showPlace?: boolean;
+}
+
+const { items, slugs, grouping = "none", showPlace } = Astro.props;
+
+const lastSeen = items
+  .map((item) => item.quiz.lastSeen)
+  .sort()
+  .at(-1);
+---
+
+{
+  items.length > 0 && (
+    <section class="irregular" data-stale>
+      <h2>Ikke lenger i kilden</h2>
+      <p class="irregular__note">
+        {quizCount(items.length)} står ikke lenger i oversikten til kilden
+        {lastSeen && `, sist sett ${longDate(lastSeen.slice(0, 10))}`}. Det betyr som regel
+        at quizen er lagt ned, men det kan også være at raden bare falt ut. Vi viser dem
+        her framfor å la lenken bli borte, men de dukker ikke opp under noen dato.
+      </p>
+      <QuizList items={items} slugs={slugs} grouping={grouping} showPlace={showPlace} />
+    </section>
+  )
+}
