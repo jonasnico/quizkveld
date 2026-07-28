@@ -1,0 +1,167 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSiteData } from "../lib/data.js";
+import { REPO_URL, SOURCE_EMAIL, SOURCE_NAME, SOURCE_URL, reportUrl } from "../lib/source.js";
+import { longDate, quizCount, timestampLabel, venueCount } from "../lib/format.js";
+import { hasCaveat, isUndated } from "../lib/occurrence.js";
+import { placeSummary } from "../lib/model.js";
+import { href } from "../lib/url.js";
+
+const { items, venues, meta } = await loadSiteData();
+
+// `venues` includes soft-deleted rows so their pages keep resolving; the headline numbers
+// should only describe what is actually current.
+const activeVenues = venues.filter((venue) => !venue.stale);
+const places = placeSummary(items);
+const fylker = new Set(activeVenues.map((venue) => venue.fylke)).size;
+const irregular = items.filter((item) => isUndated(item.quiz)).length;
+const withoutTime = items.filter((item) => item.quiz.time === null).length;
+const multiGenre = items.filter((item) => item.quiz.categoryNorm.length > 1).length;
+const withUrl = activeVenues.filter((venue) => venue.url).length;
+const caveated = items.filter(
+  (item) => !isUndated(item.quiz) && hasCaveat(item.quiz.recurrence.raw),
+).length;
+---
+
+<Base
+  title="Om quizkveld – kilder, forbehold og data"
+  description="Hvor dataene kommer fra, hva de ikke kan svare på, og hvordan nettstedet er laget."
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+  current="om"
+>
+  <div class="prose">
+    <h1>Om quizkveld</h1>
+
+    <p>
+      quizkveld er en søkbar utgave av pubquiz-oversikten til {SOURCE_NAME}. Nettstedet
+      samler ikke inn noe selv – all informasjon om hvor og når det er quiz kommer fra
+      <a href={SOURCE_URL} rel="noopener external">deres oversikt</a>, som frivillige holder
+      oppdatert på dugnad. Uten den jobben finnes ikke dette nettstedet.
+    </p>
+
+    <h2>Vi eier ingen opplysninger</h2>
+    <p>
+      quizkveld er et speil, ikke en kilde. Alt vi legger til er utregnet fra det kilden
+      allerede sier – ukedager gjort om til datoer, sjangre satt i bås, adresser til
+      lenkevennlige navn. Det kan regnes ut på nytt når som helst, og retter seg selv neste
+      gang kilden endrer seg.
+    </p>
+    <p>
+      Det vi <em>ikke</em> gjør, er å holde egne påstander om når en quiz går. En rettelse
+      vi noterte her ville stått og råtnet uten at noen fikk vite det, og den ville sagt noe
+      annet enn kilden uten at noen kunne avgjøre hvem som hadde rett. Ser du en feil, hører
+      den hjemme hos dem som fører lista:
+    </p>
+    <p>
+      <a href={reportUrl("Retting i pubquiz-oversikten")}>Meld feil til {SOURCE_NAME}</a>
+      {" "}({SOURCE_EMAIL}) – adressen kilden selv oppgir. Vi har med vilje ikke noe
+      forslagsskjema her: det ville sett ut som hjelp, men i praksis laget en kø av
+      meldinger ingen har myndighet til å avgjøre.
+    </p>
+
+    <h2>Data og oppdatering</h2>
+    <dl>
+      <dt>Kilde</dt>
+      <dd>
+        <a href={SOURCE_URL} rel="noopener external">{SOURCE_NAME} – finn din pubquiz</a>
+      </dd>
+
+      <dt>Kilden sist oppdatert</dt>
+      <dd>
+        {meta.sourceUpdatedAt ? longDate(meta.sourceUpdatedAt) : "ikke oppgitt av kilden"}
+      </dd>
+
+      <dt>Sist hentet av oss</dt>
+      <dd>{timestampLabel(meta.generatedAt)}</dd>
+
+      <dt>Omfang</dt>
+      <dd>
+        {quizCount(items.length)} på {venueCount(activeVenues.length)}, fordelt på {places.length}
+        steder i {fylker} fylker.
+      </dd>
+    </dl>
+
+    <p>
+      En jobb henter kildesiden hver morgen. Endrer den seg, bygges nettstedet på nytt.
+      Endrer den seg <em>mye</em> på én gang, stopper jobben og ber et menneske se på det
+      først, fordi det som regel betyr at kilden har lagt om siden sin og ikke at halve
+      Norge har sluttet med quiz.
+    </p>
+
+    <h2>Hva dataene ikke kan svare på</h2>
+    <p>
+      Kilden er en tabell skrevet av mennesker, ikke et register. Det gir noen skjevheter
+      det er ryddigst å si rett ut:
+    </p>
+    <ul>
+      <li>
+        <strong>«Sted» er ikke kommune.</strong> Kilden har én by-kolonne, fylt ut slik den
+        som la inn raden skrev det. Greåker ligger for eksempel i Sarpsborg kommune, men
+        står som sitt eget sted her. Vi slår ikke sammen steder på egen hånd – det ville
+        krevd at vi gjettet.
+      </li>
+      <li>
+        <strong>Fylkene er de gamle.</strong> Sør-Trøndelag, Hedmark, Vest-Agder og Sogn og
+        Fjordane står fortsatt oppført, i tillegg til Svalbard. Vi viser dem som kilden
+        skriver dem framfor å oversette dem til dagens inndeling.
+      </li>
+      <li>
+        <strong>{irregular} quizer har ingen fast plan.</strong> Kilden skriver ting som
+        «Hver fjerde søndag» eller «Torsdag (eller fredag)», og det lar seg ikke regne om
+        til datoer uten å gjette. De havner i en egen seksjon der teksten står ord for ord.
+        Fem av dem oppgir ikke engang ukedag.
+      </li>
+      <li>
+        <strong>Annenhver uke er merket «sjekk selv».</strong> Vi vet hvilken ukedag, men
+        ikke hvilken uke i syklusen kilden mener, så en slik quiz vises på riktig ukedag med
+        et tydelig forbehold framfor å bli utelatt eller framstilt som sikker.
+      </li>
+      <li>
+        <strong>Noen quizer har forbehold vi ikke kan regne på.</strong> {caveated} av dem
+        sier ting som «unntatt sommer», «ikke desember» eller rett og slett «vanligvis».
+        Ukedagen stemmer, men unntaket lar seg ikke uttrykke i en gjentakelsesregel, så de
+        er merket «sjekk selv» de også.
+      </li>
+      <li>
+        <strong>{withoutTime} quizer mangler klokkeslett.</strong> Kilden skriver «?». De
+        står nederst i listene med «tidspunkt ikke oppgitt», ikke som midnatt.
+      </li>
+      <li>
+        <strong>Én quiz kan ha flere sjangre.</strong> {multiGenre} av dem har det, så
+        sjangerfilteret spør om quizen <em>inneholder</em> sjangeren. Derfor summerer
+        sjangertallene til mer enn antall quizer.
+      </li>
+      <li>
+        <strong>Lenkene er som kilden oppgir dem.</strong> {withUrl} av {activeVenues.length}
+        steder har en lenke, og en del av dem er døde. Vi lagrer dem likevel, men lover
+        ingenting om at de virker.
+      </li>
+      <li>
+        <strong>Ingen kart og ingen avstand.</strong> Dataene inneholder ikke koordinater
+        ennå, så nettstedet kan ikke svare på «hva er nærmest meg». Det kommer eventuelt
+        senere.
+      </li>
+    </ul>
+
+    <h2>Feil i oversikten?</h2>
+    <p>
+      Står en quiz oppført på feil dag, eller mangler stedet ditt helt, er det {SOURCE_NAME}
+      som sitter på fasiten – ta det med
+      <a href={SOURCE_URL} rel="noopener external">dem</a>, så følger dette nettstedet etter
+      neste morgen. Er det <em>presentasjonen</em> som er rar – en lenke som ikke virker, en
+      side som ser feil ut – hører det hjemme i
+      <a href={`${REPO_URL}/issues`} rel="noopener external">issue-sporet på GitHub</a>.
+    </p>
+
+    <h2>Om nettstedet</h2>
+    <p>
+      Statiske sider, ingen sporing, ingen informasjonskapsler, ingen analyse. Filtrene
+      kjører i nettleseren på HTML som allerede er lastet, så siden fungerer også uten
+      JavaScript – da må du bare bla selv. Kildekoden ligger
+      <a href={REPO_URL} rel="noopener external">på GitHub</a>.
+    </p>
+
+    <p><a href={href()}>Tilbake til forsiden</a></p>
+  </div>
+</Base>

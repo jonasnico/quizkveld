@@ -1,0 +1,117 @@
+---
+import { SOURCE_URL, reportUrl } from "../lib/source.js";
+import { dataCredits } from "../lib/attribution.js";
+import { loadSiteData } from "../lib/data.js";
+import { longDate, timestampLabel } from "../lib/format.js";
+import { href } from "../lib/url.js";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  generatedAt: string;
+  sourceUpdatedAt: string | null;
+  /** Path segments of the current page, used to mark the active nav item. */
+  current?: string;
+}
+
+const { title, description, generatedAt, sourceUpdatedAt, current } = Astro.props;
+
+const reportHref = reportUrl("Retting i pubquiz-oversikten");
+
+// Read here rather than take a prop: a licence credit that a page can forget to pass is a
+// licence credit that will be forgotten. `loadSiteData` is cached, so this is free.
+const { venues } = await loadSiteData();
+const credits = dataCredits(venues);
+
+const nav = [
+  { key: "i-kveld", label: "I kveld", url: href() },
+  { key: "i-morgen", label: "I morgen", url: href("i-morgen") },
+  { key: "denne-uka", label: "Denne uka", url: href("denne-uka") },
+  { key: "steder", label: "Steder", url: href("steder") },
+  { key: "om", label: "Om", url: href("om") },
+];
+---
+
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
+  </head>
+  <body>
+    <a class="skip-link" href="#innhold">Hopp til innhold</a>
+
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <p class="site-title"><a href={href()}>quizkveld</a></p>
+        <nav class="site-nav" aria-label="Hovedmeny">
+          {
+            nav.map((item) => (
+              <a href={item.url} aria-current={current === item.key ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </header>
+
+    <main id="innhold">
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Dataene kommer fra <a href={SOURCE_URL} rel="noopener external">Norges Quizforbund</a>,
+          som holder oversikten over pubquizer i Norge oppdatert på dugnad. quizkveld gjør
+          ikke annet enn å presentere den oversikten på en måte som er lettere å søke i.
+          All ære for selve innsamlingen ligger hos dem.
+        </p>
+        {
+          credits.length > 0 && (
+            <p class="site-footer__credits">
+              {/* Kept on one line: a newline inside JSX becomes a space, which would put
+                  a gap in front of every comma and the final full stop. */}
+              {"Stedsdata: "}
+              {credits.map((credit, index) => (
+                // prettier-ignore
+                <Fragment>{index > 0 ? ", " : ""}<a href={credit.url} rel="noopener external">{credit.label}</a>{` (${credit.licence})`}{index === credits.length - 1 ? "." : ""}</Fragment>
+              ))}
+            </p>
+          )
+        }
+        <p>
+          {
+            sourceUpdatedAt
+              ? `Kilden oppgir at oversikten sist ble oppdatert ${longDate(sourceUpdatedAt)}.`
+              : "Kilden oppgir ikke når oversikten sist ble oppdatert."
+          }
+          {` Vi hentet den ${timestampLabel(generatedAt)}.`}
+          {" "}Quizer avlyses og flyttes uten at oversikten rekker å bli rettet, så sjekk
+          med arrangøren før du drar.
+        </p>
+        <p>
+          Er noe feil i selve oversikten – tidspunkt, sted eller en quiz som ikke finnes
+          lenger – meld det til
+          <a href={reportHref}>Norges Quizforbund</a>. De eier lista, vi viser den bare
+          fram. Er det <em>nettstedet</em> som oppfører seg rart, ta det på
+          <a href="https://github.com/verdensherredomme/quizkveld/issues" rel="noopener external">
+            GitHub
+          </a>. Les mer på <a href={href("om")}>om-siden</a>.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

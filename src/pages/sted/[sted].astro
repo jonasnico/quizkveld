@@ -1,0 +1,92 @@
+---
+import type { GetStaticPaths } from "astro";
+import Base from "../../layouts/Base.astro";
+import DaySection from "../../components/DaySection.astro";
+import Filters from "../../components/Filters.astro";
+import IrregularSection from "../../components/IrregularSection.astro";
+import QuizList from "../../components/QuizList.astro";
+import StaleSection from "../../components/StaleSection.astro";
+import { loadSiteData } from "../../lib/data.js";
+import { osloDate, weekWindow } from "../../lib/date.js";
+import { isUndated, splitByDates } from "../../lib/occurrence.js";
+import { quizCount, venueCount } from "../../lib/format.js";
+import { href } from "../../lib/url.js";
+
+export const getStaticPaths = (async () => {
+  const { items, staleItems, slugs } = await loadSiteData();
+
+  return [...slugs.bySted].map(([sted, slug]) => ({
+    params: { sted: slug },
+    props: {
+      sted,
+      items: items.filter((item) => item.venue.kommune === sted),
+      staleItems: staleItems.filter((item) => item.venue.kommune === sted),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { sted, items, staleItems } = Astro.props;
+const { slugs, meta } = await loadSiteData();
+
+const fylke = (items[0] ?? staleItems[0])?.venue.fylke ?? "";
+const today = osloDate();
+const dates = weekWindow(today);
+const { dated, undated } = splitByDates(items, dates);
+const venues = new Set(items.map((item) => item.venue.id)).size;
+const hasIrregular = items.some((item) => isUndated(item.quiz));
+---
+
+<Base
+  title={`Pubquiz i ${sted} – quizkveld`}
+  description={`Alle pubquizer i ${sted}: hva som går i kveld, resten av uka og hvor de holder til.`}
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+>
+  <p class="breadcrumbs">
+    <a href={href()}>Forsiden</a> ›
+    <a href={href("steder")}>Steder</a> ›
+    <a href={href("fylke", slugs.byFylke.get(fylke) ?? "")}>{fylke}</a> ›
+    <span>{sted}</span>
+  </p>
+
+  <div class="intro">
+    <h1>Pubquiz i {sted}</h1>
+    <p>{quizCount(items.length)} fordelt på {venueCount(venues)}. Fylke: {fylke}.</p>
+  </div>
+
+  <Filters items={items} showPlace={false} />
+
+  <h2>De neste sju dagene</h2>
+  {
+    dates.map((date) => (
+      <DaySection
+        date={date}
+        today={today}
+        items={dated.get(date) ?? []}
+        slugs={slugs}
+        grouping="none"
+        showPlace={false}
+        emptyText="Ingen quizer denne dagen."
+      />
+    ))
+  }
+
+  <IrregularSection
+    items={undated}
+    slugs={slugs}
+    grouping="none"
+    showPlace={false}
+    scope={`i ${sted}`}
+  />
+
+  <section class="irregular">
+    <h2>Alle quizer i {sted}</h2>
+    <p class="irregular__note">
+      Hele lista, uavhengig av dato – også {hasIrregular ? "de uregelmessige og " : ""}de
+      som bare går et par ganger i måneden.
+    </p>
+    <QuizList items={items} slugs={slugs} grouping="none" showPlace={false} />
+  </section>
+
+  <StaleSection items={staleItems} slugs={slugs} showPlace={false} />
+</Base>

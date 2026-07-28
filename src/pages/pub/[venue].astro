@@ -1,0 +1,113 @@
+---
+import type { GetStaticPaths } from "astro";
+import Base from "../../layouts/Base.astro";
+import QuizList from "../../components/QuizList.astro";
+import StaleSection from "../../components/StaleSection.astro";
+import { loadSiteData } from "../../lib/data.js";
+import { osloDate, weekWindow } from "../../lib/date.js";
+import { occursOn } from "../../lib/occurrence.js";
+import { dayHeading, quizCount } from "../../lib/format.js";
+import { href } from "../../lib/url.js";
+import { SOURCE_NAME, reportUrl } from "../../lib/source.js";
+
+export const getStaticPaths = (async () => {
+  const { items, staleItems, venues } = await loadSiteData();
+
+  return venues.map((venue) => ({
+    params: { venue: venue.id },
+    props: {
+      venue,
+      items: items.filter((item) => item.venue.id === venue.id),
+      staleItems: staleItems.filter((item) => item.venue.id === venue.id),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { venue, items, staleItems } = Astro.props;
+const { slugs, meta } = await loadSiteData();
+
+const stedSlug = slugs.bySted.get(venue.kommune) ?? "";
+const reportHref = reportUrl(
+  `Retting: ${venue.name}, ${venue.kommune}`,
+  `Gjelder ${venue.name} i ${venue.kommune} (${venue.fylke}), som står oppført i pubquiz-oversikten deres.\n\nHva som er feil:\n`,
+);
+const today = osloDate();
+const upcoming = weekWindow(today)
+  .map((date) => ({ date, on: items.filter((item) => occursOn(item.quiz, date)) }))
+  .filter((day) => day.on.length > 0);
+---
+
+<Base
+  title={`Pubquiz på ${venue.name} i ${venue.kommune} – quizkveld`}
+  description={`Quizkvelder på ${venue.name} i ${venue.kommune}: ukedag, klokkeslett og sjanger.`}
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+>
+  <p class="breadcrumbs">
+    <a href={href()}>Forsiden</a> ›
+    <a href={href("fylke", slugs.byFylke.get(venue.fylke) ?? "")}>{venue.fylke}</a> ›
+    <a href={href("sted", stedSlug)}>{venue.kommune}</a> ›
+    <span>{venue.name}</span>
+  </p>
+
+  <div class="intro">
+    <h1>{venue.name}</h1>
+    <p>
+      {venue.kommune}, {venue.fylke}. {quizCount(items.length)} oppført.
+      {venue.addressHint && ` Adresse oppgitt av kilden: ${venue.addressHint}.`}
+    </p>
+    {
+      venue.url && (
+        <p>
+          <a href={venue.url} rel="noopener nofollow external">
+            Nettside
+          </a>{" "}
+          <span class="place-grid__count">
+            – lenke oppgitt av kilden. En del av dem er utdaterte, så den kan være død.
+          </span>
+        </p>
+      )
+    }
+  </div>
+
+  <p class="report">
+    <a href={reportHref}>Meld feil om {venue.name} til {SOURCE_NAME}</a>
+    <span class="place-grid__count">
+      – vi eier ikke opplysningene og kan ikke rette dem selv. Kilden ber om rettelser på
+      denne adressen, og stedet er fylt inn på forhånd.
+    </span>
+  </p>
+
+  <h2>Quizer her</h2>
+  <QuizList
+    items={items}
+    slugs={slugs}
+    showVenue={false}
+    showPlace={false}
+    emptyText="Ingen aktive quizer oppført her nå."
+  />
+
+  <section class="irregular">
+    <h2>De neste sju dagene</h2>
+    {
+      upcoming.length === 0 ? (
+        <div class="empty">
+          <p>
+            Ingen av quizene her lar seg plassere på en dato de neste sju dagene. Det betyr
+            ikke at det ikke skjer noe – se beskrivelsen over.
+          </p>
+        </div>
+      ) : (
+        <ul class="place-grid">
+          {upcoming.map((day) => (
+            <li>
+              {dayHeading(day.date, today)}: {quizCount(day.on.length)}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+
+  <StaleSection items={staleItems} slugs={slugs} showPlace={false} />
+</Base>

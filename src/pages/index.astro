@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import DaySection from "../components/DaySection.astro";
+import Filters from "../components/Filters.astro";
+import IrregularSection from "../components/IrregularSection.astro";
+import { loadSiteData } from "../lib/data.js";
+import { osloDate } from "../lib/date.js";
+import { isUndated, occursOn } from "../lib/occurrence.js";
+import { longDate, quizCount } from "../lib/format.js";
+import { href } from "../lib/url.js";
+
+const { items, slugs, meta } = await loadSiteData();
+
+// Built in CI, which runs in UTC. `osloDate` is the only reason this page does not claim
+// tomorrow is tonight for every build that starts after 22:00 Norwegian time.
+const today = osloDate();
+
+const tonight = items.filter((item) => occursOn(item.quiz, today));
+const irregular = items.filter((item) => isUndated(item.quiz));
+---
+
+<Base
+  title="Quizkveld – pubquizer i Norge i kveld"
+  description="Oversikt over pubquizer i hele Norge. Se hva som skjer i kveld, i morgen eller denne uka, sortert på sted og sjanger."
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+  current="i-kveld"
+>
+  <div class="intro">
+    <h1>Hva skjer i kveld?</h1>
+    <p>
+      {quizCount(tonight.length)} står oppført {longDate(today)}. Velg sted for å se bare
+      det som er i nærheten av deg, eller bla gjennom
+      <a href={href("steder")}>alle steder</a>.
+    </p>
+  </div>
+
+  <Filters items={items} showWeekday={false} />
+
+  <DaySection
+    date={today}
+    today={today}
+    items={tonight}
+    slugs={slugs}
+    emptyText="Ingen faste quizer er oppført i kveld. Se om det er noe i morgen, eller sjekk de uregelmessige nederst."
+  />
+
+  <p>
+    <a href={href("i-morgen")}>Se i morgen</a> · <a href={href("denne-uka")}>Se hele uka</a>
+  </p>
+
+  <IrregularSection items={irregular} slugs={slugs} />
+</Base>

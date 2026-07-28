@@ -1,0 +1,120 @@
+---
+import type { QuizAtVenue } from "../lib/model.js";
+import type { PlaceSlugs } from "../lib/place.js";
+import type { CivilDate } from "../lib/date.js";
+import { groupBy } from "../lib/model.js";
+import { isUndated, occurrenceOn, type Occurrence } from "../lib/occurrence.js";
+import { href } from "../lib/url.js";
+import QuizCard from "./QuizCard.astro";
+
+interface Props {
+  items: QuizAtVenue[];
+  slugs: PlaceSlugs;
+  /** When given, each card is annotated with how firmly it is tied to that date. */
+  date?: CivilDate;
+  /** `"fylke"` groups by county and then place; `"sted"` by place only. */
+  grouping?: "fylke" | "sted" | "none";
+  showVenue?: boolean;
+  /**
+   * Whether each card repeats the place name. Off by default when the list is already
+   * grouped under a place heading, since repeating it on every card is just noise.
+   */
+  showPlace?: boolean;
+  /** Rendered when there is nothing to show. */
+  emptyText?: string;
+}
+
+const {
+  items,
+  slugs,
+  date,
+  grouping = "none",
+  showVenue = true,
+  showPlace,
+  emptyText = "Ingen quizer her.",
+} = Astro.props;
+
+const showPlaceOnCards = showPlace ?? grouping === "none";
+
+function stedSlug(sted: string): string {
+  return slugs.bySted.get(sted) ?? "";
+}
+
+/**
+ * Undated quizzes render their source text verbatim wherever they appear, not just in the
+ * irregular section - a venue page listing "Hver fjerde søndag" as if it were a normal
+ * schedule would be worse than useless.
+ */
+function occurrenceFor(item: QuizAtVenue): Occurrence {
+  if (isUndated(item.quiz)) return "undated";
+  return date ? occurrenceOn(item.quiz, date) : "certain";
+}
+
+const byFylke = grouping === "fylke" ? groupBy(items, (i) => i.venue.fylke) : null;
+const bySted = grouping === "sted" ? groupBy(items, (i) => i.venue.kommune) : null;
+---
+
+{
+  items.length === 0 ? (
+    <div class="empty">
+      <p>{emptyText}</p>
+    </div>
+  ) : byFylke ? (
+    [...byFylke].map(([fylke, inFylke]) => (
+      <section class="fylke-block">
+        <h3 class="group__heading">
+          <a href={href("fylke", slugs.byFylke.get(fylke) ?? "")}>{fylke}</a>
+        </h3>
+        {[...groupBy(inFylke, (i) => i.venue.kommune)].map(([sted, inSted]) => (
+            <div class="group">
+              <h4 class="group__heading">
+                <a href={href("sted", stedSlug(sted))}>{sted}</a>
+              </h4>
+              <ul class="quiz-list">
+                {inSted.map((item) => (
+                  <QuizCard
+                    item={item}
+                    stedSlug={stedSlug(item.venue.kommune)}
+                    showVenue={showVenue}
+                    showPlace={showPlaceOnCards}
+                    occurrence={occurrenceFor(item)}
+                  />
+                ))}
+              </ul>
+            </div>
+        ))}
+      </section>
+    ))
+  ) : bySted ? (
+    [...bySted].map(([sted, inSted]) => (
+      <div class="group">
+        <h3 class="group__heading">
+          <a href={href("sted", stedSlug(sted))}>{sted}</a>
+        </h3>
+        <ul class="quiz-list">
+          {inSted.map((item) => (
+            <QuizCard
+              item={item}
+              stedSlug={stedSlug(item.venue.kommune)}
+              showVenue={showVenue}
+                    showPlace={showPlaceOnCards}
+              occurrence={occurrenceFor(item)}
+            />
+          ))}
+        </ul>
+      </div>
+    ))
+  ) : (
+    <ul class="quiz-list">
+      {items.map((item) => (
+        <QuizCard
+          item={item}
+          stedSlug={stedSlug(item.venue.kommune)}
+          showVenue={showVenue}
+                    showPlace={showPlaceOnCards}
+          occurrence={occurrenceFor(item)}
+        />
+      ))}
+    </ul>
+  )
+}

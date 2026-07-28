@@ -1,0 +1,55 @@
+name: Sjekk pull requests
+
+# Kjører uavhengig av hvem som rapporterer at noe er grønt. Deploy-workflowen kjører de
+# samme sjekkene, men først på `main` - altså etter at endringen allerede er inne. Denne
+# kjører før.
+on:
+  pull_request:
+  workflow_dispatch:
+
+# Organisasjonen har read-only som standard for GITHUB_TOKEN. Denne jobben trenger ikke mer
+# enn det, men blokka står eksplisitt så det er tydelig at det er et valg og ikke en
+# forglemmelse.
+permissions:
+  contents: read
+
+# En ny push til samme PR gjør forrige kjøring uinteressant. I motsetning til deploy-jobben
+# er det trygt å avbryte her: ingenting publiseres.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sjekk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # v4 kjører på Node 20, som Actions har varslet utfasing av. v6 er verifisert grønn i
+      # denne jobben før den ble tatt i bruk i deploy.yml.
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installer avhengigheter
+        run: pnpm install --frozen-lockfile
+
+      - name: Kjør tester
+        run: pnpm test
+
+      # `pnpm typecheck` er tsc for pipelinen pluss `astro check` for .astro-filene.
+      - name: Typesjekk
+        run: pnpm typecheck
+
+      # Bygger nettstedet fra `data/quizzes.json` slik den ligger i repoet. Denne jobben
+      # skraper ikke kilden og går ikke på nettet - vi bruker ikke en PR-sjekk som grunn
+      # til å sende trafikk mot Norges Quizforbund.
+      #
+      # Bygget er verdt å kjøre likevel: flere feil vi har hatt her var usynlige i kilden
+      # og bare synlige i utdataene. `pnpm build` avslutter med scripts/check-base.mjs, som
+      # feiler hvis en intern lenke mangler base-stien /quizkveld/.
+      - name: Bygg nettstedet
+        run: pnpm build
