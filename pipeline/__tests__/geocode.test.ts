@@ -94,6 +94,9 @@ describe("GeoCache", () => {
 });
 
 describe("runGeocode", () => {
+  const EMPTY_REGISTER = { fetchedAt: new Date().toISOString(), source: "test", kommuner: [] };
+  const EMPTY_ALIASES = { aliases: {} };
+
   it("walks the ladder and stops at the first provider that resolves", async () => {
     const cache = await GeoCache.load(await tempCacheFile("{}"));
     const hit: GeoResult = {
@@ -103,14 +106,16 @@ describe("runGeocode", () => {
       geoConfidence: "medium",
     };
 
-    const stats = await runGeocode(
-      VENUES,
-      [provider("address", null), provider("osm", hit), provider("kartverket", null)],
+    const stats = await runGeocode(VENUES, {
       cache,
-    );
+      register: EMPTY_REGISTER,
+      aliases: EMPTY_ALIASES,
+      providers: [provider("address", null), provider("osm", hit), provider("kartverket", null)],
+    });
 
     expect(stats).toMatchObject({ total: 2, cached: 0, resolved: 2, unresolved: 0 });
     expect(stats.bySource).toEqual({ osm: 2 });
+    expect(stats.byConfidence).toEqual({ medium: 2 });
     expect(cache.get("bergen-kvarteret")?.geoSource).toBe("osm");
   });
 
@@ -132,17 +137,65 @@ describe("runGeocode", () => {
       },
     };
 
-    const stats = await runGeocode(VENUES, [counting], cache);
+    const stats = await runGeocode(VENUES, {
+      cache,
+      register: EMPTY_REGISTER,
+      aliases: EMPTY_ALIASES,
+      providers: [counting],
+    });
     expect(calls).toBe(1);
     expect(stats).toMatchObject({ cached: 1, unresolved: 1 });
     // The cached entry is untouched.
     expect(cache.get("oslo-skatten")?.geoSource).toBe("manual");
   });
 
-  it("reports everything as unresolved while the phase-1 providers are stubbed", async () => {
+  it("keeps going when a provider throws, so one outage cannot lose the whole run", async () => {
     const cache = await GeoCache.load(await tempCacheFile("{}"));
-    const stats = await runGeocode(VENUES, defaultProviders(), cache);
-    expect(stats).toMatchObject({ total: 2, resolved: 0, unresolved: 2 });
-    expect(cache.size).toBe(0);
+    const exploding: GeoProvider = {
+      name: "osm",
+      lookup: async () => {
+        throw new Error("Overpass er nede");
+      },
+    };
+    const fallback = provider("centroid", {
+      lat: 60.39,
+      lon: 5.32,
+      geoSource: "centroid",
+      geoConfidence: "low",
+    });
+
+    const stats = await runGeocode(VENUES, {
+      cache,
+      register: EMPTY_REGISTER,
+      aliases: EMPTY_ALIASES,
+      providers: [exploding, fallback],
+    });
+
+    expect(stats.resolved).toBe(2);
+    expect(stats.bySource).toEqual({ centroid: 2 });
+    expect(stats.lowConfidence).toHaveLength(2);
+  });
+
+  it("stops after the requested number of new lookups", async () => {
+    const cache = await GeoCache.load(await tempCacheFile("{}"));
+    const stats = await runGeocode(VENUES, {
+      cache,
+      register: EMPTY_REGISTER,
+      aliases: EMPTY_ALIASES,
+      limit: 1,
+      providers: [
+        provider("osm", { lat: 59.91, lon: 10.74, geoSource: "osm", geoConfidence: "high" }),
+      ],
+    });
+    expect(stats.resolved).toBe(1);
+  });
+
+  it("exposes the ladder in the documented order", () => {
+    expect(defaultProviders().map((p) => p.name)).toEqual([
+      "address",
+      "osm",
+      "kartverket",
+      "centroid",
+    ]);
   });
 });

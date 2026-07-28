@@ -4,8 +4,7 @@ Finn din neste pubquiz - oversikt over quizkvelder i hele Norge.
 
 Data hentet fra [Norges Quizforbund](https://www.norgesquizforbund.no/arrangementer/finn-din-pubquiz/).
 
-> **Status:** fase 2a - datapipeline og nettsted. Geokoding, kart og «nær meg» kommer i
-> fase 2b.
+> **Status:** fase 2b - datapipeline, nettsted og geokoding. Kart og «nær meg» står igjen.
 
 ## Kom i gang
 
@@ -77,8 +76,8 @@ Krediteringen er **avledet, ikke hardkodet**. `dataCredits()` i `src/lib/attribu
 ser på hvilke `geoSource`-verdier som faktisk står på et sted *som har koordinater*, og
 viser bare de kildene. Bruker vi ingen OSM-koordinater, krediterer vi ikke OSM — å påstå
 at vi bruker en kilde vi ikke bruker er samme slags overdrivelse som å påstå at en quiz
-går en kveld kilden aldri lovet. I dag har ingen av de 322 stedene koordinater, så lista
-er tom og linja vises ikke i det hele tatt.
+går en kveld kilden aldri lovet. Etter geokodingen i fase 2b har 321 av 322 steder
+koordinat, så både OpenStreetMap og Kartverket krediteres.
 
 `address` og `centroid` regnes som Kartverket-produkter (Adresse-API-et og kommunegeometri
 fra Geonorge) og utløser samme NLOD-kreditering — bekreftet mot planen fase 2b jobber etter,
@@ -272,11 +271,14 @@ kan kjøres for seg:
 | `pnpm pipeline scrape` | Henter kildesiden med undici og skriver den til `raw/latest.html` |
 | `pnpm pipeline parse` | Leser `raw/latest.html` med cheerio og oppsummerer radene |
 | `pnpm pipeline normalize` | Normaliserer radene og viser fordelinger |
-| `pnpm pipeline geocode` | Kjører geokodingsstigen (leverandørene er stubbet i fase 1) |
+| `pnpm pipeline kommuner` | Bygger `data/kommune-alias.json` fra kildens stedsnavn |
+| `pnpm pipeline geocode` | Kjører geokodingsstigen mot Kartverket og Overpass |
 | `pnpm pipeline build` | Bygger `data/quizzes.json` med overstyringer og sikkerhetssjekker |
 | `pnpm pipeline all` | `scrape` → `build` → `geocode` |
 
-Flagg: `--force`, `--min-rows=N`, `--max-id-churn=0.1`, `--skip-scrape`.
+Flagg: `--force`, `--min-rows=N`, `--max-id-churn=0.1`, `--skip-scrape`,
+`--only-new` (geokod bare steder som mangler i cachen), `--limit=N`,
+`--refresh-register` (hent kommuneregisteret fra Kartverket på nytt).
 
 ### Filer
 
@@ -286,7 +288,10 @@ Flagg: `--force`, `--min-rows=N`, `--max-id-churn=0.1`, `--skip-scrape`.
 | `data/quizzes.json` | Generert utdata: `{ generatedAt, sourceUpdatedAt, venues, quizzes }` |
 | `data/overrides.json` | Håndkorrigeringer nøklet på id. Vinner alltid over det som er skrapet |
 | `data/geocache.json` | Append-only geocache nøklet på sted-id |
+| `data/kommuner.json` | Offisielt kommuneregister fra Kartverket. Committet, ikke hentet ved hver kjøring |
+| `data/kommune-alias.json` | Kildens stedsnavn → offisielt kommunenummer |
 | `pipeline/schema.ts` | Zod-skjemaene. Gjenbrukes av nettstedet via Content Layer |
+| `raw/osm/` | Lokal cache av Overpass-svar. Ikke committet - `data/geocache.json` er fasiten |
 
 ### Stabile id-er
 
@@ -351,13 +356,66 @@ store endringer. Skjemavalidering kan **ikke** overstyres.
 Grensen på 250 er satt ut fra at kilden faktisk har ~350 quizer. Den opprinnelige
 antakelsen om 600-900 rader stemte ikke.
 
+### Kommune- og fylkesnormalisering
+
+Kilden har ingen kommuner. `city`-kolonna er «sted slik en frivillig skrev det» - Greåker
+ligger i Sarpsborg - og fylkene er fra før 2020 (Sør-Trøndelag, Hedmark, Vest-Agder …).
+
+`pnpm pipeline kommuner` løser dette mot Kartverkets åpne API-er:
+
+1. Kommuneregisteret hentes én gang og **committes** som `data/kommuner.json`. Det slås
+   ikke opp under bygging.
+2. Hvert stedsnavn forsøkes matchet eksakt mot et kommunenavn, deretter normalisert
+   (æøå, store/små bokstaver, mellomrom), og til slutt via Kartverkets stedsnavnsøk.
+3. Resultatet lagres i `data/kommune-alias.json` med `method`-felt, så det er synlig
+   hvordan hver rad ble løst.
+
+Kildens stedsnavn **overskrives aldri** - det er det folk søker på. Stedene får i stedet
+tre nye, valgfrie felt: `kommuneNr`, `kommuneName` (offisiell) og `fylkeNow` (dagens
+fylke, etter oppsplittingen i 2024).
+
+To feller det er verdt å kjenne til, begge funnet ved å gå gjennom resultatet manuelt:
+
+- **Gårdsnavn.** Kartverket kjenner «Rygge» både som sokn i Moss og som gard i Indre
+  Østfold. Norge er dekket av garder som deler navn med tettsteder, så gardsnavn rangeres
+  bevisst *under* ukjente navnetyper i `placeTypeRank`.
+- **Stripping av etterledd.** «Bø i Telemark» ble til «Bø» og traff Bø i Nordland, 900 km
+  unna. Et enkelttreff godtas derfor uten fylkessjekk bare når det *ustrippede* navnet
+  matcher eksakt.
+
 ### Geokoding
 
-Kilden har verken adresser eller koordinater, bare stedsnavn. `pipeline/geocode.ts`
-inneholder ferdig cache-lag og stige-driver; selve oppslagene er stubbet med
-`TODO(phase-2)` og implementeres i fase 2b i rekkefølgen Kartverket Adresse →
-Overpass/OSM → Kartverket Stedsnavn → kommunesentrum. Nettstedet nevner derfor verken
-avstand, kart eller «nær meg» ennå - `lat`/`lon` er tomme på alle 322 steder.
+Kilden har verken adresser eller koordinater, og bare 3 av 322 steder har en adresse
+gjemt i navnet. Geokodingen hviler derfor nesten helt på å matche *stedsnavn innenfor en
+kommune*. Stigen i `pipeline/geocode.ts`:
+
+| Trinn | Kilde | Når det treffer |
+| --- | --- | --- |
+| 1 | Kartverket Adresse | Stedet har `addressHint`. Svarer umiddelbart nei ellers, så det koster ingenting å ha først |
+| 2 | Overpass / OpenStreetMap | Hovedkilden. Ett kall per kommune, ikke per sted |
+| 3 | Kartverket Stedsnavn | Navnefallback for det OSM ikke kjenner |
+| 4 | Kommunesentrum | Siste utvei, alltid `geoConfidence: 'low'` |
+
+Hvert treff verifiseres mot Kartverkets punkt-i-kommune-API før det godtas. Et treff på
+«Samfundet» i feil by er verre enn ingen treff, fordi det ser riktig ut i kartet.
+
+Navnematchingen i `pipeline/venuematch.ts` er med vilje asymmetrisk. Ekstra ord på
+*kildesida* er nesten alltid stedsangivelse fra en frivillig («Lincoln Pub, Torshov») og
+kan trygt ignoreres. Ekstra ord på *OSM-sida* endrer derimot hvilken bedrift det er snakk
+om, og godtas bare når de er generiske («Glasset» / «Glasset Vinbar») eller er stedsnavnet
+selv («Skatten» / «Skatten Oslo»). Første ekte kjøring godtok «Bølgen Kro» som «Bølgen &
+Moi» og «Hinna Bistro» som «Dolly Dimples Hinna» - begge deler ett ord og er ulike steder.
+Begge ligger nå som regresjonstester.
+
+Geokoding kjører **ikke** i den daglige jobben som standard. Overpass er en dugnadstjeneste
+som går ned uten forvarsel, og gårsdagens koordinater er fortsatt gode. Jobben kjører
+`--only-new` og er `continue-on-error`, så et Overpass-utfall verken velter oppdateringen
+eller blokkerer en deploy.
+
+Etter første fulle kjøring har 321 av 322 steder koordinat: 182 fra OSM, 136
+kommunesentrum, 2 fra adresse og 1 fra stedsnavn. Nettstedet kan derfor vise kart, men
+bør skille tydelig på `geoConfidence` - `low` betyr «et sted i denne kommunen», ikke
+«her er puben».
 
 ### Automatisk oppdatering
 
@@ -370,10 +428,11 @@ request for gjennomgang. Når den committer, trigger den deploy-workflowen via
 ## Kjente svakheter i kildedata
 
 - **`kommune` er egentlig «sted slik en frivillig skrev det».** Kilden har bare en
-  by-kolonne, og «Greåker» er et sted i Sarpsborg kommune. Ekte kommuneoppslag kommer med
-  geokodingen.
+  by-kolonne, og «Greåker» er et sted i Sarpsborg kommune. Stedsnavnet beholdes som det er,
+  men stedene har nå også `kommuneNr`/`kommuneName` fra Kartverket - se
+  «Kommune- og fylkesnormalisering».
 - **Fylkene er de gamle (før 2020):** Sør-Trøndelag, Hedmark, Oppland, Vest-Agder og
-  Sogn og Fjordane står fortsatt oppført.
+  Sogn og Fjordane står fortsatt oppført. `fylkeNow` gir dagens fylke.
 - **Ingen stabile id-er hos kilden**, derfor konstruerer vi våre egne.
 - **Noen rader beskriver to quizer** i samme `<tr>` via parallelle `<p>`-blokker i
   klokkeslett- og kategoricellen. De splittes til to quizer.
