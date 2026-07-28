@@ -338,10 +338,13 @@ Regelen er at vi **aldri gjetter**. Tvetydige formuleringer blir `irregular`:
 
 En feil RRULE er verre enn ingen: den sender folk på pub på feil kveld.
 
-**Neste steg for de irregulære:** 12 av de 20 irregulære har ukedag, men sier ikke hvilken
-uke i måneden (`Fredag (månedlig)`, `Mandag (én gang per måned)`, …). Det er den største
-enkeltgruppa og den mest lønnsomme å håndkuratere først i `data/overrides.json` - de
-mangler bare uke-nummeret. Strengene er listet i `_note` i den fila.
+**Hva vi gjør med de irregulære: rapporterer dem oppstrøms.** 12 av de 20 har ukedag, men
+sier ikke hvilken uke i måneden (`Fredag (månedlig)`, `Mandag (én gang per måned)`, …).
+Vi *kunne* funnet svaret og lagt det i `overrides.json` - men da eier vi et faktum ingen
+andre har, og som råtner stille når puben legger om. Kilden ber selv om rettelser på
+`admin@norgesquizforbund.no`. Retter de det, fanger neste skraping det opp av seg selv.
+Et ferdig e-postutkast med alle oppføringene ligger i `_note.utboks` i
+`data/overrides.json`.
 
 ### Sikkerhetssjekker
 

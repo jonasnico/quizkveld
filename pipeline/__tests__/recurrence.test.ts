@@ -190,8 +190,10 @@ describe("parseRecurrence", () => {
  * still needs an anchor date to count from, which the source never provides. So there is
  * no correct RRULE to emit here, only a plausible-looking wrong one.
  *
- * If you want to resolve these, add them to data/overrides.json with a real schedule
- * confirmed from the venue. Do not teach the parser to guess.
+ * The fix is to report them to the source (admin@norgesquizforbund.no) so the correction
+ * arrives in the next scrape. Do not teach the parser to guess, and do not park a
+ * hand-checked schedule in data/overrides.json - see _note there for why we hold no
+ * facts of our own about quiz schedules.
  */
 describe("ambiguous interval phrasings stay irregular on purpose", () => {
   const AMBIGUOUS = [
