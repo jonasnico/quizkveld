@@ -123,10 +123,14 @@ async function runNormalize(): Promise<void> {
     "Gjentakelse",
     normalized.quizzes.map((quiz) => quiz.recurrence.kind),
   );
+  // A quiz can name several genres, so these buckets deliberately overlap and will sum
+  // to more than the number of quizzes.
   printTally(
-    "Kategori",
-    normalized.quizzes.map((quiz) => quiz.categoryNorm),
+    "Kategori (en quiz kan telle i flere)",
+    normalized.quizzes.flatMap((quiz) => quiz.categoryNorm),
   );
+  const multiGenre = normalized.quizzes.filter((quiz) => quiz.categoryNorm.length > 1).length;
+  console.log(`Quizer med mer enn en sjanger: ${multiGenre}`);
   const withAddress = normalized.venues.filter((venue) => venue.addressHint).length;
   console.log(`\nSteder med adressehint: ${withAddress} av ${normalized.venues.length}`);
   const withoutTime = normalized.quizzes.filter((quiz) => quiz.time === null).length;

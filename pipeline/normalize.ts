@@ -1,4 +1,4 @@
-import { cleanCategory, normalizeCategory } from "./category.js";
+import { cleanCategory, normalizeCategories, primaryCategory } from "./category.js";
 import { parseRecurrence, parseWeekday } from "./recurrence.js";
 import { makeUnique, quizId, venueId } from "./slug.js";
 import { normalizeTime } from "./time.js";
@@ -83,14 +83,14 @@ export function normalizeRows(
     quizzes.push({
       id: makeUnique(quizId(kommune, cleaned.name, weekday, time), takenQuizIds, [
         recurrence.kind,
-        normalizeCategory(category),
+        primaryCategory(category),
       ]),
       venueId: vId,
       weekday,
       time,
       recurrence,
       category,
-      categoryNorm: normalizeCategory(category),
+      categoryNorm: normalizeCategories(category),
       lastSeen,
     });
   }

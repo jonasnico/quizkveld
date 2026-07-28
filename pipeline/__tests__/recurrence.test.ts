@@ -131,10 +131,17 @@ const CASES: Case[] = [
   // Explicitly not a fixed schedule.
   { raw: "En torsdag i måneden (varierer)", kind: "irregular" },
   { raw: "Torsdag (utvalgte)", kind: "irregular" },
-  // "hver fjerde X" is ambiguous between every fourth week and the fourth X of the
-  // month, and those land on different dates - so we refuse to pick one.
+  // "hver N-te <ukedag>" is ambiguous in Norwegian and we deliberately refuse to guess.
+  // It can mean either "every Nth week" (an interval) or "the Nth <weekday> of the
+  // month" (a position), and those produce different dates. Even read as an interval it
+  // is unusable: an interval needs an anchor date to count from, and the source never
+  // gives one. "annenhver" is the one exception, because "every other week" is its only
+  // reading - see the biweekly cases above.
+  // Do not "fix" these into monthly-nth without first getting an anchor date from the
+  // source; a wrong RRULE sends people to the pub on the wrong night.
   { raw: "Hver fjerde søndag", kind: "irregular" },
   { raw: "Torsdag (hver tredje)", kind: "irregular" },
+  { raw: "Torsdag (hver fjerde)", kind: "irregular" },
   // Nothing to go on at all.
   { raw: "", kind: "irregular" },
   { raw: "?", kind: "irregular" },
@@ -172,6 +179,41 @@ describe("parseRecurrence", () => {
       const parsed = parseRecurrence(testCase.raw);
       expect(() => RRule.fromString(`RRULE:${parsed.rrule}`)).not.toThrow();
     }
+  });
+});
+
+/**
+ * Guard rail against a well-meaning future "fix".
+ *
+ * "hver tredje/fjerde <ukedag>" reads two ways in Norwegian - every Nth week, or the
+ * Nth occurrence in the month - and they fall on different dates. Read as an interval it
+ * still needs an anchor date to count from, which the source never provides. So there is
+ * no correct RRULE to emit here, only a plausible-looking wrong one.
+ *
+ * If you want to resolve these, add them to data/overrides.json with a real schedule
+ * confirmed from the venue. Do not teach the parser to guess.
+ */
+describe("ambiguous interval phrasings stay irregular on purpose", () => {
+  const AMBIGUOUS = [
+    "Hver fjerde søndag",
+    "Torsdag (hver tredje)",
+    "Torsdag (hver fjerde)",
+    "Hver tredje onsdag",
+  ];
+
+  for (const raw of AMBIGUOUS) {
+    it(`refuses to guess a schedule for ${JSON.stringify(raw)}`, () => {
+      const result = parseRecurrence(raw);
+      expect(result.kind).toBe("irregular");
+      expect(result.rrule).toBeUndefined();
+      expect(result.raw).toBe(raw);
+    });
+  }
+
+  it("still resolves annenhver, whose only reading is every other week", () => {
+    const result = parseRecurrence("Annenhver tirsdag");
+    expect(result.kind).toBe("biweekly");
+    expect(result.rrule).toBe("FREQ=WEEKLY;BYDAY=TU;INTERVAL=2");
   });
 });
 

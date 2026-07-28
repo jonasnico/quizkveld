@@ -57,6 +57,21 @@ retter på en sesong. Kolliderer to quizer likevel, skilles de på gjentakelsest
 (`...-last-of-month`) framfor et posisjonsnummer, slik at rekkefølgen i kildetabellen ikke
 har noe å si.
 
+### Kategori
+
+`categoryNorm` er en **array**, ikke én verdi. 23 av 352 rader navngir mer enn én sjanger
+(`Allmenn/film/musikk`, `Musikk og film`, `Live musikk/Allmenn quiz`), og å kollapse dem
+til én skjulte 23 ekte musikkquizer for et musikkfilter. Rekkefølgen er fast
+(allmenn → musikk → sport → film → annet), ikke rekkefølgen sjangrene står i teksten, så
+outputen er deterministisk. Originalteksten ligger alltid i `category`.
+
+Gjenkjenningen kjører mot hele strengen, ikke mot separator-delte biter. Skilletegnene er
+ikke til å stole på: `Allmenn – med påfølgende musikkquiz` og `Allmenn med musikk` navngir
+to sjangre uten noe skilletegn i det hele tatt.
+
+`seriespill` er en seriespill-form for allmennquiz og skal **ikke** trigge `film` - det er
+en felle det finnes egen test for.
+
 ### Gjentakelse
 
 Den norske fritekst-ukedagen tolkes til `{ kind, rrule?, raw }` der `kind` er
@@ -71,6 +86,11 @@ Regelen er at vi **aldri gjetter**. Tvetydige formuleringer blir `irregular`:
 - `Fredag (månedlig)` er månedlig, men sier ikke hvilken fredag.
 
 En feil RRULE er verre enn ingen: den sender folk på pub på feil kveld.
+
+**Neste steg for de irregulære:** 12 av de 20 irregulære har ukedag, men sier ikke hvilken
+uke i måneden (`Fredag (månedlig)`, `Mandag (én gang per måned)`, …). Det er den største
+enkeltgruppa og den mest lønnsomme å håndkuratere først i `data/overrides.json` - de
+mangler bare uke-nummeret. Strengene er listet i `_note` i den fila.
 
 ### Sikkerhetssjekker
 

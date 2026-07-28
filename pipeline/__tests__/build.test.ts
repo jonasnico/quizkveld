@@ -9,8 +9,10 @@ import {
 } from "../build.js";
 import { normalizeRows } from "../normalize.js";
 import { parseHtml } from "../parse.js";
-import { QuizDataSchema, type Overrides, type QuizData } from "../schema.js";
+import { QuizDataSchema, OverridesSchema, type Overrides, type QuizData } from "../schema.js";
 import { FIXED_NOW, loadFixture } from "./helpers.js";
+import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 
 async function normalizedFixture() {
   return normalizeRows(parseHtml(await loadFixture()), FIXED_NOW);
@@ -88,7 +90,7 @@ describe("overrides", () => {
       quizzes: {
         "oslo-skatten-torsdag-18-00": {
           time: "17:45",
-          categoryNorm: "sport",
+          categoryNorm: ["sport"],
           note: "Flyttet en time frem i sommerhalvåret.",
         },
       },
@@ -110,7 +112,7 @@ describe("overrides", () => {
     const quiz = data.quizzes.find((item) => item.id === "oslo-skatten-torsdag-18-00");
     expect(quiz).toMatchObject({
       time: "17:45",
-      categoryNorm: "sport",
+      categoryNorm: ["sport"],
       note: "Flyttet en time frem i sommerhalvåret.",
     });
     expect(quiz?.weekday).toBe("torsdag");
@@ -183,7 +185,7 @@ describe("lastSeen and soft deletion", () => {
           time: "19:00",
           recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=MO", raw: "Mandag" },
           category: "Allmenn",
-          categoryNorm: "allmenn",
+          categoryNorm: ["allmenn"],
           lastSeen: "2026-07-01",
         },
       ],
@@ -310,5 +312,21 @@ describe("serialize", () => {
     expect(text.endsWith("\n")).toBe(true);
     expect(text.startsWith("{\n  ")).toBe(true);
     expect(JSON.parse(text)).toEqual(data);
+  });
+});
+
+describe("data/overrides.json som ligger i repoet", () => {
+  const file = fileURLToPath(new URL("../../data/overrides.json", import.meta.url));
+
+  // The shipped file carries a _note block documenting which irregular quizzes are
+  // worth hand-curating first. Zod strips unknown keys, so this parses today - the test
+  // exists so that adding .strict() later fails here instead of in production.
+  it("parses even though it carries a _note block", async () => {
+    const raw = JSON.parse(await readFile(file, "utf8")) as Record<string, unknown>;
+    expect(raw["_note"]).toBeDefined();
+    const parsed = OverridesSchema.parse(raw);
+    expect(parsed.venues).toEqual({});
+    expect(parsed.quizzes).toEqual({});
+    expect("_note" in parsed).toBe(false);
   });
 });

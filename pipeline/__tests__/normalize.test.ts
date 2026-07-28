@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cleanCategory, normalizeCategory } from "../category.js";
+import { cleanCategory, normalizeCategories, primaryCategory } from "../category.js";
 import { normalizeRows } from "../normalize.js";
 import { parseHtml } from "../parse.js";
 import { quizId, slug, venueId } from "../slug.js";
@@ -147,30 +147,79 @@ describe("normalizeTime", () => {
   });
 });
 
-describe("normalizeCategory", () => {
-  it("maps the common values", () => {
-    expect(normalizeCategory("Allmenn")).toBe("allmenn");
-    expect(normalizeCategory("Musikk")).toBe("musikk");
-    expect(normalizeCategory("Sport")).toBe("sport");
-    expect(normalizeCategory("Film")).toBe("film");
+describe("normalizeCategories", () => {
+  it("maps the common values to a single-element array", () => {
+    expect(normalizeCategories("Allmenn")).toEqual(["allmenn"]);
+    expect(normalizeCategories("Musikk")).toEqual(["musikk"]);
+    expect(normalizeCategories("Sport")).toEqual(["sport"]);
+    expect(normalizeCategories("Film")).toEqual(["film"]);
   });
 
   it("maps freeform variants", () => {
-    expect(normalizeCategory("Allmenn (seriespill)")).toBe("allmenn");
-    expect(normalizeCategory("Allmenn (also in English)")).toBe("allmenn");
-    expect(normalizeCategory("Rock")).toBe("musikk");
-    expect(normalizeCategory("Popkultur")).toBe("musikk");
-    expect(normalizeCategory("Musikkbingo")).toBe("musikk");
-    // Mixed values resolve to the broader of the two.
-    expect(normalizeCategory("Allmenn/Musikk")).toBe("allmenn");
-    expect(normalizeCategory("Allmenn + musikk")).toBe("allmenn");
+    expect(normalizeCategories("Allmenn (also in English)")).toEqual(["allmenn"]);
+    expect(normalizeCategories("Rock")).toEqual(["musikk"]);
+    expect(normalizeCategories("Popkultur")).toEqual(["musikk"]);
+    expect(normalizeCategories("Musikkbingo")).toEqual(["musikk"]);
+  });
+
+  // "seriespill" is a league format for general quizzes, not a TV-series quiz. The
+  // film rule must not reach into it.
+  it("does not let seriespill trigger film", () => {
+    expect(normalizeCategories("Allmenn (seriespill)")).toEqual(["allmenn"]);
+    expect(normalizeCategories("Allmenn (ikke seriespill)")).toEqual(["allmenn"]);
+  });
+
+  // These are the real multi-genre strings from the source. Collapsing any of them to a
+  // single value hides a quiz from a genre filter that should find it.
+  it("keeps every genre a row names", () => {
+    expect(normalizeCategories("Musikk og film")).toEqual(["musikk", "film"]);
+    expect(normalizeCategories("Allmenn/film/musikk")).toEqual(["allmenn", "musikk", "film"]);
+    expect(normalizeCategories("Allmenn og musikk")).toEqual(["allmenn", "musikk"]);
+    expect(normalizeCategories("Allmenn/popkultur")).toEqual(["allmenn", "musikk"]);
+    expect(normalizeCategories("Film og musikk")).toEqual(["musikk", "film"]);
+    expect(normalizeCategories("Live musikk/Allmenn quiz")).toEqual(["allmenn", "musikk"]);
+    expect(normalizeCategories("Musikk m/ liveband")).toEqual(["musikk"]);
+  });
+
+  it("orders genres by the fixed ranking, not by where they appear in the text", () => {
+    expect(normalizeCategories("Musikk og allmenn")).toEqual(["allmenn", "musikk"]);
+    expect(normalizeCategories("Allmenn og musikk")).toEqual(["allmenn", "musikk"]);
+    expect(normalizeCategories("Film og musikk")).toEqual(["musikk", "film"]);
+  });
+
+  it("deduplicates when a genre is named twice", () => {
+    expect(normalizeCategories("Musikk/musikkbingo")).toEqual(["musikk"]);
+    expect(normalizeCategories("Allmenn – med påfølgende allmennquiz")).toEqual(["allmenn"]);
+  });
+
+  it("catches a second genre even without a clean separator", () => {
+    expect(normalizeCategories("Allmenn – med påfølgende musikkquiz")).toEqual([
+      "allmenn",
+      "musikk",
+    ]);
+    expect(normalizeCategories("Annenhver allmennquiz og musikkbingo")).toEqual([
+      "allmenn",
+      "musikk",
+    ]);
   });
 
   it("falls back to annet for genuinely unclassifiable text", () => {
-    expect(normalizeCategory("IconaPopQuiz")).toBe("annet");
-    expect(normalizeCategory("«Fakta om makta» - Samfunn og politikk")).toBe("annet");
-    expect(normalizeCategory("Videospill")).toBe("annet");
-    expect(normalizeCategory("")).toBe("annet");
+    expect(normalizeCategories("IconaPopQuiz")).toEqual(["annet"]);
+    expect(normalizeCategories("«Fakta om makta» - Samfunn og politikk")).toEqual(["annet"]);
+    expect(normalizeCategories("Videospill")).toEqual(["annet"]);
+    expect(normalizeCategories("")).toEqual(["annet"]);
+  });
+
+  it("never returns an empty array", () => {
+    for (const raw of ["", "   ", "??", "Sjekk programmet", "Kvalifisert gjetning"]) {
+      expect(normalizeCategories(raw).length).toBeGreaterThan(0);
+    }
+  });
+
+  it("exposes the broadest genre as the id tie-breaker", () => {
+    expect(primaryCategory("Allmenn/film/musikk")).toBe("allmenn");
+    expect(primaryCategory("Musikk og film")).toBe("musikk");
+    expect(primaryCategory("Videospill")).toBe("annet");
   });
 
   it("keeps the original text readable", () => {
@@ -208,8 +257,8 @@ describe("normalizeRows over the fixture", () => {
     const skatten = result.quizzes.filter((quiz) => quiz.venueId === "oslo-skatten");
     expect(skatten).toHaveLength(2);
     expect(skatten.map((quiz) => [quiz.time, quiz.categoryNorm]).sort()).toEqual([
-      ["18:00", "allmenn"],
-      ["20:30", "musikk"],
+      ["18:00", ["allmenn"]],
+      ["20:30", ["musikk"]],
     ]);
     expect(result.venues.filter((venue) => venue.id === "oslo-skatten")).toHaveLength(1);
   });

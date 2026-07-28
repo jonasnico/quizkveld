@@ -5,7 +5,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
   "quizzes": [
     {
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "fredrikstad-heim-fredrikstad-mandag-19-30",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -19,7 +21,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "greaaker-olavs-pub-fredag-20-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -33,7 +37,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Sport",
-      "categoryNorm": "sport",
+      "categoryNorm": [
+        "sport",
+      ],
       "id": "halden-samfundet-tirsdag-21-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -47,7 +53,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "kolbotn-boelgen-kro-mandag-19-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -60,7 +68,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Videospill",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet",
+      ],
       "id": "lillestroem-dampen-fredag-20-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -74,7 +84,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Allmenn (seriespill)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "oslo-cafe-marienlyst-onsdag-19-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -88,7 +100,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "oslo-hells-kitchen-onsdag-19-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -102,7 +116,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk",
+      ],
       "id": "oslo-kjoekkenet-rockefeller-onsdag-natid",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -116,7 +132,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "IconaPopQuiz",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet",
+      ],
       "id": "oslo-kulturhuset-torsdag-19-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -128,8 +146,12 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
       "weekday": "torsdag",
     },
     {
-      "category": "Allmenn/Musikk",
-      "categoryNorm": "allmenn",
+      "category": "Allmenn/film/musikk",
+      "categoryNorm": [
+        "allmenn",
+        "musikk",
+        "film",
+      ],
       "id": "oslo-nydalen-bryggeri-og-spiseri-onsdag-19-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -143,7 +165,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "oslo-skatten-torsdag-18-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -157,7 +181,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk",
+      ],
       "id": "oslo-skatten-torsdag-20-30",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -171,7 +197,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "«Fakta om makta» – Samfunn og politikk",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet",
+      ],
       "id": "oslo-wembley-pub-ukjent-natid",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -184,7 +212,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Film",
-      "categoryNorm": "film",
+      "categoryNorm": [
+        "film",
+      ],
       "id": "sandvika-hundremeterskogen-sondag-18-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -197,7 +227,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk",
+      ],
       "id": "tromsoe-blaa-rock-cafe-tirsdag-20-00",
       "lastSeen": "2026-07-28",
       "recurrence": {
@@ -211,7 +243,9 @@ exports[`normalizeRows over the fixture > matches the full expected output 1`] =
     },
     {
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+      ],
       "id": "tromsoe-ikke-fast-sted-ukjent-natid",
       "lastSeen": "2026-07-28",
       "recurrence": {

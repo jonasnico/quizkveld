@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T01:10:53.371Z",
+  "generatedAt": "2026-07-28T01:27:14.221Z",
   "sourceUpdatedAt": "2026-07-27",
   "venues": [
     {
@@ -2501,7 +2501,9 @@
         "raw": "2. fredag i mnd"
       },
       "category": "Fotball",
-      "categoryNorm": "sport",
+      "categoryNorm": [
+        "sport"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2515,7 +2517,9 @@
         "raw": "Siste fredag i mnd"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2529,7 +2533,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2543,7 +2549,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2557,7 +2565,9 @@
         "raw": "Første onsdag i måneden"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2571,7 +2581,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2585,7 +2597,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2599,7 +2613,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2613,7 +2629,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2627,7 +2645,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2641,7 +2661,9 @@
         "raw": "Søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2655,7 +2677,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2669,7 +2693,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2683,7 +2709,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2697,7 +2725,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2711,7 +2741,10 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn/siste onsdag i måneden: Pop-og rockquiz",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2725,7 +2758,9 @@
         "raw": "Mandag (annenhver)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2739,7 +2774,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2753,7 +2790,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2767,7 +2806,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2781,7 +2822,10 @@
         "raw": "Fredag"
       },
       "category": "Allmenn – med påfølgende musikkquiz",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2794,7 +2838,9 @@
         "raw": "Mandag (og fredag)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2807,7 +2853,9 @@
         "raw": "Tirsdag (én gang per måned)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2821,7 +2869,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2835,7 +2885,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2849,7 +2901,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2863,7 +2917,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2877,7 +2933,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2891,7 +2949,9 @@
         "raw": "Søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2905,7 +2965,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2919,7 +2981,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2933,7 +2997,9 @@
         "raw": "Søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2947,7 +3013,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2961,7 +3029,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2975,7 +3045,9 @@
         "raw": "1. tirsdag hver måned"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -2989,7 +3061,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3003,7 +3077,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3017,7 +3093,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3030,7 +3108,9 @@
         "raw": "Mandag (én gang per måned)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3044,7 +3124,9 @@
         "raw": "Søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3058,7 +3140,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3072,7 +3156,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3086,7 +3172,9 @@
         "raw": "Mandag"
       },
       "category": "GirlzQuiz",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3100,7 +3188,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3114,7 +3204,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3128,7 +3220,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3142,7 +3236,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3156,7 +3252,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3170,7 +3268,10 @@
         "raw": "Torsdag"
       },
       "category": "Live musikk/Allmenn quiz",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3184,7 +3285,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3198,7 +3301,9 @@
         "raw": "Torsdag (partallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3212,7 +3317,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3226,7 +3333,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3240,7 +3349,9 @@
         "raw": "2. fredag hver måned"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3254,7 +3365,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3268,7 +3381,10 @@
         "raw": "Fredag (unntatt sommer)"
       },
       "category": "Allmenn/popkultur",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3282,7 +3398,9 @@
         "raw": "Lørdag (siste i mnd)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3296,7 +3414,9 @@
         "raw": "Fredag (siste i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3310,7 +3430,9 @@
         "raw": "Lørdag"
       },
       "category": "Musikkquiz (én gang i måneden)",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3324,7 +3446,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3338,7 +3462,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3352,7 +3478,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3366,7 +3494,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3380,7 +3510,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3394,7 +3526,9 @@
         "raw": "Fredag (siste i mnd)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3408,7 +3542,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3422,7 +3558,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3436,7 +3574,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3450,7 +3590,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3464,7 +3606,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3478,7 +3622,9 @@
         "raw": "Mandag (2. mandag i måneden)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3492,7 +3638,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3506,7 +3654,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3520,7 +3670,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3534,7 +3686,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3548,7 +3702,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3562,7 +3718,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3576,7 +3734,9 @@
         "raw": "Fredag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3590,7 +3750,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3603,7 +3765,9 @@
         "raw": "Torsdag (hver tredje)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3617,7 +3781,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3631,7 +3797,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3645,7 +3813,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3659,7 +3829,9 @@
         "raw": "Torsdag (annenhver – oddetallsuker)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3673,7 +3845,9 @@
         "raw": "Fredag (første i hver måned)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3687,7 +3861,9 @@
         "raw": "Mandag (annenhver – partallsuker)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3701,7 +3877,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3714,7 +3892,9 @@
         "raw": "Fredag (månedlig)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3728,7 +3908,10 @@
         "raw": "Fredag (annenhver)"
       },
       "category": "Allmenn og musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3741,7 +3924,9 @@
         "raw": "Lørdag (månedlig)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3755,7 +3940,9 @@
         "raw": "Onsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3768,7 +3955,9 @@
         "raw": "Torsdag (hver fjerde)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3782,7 +3971,9 @@
         "raw": "Tirsdag (første i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3796,7 +3987,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3810,7 +4003,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3824,7 +4019,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3838,7 +4035,9 @@
         "raw": "Fredag (1. og 3. i mnd)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3852,7 +4051,9 @@
         "raw": "Onsdag (annenhver – oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3866,7 +4067,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3880,7 +4083,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3894,7 +4099,9 @@
         "raw": "Annenhver tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3908,7 +4115,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3921,7 +4130,9 @@
         "raw": "Lørdag (én gang i måneden)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3935,7 +4146,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3949,7 +4162,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3963,7 +4178,9 @@
         "raw": "Annenhver mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3977,7 +4194,9 @@
         "raw": "Mandag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -3991,7 +4210,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4005,7 +4226,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4019,7 +4242,9 @@
         "raw": "Torsdag (annenhver – partallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4032,7 +4257,9 @@
         "raw": "Fredag (én gang per måned)"
       },
       "category": "Film",
-      "categoryNorm": "film",
+      "categoryNorm": [
+        "film"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4045,7 +4272,9 @@
         "raw": "Fredag (én gang per måned)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4059,7 +4288,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4073,7 +4304,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4087,7 +4320,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4101,7 +4336,9 @@
         "raw": "Fredag (1. i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4115,7 +4352,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4129,7 +4368,10 @@
         "raw": "Mandag (start 29.7)"
       },
       "category": "Musikk og allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4143,7 +4385,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4157,7 +4401,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4171,7 +4417,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4185,7 +4433,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4199,7 +4449,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4213,7 +4465,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4227,7 +4481,9 @@
         "raw": "Torsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4241,7 +4497,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4255,7 +4513,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn (seriespill)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4269,7 +4529,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn (ikke seriespill)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4283,7 +4545,10 @@
         "raw": "Mandag"
       },
       "category": "Allmenn/musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4297,7 +4562,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4311,7 +4578,9 @@
         "raw": "Fredag (2. i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4325,7 +4594,9 @@
         "raw": "Fredag (siste i mnd)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4339,7 +4610,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4353,7 +4626,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4367,7 +4642,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4381,7 +4658,9 @@
         "raw": "Torsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4394,7 +4673,9 @@
         "raw": "En gang i måneden"
       },
       "category": "",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4408,7 +4689,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn (max 6 per lag)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4422,7 +4705,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4436,7 +4721,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4450,7 +4737,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4464,7 +4753,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4478,7 +4769,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4492,7 +4785,9 @@
         "raw": "Fredag (siste i måneden)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4506,7 +4801,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4520,7 +4817,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4534,7 +4833,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4548,7 +4849,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4562,7 +4865,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4576,7 +4881,9 @@
         "raw": "Lørdag"
       },
       "category": "Allmenn. Første gang 16.03",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4590,7 +4897,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4604,7 +4913,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4618,7 +4929,9 @@
         "raw": "Tirsdag (2. tirsdag hver måned)"
       },
       "category": "Rock",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4632,7 +4945,9 @@
         "raw": "Onsdag (1. onsdag i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4646,7 +4961,9 @@
         "raw": "Onsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4660,7 +4977,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4674,7 +4993,10 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn/musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4688,7 +5010,9 @@
         "raw": "Fredag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4702,7 +5026,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4716,7 +5042,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4730,7 +5058,9 @@
         "raw": "Onsdag"
       },
       "category": "Sport",
-      "categoryNorm": "sport",
+      "categoryNorm": [
+        "sport"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4744,7 +5074,9 @@
         "raw": "Mandag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4758,7 +5090,9 @@
         "raw": "Torsdag (oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4772,7 +5106,9 @@
         "raw": "Lørdag"
       },
       "category": "Friends (1. lørdag); Seinfeld (2. lørdag); The Office (3. lørdag); Disney (4. lørdag)",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4786,7 +5122,9 @@
         "raw": "Lørdag"
       },
       "category": "Musikk m/ liveband",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4800,7 +5138,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4814,7 +5154,9 @@
         "raw": "Tirsdag"
       },
       "category": "Nerdequiz (Harry Potter, Ringenes Herre, etc)",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4828,7 +5170,9 @@
         "raw": "Torsdag (oddetallsuker)"
       },
       "category": "Kvalifisert gjetning",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4842,7 +5186,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4856,7 +5202,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4870,7 +5218,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4884,7 +5234,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4898,7 +5250,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4912,7 +5266,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4926,7 +5282,9 @@
         "raw": "1. tirsdag hver måned (ikke januar 2025)"
       },
       "category": "Sjekk programmet",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4940,7 +5298,10 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn + musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4954,7 +5315,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4968,7 +5331,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4982,7 +5347,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -4996,7 +5363,10 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn og musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5010,7 +5380,9 @@
         "raw": "Søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5024,7 +5396,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5038,7 +5412,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5052,7 +5428,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5066,7 +5444,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5080,7 +5460,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5094,7 +5476,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5108,7 +5492,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5122,7 +5508,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5136,7 +5524,9 @@
         "raw": "Tirsdag (annenhver, oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5150,7 +5540,10 @@
         "raw": "Onsdag"
       },
       "category": "Musikk og film",
-      "categoryNorm": "film",
+      "categoryNorm": [
+        "musikk",
+        "film"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5164,7 +5557,9 @@
         "raw": "Fredag (siste hver måned, ikke desember)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5178,7 +5573,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5192,7 +5589,9 @@
         "raw": "Fredag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5206,7 +5605,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5220,7 +5621,9 @@
         "raw": "Mandag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5234,7 +5637,10 @@
         "raw": "Onsdag"
       },
       "category": "Annenhver allmennquiz og musikkbingo",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5248,7 +5654,9 @@
         "raw": "Onsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5262,7 +5670,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5276,7 +5686,9 @@
         "raw": "Onsdag (oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5290,7 +5702,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5303,7 +5717,10 @@
         "raw": "Mandag (én gang per måned)"
       },
       "category": "Allmenn og musikk (Einar Tørnquist)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5317,7 +5734,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5331,7 +5750,9 @@
         "raw": "Tirsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5345,7 +5766,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5359,7 +5782,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5373,7 +5798,11 @@
         "raw": "Fredag"
       },
       "category": "Allmenn/film/musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk",
+        "film"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5387,7 +5816,9 @@
         "raw": "Onsdag (1. onsdag i måneden)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5401,7 +5832,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5414,7 +5847,9 @@
         "raw": "En torsdag i måneden (varierer)"
       },
       "category": "IconaPopQuiz",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5428,7 +5863,9 @@
         "raw": "Tirsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5442,7 +5879,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5456,7 +5895,9 @@
         "raw": "1. tirsdag hver måned"
       },
       "category": "Kultur/Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5470,7 +5911,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5484,7 +5927,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5498,7 +5943,10 @@
         "raw": "Onsdager (annenhver – høstsesong 2024 fra 28/8 til 4/12)"
       },
       "category": "Allmenn/Musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5512,7 +5960,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5526,7 +5976,10 @@
         "raw": "Tirsdag"
       },
       "category": "Live musikk/Allmenn quiz",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5540,7 +5993,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5554,7 +6009,9 @@
         "raw": "Fredag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5568,7 +6025,9 @@
         "raw": "Onsdag"
       },
       "category": "Dartquiz",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5582,7 +6041,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5596,7 +6057,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5610,7 +6073,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5624,7 +6089,9 @@
         "raw": "Mandag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5638,7 +6105,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5652,7 +6121,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5666,7 +6137,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5680,7 +6153,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5694,7 +6169,10 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn og musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5708,7 +6186,9 @@
         "raw": "Torsdag (oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5722,7 +6202,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5736,7 +6218,9 @@
         "raw": "Fredag"
       },
       "category": "MusikkBingo",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5750,7 +6234,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5763,7 +6249,9 @@
         "raw": "Mandag (Søndag)"
       },
       "category": "The Office (1. mandag i måneden); Marvel (2. mandag); Disney (3. mandag); Friends (4. søndag)",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5777,7 +6265,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5791,7 +6281,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5805,7 +6297,9 @@
         "raw": "Tirsdag (Oddetalsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5819,7 +6313,9 @@
         "raw": "Onsdag"
       },
       "category": "Popkultur",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5833,7 +6329,9 @@
         "raw": "Mandag (annenhver)"
       },
       "category": "«Fakta om makta» – Samfunn og politikk",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5847,7 +6345,9 @@
         "raw": "Tirsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5861,7 +6361,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5875,7 +6377,9 @@
         "raw": "Fredag"
       },
       "category": "Med quizmistress Austinat",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5888,7 +6392,9 @@
         "raw": "Tirsdag (utvalgte)"
       },
       "category": "Popquiz med Finn Bjelke (én gang i måneden); Einars Kviss (én gang i måneden)",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5902,7 +6408,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5916,7 +6424,10 @@
         "raw": "Tirsdag (første i måneden)"
       },
       "category": "Allmenn og musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5930,7 +6441,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5944,7 +6457,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5958,7 +6473,9 @@
         "raw": "Torsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5972,7 +6489,9 @@
         "raw": "Torsdag (sent i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -5986,7 +6505,9 @@
         "raw": "Tirsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6000,7 +6521,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn (also in English)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6014,7 +6537,9 @@
         "raw": "Onsdag"
       },
       "category": "Musikk (also in English)",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6027,7 +6552,9 @@
         "raw": "Mandag (én gang i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6041,7 +6568,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6055,7 +6584,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6069,7 +6600,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6083,7 +6616,10 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn og musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6097,7 +6633,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6111,7 +6649,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6125,7 +6665,9 @@
         "raw": "Torsdag (oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6139,7 +6681,9 @@
         "raw": "Tirsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6153,7 +6697,10 @@
         "raw": "Fredag"
       },
       "category": "Live musikk/Allmenn quiz",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6167,7 +6714,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6181,7 +6730,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6195,7 +6746,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6209,7 +6762,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6223,7 +6778,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6237,7 +6794,10 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn/musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6251,7 +6811,9 @@
         "raw": "Onsdag (oddetallsuker)"
       },
       "category": "Rock",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6265,7 +6827,9 @@
         "raw": "Torsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6279,7 +6843,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6293,7 +6859,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6307,7 +6875,9 @@
         "raw": "TIrsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6321,7 +6891,9 @@
         "raw": "Tirsdag (siste tirsdag hver måned)"
       },
       "category": "Film",
-      "categoryNorm": "film",
+      "categoryNorm": [
+        "film"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6334,7 +6906,9 @@
         "raw": "Torsdag (utvalgte)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6348,7 +6922,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6362,7 +6938,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6376,7 +6954,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6390,7 +6970,9 @@
         "raw": "Fredag (annen hver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6404,7 +6986,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6418,7 +7002,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6432,7 +7018,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6446,7 +7034,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6460,7 +7050,9 @@
         "raw": "Torsdag (oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6474,7 +7066,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6488,7 +7082,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6502,7 +7098,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6516,7 +7114,9 @@
         "raw": "Fredag (annenhver)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6530,7 +7130,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6544,7 +7146,10 @@
         "raw": "Fredag (annenhver)"
       },
       "category": "Film og musikk",
-      "categoryNorm": "film",
+      "categoryNorm": [
+        "musikk",
+        "film"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6558,7 +7163,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6572,7 +7179,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6586,7 +7195,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6599,7 +7210,9 @@
         "raw": "Hver fjerde søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6613,7 +7226,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6627,7 +7242,9 @@
         "raw": "Søndag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6641,7 +7258,9 @@
         "raw": "Tirsdag (annenhver)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6655,7 +7274,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6669,7 +7290,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6683,7 +7306,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6697,7 +7322,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6711,7 +7338,9 @@
         "raw": "Torsdag (siste i mnd)"
       },
       "category": "Allmenn (seriespill)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6724,7 +7353,9 @@
         "raw": "Torsdag (eller fredag)"
       },
       "category": "Allmenn (noen unntak)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6738,7 +7369,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmennn (max 6 per lag)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6752,7 +7385,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6766,7 +7401,9 @@
         "raw": "Onsdag (siste i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6780,7 +7417,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6794,7 +7433,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6808,7 +7449,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6822,7 +7465,9 @@
         "raw": "Tirsdag"
       },
       "category": "Musikkquiz",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6836,7 +7481,9 @@
         "raw": "Mandag (den første i hver måned)"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6850,7 +7497,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6864,7 +7513,9 @@
         "raw": "Mandag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6878,7 +7529,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6892,7 +7545,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn (?)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6906,7 +7561,9 @@
         "raw": "Torsdag (annenhver, ulik uke)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6920,7 +7577,9 @@
         "raw": "Mandag (den andre i hver måned)"
       },
       "category": "Engelsk allmennquiz (internasjonal quiz)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6934,7 +7593,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6948,7 +7609,10 @@
         "raw": "Onsdag (oddetallsuker)"
       },
       "category": "Allmenn med musikk",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn",
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6962,7 +7626,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn (in English)",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6976,7 +7642,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -6990,7 +7658,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7004,7 +7674,9 @@
         "raw": "Torsdag (oddetallsuker)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7018,7 +7690,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7032,7 +7706,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7046,7 +7722,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7060,7 +7738,9 @@
         "raw": "Annenhver torsdag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7074,7 +7754,9 @@
         "raw": "Tirsdag"
       },
       "category": "Studentquiz/temaquiz",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7088,7 +7770,9 @@
         "raw": "Annenhver mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7101,7 +7785,9 @@
         "raw": "Omtrent én gang per måned (sjekk facebookgruppa «Spillquiz i Tromsø»)"
       },
       "category": "Videospill",
-      "categoryNorm": "annet",
+      "categoryNorm": [
+        "annet"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7115,7 +7801,9 @@
         "raw": "Sporadiske søndager"
       },
       "category": "Allmenn/tema",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7129,7 +7817,9 @@
         "raw": "Annenhver torsdag"
       },
       "category": "Film og TV",
-      "categoryNorm": "film",
+      "categoryNorm": [
+        "film"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7143,7 +7833,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7157,7 +7849,9 @@
         "raw": "Tirsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7171,7 +7865,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7185,7 +7881,9 @@
         "raw": "Mandag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7199,7 +7897,9 @@
         "raw": "Tirsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7213,7 +7913,9 @@
         "raw": "Mandag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7227,7 +7929,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7241,7 +7945,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7255,7 +7961,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7269,7 +7977,9 @@
         "raw": "Fredag"
       },
       "category": "Musikk",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7283,7 +7993,9 @@
         "raw": "Torsdag (vanligvis)"
       },
       "category": "Popkultur-temaquiz. Blir holdt sporadisk 1-2 gonger i månaden.",
-      "categoryNorm": "musikk",
+      "categoryNorm": [
+        "musikk"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7297,7 +8009,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7311,7 +8025,9 @@
         "raw": "Fredag (siste i måneden)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7325,7 +8041,9 @@
         "raw": "Fredag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7339,7 +8057,9 @@
         "raw": "Torsdag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7353,7 +8073,9 @@
         "raw": "Torsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7367,7 +8089,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7381,7 +8105,9 @@
         "raw": "Fredag (annenhver)"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     },
     {
@@ -7395,7 +8121,9 @@
         "raw": "Onsdag"
       },
       "category": "Allmenn",
-      "categoryNorm": "allmenn",
+      "categoryNorm": [
+        "allmenn"
+      ],
       "lastSeen": "2026-07-28"
     }
   ]

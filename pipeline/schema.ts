@@ -87,7 +87,12 @@ export const QuizSchema = z.object({
   recurrence: RecurrenceSchema,
   /** Original category text from the source. */
   category: z.string(),
-  categoryNorm: CategoryNormSchema,
+  /**
+   * Every genre the row names, deduplicated and ordered by CATEGORY_NORMS. A row can
+   * legitimately be both, e.g. "Allmenn/film/musikk", so a single value would drop data
+   * a genre filter needs.
+   */
+  categoryNorm: CategoryNormSchema.array().nonempty(),
   note: z.string().optional(),
   /** ISO date (YYYY-MM-DD) of the last scrape that still contained this quiz. */
   lastSeen: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),

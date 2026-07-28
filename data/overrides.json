@@ -1,1 +1,38 @@
-{ "venues": {}, "quizzes": {} }
+{
+  "_note": {
+    "bruk": "Handkorrigeringer. Nokkel er quiz-id eller sted-id fra data/quizzes.json. Alt som star her vinner over det som er skrapet. _note ignoreres av skjemaet.",
+    "start-her": "Den mest lonnsomme gruppa a handkuratere forst er quizer som har ukedag, men ikke sier hvilken uke i maneden. De er den storste enkeltgruppa blant de 20 irregulaere: 12 quizer fordelt pa 10 distinkte strenger, og 10 av dem har allerede ukedag. Mangler bare uke-nummeret, sa ett oppslag mot arrangorens Facebook-side per sted gir en komplett recurrence.",
+    "gruppe-mangler-ukenummer": [
+      "Fredag (månedlig)",
+      "Fredag (én gang per måned)",
+      "Lørdag (månedlig)",
+      "Lørdag (én gang i måneden)",
+      "Mandag (én gang i måneden)",
+      "Mandag (én gang per måned)",
+      "Tirsdag (én gang per måned)",
+      "En torsdag i måneden (varierer)",
+      "En gang i måneden",
+      "Omtrent én gang per måned (sjekk facebookgruppa «Spillquiz i Tromsø»)"
+    ],
+    "resten-av-de-irregulaere": {
+      "flere-ukedager": ["Mandag (og fredag)", "Torsdag (eller fredag)", "Mandag (Søndag)"],
+      "uten-fast-plan": ["Tirsdag (utvalgte)", "Torsdag (utvalgte)"],
+      "tvetydig-intervall": ["Hver fjerde søndag", "Torsdag (hver tredje)", "Torsdag (hver fjerde)"]
+    },
+    "advarsel": "Ikke gjett. Sett bare inn en recurrence her nar planen er bekreftet hos arrangoren - en feil RRULE sender folk pa pub feil kveld.",
+    "eksempel": {
+      "quizzes": {
+        "oslo-eksempelpuben-mandag-19-00": {
+          "recurrence": {
+            "kind": "monthly-nth",
+            "rrule": "FREQ=MONTHLY;BYDAY=MO;BYSETPOS=1",
+            "raw": "Mandag (én gang per måned)"
+          },
+          "note": "Første mandag i måneden, bekreftet hos arrangøren 2026-07-28."
+        }
+      }
+    }
+  },
+  "venues": {},
+  "quizzes": {}
+}
