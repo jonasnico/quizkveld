@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { Venue } from "../../../pipeline/schema.js";
-import { buildPlaceSlugs, formerFylker, fylkeOf, invert, legacyFylker } from "../place.js";
+import { buildPlaceSlugs, formerFylker, fylkeOf, invert } from "../place.js";
 
 function venue(id: string, kommune: string, fylke: string, fylkeNow?: string): Venue {
   return { id, name: id, rawName: id, kommune, fylke, ...(fylkeNow ? { fylkeNow } : {}) };
@@ -115,59 +115,5 @@ describe("invert", () => {
   it("maps a slug back to the source spelling", () => {
     const { bySted } = buildPlaceSlugs([venue("v1", "Tromsø", "Troms")]);
     expect(invert(bySted).get("tromsoe")).toBe("Tromsø");
-  });
-});
-
-describe("legacyFylker", () => {
-  it("points a dissolved county at the one it became", () => {
-    const [oppland] = legacyFylker([
-      venue("v1", "Bergen", "Hordaland", "Vestland"),
-      venue("v2", "Voss", "Hordaland", "Vestland"),
-    ]);
-    expect(oppland?.slug).toBe("hordaland");
-    expect(oppland?.name).toBe("Hordaland");
-    expect(oppland?.targets.map((t) => t.fylke)).toEqual(["Vestland"]);
-  });
-
-  it("never shadows a county that still exists", () => {
-    // Akershus, Oslo and Svalbard are named by the source and are still real. A redirect on
-    // those slugs would hide the actual page behind a forward to itself.
-    expect(legacyFylker([venue("v1", "Sandnesseter", "Akershus")])).toEqual([]);
-    expect(legacyFylker([venue("v2", "Longyearbyen", "Svalbard", "Svalbard")])).toEqual([]);
-  });
-
-  it("keeps both successors when a county was split", () => {
-    // Oppland is the only split in the live data: most went to Innlandet, Jevnaker went
-    // Oppland -> Viken -> Akershus. Both have to survive, or the minority is stranded.
-    const [oppland] = legacyFylker([
-      venue("v1", "Lillehammer", "Oppland", "Innlandet"),
-      venue("v2", "Otta", "Oppland", "Innlandet"),
-      venue("v3", "Jevnaker", "Oppland", "Akershus"),
-    ]);
-    expect(oppland?.targets.map((t) => [t.fylke, t.count])).toEqual([
-      ["Innlandet", 2],
-      ["Akershus", 1],
-    ]);
-  });
-
-  it("orders targets by size so the page does not reshuffle between scrapes", () => {
-    // Same venues, opposite order in the array. Ordering must come from the counts, not from
-    // whichever row the source happened to list last.
-    const forwards = legacyFylker([
-      venue("v1", "Lillehammer", "Oppland", "Innlandet"),
-      venue("v2", "Jevnaker", "Oppland", "Akershus"),
-      venue("v3", "Otta", "Oppland", "Innlandet"),
-    ]);
-    const backwards = legacyFylker([
-      venue("v3", "Otta", "Oppland", "Innlandet"),
-      venue("v2", "Jevnaker", "Oppland", "Akershus"),
-      venue("v1", "Lillehammer", "Oppland", "Innlandet"),
-    ]);
-    expect(forwards[0]?.targets.map((t) => t.fylke)).toEqual(["Innlandet", "Akershus"]);
-    expect(backwards[0]?.targets.map((t) => t.fylke)).toEqual(["Innlandet", "Akershus"]);
-  });
-
-  it("disappears on its own if the source modernises", () => {
-    expect(legacyFylker([venue("v1", "Bergen", "Vestland", "Vestland")])).toEqual([]);
   });
 });

@@ -8,54 +8,26 @@ import { loadSiteData } from "../../lib/data.js";
 import { osloDate } from "../../lib/date.js";
 import { isUndated, occursOn } from "../../lib/occurrence.js";
 import { placeSummary } from "../../lib/model.js";
-import { formerFylker, fylkeOf, legacyFylker, type LegacyTarget } from "../../lib/place.js";
+import { formerFylker, fylkeOf } from "../../lib/place.js";
 import { quizCount } from "../../lib/format.js";
 import { href } from "../../lib/url.js";
 
-/**
- * Counties, plus a page for every county the source still names but that no longer exists.
- * Both are derived from the data, so they appear and disappear on their own.
- *
- * The legacy pages and the "Tidligere ..." line on the county page solve different problems.
- * A redirect catches an old bookmark; the sentence helps someone who never had one and is
- * just reading the county list, wondering where Hordaland went.
- */
 export const getStaticPaths = (async () => {
   const { items, slugs, venues } = await loadSiteData();
   const former = formerFylker(venues);
 
-  const counties = [...slugs.byFylke].map(([fylke, slug]) => ({
+  return [...slugs.byFylke].map(([fylke, slug]) => ({
     params: { fylke: slug },
     props: {
       fylke,
       items: items.filter((item) => fylkeOf(item.venue) === fylke),
       former: former.get(fylke) ?? [],
-      legacyName: null as string | null,
-      targets: [] as LegacyTarget[],
     },
   }));
-
-  const legacy = legacyFylker(venues).map((old) => ({
-    params: { fylke: old.slug },
-    props: {
-      fylke: old.targets[0]?.fylke ?? "",
-      items: [],
-      former: [] as string[],
-      legacyName: old.name,
-      targets: old.targets,
-    },
-  }));
-
-  return [...counties, ...legacy];
 }) satisfies GetStaticPaths;
 
-const { fylke, items, former, legacyName, targets } = Astro.props;
+const { fylke, items, former } = Astro.props;
 const { slugs, meta } = await loadSiteData();
-
-// One successor means the old URL has an unambiguous home and can simply redirect. More than
-// one means it does not, and guessing would strand the minority.
-const redirectTo = legacyName && targets.length === 1 ? href("fylke", targets[0]!.slug) : null;
-const isSplit = legacyName !== null && targets.length > 1;
 
 // Reads as "tidligere Hordaland og Sogn og Fjordane" - the navigation is our derivation, so
 // the page names the source's own counties rather than quietly replacing them.
@@ -70,55 +42,7 @@ const irregular = items.filter((item) => isUndated(item.quiz));
 const places = placeSummary(items);
 ---
 
-{
-  redirectTo ? (
-    <html lang="nb">
-      <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="refresh" content={`0; url=${redirectTo}`} />
-        <link rel="canonical" href={redirectTo} />
-        <meta name="robots" content="noindex, follow" />
-        <title>{legacyName} heter nå {fylke} – quizkveld</title>
-      </head>
-      <body>
-        <p>
-          {legacyName} ble slått sammen i 2020. Quizene ligger nå under{" "}
-          <a href={redirectTo}>{fylke}</a>.
-        </p>
-      </body>
-    </html>
-  ) : isSplit ? (
-    <Base
-      title={`${legacyName} ble delt – quizkveld`}
-      description={`${legacyName} ble delt i 2020. Se hvor quizene ligger nå.`}
-      generatedAt={meta.generatedAt}
-      sourceUpdatedAt={meta.sourceUpdatedAt}
-    >
-      <p class="breadcrumbs">
-        <a href={href()}>Forsiden</a> › <a href={href("steder")}>Steder</a> ›{" "}
-        <span>{legacyName}</span>
-      </p>
-
-      <div class="intro">
-        <h1>{legacyName} ble delt i 2020</h1>
-        <p>
-          Kilden fører fortsatt steder under {legacyName}, men fylket finnes ikke lenger, og
-          det ble ikke til ett nytt fylke. Derfor sender vi deg ikke videre av oss selv – da
-          ville noen havnet feil.
-        </p>
-        <ul class="place-grid">
-          {targets.map((target) => (
-            <li>
-              <a href={href("fylke", target.slug)}>{target.fylke}</a>{" "}
-              <span class="place-grid__count">({target.count} steder)</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Base>
-  ) : (
-    <Base
+<Base
   title={`Pubquiz i ${fylke} – quizkveld`}
   description={`Alle pubquizer i ${fylke}, sted for sted.`}
   generatedAt={meta.generatedAt}
@@ -164,6 +88,4 @@ const places = placeSummary(items);
   />
 
   <IrregularSection items={irregular} slugs={slugs} grouping="sted" scope={`i ${fylke}`} />
-    </Base>
-  )
-}
+</Base>

@@ -112,10 +112,8 @@ export function buildPlaceSlugs(venues: Venue[]): PlaceSlugs {
  *
  * Navigation is our derivation, so the page says so out loud: "Vestland - tidligere
  * Hordaland og Sogn og Fjordane". That helps someone who knows the old name, and it explains
- * why the source's own text further down the page says something else.
- *
- * This is the half a redirect cannot do: someone reading the county list never clicked an
- * old URL, so nothing would ever redirect her. The two mechanisms solve different problems.
+ * why the source's own text further down the page says something else. A redirect would have
+ * hidden that difference; a sentence explains it.
  *
  * Derived, like everything else here: a county that is not renamed produces no entry, so
  * these disappear on their own if the source ever modernises its spelling.
@@ -133,58 +131,6 @@ export function formerFylker(venues: Venue[]): Map<string, string[]> {
   return new Map(
     [...former].map(([now, names]) => [now, [...names].sort((a, b) => a.localeCompare(b, "nb"))]),
   );
-}
-
-/** Where a county the source still names has ended up, and how much of it went there. */
-export type LegacyTarget = { fylke: string; slug: string; count: number };
-
-/** A county the site once published a page for, and where that content lives now. */
-export type LegacyFylke = { name: string; slug: string; targets: LegacyTarget[] };
-
-/**
- * The counties the source still names but that no longer exist, with their successors.
- *
- * Derived from the data rather than written down: for every venue whose `fylke` slugs
- * differently from its `fylkeOf`, the old slug points at the new one. If the source renames
- * something again, or a county we redirect away from comes back, this follows along without
- * anyone editing a table - the same reason we trust `fylkeNow` in the first place.
- *
- * A legacy name that is still a current county (Akershus, Svalbard, Oslo) never appears, or
- * it would shadow the real page.
- *
- * Targets are sorted by how much of the old county went there, ties broken alphabetically,
- * so the order does not move between scrapes. Most old counties have exactly one target and
- * become a redirect. Oppland has two - it went mostly to Innlandet, but Jevnaker went
- * Oppland -> Viken -> Akershus - and a URL cannot point two ways at once. Rather than
- * redirect to the majority and quietly strand the other two venues, a split county gets a
- * page that names both. Sending someone confidently to the wrong county is the failure this
- * whole site is built to avoid.
- */
-export function legacyFylker(venues: Venue[]): LegacyFylke[] {
-  const current = buildPlaceSlugs(venues).byFylke;
-  const live = new Set(current.values());
-
-  const tally = new Map<string, { name: string; targets: Map<string, number> }>();
-  for (const venue of venues) {
-    const from = slug(venue.fylke);
-    const to = fylkeOf(venue);
-    const toSlug = current.get(to);
-    if (!from || !toSlug || from === toSlug || live.has(from)) continue;
-
-    const entry = tally.get(from) ?? { name: venue.fylke, targets: new Map<string, number>() };
-    entry.targets.set(to, (entry.targets.get(to) ?? 0) + 1);
-    tally.set(from, entry);
-  }
-
-  return [...tally]
-    .map(([slugged, { name, targets }]) => ({
-      name,
-      slug: slugged,
-      targets: [...targets]
-        .map(([fylke, count]) => ({ fylke, slug: current.get(fylke) ?? "", count }))
-        .sort((a, b) => b.count - a.count || a.fylke.localeCompare(b.fylke, "nb")),
-    }))
-    .sort((a, b) => a.slug.localeCompare(b.slug, "nb"));
 }
 
 /** Inverts a slug map so a page can go from URL segment back to the source spelling. */

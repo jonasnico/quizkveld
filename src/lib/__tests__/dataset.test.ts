@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 import { QuizDataSchema } from "../../../pipeline/schema.js";
 import { addDays, weekWindow } from "../date.js";
 import { caveatOf, hasCategoryCaveat, hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
-import { buildPlaceSlugs, formerFylker, fylkeOf, legacyFylker } from "../place.js";
+import { buildPlaceSlugs, formerFylker, fylkeOf } from "../place.js";
 import { countByCategory, joinQuizzes, partitionByFreshness, sortQuizzes } from "../model.js";
 
 /**
@@ -307,31 +307,6 @@ describe("county navigation follows today's map", () => {
     const { byFylke } = buildPlaceSlugs(data.venues);
     const stranded = data.venues.filter((venue) => !byFylke.get(fylkeOf(venue)));
     expect(stranded.map((venue) => venue.name)).toEqual([]);
-  });
-
-  it("leaves a page behind on every county URL it stopped publishing", () => {
-    // The site published these eight slugs before the change. An old link should land
-    // somewhere useful rather than on a 404.
-    const legacy = legacyFylker(data.venues);
-    const covered = new Set(legacy.map((old) => old.name));
-    const renamed = DISSOLVED_2020.filter((name) =>
-      data.venues.some((venue) => venue.fylke === name),
-    );
-    expect([...renamed].filter((name) => !covered.has(name))).toEqual([]);
-  });
-
-  it("never sends a split county's URL to just one of its halves", () => {
-    // Oppland went mostly to Innlandet, but Jevnaker went to Akershus. Redirecting the URL
-    // to the majority would strand those venues' visitors in a county they are not in - a
-    // confident answer that is wrong for a minority, which is the failure mode this whole
-    // site is built around.
-    const split = legacyFylker(data.venues).filter((old) => old.targets.length > 1);
-    expect(split.map((old) => old.name)).toEqual(["Oppland"]);
-    for (const old of split) {
-      const total = old.targets.reduce((sum, target) => sum + target.count, 0);
-      const venues = data.venues.filter((venue) => venue.fylke === old.name);
-      expect(total, old.name).toBe(venues.length);
-    }
   });
 
   it("navigates to every venue, so none can drop out quietly", () => {
