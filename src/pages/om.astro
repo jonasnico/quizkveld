@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { loadSiteData } from "../lib/data.js";
-import { REPO_URL, SOURCE_NAME, SOURCE_URL } from "../lib/source.js";
+import { REPO_URL, SOURCE_EMAIL, SOURCE_NAME, SOURCE_URL, reportUrl } from "../lib/source.js";
 import { longDate, quizCount, timestampLabel, venueCount } from "../lib/format.js";
 import { hasCaveat, isUndated } from "../lib/occurrence.js";
 import { placeSummary } from "../lib/model.js";
@@ -38,6 +38,26 @@ const caveated = items.filter(
       samler ikke inn noe selv – all informasjon om hvor og når det er quiz kommer fra
       <a href={SOURCE_URL} rel="noopener external">deres oversikt</a>, som frivillige holder
       oppdatert på dugnad. Uten den jobben finnes ikke dette nettstedet.
+    </p>
+
+    <h2>Vi eier ingen opplysninger</h2>
+    <p>
+      quizkveld er et speil, ikke en kilde. Alt vi legger til er utregnet fra det kilden
+      allerede sier – ukedager gjort om til datoer, sjangre satt i bås, adresser til
+      lenkevennlige navn. Det kan regnes ut på nytt når som helst, og retter seg selv neste
+      gang kilden endrer seg.
+    </p>
+    <p>
+      Det vi <em>ikke</em> gjør, er å holde egne påstander om når en quiz går. En rettelse
+      vi noterte her ville stått og råtnet uten at noen fikk vite det, og den ville sagt noe
+      annet enn kilden uten at noen kunne avgjøre hvem som hadde rett. Ser du en feil, hører
+      den hjemme hos dem som fører lista:
+    </p>
+    <p>
+      <a href={reportUrl("Retting i pubquiz-oversikten")}>Meld feil til {SOURCE_NAME}</a>
+      {" "}({SOURCE_EMAIL}) – adressen kilden selv oppgir. Vi har med vilje ikke noe
+      forslagsskjema her: det ville sett ut som hjelp, men i praksis laget en kø av
+      meldinger ingen har myndighet til å avgjøre.
     </p>
 
     <h2>Data og oppdatering</h2>

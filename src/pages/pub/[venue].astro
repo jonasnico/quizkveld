@@ -8,6 +8,7 @@ import { osloDate, weekWindow } from "../../lib/date.js";
 import { occursOn } from "../../lib/occurrence.js";
 import { dayHeading, quizCount } from "../../lib/format.js";
 import { href } from "../../lib/url.js";
+import { SOURCE_NAME, reportUrl } from "../../lib/source.js";
 
 export const getStaticPaths = (async () => {
   const { items, staleItems, venues } = await loadSiteData();
@@ -26,6 +27,10 @@ const { venue, items, staleItems } = Astro.props;
 const { slugs, meta } = await loadSiteData();
 
 const stedSlug = slugs.bySted.get(venue.kommune) ?? "";
+const reportHref = reportUrl(
+  `Retting: ${venue.name}, ${venue.kommune}`,
+  `Gjelder ${venue.name} i ${venue.kommune} (${venue.fylke}), som står oppført i pubquiz-oversikten deres.\n\nHva som er feil:\n`,
+);
 const today = osloDate();
 const upcoming = weekWindow(today)
   .map((date) => ({ date, on: items.filter((item) => occursOn(item.quiz, date)) }))
@@ -55,7 +60,7 @@ const upcoming = weekWindow(today)
       venue.url && (
         <p>
           <a href={venue.url} rel="noopener nofollow external">
-            Stedets egen side
+            Nettside
           </a>{" "}
           <span class="place-grid__count">
             – lenke oppgitt av kilden. En del av dem er utdaterte, så den kan være død.
@@ -64,6 +69,14 @@ const upcoming = weekWindow(today)
       )
     }
   </div>
+
+  <p class="report">
+    <a href={reportHref}>Meld feil om {venue.name} til {SOURCE_NAME}</a>
+    <span class="place-grid__count">
+      – vi eier ikke opplysningene og kan ikke rette dem selv. Kilden ber om rettelser på
+      denne adressen, og stedet er fylt inn på forhånd.
+    </span>
+  </p>
 
   <h2>Quizer her</h2>
   <QuizList

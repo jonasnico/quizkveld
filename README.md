@@ -42,6 +42,30 @@ går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
 Sider: `/` (i kveld), `/i-morgen/`, `/denne-uka/`, `/steder/`, `/sted/<sted>/`,
 `/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~450 statiske sider totalt.
 
+### Vi er et speil, aldri en kilde
+
+quizkveld eier ingen opplysninger om quizer. Vi er en visning av Norges Quizforbunds
+liste. Alt vi legger til skal være **avledet**: slugger, kategorier, RRULE-er, og senere
+koordinater. Avledede data kan regnes ut på nytt fra kilden og reparerer seg selv når
+kilden endrer seg. Håndplukkede påstander («denne er egentlig første mandag, jeg sjekket»)
+holder vi ikke — de råtner stille, og ingen forteller oss det.
+
+Praktiske konsekvenser i UI-et:
+
+- `certain` / `likely` / `undated` og «sjekk selv»-merket er **policy**, ikke pynt. Det er
+  mekanismen som gjør at vi aldri påstår mer enn kilden faktisk vet. Samme for
+  «Uregelmessige quizer», som gjengir `recurrence.raw` ordrett.
+- Attribusjon, kildens `sourceUpdatedAt` (ikke vår `generatedAt`) og «sjekk med
+  arrangøren» står i bunnteksten på **hver** side, ikke bare på `/om/`.
+- Rettelser går oppstrøms via `mailto:` til `admin@norgesquizforbund.no` — generelt i
+  bunnteksten, og med stedet forhåndsutfylt på hver pub-side (`reportUrl()` i
+  `src/lib/source.ts`).
+- **Vi samler ikke inn brukerkorreksjoner selv.** Ingen skjemaer, forslagsbokser eller
+  kommentarer. Det ser ut som det fordeler arbeidet, men gir i praksis moderering, spam og
+  motstridende rapporter vi må ta stilling til uten å ha grunnlag for det.
+- `venue.url` presenteres nøytralt som «Nettside», aldri «offisiell side». Kilden merker
+  døde lenker `broken_link` og vi lagrer dem uansett, så en del av de 229 virker ikke.
+
 ### Tidssone
 
 «I kveld» regnes alltid i Europe/Oslo med `Intl`, aldri med `new Date().getDay()`. CI

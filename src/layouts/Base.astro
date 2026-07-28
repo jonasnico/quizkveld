@@ -1,5 +1,5 @@
 ---
-import { SOURCE_URL } from "../lib/source.js";
+import { SOURCE_URL, reportUrl } from "../lib/source.js";
 import { longDate, timestampLabel } from "../lib/format.js";
 import { href } from "../lib/url.js";
 import "../styles/global.css";
@@ -14,6 +14,8 @@ interface Props {
 }
 
 const { title, description, generatedAt, sourceUpdatedAt, current } = Astro.props;
+
+const reportHref = reportUrl("Retting i pubquiz-oversikten");
 
 const nav = [
   { key: "i-kveld", label: "I kveld", url: href() },
@@ -77,10 +79,14 @@ const nav = [
               : "Kilden oppgir ikke når oversikten sist ble oppdatert."
           }
           {` Vi hentet den ${timestampLabel(generatedAt)}.`}
+          {" "}Quizer avlyses og flyttes uten at oversikten rekker å bli rettet, så sjekk
+          med arrangøren før du drar.
         </p>
         <p>
-          Ser du en feil? Rettelser i selve oversikten hører hjemme hos Norges Quizforbund.
-          Er det <em>nettstedet</em> som viser noe rart, ta det gjerne på
+          Er noe feil i selve oversikten – tidspunkt, sted eller en quiz som ikke finnes
+          lenger – meld det til
+          <a href={reportHref}>Norges Quizforbund</a>. De eier lista, vi viser den bare
+          fram. Er det <em>nettstedet</em> som oppfører seg rart, ta det på
           <a href="https://github.com/verdensherredomme/quizkveld/issues" rel="noopener external">
             GitHub
           </a>. Les mer på <a href={href("om")}>om-siden</a>.
