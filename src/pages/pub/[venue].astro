@@ -59,6 +59,10 @@ const upcoming = weekWindow(today)
     <p>
       {venue.kommune}, {fylke}. {quizCount(items.length)} oppført.
       {venue.addressHint && ` Adresse oppgitt av kilden: ${venue.addressHint}.`}
+      {
+        venue.fylke !== fylke &&
+          ` Kilden fører stedet under ${venue.fylke}, som var fylket før sammenslåingen i 2020.`
+      }
     </p>
     {
       venue.url && (

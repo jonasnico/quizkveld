@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { Venue } from "../../../pipeline/schema.js";
-import { buildPlaceSlugs, fylkeOf, invert, legacyFylkeSlugs } from "../place.js";
+import { buildPlaceSlugs, formerFylker, fylkeOf, invert } from "../place.js";
 
 function venue(id: string, kommune: string, fylke: string, fylkeNow?: string): Venue {
   return { id, name: id, rawName: id, kommune, fylke, ...(fylkeNow ? { fylkeNow } : {}) };
@@ -19,44 +19,34 @@ describe("fylkeOf", () => {
   });
 });
 
-describe("legacyFylkeSlugs", () => {
-  it("points a dissolved county at the one that replaced it", () => {
-    const redirects = legacyFylkeSlugs([
+describe("formerFylker", () => {
+  it("names the source's counties that a current one now covers", () => {
+    const former = formerFylker([
       venue("v1", "Bergen", "Hordaland", "Vestland"),
       venue("v2", "Førde", "Sogn og Fjordane", "Vestland"),
+      venue("v3", "Voss", "Hordaland", "Vestland"),
     ]);
-    expect(redirects.get("hordaland")).toBe("vestland");
-    expect(redirects.get("sogn-og-fjordane")).toBe("vestland");
+    expect(former.get("Vestland")).toEqual(["Hordaland", "Sogn og Fjordane"]);
   });
 
-  it("never redirects a name that is still a county of its own", () => {
-    // Akershus and Svalbard appear as both the old and the new name. A redirect here would
-    // shadow the real page and take its content offline.
-    const redirects = legacyFylkeSlugs([
-      venue("v1", "Lørenskog", "Akershus", "Akershus"),
+  it("says nothing about a county the source already names correctly", () => {
+    // Oslo and Svalbard kept their names, so there is nothing to explain.
+    const former = formerFylker([
+      venue("v1", "Oslo", "Oslo", "Oslo"),
       venue("v2", "Longyearbyen", "Svalbard", "Svalbard"),
     ]);
-    expect(redirects.size).toBe(0);
+    expect(former.size).toBe(0);
   });
 
-  it("sends a split county where most of its content went, whatever the row order", () => {
+  it("lists an old county under both counties it was split between", () => {
     // Oppland went mostly to Innlandet, but Jevnaker went Oppland -> Viken -> Akershus.
-    // A URL can only point one way, and it must not depend on how the source sorted its
-    // table today.
-    const rows = [
+    // Both new pages should be able to say where their content came from.
+    const former = formerFylker([
       venue("v1", "Lillehammer", "Oppland", "Innlandet"),
-      venue("v2", "Gjøvik", "Oppland", "Innlandet"),
-      venue("v3", "Jevnaker", "Oppland", "Akershus"),
-    ];
-    expect(legacyFylkeSlugs(rows).get("oppland")).toBe("innlandet");
-    expect(legacyFylkeSlugs([...rows].reverse()).get("oppland")).toBe("innlandet");
-  });
-
-  it("disappears on its own once the source stops using the old name", () => {
-    // Nothing here is maintained by hand, so a source that starts writing modern names
-    // simply stops producing redirects.
-    const redirects = legacyFylkeSlugs([venue("v1", "Bergen", "Vestland", "Vestland")]);
-    expect(redirects.size).toBe(0);
+      venue("v2", "Jevnaker", "Oppland", "Akershus"),
+    ]);
+    expect(former.get("Innlandet")).toEqual(["Oppland"]);
+    expect(former.get("Akershus")).toEqual(["Oppland"]);
   });
 });
 

@@ -108,44 +108,29 @@ export function buildPlaceSlugs(venues: Venue[]): PlaceSlugs {
 }
 
 /**
- * Slugs the site used to publish for counties that no longer exist, mapped to where that
- * content lives now.
+ * For each current county, the names the source still uses for parts of it.
  *
- * Derived from the data rather than written down: for every venue whose `fylke` slugs
- * differently from its `fylkeOf`, the old slug points at the new one. If the source renames
- * something again, or if a county we redirect away from comes back, this follows along
- * without anyone editing a table - the same reason we trust `fylkeNow` in the first place.
+ * Navigation is our derivation, so the page says so out loud: "Vestland - tidligere
+ * Hordaland og Sogn og Fjordane". That helps someone who knows the old name, and it explains
+ * why the source's own text further down the page says something else. A redirect would have
+ * hidden that difference; a sentence explains it.
  *
- * A legacy name that is still a current county (Akershus, Svalbard, Oslo) is never a
- * redirect, or it would shadow the real page.
- *
- * One old county can split across two new ones: Oppland went mostly to Innlandet, but
- * Jevnaker went Oppland -> Viken -> Akershus. A URL can only point one way, so it points
- * where most of the content went, ties broken alphabetically. Choosing by count rather than
- * by whichever row happened to come last keeps the URL stable across scrapes, which is the
- * same reason `buildSlugMap` sorts its input.
+ * Derived, like everything else here: a county that is not renamed produces no entry, so
+ * these disappear on their own if the source ever modernises its spelling.
  */
-export function legacyFylkeSlugs(venues: Venue[]): Map<string, string> {
-  const current = buildPlaceSlugs(venues).byFylke;
-  const live = new Set(current.values());
-
-  const tally = new Map<string, Map<string, number>>();
+export function formerFylker(venues: Venue[]): Map<string, string[]> {
+  const former = new Map<string, Set<string>>();
   for (const venue of venues) {
-    const from = slug(venue.fylke);
-    const to = current.get(fylkeOf(venue));
-    if (!from || !to || from === to || live.has(from)) continue;
-
-    const targets = tally.get(from) ?? new Map<string, number>();
-    targets.set(to, (targets.get(to) ?? 0) + 1);
-    tally.set(from, targets);
+    const now = fylkeOf(venue);
+    if (venue.fylke === now) continue;
+    const names = former.get(now) ?? new Set<string>();
+    names.add(venue.fylke);
+    former.set(now, names);
   }
 
-  const chosen = [...tally].map(([from, targets]) => {
-    const best = [...targets].sort(([aTo, aN], [bTo, bN]) => bN - aN || (aTo < bTo ? -1 : 1));
-    return [from, best[0]![0]] as const;
-  });
-
-  return new Map(chosen.sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
+  return new Map(
+    [...former].map(([now, names]) => [now, [...names].sort((a, b) => a.localeCompare(b, "nb"))]),
+  );
 }
 
 /** Inverts a slug map so a page can go from URL segment back to the source spelling. */

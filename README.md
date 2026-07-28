@@ -40,7 +40,7 @@ går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
 | `src/scripts/filters.ts` | Klientfilter som skjuler kort som allerede er sendt ut |
 
 Sider: `/` (i kveld), `/i-morgen/`, `/denne-uka/`, `/steder/`, `/sted/<sted>/`,
-`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~455 statiske sider totalt.
+`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~447 statiske sider totalt.
 
 ### Fylkene er dagens, ikke kildens
 
@@ -55,15 +55,22 @@ Oppland → Viken → Akershus, og enhver håndskrevet aliastabell ville sendt d
 sammen med resten av Oppland.
 
 Ett sted (Sandnesseter) mangler `fylkeNow` fordi Kartverket ikke kjenner stedet, og faller
-tilbake på kildens fylke framfor å forsvinne ut av navigasjonen. Svalbard trenger ingen
+tilbake på kildens fylke framfor å forsvinne ut av navigasjonen. En test teller at antall
+steder i navigasjonen er like høyt som antall steder totalt, slik at et stille bortfall
+fanges av seg selv neste gang Kartverket ikke kjenner et sted. Svalbard trenger ingen
 spesialhåndtering — det beholdt navnet sitt, så gammelt og nytt er samme streng.
 
-De gamle URL-ene omdirigeres, og `legacyFylkeSlugs()` utleder dem fra dataene på samme måte.
-De forsvinner altså av seg selv den dagen kilden skriver moderne navn. Et fylke som er delt
-i to peker dit mest av innholdet gikk, valgt på **antall** framfor radrekkefølge, slik at
-URL-en ikke flytter seg mellom to skrap.
+**Vi overskriver ikke kildens ord.** Fylkessida sier hvilke av kildens fylker den dekker
+(«Tidligere Hordaland og Sogn og Fjordane»), og pubsida sier det for stedet den gjelder. Det
+hjelper den som kjenner det gamle navnet, og det er ærlig om at inndelingen er vår avledning
+og ikke noe kilden har sagt. `formerFylker()` utleder linja fra dataene, så den forsvinner av
+seg selv den dagen kilden skriver moderne navn.
 
-Kildens egen skrivemåte står igjen i rettings-e-posten: den skal hjelpe en frivillig å finne
+Det er bevisst ingen omdirigeringssider fra de gamle URL-ene: sida hadde ingen innlenker da
+inndelingen ble byttet, så åtte ekstra sider ville vært vedlikehold uten mottaker. En setning
+som forklarer forskjellen er mer nyttig enn en omdirigering som skjuler den.
+
+Kildens egen skrivemåte står også i rettings-e-posten: den skal hjelpe en frivillig å finne
 raden i *deres* tabell, og deres tabell sier Hordaland.
 
 ### Vi er et speil, aldri en kilde

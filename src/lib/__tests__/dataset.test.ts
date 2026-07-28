@@ -5,8 +5,7 @@ import { describe, expect, it } from "vitest";
 import { QuizDataSchema } from "../../../pipeline/schema.js";
 import { addDays, weekWindow } from "../date.js";
 import { caveatOf, hasCategoryCaveat, hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
-import { buildPlaceSlugs, fylkeOf, legacyFylkeSlugs } from "../place.js";
-import { slug } from "../../../pipeline/slug.js";
+import { buildPlaceSlugs, formerFylker, fylkeOf } from "../place.js";
 import { countByCategory, joinQuizzes, partitionByFreshness, sortQuizzes } from "../model.js";
 
 /**
@@ -310,22 +309,32 @@ describe("county navigation follows today's map", () => {
     expect(stranded.map((venue) => venue.name)).toEqual([]);
   });
 
-  it("redirects every old county slug that no longer has a page", () => {
+  it("navigates to every venue, so none can drop out quietly", () => {
+    // The counting version of the test above. Silent loss has been the hardest failure to
+    // spot in this project, and it would look like nothing at all: Kartverket stops
+    // recognising a place, `fylkeNow` goes missing, and one venue is simply not on any page.
+    // A count that must add up catches that without anyone reading rows.
     const { byFylke } = buildPlaceSlugs(data.venues);
-    const live = new Set(byFylke.values());
-    const redirects = legacyFylkeSlugs(data.venues);
-
-    const orphaned = [...new Set(data.venues.map((venue) => slug(venue.fylke)))]
-      .filter((old) => !live.has(old))
-      .filter((old) => !redirects.has(old));
-    expect(orphaned, "gamle fylkes-URL-er uten omdirigering").toEqual([]);
+    const reachable = data.venues.filter((venue) => byFylke.has(fylkeOf(venue)));
+    expect(reachable.length).toBe(data.venues.length);
   });
 
-  it("never redirects onto a slug that is not a real page", () => {
+  it("keeps a venue Kartverket does not know under the source's county", () => {
+    // Grendehuset (Sandnesseter) has no `fylkeNow`. The fallback is what stops it vanishing.
+    const withoutLookup = data.venues.filter((venue) => !venue.fylkeNow);
+    for (const venue of withoutLookup) {
+      expect(fylkeOf(venue), venue.name).toBe(venue.fylke);
+    }
+  });
+
+  it("tells each county which of the source's counties it covers", () => {
+    // The navigation is our derivation, so the page has to say so rather than silently
+    // replacing the source's word.
+    const former = formerFylker(data.venues);
+    expect(former.get("Vestland")).toContain("Hordaland");
     const { byFylke } = buildPlaceSlugs(data.venues);
-    const live = new Set(byFylke.values());
-    for (const [from, to] of legacyFylkeSlugs(data.venues)) {
-      expect(live.has(to), `${from} -> ${to}`).toBe(true);
+    for (const name of former.keys()) {
+      expect(byFylke.has(name), name).toBe(true);
     }
   });
 });
