@@ -26,7 +26,10 @@ describe("formerFylker", () => {
       venue("v2", "Førde", "Sogn og Fjordane", "Vestland"),
       venue("v3", "Voss", "Hordaland", "Vestland"),
     ]);
-    expect(former.get("Vestland")).toEqual(["Hordaland", "Sogn og Fjordane"]);
+    expect(former.get("Vestland")).toEqual([
+      { fylke: "Hordaland", kommuner: [] },
+      { fylke: "Sogn og Fjordane", kommuner: [] },
+    ]);
   });
 
   it("says nothing about a county the source already names correctly", () => {
@@ -45,8 +48,43 @@ describe("formerFylker", () => {
       venue("v1", "Lillehammer", "Oppland", "Innlandet"),
       venue("v2", "Jevnaker", "Oppland", "Akershus"),
     ]);
-    expect(former.get("Innlandet")).toEqual(["Oppland"]);
-    expect(former.get("Akershus")).toEqual(["Oppland"]);
+    expect(former.get("Innlandet")).toEqual([{ fylke: "Oppland", kommuner: [] }]);
+    expect(former.get("Akershus")).toEqual([{ fylke: "Oppland", kommuner: [] }]);
+  });
+
+  it("reports a received municipality by name instead of claiming the county was renamed", () => {
+    // The bug this guards: with only the Jevnaker row above, Akershus looked renamed. Add
+    // the venues the source already files under Akershus - as the real data has 26 of - and
+    // "tidligere Oppland" becomes a plain falsehood about the county.
+    const former = formerFylker([
+      venue("v1", "Jevnaker", "Oppland", "Akershus"),
+      venue("v2", "Bærum", "Akershus", "Akershus"),
+      venue("v3", "Asker", "Akershus", "Akershus"),
+    ]);
+    expect(former.get("Akershus")).toEqual([{ fylke: "Oppland", kommuner: ["Jevnaker"] }]);
+  });
+
+  it("keeps the received municipality rather than dropping it to the majority successor", () => {
+    // Dropping it would strand someone looking for a Jevnaker venue under "Oppland": the
+    // other Oppland venues are in Innlandet, so no page would mention it at all.
+    const former = formerFylker([
+      venue("v1", "Lillehammer", "Oppland", "Innlandet"),
+      venue("v2", "Hamar", "Oppland", "Innlandet"),
+      venue("v3", "Jevnaker", "Oppland", "Akershus"),
+      venue("v4", "Bærum", "Akershus", "Akershus"),
+    ]);
+    expect(former.get("Akershus")?.map((f) => f.fylke)).toEqual(["Oppland"]);
+  });
+
+  it("names every municipality that moved in, sorted, so the sentence does not reshuffle", () => {
+    const former = formerFylker([
+      venue("v1", "Jevnaker", "Oppland", "Akershus"),
+      venue("v2", "Åsnes", "Oppland", "Akershus"),
+      venue("v3", "Bærum", "Akershus", "Akershus"),
+    ]);
+    expect(former.get("Akershus")).toEqual([
+      { fylke: "Oppland", kommuner: ["Jevnaker", "Åsnes"] },
+    ]);
   });
 });
 

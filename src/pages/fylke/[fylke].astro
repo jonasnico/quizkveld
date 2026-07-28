@@ -31,10 +31,13 @@ const { slugs, meta } = await loadSiteData();
 
 // Reads as "tidligere Hordaland og Sogn og Fjordane" - the navigation is our derivation, so
 // the page names the source's own counties rather than quietly replacing them.
-const formerLabel =
-  former.length > 1
-    ? `${former.slice(0, -1).join(", ")} og ${former.at(-1)}`
-    : (former[0] ?? null);
+const joinNb = (names: string[]) =>
+  names.length > 1 ? `${names.slice(0, -1).join(", ")} og ${names.at(-1)}` : (names[0] ?? null);
+
+// A renamed county can say "tidligere X"; one that merely received a municipality cannot,
+// because it still exists under its own name. See formerFylker for why they must differ.
+const renamedLabel = joinNb(former.filter((f) => f.kommuner.length === 0).map((f) => f.fylke));
+const received = former.filter((f) => f.kommuner.length > 0);
 
 const today = osloDate();
 const tonight = items.filter((item) => occursOn(item.quiz, today));
@@ -56,11 +59,18 @@ const places = placeSummary(items);
 
   <div class="intro">
     <h1>Pubquiz i {fylke}</h1>
-    {formerLabel && <p class="intro__former">Tidligere {formerLabel}.</p>}
+    {renamedLabel && <p class="intro__former">Tidligere {renamedLabel}.</p>}
+    {
+      received.map((entry) => (
+        <p class="intro__former">
+          {joinNb(entry.kommuner)} lå tidligere i {entry.fylke}.
+        </p>
+      ))
+    }
     <p>
       {quizCount(items.length)} på {places.length} steder.
       {
-        formerLabel &&
+        former.length > 0 &&
           ` Kilden bruker fortsatt fylkesnavnene fra før sammenslåingen i 2020; inndelingen her er dagens.`
       }
     </p>

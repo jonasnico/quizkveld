@@ -319,6 +319,37 @@ describe("county navigation follows today's map", () => {
     expect(reachable.length).toBe(data.venues.length);
   });
 
+  it("never claims a county was renamed when the source still uses its own name", () => {
+    // The falsehood this catches: Akershus received Jevnaker when Oppland was dissolved, but
+    // it was never called Oppland - 26 of its 28 venues are filed under Akershus by the
+    // source. "Tidligere Oppland" on that page would be a confident lie about our own
+    // derivation. A county that truly was renamed never appears under its own name.
+    const former = formerFylker(data.venues);
+    const own = new Set(data.venues.filter((v) => v.fylke === fylkeOf(v)).map((v) => fylkeOf(v)));
+    for (const [now, entries] of former) {
+      for (const entry of entries) {
+        expect(
+          entry.kommuner.length > 0,
+          `${now} claims "tidligere ${entry.fylke}" while the source also writes ${now}`,
+        ).toBe(own.has(now));
+      }
+    }
+  });
+
+  it("mentions every source county somewhere it actually has venues", () => {
+    // The reader this protects is the one who knows the old name. Reporting an old county
+    // only under its majority successor would leave Jevnaker unreachable from "Oppland",
+    // since Oppland's other six venues are in Innlandet - the same silent wrong answer that
+    // ruled out redirecting a split county to one destination.
+    const former = formerFylker(data.venues);
+    const missing = data.venues
+      .filter((venue) => venue.fylke !== fylkeOf(venue))
+      .filter(
+        (venue) => !former.get(fylkeOf(venue))?.some((entry) => entry.fylke === venue.fylke),
+      );
+    expect(missing.map((v) => `${v.name} (${v.fylke} -> ${fylkeOf(v)})`)).toEqual([]);
+  });
+
   it("keeps a venue Kartverket does not know under the source's county", () => {
     // Grendehuset (Sandnesseter) has no `fylkeNow`. The fallback is what stops it vanishing.
     const withoutLookup = data.venues.filter((venue) => !venue.fylkeNow);
@@ -331,7 +362,7 @@ describe("county navigation follows today's map", () => {
     // The navigation is our derivation, so the page has to say so rather than silently
     // replacing the source's word.
     const former = formerFylker(data.venues);
-    expect(former.get("Vestland")).toContain("Hordaland");
+    expect(former.get("Vestland")?.map((entry) => entry.fylke)).toContain("Hordaland");
     const { byFylke } = buildPlaceSlugs(data.venues);
     for (const name of former.keys()) {
       expect(byFylke.has(name), name).toBe(true);

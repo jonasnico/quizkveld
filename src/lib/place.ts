@@ -107,6 +107,18 @@ export function buildPlaceSlugs(venues: Venue[]): PlaceSlugs {
   };
 }
 
+/** A name the source still uses for part of a current county. */
+export interface FormerFylke {
+  /** The county name as the source writes it. */
+  fylke: string;
+  /**
+   * The municipalities that came from it, set only when this county also appears under its
+   * own name in the source. Empty means the whole county was renamed, so the page can say
+   * "tidligere X" outright.
+   */
+  kommuner: string[];
+}
+
 /**
  * For each current county, the names the source still uses for parts of it.
  *
@@ -115,21 +127,50 @@ export function buildPlaceSlugs(venues: Venue[]): PlaceSlugs {
  * why the source's own text further down the page says something else. A redirect would have
  * hidden that difference; a sentence explains it.
  *
+ * Two different things look alike here and must not be phrased alike. Vestland *was*
+ * Hordaland: the source never writes "Vestland", so every venue here carries an old name.
+ * Akershus was never Oppland - it still exists under its own name, and merely received
+ * Jevnaker when Oppland was dissolved. Saying "tidligere Oppland" on Akershus would be a
+ * plain falsehood about 26 of its 28 venues.
+ *
+ * The two are told apart by whether the source uses this county's own name at all. When it
+ * does, the old name is reported as the municipalities that moved in, which is both true and
+ * more useful: it names Jevnaker, which is what someone looking for Glassheim needs.
+ *
+ * Dropping the entry instead would strand exactly that reader - the same silent wrong answer
+ * that ruled out redirects, since Oppland's other six venues are in Innlandet.
+ *
  * Derived, like everything else here: a county that is not renamed produces no entry, so
  * these disappear on their own if the source ever modernises its spelling.
  */
-export function formerFylker(venues: Venue[]): Map<string, string[]> {
-  const former = new Map<string, Set<string>>();
+export function formerFylker(venues: Venue[]): Map<string, FormerFylke[]> {
+  const usesOwnName = new Set<string>();
+  const former = new Map<string, Map<string, Set<string>>>();
+
   for (const venue of venues) {
     const now = fylkeOf(venue);
-    if (venue.fylke === now) continue;
-    const names = former.get(now) ?? new Set<string>();
-    names.add(venue.fylke);
+    if (venue.fylke === now) {
+      usesOwnName.add(now);
+      continue;
+    }
+    const names = former.get(now) ?? new Map<string, Set<string>>();
+    const kommuner = names.get(venue.fylke) ?? new Set<string>();
+    kommuner.add(venue.kommune);
+    names.set(venue.fylke, kommuner);
     former.set(now, names);
   }
 
+  const byNb = (a: string, b: string) => a.localeCompare(b, "nb");
   return new Map(
-    [...former].map(([now, names]) => [now, [...names].sort((a, b) => a.localeCompare(b, "nb"))]),
+    [...former].map(([now, names]) => [
+      now,
+      [...names]
+        .map(([fylke, kommuner]) => ({
+          fylke,
+          kommuner: usesOwnName.has(now) ? [...kommuner].sort(byNb) : [],
+        }))
+        .sort((a, b) => byNb(a.fylke, b.fylke)),
+    ]),
   );
 }
 
