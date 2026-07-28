@@ -1,11 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { GeoCache } from "./geocode.js";
+import { loadAliasTable } from "./kommune.js";
 import { byId, normalizeRows, type NormalizeResult } from "./normalize.js";
 import { PATHS } from "./paths.js";
 import {
   OverridesSchema,
   QuizDataSchema,
+  type KommuneAliasFile,
   type Overrides,
   type ParseResult,
   type Quiz,
@@ -43,6 +45,8 @@ export interface BuildOptions {
   previous?: QuizData | null;
   overrides?: Overrides;
   geocache?: GeoCache | null;
+  /** Kommune alias table. Null means venues are built without kommuneNr/fylkeNow. */
+  alias?: KommuneAliasFile | null;
 }
 
 export interface BuildReport {
@@ -239,7 +243,9 @@ export async function build(
   options: BuildOptions = {},
 ): Promise<BuildOutcome> {
   const now = options.now ?? new Date();
-  const normalized = normalizeRows(parsed, now);
+  const alias =
+    options.alias !== undefined ? options.alias : await loadAliasTable();
+  const normalized = normalizeRows(parsed, now, alias);
 
   const previous =
     options.previous !== undefined

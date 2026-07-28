@@ -3,7 +3,7 @@ import { parseRecurrence, parseWeekday } from "./recurrence.js";
 import { makeUnique, quizId, venueId } from "./slug.js";
 import { normalizeTime } from "./time.js";
 import { cleanVenue } from "./venue.js";
-import type { ParseResult, Quiz, RawRow, Venue } from "./schema.js";
+import type { KommuneAliasFile, ParseResult, Quiz, RawRow, Venue } from "./schema.js";
 
 export interface NormalizeResult {
   venues: Venue[];
@@ -31,12 +31,14 @@ function isoDate(date: Date): string {
 export function normalizeRows(
   parsed: ParseResult,
   today: Date = new Date(),
+  alias: KommuneAliasFile | null = null,
 ): NormalizeResult {
   const warnings = [...parsed.warnings];
   const venues = new Map<string, Venue>();
   const quizzes: Quiz[] = [];
   const takenQuizIds = new Set<string>();
   const lastSeen = isoDate(today);
+  const unresolvedPlaces = new Set<string>();
 
   for (const row of parsed.rows) {
     const kommune = collapse(row.city);
@@ -70,6 +72,16 @@ export function normalizeRows(
         kommune,
         fylke,
       };
+      // The source's place name is kept exactly as typed - people search for "Greaaker"
+      // and the site shows it. The official kommune is added alongside it.
+      const resolved = alias?.aliases[kommune];
+      if (resolved?.kommuneNr && resolved.kommuneName) {
+        venue.kommuneNr = resolved.kommuneNr;
+        venue.kommuneName = resolved.kommuneName;
+        if (resolved.fylkeNavn) venue.fylkeNow = resolved.fylkeNavn;
+      } else if (alias) {
+        unresolvedPlaces.add(kommune);
+      }
       if (cleaned.addressHint) venue.addressHint = cleaned.addressHint;
       if (row.venueUrl) venue.url = row.venueUrl;
       venues.set(vId, venue);
@@ -99,7 +111,16 @@ export function normalizeRows(
     venues: [...venues.values()].sort(byId),
     quizzes: quizzes.sort(byId),
     sourceUpdatedAt: parsed.sourceUpdatedAt,
-    warnings,
+    warnings: [
+      ...warnings,
+      ...[...unresolvedPlaces]
+        .sort()
+        .map(
+          (place) =>
+            `Fant ingen offisiell kommune for stedsnavnet "${place}". ` +
+            `Stedene der blir staende uten koordinat.`,
+        ),
+    ],
   };
 }
 

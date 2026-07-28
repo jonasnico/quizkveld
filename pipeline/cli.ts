@@ -7,21 +7,32 @@ import {
   build,
   writeQuizData,
 } from "./build.js";
-import { GeoCache, runGeocode } from "./geocode.js";
+import { GeoCache, createProviders, crossKommuneCollisions, runGeocode } from "./geocode.js";
+import { loadKommuneGeometry } from "./kommune.js";
 import { normalizeRows } from "./normalize.js";
 import { parse } from "./parse.js";
 import { PATHS } from "./paths.js";
+import { runRefdata, type RefdataOptions } from "./refdata.js";
 import { scrape } from "./scrape.js";
 import type { QuizData } from "./schema.js";
 
-type Step = "scrape" | "parse" | "normalize" | "geocode" | "build" | "all";
-const STEPS: Step[] = ["scrape", "parse", "normalize", "geocode", "build", "all"];
+type Step = "scrape" | "parse" | "normalize" | "refdata" | "geocode" | "build" | "all";
+const STEPS: Step[] = [
+  "scrape",
+  "parse",
+  "normalize",
+  "refdata",
+  "geocode",
+  "build",
+  "all",
+];
 
 interface Flags {
   force: boolean;
   minRows: number;
   maxIdChurn: number;
   skipScrape: boolean;
+  refdata: RefdataOptions;
 }
 
 function parseFlags(argv: string[]): Flags {
@@ -30,11 +41,15 @@ function parseFlags(argv: string[]): Flags {
     minRows: DEFAULT_MIN_ROWS,
     maxIdChurn: DEFAULT_MAX_ID_CHURN,
     skipScrape: false,
+    refdata: {},
   };
 
   for (const arg of argv) {
     if (arg === "--force") flags.force = true;
     else if (arg === "--skip-scrape") flags.skipScrape = true;
+    else if (arg === "--kommuner") flags.refdata.kommuner = true;
+    else if (arg === "--alias") flags.refdata.alias = true;
+    else if (arg === "--geometri") flags.refdata.geometry = true;
     else if (arg.startsWith("--min-rows=")) {
       const value = Number(arg.slice("--min-rows=".length));
       if (!Number.isFinite(value) || value < 0) {
@@ -63,7 +78,8 @@ function usage(): string {
     "  scrape      Hent kildesiden og lagre den til raw/latest.html",
     "  parse       Les raw/latest.html og skriv ut en oppsummering av radene",
     "  normalize   Parse + normaliser, og skriv ut fordelinger",
-    "  geocode     Kjor geokodingsstigen (leverandorene er stubbet i fase 1)",
+    "  refdata     Hent referansedata (kommuneliste, aliastabell, kommunegeometri)",
+    "  geocode     Kjor geokodingsstigen (adresse -> OSM -> stedsnavn -> sentroide)",
     "  build       Bygg data/quizzes.json med overstyringer og sikkerhetssjekker",
     "  all         scrape -> build -> geocode",
     "",
@@ -72,6 +88,9 @@ function usage(): string {
     "  --min-rows=N         Minste antall quizer for byggingen feiler (standard 250)",
     "  --max-id-churn=0.1   Storste tillatte andel endrede id-er (standard 0.1)",
     "  --skip-scrape        For 'all': bruk eksisterende raw/latest.html",
+    "  --kommuner           For 'refdata': hent bare kommunelisten",
+    "  --alias              For 'refdata': bygg bare aliastabellen",
+    "  --geometri           For 'refdata': hent bare kommunegeometrien",
   ].join("\n");
 }
 
@@ -140,16 +159,78 @@ async function runNormalize(): Promise<void> {
 
 async function runGeocodeStep(): Promise<void> {
   const data = JSON.parse(await fs.readFile(PATHS.quizzes, "utf8")) as QuizData;
+  const geometry = await loadKommuneGeometry();
+  if (!geometry) {
+    console.log(
+      "Advarsel: data/kommune-geometri.json mangler, sa ingen treff kan verifiseres " +
+        "mot kommunen. Kjor 'pnpm pipeline refdata' forst.",
+    );
+  }
+
+  const venues = data.venues.filter((venue) => !venue.stale);
   const cache = await GeoCache.load();
-  const stats = await runGeocode(data.venues, undefined, cache);
+  const ladder = createProviders({ venues, geometry, log: (line) => console.log(line) });
+  const stats = await runGeocode(venues, ladder.providers, cache);
+
   console.log(
-    `Geokoding: ${stats.total} steder, ${stats.cached} fra cache, ` +
+    `\nGeokoding: ${stats.total} steder, ${stats.cached} fra cache, ` +
       `${stats.resolved} nye, ${stats.unresolved} uten treff.`,
   );
-  if (stats.unresolved > 0) {
+  for (const [source, count] of Object.entries(stats.bySource).sort()) {
+    console.log(`  ${source.padEnd(12)} ${count}`);
+  }
+
+  const withoutKommune = venues.filter((venue) => !venue.kommuneNr);
+  if (withoutKommune.length > 0) {
+    console.log(`\nSteder uten kommunenummer (${withoutKommune.length}):`);
+    for (const venue of withoutKommune) console.log(`  ${venue.id} (${venue.kommune})`);
+  }
+
+  reportRejected(ladder);
+  reportCollisions(venues, ladder);
+  reportConfidence(venues, cache);
+}
+
+function reportRejected(ladder: ReturnType<typeof createProviders>): void {
+  const rejected = ladder.overpass.rejected;
+  console.log(`\nOSM-treff forkastet av kommunesjekken: ${rejected.length}`);
+  for (const entry of rejected.slice(0, 25)) {
     console.log(
-      "Merk: leverandorene er stubbet i fase 1, sa alle oppslag returnerer null enna.",
+      `  ${entry.venueName} -> "${entry.candidateName}" (${entry.osm}), ` +
+        `${entry.distanceKm} km fra ${entry.kommuneNr}`,
     );
+  }
+  if (rejected.length > 25) console.log(`  ... og ${rejected.length - 25} til`);
+}
+
+function reportCollisions(venues: QuizData["venues"], ladder: ReturnType<typeof createProviders>): void {
+  const collisions = crossKommuneCollisions(venues, ladder);
+  console.log(
+    `\nStedsnavn som ogsa ville truffet i andre kommuner uten kommunesjekken: ` +
+      `${collisions.length}`,
+  );
+  for (const collision of collisions.slice(0, 25)) {
+    console.log(
+      `  ${collision.venueName} (${collision.kommuneNr}) ville ogsa truffet i ` +
+        `${collision.elsewhere.length} andre kommuner: ${collision.elsewhere.join(", ")}`,
+    );
+  }
+  if (collisions.length > 25) console.log(`  ... og ${collisions.length - 25} til`);
+}
+
+function reportConfidence(venues: QuizData["venues"], cache: GeoCache): void {
+  const counts = new Map<string, number>();
+  let placed = 0;
+  for (const venue of venues) {
+    const entry = cache.get(venue.id);
+    if (!entry) continue;
+    placed += 1;
+    const key = `${entry.geoSource}/${entry.geoConfidence}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  console.log(`\nKoordinater i cachen: ${placed} av ${venues.length} steder`);
+  for (const [key, count] of [...counts.entries()].sort()) {
+    console.log(`  ${key.padEnd(20)} ${count}`);
   }
 }
 
@@ -202,6 +283,9 @@ async function main(): Promise<void> {
       break;
     case "normalize":
       await runNormalize();
+      break;
+    case "refdata":
+      await runRefdata(flags.refdata);
       break;
     case "geocode":
       await runGeocodeStep();

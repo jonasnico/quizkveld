@@ -1,0 +1,769 @@
+{
+  "generatedAt": "2026-07-28T03:04:24.960Z",
+  "aliases": {
+    "Alta": {
+      "kommuneNr": "5601",
+      "kommuneName": "Alta",
+      "fylkeNr": "56",
+      "fylkeNavn": "Finnmark",
+      "resolvedBy": "exact"
+    },
+    "Arendal": {
+      "kommuneNr": "4203",
+      "kommuneName": "Arendal",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Asker": {
+      "kommuneNr": "3203",
+      "kommuneName": "Asker",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Bergen": {
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNr": "46",
+      "fylkeNavn": "Vestland",
+      "resolvedBy": "exact"
+    },
+    "Bjørkelangen": {
+      "kommuneNr": "3226",
+      "kommuneName": "Aurskog-Høland",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Bjørkelangen\"."
+    },
+    "Bodø": {
+      "kommuneNr": "1804",
+      "kommuneName": "Bodø",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "exact"
+    },
+    "Bryne": {
+      "kommuneNr": "1121",
+      "kommuneName": "Time",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Bryne\"."
+    },
+    "Bærum": {
+      "kommuneNr": "3201",
+      "kommuneName": "Bærum",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Bø i Telemark": {
+      "kommuneNr": "4020",
+      "kommuneName": "Midt-Telemark",
+      "fylkeNr": "40",
+      "fylkeNavn": "Telemark",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Bø i Telemark\"."
+    },
+    "Drammen": {
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "exact"
+    },
+    "Drøbak": {
+      "kommuneNr": "3214",
+      "kommuneName": "Frogn",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Drøbak\"."
+    },
+    "Egersund": {
+      "kommuneNr": "1101",
+      "kommuneName": "Eigersund",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Egersund\"."
+    },
+    "Elverum": {
+      "kommuneNr": "3420",
+      "kommuneName": "Elverum",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Fagerstrand": {
+      "kommuneNr": "3212",
+      "kommuneName": "Nesodden",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Fagerstrand\"."
+    },
+    "Farsund": {
+      "kommuneNr": "4206",
+      "kommuneName": "Farsund",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Fredrikstad": {
+      "kommuneNr": "3107",
+      "kommuneName": "Fredrikstad",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "exact"
+    },
+    "Førde": {
+      "kommuneNr": "4647",
+      "kommuneName": "Sunnfjord",
+      "fylkeNr": "46",
+      "fylkeNavn": "Vestland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Førde\"."
+    },
+    "Gjerdrum": {
+      "kommuneNr": "3230",
+      "kommuneName": "Gjerdrum",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Gjøvik": {
+      "kommuneNr": "3407",
+      "kommuneName": "Gjøvik",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Gran": {
+      "kommuneNr": "3446",
+      "kommuneName": "Gran",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Greåker": {
+      "kommuneNr": "3105",
+      "kommuneName": "Sarpsborg",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Greåker\"."
+    },
+    "Grimstad": {
+      "kommuneNr": "4202",
+      "kommuneName": "Grimstad",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Hafrsfjord": {
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Hafrsfjord\"."
+    },
+    "Halden": {
+      "kommuneNr": "3101",
+      "kommuneName": "Halden",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "exact"
+    },
+    "Hamar": {
+      "kommuneNr": "3403",
+      "kommuneName": "Hamar",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Hamarøy": {
+      "kommuneNr": "1875",
+      "kommuneName": "Hábmer",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Hamarøy\"."
+    },
+    "Hammerfest": {
+      "kommuneNr": "5603",
+      "kommuneName": "Hammerfest",
+      "fylkeNr": "56",
+      "fylkeNavn": "Finnmark",
+      "resolvedBy": "exact"
+    },
+    "Harstad": {
+      "kommuneNr": "5503",
+      "kommuneName": "Harstad",
+      "fylkeNr": "55",
+      "fylkeNavn": "Troms",
+      "resolvedBy": "exact"
+    },
+    "Haugesund": {
+      "kommuneNr": "1106",
+      "kommuneName": "Haugesund",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "exact"
+    },
+    "Hokksund": {
+      "kommuneNr": "3314",
+      "kommuneName": "Øvre Eiker",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Hokksund\"."
+    },
+    "Holmestrand": {
+      "kommuneNr": "3903",
+      "kommuneName": "Holmestrand",
+      "fylkeNr": "39",
+      "fylkeNavn": "Vestfold",
+      "resolvedBy": "exact"
+    },
+    "Honningsvåg": {
+      "kommuneNr": "5620",
+      "kommuneName": "Nordkapp",
+      "fylkeNr": "56",
+      "fylkeNavn": "Finnmark",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Honningsvåg\"."
+    },
+    "Horten": {
+      "kommuneNr": "3901",
+      "kommuneName": "Horten",
+      "fylkeNr": "39",
+      "fylkeNavn": "Vestfold",
+      "resolvedBy": "exact"
+    },
+    "Hvittingfoss": {
+      "kommuneNr": "3303",
+      "kommuneName": "Kongsberg",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Hvittingfoss\"."
+    },
+    "Hønefoss": {
+      "kommuneNr": "3305",
+      "kommuneName": "Ringerike",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Hønefoss\"."
+    },
+    "Jessheim": {
+      "kommuneNr": "3209",
+      "kommuneName": "Ullensaker",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Jessheim\"."
+    },
+    "Jevnaker": {
+      "kommuneNr": "3236",
+      "kommuneName": "Jevnaker",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Kirkenes": {
+      "kommuneNr": "5605",
+      "kommuneName": "Sør-Varanger",
+      "fylkeNr": "56",
+      "fylkeNavn": "Finnmark",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Kirkenes\"."
+    },
+    "Kolbotn": {
+      "kommuneNr": "3207",
+      "kommuneName": "Nordre Follo",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Kolbotn\"."
+    },
+    "Kongsberg": {
+      "kommuneNr": "3303",
+      "kommuneName": "Kongsberg",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "exact"
+    },
+    "Kongsvinger": {
+      "kommuneNr": "3401",
+      "kommuneName": "Kongsvinger",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Kopervik": {
+      "kommuneNr": "1149",
+      "kommuneName": "Karmøy",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Kopervik\"."
+    },
+    "Kristiansand": {
+      "kommuneNr": "4204",
+      "kommuneName": "Kristiansand",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Langesund": {
+      "kommuneNr": "4012",
+      "kommuneName": "Bamble",
+      "fylkeNr": "40",
+      "fylkeNavn": "Telemark",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Langesund\"."
+    },
+    "Levanger": {
+      "kommuneNr": "5037",
+      "kommuneName": "Levanger",
+      "fylkeNr": "50",
+      "fylkeNavn": "Trøndelag",
+      "resolvedBy": "exact"
+    },
+    "Lierbyen": {
+      "kommuneNr": "3312",
+      "kommuneName": "Lier",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Lierbyen\"."
+    },
+    "Lillehammer": {
+      "kommuneNr": "3405",
+      "kommuneName": "Lillehammer",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Lillesand": {
+      "kommuneNr": "4215",
+      "kommuneName": "Lillesand",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Lillestrøm": {
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Longyearbyen": {
+      "kommuneNr": "2100",
+      "kommuneName": "Svalbard",
+      "fylkeNr": "21",
+      "fylkeNavn": "Svalbard",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Longyearbyen\"."
+    },
+    "Lyngdal": {
+      "kommuneNr": "4225",
+      "kommuneName": "Lyngdal",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Mandal": {
+      "kommuneNr": "4205",
+      "kommuneName": "Lindesnes",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Mandal\"."
+    },
+    "Minnesund": {
+      "kommuneNr": "3240",
+      "kommuneName": "Eidsvoll",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Minnesund\"."
+    },
+    "Mjøndalen": {
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Mjøndalen\"."
+    },
+    "Mo i Rana": {
+      "kommuneNr": "1833",
+      "kommuneName": "Rana",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Mo i Rana\"."
+    },
+    "Molde": {
+      "kommuneNr": "1506",
+      "kommuneName": "Molde",
+      "fylkeNr": "15",
+      "fylkeNavn": "Møre og Romsdal",
+      "resolvedBy": "exact"
+    },
+    "Mosjøen": {
+      "kommuneNr": "1824",
+      "kommuneName": "Vefsn",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Mosjøen\"."
+    },
+    "Moss": {
+      "kommuneNr": "3103",
+      "kommuneName": "Moss",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "exact"
+    },
+    "Namsos": {
+      "kommuneNr": "5007",
+      "kommuneName": "Namsos",
+      "fylkeNr": "50",
+      "fylkeNavn": "Trøndelag",
+      "resolvedBy": "exact"
+    },
+    "Narvik": {
+      "kommuneNr": "1806",
+      "kommuneName": "Narvik",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "exact"
+    },
+    "Nesodden": {
+      "kommuneNr": "3212",
+      "kommuneName": "Nesodden",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Nord-Odal": {
+      "kommuneNr": "3414",
+      "kommuneName": "Nord-Odal",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "exact"
+    },
+    "Notodden": {
+      "kommuneNr": "4005",
+      "kommuneName": "Notodden",
+      "fylkeNr": "40",
+      "fylkeNavn": "Telemark",
+      "resolvedBy": "exact"
+    },
+    "Nærbø": {
+      "kommuneNr": "1119",
+      "kommuneName": "Hå",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Nærbø\"."
+    },
+    "Oslo": {
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNr": "03",
+      "fylkeNavn": "Oslo",
+      "resolvedBy": "exact"
+    },
+    "Otta": {
+      "kommuneNr": "3437",
+      "kommuneName": "Sel",
+      "fylkeNr": "34",
+      "fylkeNavn": "Innlandet",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Otta\"."
+    },
+    "Porsgrunn": {
+      "kommuneNr": "4001",
+      "kommuneName": "Porsgrunn",
+      "fylkeNr": "40",
+      "fylkeNavn": "Telemark",
+      "resolvedBy": "exact"
+    },
+    "Randaberg": {
+      "kommuneNr": "1127",
+      "kommuneName": "Randaberg",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "exact"
+    },
+    "Risør": {
+      "kommuneNr": "4201",
+      "kommuneName": "Risør",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Rygge": {
+      "kommuneNr": "3103",
+      "kommuneName": "Moss",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Rygge\"."
+    },
+    "Rørvik": {
+      "kommuneNr": "5060",
+      "kommuneName": "Nærøysund",
+      "fylkeNr": "50",
+      "fylkeNavn": "Trøndelag",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Rørvik\"."
+    },
+    "Sandefjord": {
+      "kommuneNr": "3907",
+      "kommuneName": "Sandefjord",
+      "fylkeNr": "39",
+      "fylkeNavn": "Vestfold",
+      "resolvedBy": "exact"
+    },
+    "Sandnes": {
+      "kommuneNr": "1108",
+      "kommuneName": "Sandnes",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "exact"
+    },
+    "Sandnesseter": {
+      "kommuneNr": null,
+      "kommuneName": null,
+      "fylkeNr": null,
+      "fylkeNavn": null,
+      "resolvedBy": "unresolved",
+      "note": "Finnes ikke i Kartverkets stedsnavnregister, heller ikke i Akershus som kilden oppgir. Trolig en skrivefeil hos kilden - ma rettes hos Norges Quizforbund."
+    },
+    "Sarpsborg": {
+      "kommuneNr": "3105",
+      "kommuneName": "Sarpsborg",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "exact"
+    },
+    "Sigerfjord": {
+      "kommuneNr": "1870",
+      "kommuneName": "Sortland",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Sigerfjord\"."
+    },
+    "Skien": {
+      "kommuneNr": "4003",
+      "kommuneName": "Skien",
+      "fylkeNr": "40",
+      "fylkeNavn": "Telemark",
+      "resolvedBy": "exact"
+    },
+    "Skjervøy": {
+      "kommuneNr": "5542",
+      "kommuneName": "Skjervøy",
+      "fylkeNr": "55",
+      "fylkeNavn": "Troms",
+      "resolvedBy": "exact"
+    },
+    "Skjetten": {
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Skjetten\"."
+    },
+    "Skjærhalden": {
+      "kommuneNr": "3110",
+      "kommuneName": "Hvaler",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Skjærhalden\"."
+    },
+    "Slemmestad": {
+      "kommuneNr": "3203",
+      "kommuneName": "Asker",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Slemmestad\"."
+    },
+    "Sogndal": {
+      "kommuneNr": "4640",
+      "kommuneName": "Sogndal",
+      "fylkeNr": "46",
+      "fylkeNavn": "Vestland",
+      "resolvedBy": "exact"
+    },
+    "Sortland": {
+      "kommuneNr": "1870",
+      "kommuneName": "Sortland",
+      "fylkeNr": "18",
+      "fylkeNavn": "Nordland",
+      "resolvedBy": "exact"
+    },
+    "Spydeberg": {
+      "kommuneNr": "3118",
+      "kommuneName": "Indre Østfold",
+      "fylkeNr": "31",
+      "fylkeNavn": "Østfold",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Spydeberg\"."
+    },
+    "Stathelle": {
+      "kommuneNr": "4012",
+      "kommuneName": "Bamble",
+      "fylkeNr": "40",
+      "fylkeNavn": "Telemark",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Stathelle\"."
+    },
+    "Stavanger": {
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "exact"
+    },
+    "Stjørdal": {
+      "kommuneNr": "5035",
+      "kommuneName": "Stjørdal",
+      "fylkeNr": "50",
+      "fylkeNavn": "Trøndelag",
+      "resolvedBy": "exact"
+    },
+    "Stokke": {
+      "kommuneNr": "3907",
+      "kommuneName": "Sandefjord",
+      "fylkeNr": "39",
+      "fylkeNavn": "Vestfold",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Stokke\"."
+    },
+    "Stord": {
+      "kommuneNr": "4614",
+      "kommuneName": "Stord",
+      "fylkeNr": "46",
+      "fylkeNavn": "Vestland",
+      "resolvedBy": "exact"
+    },
+    "Tromsø": {
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNr": "55",
+      "fylkeNavn": "Troms",
+      "resolvedBy": "exact"
+    },
+    "Trondheim": {
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNr": "50",
+      "fylkeNavn": "Trøndelag",
+      "resolvedBy": "exact"
+    },
+    "Tvedestrand": {
+      "kommuneNr": "4213",
+      "kommuneName": "Tvedestrand",
+      "fylkeNr": "42",
+      "fylkeNavn": "Agder",
+      "resolvedBy": "exact"
+    },
+    "Tønsberg": {
+      "kommuneNr": "3905",
+      "kommuneName": "Tønsberg",
+      "fylkeNr": "39",
+      "fylkeNavn": "Vestfold",
+      "resolvedBy": "exact"
+    },
+    "Vadsø": {
+      "kommuneNr": "5607",
+      "kommuneName": "Vadsø",
+      "fylkeNr": "56",
+      "fylkeNavn": "Finnmark",
+      "resolvedBy": "exact"
+    },
+    "Vardø": {
+      "kommuneNr": "5634",
+      "kommuneName": "Vardø",
+      "fylkeNr": "56",
+      "fylkeNavn": "Finnmark",
+      "resolvedBy": "exact"
+    },
+    "Verdal": {
+      "kommuneNr": "5038",
+      "kommuneName": "Verdal",
+      "fylkeNr": "50",
+      "fylkeNavn": "Trøndelag",
+      "resolvedBy": "exact"
+    },
+    "Vestfossen": {
+      "kommuneNr": "3314",
+      "kommuneName": "Øvre Eiker",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Vestfossen\"."
+    },
+    "Vikersund": {
+      "kommuneNr": "3316",
+      "kommuneName": "Modum",
+      "fylkeNr": "33",
+      "fylkeNavn": "Buskerud",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Vikersund\"."
+    },
+    "Volda": {
+      "kommuneNr": "1577",
+      "kommuneName": "Volda",
+      "fylkeNr": "15",
+      "fylkeNavn": "Møre og Romsdal",
+      "resolvedBy": "exact"
+    },
+    "Ålgård": {
+      "kommuneNr": "1122",
+      "kommuneName": "Gjesdal",
+      "fylkeNr": "11",
+      "fylkeNavn": "Rogaland",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Ålgård\"."
+    },
+    "Årnes": {
+      "kommuneNr": "3228",
+      "kommuneName": "Nes",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Årnes\"."
+    },
+    "Ås": {
+      "kommuneNr": "3218",
+      "kommuneName": "Ås",
+      "fylkeNr": "32",
+      "fylkeNavn": "Akershus",
+      "resolvedBy": "exact"
+    },
+    "Åsgårdstrand": {
+      "kommuneNr": "3901",
+      "kommuneName": "Horten",
+      "fylkeNr": "39",
+      "fylkeNavn": "Vestfold",
+      "resolvedBy": "manual",
+      "note": "Kilden skriver \"Åsgårdstrand\"."
+    }
+  }
+}

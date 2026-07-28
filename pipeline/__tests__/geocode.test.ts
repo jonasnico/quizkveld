@@ -139,8 +139,9 @@ describe("runGeocode", () => {
     expect(cache.get("oslo-skatten")?.geoSource).toBe("manual");
   });
 
-  it("reports everything as unresolved while the phase-1 providers are stubbed", async () => {
+  it("leaves a venue alone when no rung of the ladder can place it", async () => {
     const cache = await GeoCache.load(await tempCacheFile("{}"));
+    // These fixtures have no kommuneNr and no address, so every provider declines.
     const stats = await runGeocode(VENUES, defaultProviders(), cache);
     expect(stats).toMatchObject({ total: 2, resolved: 0, unresolved: 2 });
     expect(cache.size).toBe(0);

@@ -1,11 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { cleanCategory, normalizeCategories, primaryCategory } from "../category.js";
+import { buildAliasTable } from "../kommune.js";
 import { normalizeRows } from "../normalize.js";
 import { parseHtml } from "../parse.js";
 import { quizId, slug, venueId } from "../slug.js";
 import { normalizeTime } from "../time.js";
 import { cleanVenue } from "../venue.js";
 import { FIXED_NOW, loadFixture } from "./helpers.js";
+import { KOMMUNE_FIXTURE } from "./fixtures/kommune.js";
+import type { ParseResult } from "../schema.js";
 
 describe("slug", () => {
   it("transliterates Norwegian characters deterministically", () => {
@@ -288,5 +291,60 @@ describe("normalizeRows over the fixture", () => {
       venues: result.venues,
       quizzes: result.quizzes,
     }).toMatchSnapshot();
+  });
+});
+
+describe("kommunenormalisering", () => {
+  const parsed: ParseResult = {
+    sourceUpdatedAt: null,
+    warnings: [],
+    rows: [
+      {
+        fylke: "Østfold",
+        city: "Greåker",
+        venueRaw: "Dickens",
+        weekdayRaw: "Onsdag",
+        timeRaw: "19:00",
+        categoryRaw: "Allmenn",
+      },
+      {
+        fylke: "Akershus",
+        city: "Sandnesseter",
+        venueRaw: "Grendehuset",
+        weekdayRaw: "Søndag",
+        timeRaw: "13:00",
+        categoryRaw: "Allmenn",
+      },
+    ],
+  };
+
+  const alias = buildAliasTable(
+    ["Greåker", "Sandnesseter"],
+    KOMMUNE_FIXTURE,
+    FIXED_NOW,
+  );
+
+  it("adds the official kommune without touching what the source wrote", () => {
+    const [venue] = normalizeRows(parsed, FIXED_NOW, alias).venues;
+    expect(venue).toMatchObject({
+      kommune: "Greåker",
+      fylke: "Østfold",
+      kommuneNr: "3105",
+      kommuneName: "Sarpsborg",
+      fylkeNow: "Østfold",
+    });
+  });
+
+  it("leaves the fields off entirely when the place name cannot be resolved", () => {
+    const result = normalizeRows(parsed, FIXED_NOW, alias);
+    const venue = result.venues.find((v) => v.kommune === "Sandnesseter");
+    expect(venue?.kommuneNr).toBeUndefined();
+    expect(result.warnings.join("\n")).toMatch(/Sandnesseter/);
+  });
+
+  it("still builds without an alias table at all", () => {
+    const [venue] = normalizeRows(parsed, FIXED_NOW).venues;
+    expect(venue?.kommune).toBe("Greåker");
+    expect(venue?.kommuneNr).toBeUndefined();
   });
 });

@@ -1,5 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { CentroidProvider } from "./geo/centroid.js";
+import { AddressProvider, PlaceNameProvider } from "./geo/kartverket.js";
+import { OverpassProvider } from "./geo/overpass.js";
 import { PATHS } from "./paths.js";
 import {
   GeoCacheSchema,
@@ -7,17 +10,19 @@ import {
   type GeoCacheEntry,
   type GeoConfidence,
   type GeoSource,
+  type KommuneGeometryFile,
   type Venue,
 } from "./schema.js";
 
 /**
  * Geocoding.
  *
- * PHASE 1 SCOPE: the cache layer and the provider ladder below are real and working; the
- * four provider implementations are deliberate stubs. A later session fills them in with
- * the actual lookups (Kartverket Adresse -> Overpass/OSM -> Kartverket Stedsnavn ->
- * kommune centroid). Because the ladder already runs end-to-end and the cache is keyed by
- * the stable venue id, that session only has to implement `lookup`.
+ * The cache layer and the ladder driver below are unchanged from phase 1; the four
+ * provider implementations now live in `pipeline/geo/`. Because the cache is keyed by the
+ * stable venue id and the driver persists after every hit, the whole of
+ * `data/geocache.json` can be deleted and rebuilt from scratch with no manual work. A
+ * coordinate that genuinely has to be hand-placed belongs in `data/overrides.json` with
+ * `geoSource: "manual"`, not in here.
  */
 
 export interface GeoResult {
@@ -97,28 +102,94 @@ export class GeoCache {
   }
 }
 
-function stub(name: GeoSource): GeoProvider {
+/**
+ * Builds the real geocoding ladder.
+ *
+ * Order is address -> osm -> kartverket -> centroid. Overpass is the workhorse - only 3 of
+ * 322 venues carry an address - but the address rung is cheap to keep first because it
+ * only fires for venues that actually have one, and when it does it produces a better
+ * coordinate than any name match can.
+ */
+export function createProviders(options: LadderOptions): GeoLadder {
+  const venuesPerKommune = new Map<string, number>();
+  for (const venue of options.venues) {
+    if (!venue.kommuneNr) continue;
+    venuesPerKommune.set(venue.kommuneNr, (venuesPerKommune.get(venue.kommuneNr) ?? 0) + 1);
+  }
+
+  const shared = { geometry: options.geometry, log: options.log };
+  const address = new AddressProvider(shared);
+  const overpass = new OverpassProvider(shared);
+  const placeName = new PlaceNameProvider(shared);
+  const centroid = new CentroidProvider({ ...shared, venuesPerKommune });
+
   return {
-    name,
-    async lookup(): Promise<GeoResult | null> {
-      // TODO(phase-2): implement the real lookup for this rung of the ladder.
-      return null;
-    },
+    providers: [address, overpass, placeName, centroid],
+    address,
+    overpass,
+    placeName,
+    centroid,
   };
 }
 
+export interface LadderOptions {
+  venues: Venue[];
+  geometry: KommuneGeometryFile | null;
+  log?: (message: string) => void;
+}
+
+export interface GeoLadder {
+  providers: GeoProvider[];
+  address: AddressProvider;
+  overpass: OverpassProvider;
+  placeName: PlaceNameProvider;
+  centroid: CentroidProvider;
+}
+
 /**
- * The geocoding ladder, in the order it should be attempted. Each rung is more
- * approximate than the one before it.
+ * Counts, for every venue, how many venues in *other* kommuner Overpass would have
+ * matched by name alone.
  *
- * TODO(phase-2):
- *  - address:    Kartverket Adresse API, using `venue.addressHint` + `venue.kommune`.
- *  - osm:        Overpass, searching for the venue name near the kommune.
- *  - kartverket: Kartverket Stedsnavn, for named places rather than addresses.
- *  - centroid:   kommune centroid as a last resort (geoConfidence "low").
+ * This is the measurement of what the kommune constraint is actually worth. Seven venue
+ * names in the dataset recur across kommuner, and without the constraint a name search
+ * would have to guess between them. Running it over the pools already in memory costs
+ * nothing extra.
  */
+export function crossKommuneCollisions(
+  venues: Venue[],
+  ladder: GeoLadder,
+): Array<{ venueId: string; venueName: string; kommuneNr: string; elsewhere: string[] }> {
+  const collisions: Array<{
+    venueId: string;
+    venueName: string;
+    kommuneNr: string;
+    elsewhere: string[];
+  }> = [];
+
+  for (const venue of venues) {
+    if (!venue.kommuneNr) continue;
+    const elsewhere: string[] = [];
+    for (const [kommuneNr, pool] of ladder.overpass.pools) {
+      if (kommuneNr === venue.kommuneNr) continue;
+      const hit = ladder.overpass.matchAgainstPool(venue, kommuneNr, pool, false);
+      if (hit) elsewhere.push(kommuneNr);
+    }
+    if (elsewhere.length > 0) {
+      collisions.push({
+        venueId: venue.id,
+        venueName: venue.name,
+        kommuneNr: venue.kommuneNr,
+        elsewhere,
+      });
+    }
+  }
+
+  return collisions;
+}
+
+/** Kept for tests and for callers that only want the shape of the ladder. */
 export function defaultProviders(): GeoProvider[] {
-  return [stub("address"), stub("osm"), stub("kartverket"), stub("centroid")];
+  return createProviders({ venues: [], geometry: null }).providers;
 }
 
 export interface GeocodeStats {

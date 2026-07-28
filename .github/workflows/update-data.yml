@@ -79,7 +79,13 @@ jobs:
         if: steps.build.outcome == 'failure'
         run: pnpm pipeline build --force
 
+      # Geocoding only touches venues with no cache entry, so on a normal day this is a
+      # no-op. It also depends on Overpass, which is volunteer-run and occasionally down.
+      # An outage there must never break the data job or block a deploy, hence
+      # continue-on-error and a hard timeout.
       - name: Kjør geokoding
+        continue-on-error: true
+        timeout-minutes: 20
         run: pnpm pipeline geocode
 
       - name: Se etter endringer
