@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import { QuizDataSchema } from "../../../pipeline/schema.js";
 import { addDays, weekWindow } from "../date.js";
-import { hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
+import { caveatOf, hasCategoryCaveat, hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
 import { buildPlaceSlugs } from "../place.js";
 import { countByCategory, joinQuizzes, partitionByFreshness, sortQuizzes } from "../model.js";
 
@@ -129,9 +129,9 @@ describe("caveats in the published dataset", () => {
   const dated = data.quizzes.filter((quiz) => !isUndated(quiz));
 
   it("flags only a small minority, so the badge keeps meaning something", () => {
-    const flagged = dated.filter((quiz) => hasCaveat(quiz.recurrence.raw));
+    const flagged = dated.filter((quiz) => caveatOf(quiz));
     expect(flagged.length).toBeGreaterThan(0);
-    // Today it is 6 of 332. If a source rewording ever pushed this past a tenth of the
+    // Today it is 8 of 332. If a source rewording ever pushed this past a tenth of the
     // dataset, "sjekk selv" would be on so many cards that nobody would read it, and the
     // marker list would need rethinking rather than quietly spreading.
     expect(flagged.length).toBeLessThan(dated.length / 10);
@@ -144,12 +144,36 @@ describe("caveats in the published dataset", () => {
     expect(flagged).toContain("Torsdag (sent i måneden)");
     expect(flagged).toContain("Fredag (unntatt sommer)");
     expect(flagged).toContain("Torsdag (vanligvis)");
+    // Stored as plain weekly, so without this it would be certain every Sunday.
+    expect(flagged).toContain("Sporadiske søndager");
+  });
+
+  it("catches the schedule a volunteer typed into the genre column", () => {
+    const flagged = dated.filter((quiz) => hasCategoryCaveat(quiz.category));
+    // Three rows today. The rule is meant to be narrow: if it ever fires on twenty, it has
+    // started reading genre text as schedule text and is too loose.
+    expect(flagged.length).toBeGreaterThan(0);
+    expect(flagged.length).toBeLessThan(10);
+    expect(flagged.map((quiz) => quiz.category)).toContain("Musikkquiz (én gang i måneden)");
+  });
+
+  it("leaves the rows that only look like schedules alone", () => {
+    // Both run exactly as often as their recurrence says: the first alternates themes week
+    // to week, the second is a theme rota on a genuinely weekly Saturday quiz.
+    for (const category of [
+      "Annenhver allmennquiz og musikkbingo",
+      "Friends (1. lørdag); Seinfeld (2. lørdag); The Office (3. lørdag); Disney (4. lørdag)",
+    ]) {
+      const row = dated.find((quiz) => quiz.category === category);
+      expect(row, `${category} finnes ikke lenger i dataene`).toBeDefined();
+      expect(hasCategoryCaveat(category)).toBe(false);
+    }
   });
 
   it("never shows a caveated quiz as certain", () => {
     const window = weekWindow("2026-07-28");
     for (const quiz of dated) {
-      if (!hasCaveat(quiz.recurrence.raw)) continue;
+      if (!caveatOf(quiz)) continue;
       for (const date of window) {
         expect(occurrenceOn(quiz, date)).not.toBe("certain");
       }
@@ -158,7 +182,7 @@ describe("caveats in the published dataset", () => {
 
   it("still lists caveated quizzes rather than hiding them", () => {
     // The whole point is a softer label, not a smaller site.
-    const flagged = dated.filter((quiz) => hasCaveat(quiz.recurrence.raw));
+    const flagged = dated.filter((quiz) => caveatOf(quiz));
     const window = weekWindow("2026-07-28");
     const shown = flagged.filter((quiz) => window.some((date) => occursOn(quiz, date)));
     expect(shown.length).toBeGreaterThan(0);

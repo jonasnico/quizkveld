@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { Quiz, Recurrence, Weekday } from "../../../pipeline/schema.js";
-import { hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
+import { caveatOf, hasCategoryCaveat, hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
 import { weekWindow } from "../date.js";
 
 function quiz(overrides: Partial<Quiz> & { recurrence: Recurrence }): Quiz {
@@ -27,6 +27,7 @@ function weekly(weekday: Weekday, day: string): Quiz {
 // 2026-07-30 is a Thursday.
 const THURSDAY = "2026-07-30";
 const FRIDAY = "2026-07-31";
+const SATURDAY = "2026-08-01";
 
 describe("weekly quizzes", () => {
   const q = weekly("torsdag", "TH");
@@ -199,14 +200,15 @@ describe("splitByDates", () => {
 });
 
 describe("kildens egne forbehold", () => {
-  // Verified against the live dataset: six rows carry a caveat the RRULE cannot express,
-  // five of which would otherwise render as fully certain.
+  // Verified against the live dataset: seven rows carry a caveat the RRULE cannot express,
+  // six of which would otherwise render as fully certain.
   const REAL_CAVEATS = [
     "Torsdag (sent i måneden)",
     "Fredag (siste hver måned, ikke desember)",
     "1. tirsdag hver måned (ikke januar 2025)",
     "Fredag (unntatt sommer)",
     "Torsdag (vanligvis)",
+    "Sporadiske søndager",
     "Onsdager (annenhver – høstsesong 2024 fra 28/8 til 4/12)",
   ];
 
@@ -286,6 +288,89 @@ describe("kildens egne forbehold", () => {
     const { dated, undated } = splitByDates([{ quiz: q }], [FRIDAY]);
     expect(undated).toHaveLength(0);
     expect(dated.get(FRIDAY)).toHaveLength(1);
+  });
+});
+
+describe("forbehold gjemt i sjangerfeltet", () => {
+  // Volunteers put the schedule wherever it fits. These three live rows describe *when* the
+  // quiz runs inside the genre column.
+  const REAL_CATEGORY_CAVEATS = [
+    "Musikkquiz (én gang i måneden)",
+    "Sjekk programmet",
+    "Popkultur-temaquiz. Blir holdt sporadisk 1-2 gonger i månaden.",
+  ];
+
+  it.each(REAL_CATEGORY_CAVEATS)("flags %s", (category) => {
+    expect(hasCategoryCaveat(category)).toBe(true);
+  });
+
+  // The genre column is free text about genres, and most of it says nothing about the
+  // schedule. Two of these look like schedule information and are not: the first alternates
+  // *themes* week to week, the second is a theme rota on a quiz that genuinely runs every
+  // Saturday. A rule keyed on "annenhver" or "1. lørdag" would downgrade both and tell people
+  // a quiz might not happen when it always does.
+  const PLAIN_CATEGORIES = [
+    "Allmenn",
+    "Annenhver allmennquiz og musikkbingo",
+    "Friends (1. lørdag); Seinfeld (2. lørdag); The Office (3. lørdag); Disney (4. lørdag)",
+    "Allmenn (ikke seriespill)",
+    "Allmenn (seriespill)",
+    "Allmenn (max 6 per lag)",
+    "Studentquiz/temaquiz",
+    "Allmenn/siste onsdag i måneden: Pop-og rockquiz",
+    "Allmenn. Første gang 16.03",
+    "Kvalifisert gjetning",
+  ];
+
+  it.each(PLAIN_CATEGORIES)("leaves %s alone", (category) => {
+    expect(hasCategoryCaveat(category)).toBe(false);
+  });
+
+  it("downgrades the weekly Saturday whose genre says once a month", () => {
+    // The live row at Elvesus. Listed as certain every Saturday, wrong three out of four.
+    const q = quiz({
+      weekday: "lordag",
+      category: "Musikkquiz (én gang i måneden)",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=SA", raw: "Lørdag" },
+    });
+    expect(occurrenceOn(q, SATURDAY)).toBe("likely");
+  });
+
+  it("quotes the field the source actually hedged in", () => {
+    const inRaw = quiz({
+      weekday: "fredag",
+      category: "Allmenn",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=FR", raw: "Fredag (unntatt sommer)" },
+    });
+    expect(caveatOf(inRaw)).toEqual({ text: "Fredag (unntatt sommer)", field: "raw" });
+
+    const inCategory = quiz({
+      weekday: "lordag",
+      category: "Musikkquiz (én gang i måneden)",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=SA", raw: "Lørdag" },
+    });
+    expect(caveatOf(inCategory)).toEqual({
+      text: "Musikkquiz (én gang i måneden)",
+      field: "category",
+    });
+  });
+
+  it("reports no caveat for an ordinary row", () => {
+    const q = quiz({
+      weekday: "fredag",
+      category: "Allmenn",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=FR", raw: "Fredag" },
+    });
+    expect(caveatOf(q)).toBeNull();
+  });
+
+  it("never promotes: a genre caveat cannot turn no into likely", () => {
+    const q = quiz({
+      weekday: "lordag",
+      category: "Musikkquiz (én gang i måneden)",
+      recurrence: { kind: "weekly", rrule: "FREQ=WEEKLY;BYDAY=SA", raw: "Lørdag" },
+    });
+    expect(occurrenceOn(q, FRIDAY)).toBe("no");
   });
 });
 

@@ -1,7 +1,7 @@
 ---
 import type { QuizAtVenue } from "../lib/model.js";
 import type { Occurrence } from "../lib/occurrence.js";
-import { hasCaveat } from "../lib/occurrence.js";
+import { caveatOf } from "../lib/occurrence.js";
 import { categoryLabel, recurrenceLabel, timeLabel } from "../lib/format.js";
 import { href } from "../lib/url.js";
 
@@ -29,11 +29,13 @@ const undated = occurrence === "undated";
 // weekday but not the week; a caveat means the source itself hedged, in which case its own
 // words say it better than any label we could write.
 const biweekly = quiz.recurrence.kind === "biweekly";
-const caveat = !undated && hasCaveat(quiz.recurrence.raw);
+const caveat = undated ? null : caveatOf(quiz);
+// A caveat found in the genre field looks like a genre unless we say where it came from.
+const caveatIntro = caveat?.field === "category" ? "Kilden skriver i sjangerfeltet" : "Kilden skriver";
 const badgeLabel = biweekly ? "Annenhver uke – sjekk selv" : "Sjekk selv";
 const badgeTitle = biweekly
   ? "Kilden sier annenhver uke, men ikke hvilken. Sjekk med stedet før du drar."
-  : `Kilden tar forbehold: «${quiz.recurrence.raw}». Sjekk med stedet før du drar.`;
+  : `Kilden tar forbehold: «${caveat?.text ?? quiz.recurrence.raw}». Sjekk med stedet før du drar.`;
 ---
 
 <li
@@ -80,7 +82,7 @@ const badgeTitle = biweekly
     )
   }
 
-  {caveat && <p class="quiz-card__caveat">Kilden skriver: «{quiz.recurrence.raw}»</p>}
+  {caveat && <p class="quiz-card__caveat">{caveatIntro}: «{caveat.text}»</p>}
 
   <ul class="badges">
     {

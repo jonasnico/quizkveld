@@ -104,12 +104,40 @@ sommertid å snuble i.
 
 I tillegg degraderes en quiz fra sikker til «sjekk selv» hvis kildeteksten tar et forbehold
 RRULE-en ikke kan uttrykke. En regel kan si «siste fredag hver måned», men ikke «unntatt
-desember». Seks rader er slik i dag - `Fredag (unntatt sommer)`, `Torsdag (sent i
-måneden)`, `Torsdag (vanligvis)` og tre til - og kortet siterer kildens egen formulering
-framfor å oppsummere den. `hasCaveat()` i `src/lib/occurrence.ts` matcher på ord, ikke
-id-er, så nye forbehold fanges den dagen kilden skriver dem. Lista er bevisst kort: et
-merke som dukker opp overalt er et merke ingen leser, og det finnes en test som feiler hvis
-den treffer mer enn en tiendedel av datasettet.
+desember». Syv rader er slik i dag - `Fredag (unntatt sommer)`, `Torsdag (sent i måneden)`,
+`Torsdag (vanligvis)`, `Sporadiske søndager` og tre til - og kortet siterer kildens egen
+formulering framfor å oppsummere den. `hasCaveat()` i `src/lib/occurrence.ts` matcher på
+ord, ikke id-er, så nye forbehold fanges den dagen kilden skriver dem. Lista er bevisst
+kort: et merke som dukker opp overalt er et merke ingen leser, og det finnes en test som
+feiler hvis den treffer mer enn en tiendedel av datasettet.
+
+**Forbeholdet ligger ikke alltid i gjentakelseskolonnen.** Kilden er et regneark fylt ut av
+frivillige, og frivillige skriver ting der det passer. Tre rader beskriver *når* quizen går
+inne i sjangerfeltet, og én av dem motsier sin egen gjentakelse rett ut:
+
+```
+raw "Lørdag" (weekly)  +  category "Musikkquiz (én gang i måneden)"
+```
+
+Den ble vist som helt sikker hver eneste lørdag. Tre av fire lørdager er det feil. Fase 1
+kunne ikke fanget det - den leser ukedagskolonnen for gjentakelse og sjangerkolonnen for
+sjanger, og her lå planen i feil kolonne.
+
+`hasCategoryCaveat()` er derfor en **egen, snevrere regel** enn `hasCaveat()`, ikke samme
+regel gjenbrukt. Sjangerfeltet er fritekst med et helt annet ordforråd, og `\bikke\b` alene
+ville umiddelbart slått ut på `Allmenn (ikke seriespill)`, som ikke sier noe om planen. Den
+ser bare etter ord som motsier hvor *ofte* quizen går. To rader som ser ut som plan og ikke
+er det, og som må fortsette å ikke treffe:
+
+| Kategori | Hvorfor den er sikker |
+| --- | --- |
+| `Annenhver allmennquiz og musikkbingo` | Annenhver *sjanger*, ikke annenhver uke |
+| `Friends (1. lørdag); Seinfeld (2. lørdag); …` | Temarotasjon på en quiz som faktisk går hver lørdag |
+
+Begge ville blitt fanget av en regel som lette etter «annenhver» eller «1. lørdag», og begge
+går nøyaktig så ofte som gjentakelsen sier. `caveatOf()` returnerer hvilket felt kilden tok
+forbeholdet i, så kortet kan si «Kilden skriver i sjangerfeltet: …» - ellers ser sitatet ut
+som en sjanger.
 
 De 20 uregelmessige quizene (5 uten ukedag) forsvinner aldri stille - det finnes en test
 som holder på det. `time: null` (16 quizer) vises som «tidspunkt ikke oppgitt» og sorteres

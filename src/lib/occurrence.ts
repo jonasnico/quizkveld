@@ -32,14 +32,15 @@ export type Occurrence = "certain" | "likely" | "no" | "undated";
  *
  * An RRULE can say "the last Friday of every month" but not "except December", so a rule
  * built from `Fredag (siste hver måned, ikke desember)` is wrong once a year, and one built
- * from `Torsdag (sent i måneden)` is a guess about what "late" means. Six of the 352 rows
- * carry something like this, five of which would otherwise render as `certain`:
+ * from `Torsdag (sent i måneden)` is a guess about what "late" means. Seven of the 352 rows
+ * carry something like this, six of which would otherwise render as `certain`:
  *
  *   Torsdag (sent i måneden)                        - "late" is not "last"
  *   Fredag (siste hver måned, ikke desember)        - fires in December
  *   1. tirsdag hver måned (ikke januar 2025)        - fires in January
  *   Fredag (unntatt sommer)                         - fires all summer
  *   Torsdag (vanligvis)                             - the source hedges itself
+ *   Sporadiske søndager                             - stored as weekly, so every Sunday
  *   Onsdager (annenhver – høstsesong 2024 fra 28/8 til 4/12)  - a season that has ended
  *
  * Matching on words rather than on ids means new caveats are caught the day the source
@@ -48,10 +49,65 @@ export type Occurrence = "certain" | "likely" | "no" | "undated";
  * everywhere is a badge nobody reads.
  */
 const CAVEAT =
-  /\b(ikke|unntatt|utenom|vanligvis|som regel|av og til|sjelden|foreløpig|omtrent|cirka|ca\.)\b|\b(sent|tidlig) i\b|sesong/i;
+  /\b(ikke|unntatt|utenom|vanligvis|som regel|av og til|sjelden|foreløpig|omtrent|cirka|ca\.)\b|\b(sent|tidlig) i\b|sesong|sporadisk/i;
 
 export function hasCaveat(raw: string): boolean {
   return CAVEAT.test(raw);
+}
+
+/**
+ * The same problem, in the column nobody would think to read.
+ *
+ * The source is a spreadsheet filled in by volunteers, and volunteers put information where
+ * it fits rather than where the schema wants it. Three rows describe *when* the quiz runs
+ * inside the genre field, and one of them contradicts its own recurrence outright:
+ *
+ *   raw "Lørdag" (weekly) + category "Musikkquiz (én gang i måneden)"
+ *
+ * That row is listed as certain every single Saturday. Three Saturdays out of four that is
+ * wrong, which is the one mistake this site must not make. Phase 1 could not have caught it:
+ * it reads the weekday column for recurrence and the genre column for genre, and here the
+ * schedule was typed into the wrong column.
+ *
+ * This deliberately does NOT reuse `CAVEAT`. The genre field is free text with an entirely
+ * different vocabulary, and `\bikke\b` alone would immediately misfire on
+ * `Allmenn (ikke seriespill)`, which says nothing about the schedule. This pattern looks
+ * only for words that contradict how *often* the quiz runs.
+ *
+ * Two near misses that must keep matching nothing, both verified against the live data:
+ *
+ *   `Annenhver allmennquiz og musikkbingo`   - alternating *themes*, not alternating weeks
+ *   `Friends (1. lørdag); Seinfeld (2. lørdag); ...` - a theme rota on a genuinely weekly quiz
+ *
+ * Both would have been caught by a rule keyed on "annenhver" or "1. lørdag", and both run
+ * exactly as often as their recurrence says. Downgrading them would tell people a quiz might
+ * not happen when it always does.
+ */
+const CATEGORY_CAVEAT =
+  /\b(gang|ganger|gonger)\s+(i|per)\s+(måneden|månaden|måned|månad)\b|\bmånedlig\b|\bmånadleg\b|sporadisk|\b(noen|nokre)\s+unntak\b|\bsjekk\s+programmet\b/i;
+
+export function hasCategoryCaveat(category: string): boolean {
+  return CATEGORY_CAVEAT.test(category);
+}
+
+/** Which field the source hedged in, so the UI can quote the right text. */
+export interface Caveat {
+  text: string;
+  field: "raw" | "category";
+}
+
+/**
+ * The source's own words about why this quiz is less certain than its rule suggests.
+ *
+ * Returns the text that triggered the caveat rather than a boolean, because the honest thing
+ * to show is what the source actually wrote - and a reader who sees
+ * "Musikkquiz (én gang i måneden)" quoted under a Saturday listing understands the problem
+ * instantly, in a way no badge we could word for them would manage.
+ */
+export function caveatOf(quiz: Quiz): Caveat | null {
+  if (hasCaveat(quiz.recurrence.raw)) return { text: quiz.recurrence.raw, field: "raw" };
+  if (hasCategoryCaveat(quiz.category)) return { text: quiz.category, field: "category" };
+  return null;
 }
 
 /** Whether a quiz can ever be placed on a calendar at all. */
@@ -85,7 +141,7 @@ function matchesMonthlyRule(rrule: string, date: CivilDate): boolean {
 export function occurrenceOn(quiz: Quiz, date: CivilDate): Occurrence {
   const result = occurrenceFromRule(quiz, date);
   // A caveat can only ever soften the answer, never harden it.
-  if (result === "certain" && hasCaveat(quiz.recurrence.raw)) return "likely";
+  if (result === "certain" && caveatOf(quiz)) return "likely";
   return result;
 }
 
