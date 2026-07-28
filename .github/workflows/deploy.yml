@@ -40,7 +40,9 @@ jobs:
           # nettopp committet.
           ref: main
 
-      - uses: pnpm/action-setup@v4
+      # v6 framfor v4: v4 kjører på Node 20, som Actions faser ut. Verifisert grønn i
+      # ci.yml først, så publiseringsstien ikke er stedet vi finner ut om den virker.
+      - uses: pnpm/action-setup@v6
 
       - uses: actions/setup-node@v5
         with:
