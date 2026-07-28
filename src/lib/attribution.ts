@@ -40,23 +40,31 @@ const KARTVERKET: DataCredit = {
 };
 
 /**
- * Which credit each `geoSource` triggers.
+ * Which credits each `geoSource` triggers.
  *
- * `address` and `centroid` are Kartverket products too - addresses come from the Adresse
- * API and a centroid is computed from Kartverket's municipality geometry - so they oblige
- * the same NLOD credit. `manual` is a coordinate we typed ourselves and owes nobody
- * anything; it is listed explicitly rather than omitted so that a missing entry below can
- * be treated as a mistake instead of as "no credit needed".
+ * Confirmed against the phase 2b plan rather than guessed: the `address` step uses
+ * Kartverket's Adresse API, `centroid` is computed from municipality geometry fetched from
+ * Geonorge, and `kartverket` is the Stedsnavn API. All three are NLOD. `manual` is a
+ * coordinate we typed ourselves and owes nobody anything; it is listed explicitly rather
+ * than omitted so that a missing entry below reads as a mistake instead of as "no credit
+ * needed".
+ *
+ * `osm` obliges *both* credits, which is the one entry that is not obvious. Phase 2b bounds
+ * its Overpass queries with our own municipality geometry from Geonorge rather than with
+ * OSM's admin hierarchy, so a coordinate labelled `osm` was still derived using NLOD data.
+ * Crediting only OpenStreetMap for it would understate what we used - and under-crediting
+ * is the failure that actually breaches a licence, whereas naming a source we leaned on
+ * indirectly is at worst imprecise.
  *
  * The exact wording each licence requires is owned by the geocoding work (phase 2b) and
  * documented in DATA.md. Update the constants above from there, not from memory.
  */
-const GEO_CREDITS: Record<GeoSource, DataCredit | null> = {
-  osm: OPENSTREETMAP,
-  kartverket: KARTVERKET,
-  address: KARTVERKET,
-  centroid: KARTVERKET,
-  manual: null,
+const GEO_CREDITS: Record<GeoSource, DataCredit[]> = {
+  osm: [OPENSTREETMAP, KARTVERKET],
+  kartverket: [KARTVERKET],
+  address: [KARTVERKET],
+  centroid: [KARTVERKET],
+  manual: [],
 };
 
 /** Fixed order, so the footer does not reshuffle itself between builds. */
@@ -86,8 +94,7 @@ export function dataCredits(venues: Venue[]): DataCredit[] {
       continue;
     }
 
-    const credit = GEO_CREDITS[source];
-    if (credit) found.set(credit.id, credit);
+    for (const credit of GEO_CREDITS[source]) found.set(credit.id, credit);
   }
 
   if (unknown.size > 0) {

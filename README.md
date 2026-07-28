@@ -80,12 +80,21 @@ at vi bruker en kilde vi ikke bruker er samme slags overdrivelse som å påstå 
 går en kveld kilden aldri lovet. I dag har ingen av de 322 stedene koordinater, så lista
 er tom og linja vises ikke i det hele tatt.
 
-`address` og `centroid` regnes som Kartverket-produkter (Adresse-API-et og kommunegeometri)
-og utløser samme NLOD-kreditering. `manual` skylder ingen noe. Dukker det opp en
-`geoSource` som ikke står i tabellen, logger vi en advarsel framfor å feile — den daglige
-deployen skal ikke stoppe — men advarselen sier eksplisitt at det kan være et lisensbrudd.
-**Den nøyaktige ordlyden hver lisens krever eies av fase 2b og står i `DATA.md`.** Oppdater
-konstantene i `attribution.ts` derfra, ikke fra hukommelsen.
+`address` og `centroid` regnes som Kartverket-produkter (Adresse-API-et og kommunegeometri
+fra Geonorge) og utløser samme NLOD-kreditering — bekreftet mot planen fase 2b jobber etter,
+ikke gjettet. `manual` skylder ingen noe.
+
+`osm` utløser **begge** krediteringene, som er den ene oppføringen som ikke er åpenbar. Fase
+2b avgrenser Overpass-spørringene med vår egen kommunegeometri fra Geonorge, ikke med OSM
+sitt admin-hierarki, så en koordinat merket `osm` er likevel utledet med NLOD-data. Å
+kreditere bare OpenStreetMap ville underdrevet hva vi faktisk brukte — og det er
+underkreditering som bryter en lisens, mens det å nevne en kilde vi lente oss på indirekte i
+verste fall er upresist.
+
+Dukker det opp en `geoSource` som ikke står i tabellen, logger vi en advarsel framfor å
+feile — den daglige deployen skal ikke stoppe — men advarselen sier eksplisitt at det kan
+være et lisensbrudd. **Den nøyaktige ordlyden hver lisens krever eies av fase 2b og står i
+`DATA.md`.** Oppdater konstantene i `attribution.ts` derfra, ikke fra hukommelsen.
 
 ### Tidssone
 

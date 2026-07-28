@@ -30,9 +30,17 @@ describe("dataCredits", () => {
 
   it("credits OpenStreetMap under ODbL when an OSM coordinate is used", () => {
     const credits = dataCredits([venue({ ...oslo, geoSource: "osm" })]);
-    expect(credits).toHaveLength(1);
-    expect(credits[0]?.label).toBe("© OpenStreetMap-bidragsytere");
-    expect(credits[0]?.licence).toBe("ODbL");
+    expect(credits.map((c) => c.id)).toContain("osm");
+    expect(credits.find((c) => c.id === "osm")?.label).toBe("© OpenStreetMap-bidragsytere");
+    expect(credits.find((c) => c.id === "osm")?.licence).toBe("ODbL");
+  });
+
+  it("credits Kartverket for an OSM coordinate too, because the query was bounded by it", () => {
+    // Phase 2b bounds its Overpass queries with our own municipality geometry from Geonorge
+    // rather than with OSM's admin hierarchy, so even a purely OSM coordinate was derived
+    // using NLOD data. Under-crediting is the failure that breaches a licence.
+    const credits = dataCredits([venue({ ...oslo, geoSource: "osm" })]);
+    expect(credits.map((c) => c.id)).toEqual(["osm", "kartverket"]);
   });
 
   it("credits Kartverket under NLOD for kartverket, address and centroid alike", () => {
@@ -62,6 +70,13 @@ describe("dataCredits", () => {
     const kv = venue({ id: "b", ...oslo, geoSource: "kartverket" });
     expect(dataCredits([osm, kv]).map((c) => c.id)).toEqual(["osm", "kartverket"]);
     expect(dataCredits([kv, osm]).map((c) => c.id)).toEqual(["osm", "kartverket"]);
+  });
+
+  it("credits nobody twice when many venues share a source", () => {
+    const many = Array.from({ length: 50 }, (_, i) =>
+      venue({ id: `v${i}`, ...oslo, geoSource: i % 2 ? "osm" : "centroid" }),
+    );
+    expect(dataCredits(many).map((c) => c.id)).toEqual(["osm", "kartverket"]);
   });
 
   it("warns instead of failing when the pipeline adds a source we have no wording for", () => {
