@@ -1,0 +1,122 @@
+name: Oppdater quizdata
+
+on:
+  schedule:
+    # GitHub cron kjører alltid i UTC. 04:00 UTC = 06:00 i Oslo om sommeren
+    # (CEST) og 05:00 om vinteren (CET). Kilden oppdateres uansett sjelden,
+    # så det er godt nok - poenget er å kjøre én gang i døgnet, tidlig.
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Kjør gjennom selv om sikkerhetssjekkene slår ut"
+        type: boolean
+        default: false
+      min_rows:
+        description: "Minste antall quizer før byggingen feiler"
+        type: string
+        default: ""
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installer avhengigheter
+        run: pnpm install --frozen-lockfile
+
+      - name: Kjør tester
+        run: pnpm test
+
+      - name: Hent kildesiden
+        run: pnpm pipeline scrape
+
+      - name: Bygg data
+        id: build
+        continue-on-error: true
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.min_rows }}" ]; then
+            ARGS="$ARGS --min-rows=${{ inputs.min_rows }}"
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
+          fi
+          pnpm pipeline build $ARGS
+
+      # Exit code 2 means a safety rail tripped: the row count collapsed or too many ids
+      # changed. That is exactly the case a human should look at, so we rebuild with
+      # --force and route the result into a pull request instead of straight to main.
+      - name: Bygg på nytt for gjennomgang når sikkerhetssjekkene slo ut
+        if: steps.build.outcome == 'failure'
+        run: pnpm pipeline build --force
+
+      - name: Kjør geokoding
+        run: pnpm pipeline geocode
+
+      - name: Se etter endringer
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain raw data)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+          git --no-pager diff --stat raw data || true
+
+      - name: Ingen endringer
+        if: steps.diff.outputs.changed == 'false'
+        run: echo "Ingen endringer i kildedata - ingenting å committe."
+
+      - name: Commit direkte til main
+        if: steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add raw data
+          git commit -m "chore(data): oppdater quizdata fra Norges Quizforbund"
+          git push
+
+      - name: Opprett pull request når sikkerhetssjekkene slo ut
+        if: steps.diff.outputs.changed == 'true' && steps.build.outcome == 'failure'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: data/oppdatering
+          delete-branch: true
+          add-paths: |
+            raw
+            data
+          commit-message: "chore(data): oppdater quizdata (sikkerhetssjekk slo ut)"
+          title: "Oppdatering av quizdata krever gjennomgang"
+          body: |
+            Den daglige jobben fant en endring som slo ut en av sikkerhetssjekkene:
+            enten falt antall quizer under grensen, eller så endret mer enn 10 % av
+            id-ene seg. Begge deler tyder vanligvis på at kilden har lagt om
+            strukturen slik at parseren ikke lenger treffer.
+
+            **Sjekk før du merger:**
+
+            - Se på diffen i `raw/latest.html` - har kilden endret HTML-strukturen?
+            - Se på diffen i `data/quizzes.json` - ser radene fortsatt riktige ut?
+            - Hvis id-er har endret seg, husk at `data/overrides.json` og
+              `data/geocache.json` er nøklet på id og må oppdateres tilsvarende.
+
+            Er endringen reell (for eksempel en stor opprydding hos kilden), kan
+            denne pull requesten merges som den er.

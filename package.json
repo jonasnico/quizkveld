@@ -1,0 +1,41 @@
+{
+  "name": "quizkveld",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Finn din neste pubquiz - oversikt over quizkvelder i hele Norge.",
+  "license": "MIT",
+  "packageManager": "pnpm@10.6.5",
+  "engines": {
+    "node": ">=22"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "scripts": {
+    "pipeline": "tsx pipeline/cli.ts",
+    "scrape": "tsx pipeline/cli.ts scrape",
+    "parse": "tsx pipeline/cli.ts parse",
+    "normalize": "tsx pipeline/cli.ts normalize",
+    "geocode": "tsx pipeline/cli.ts geocode",
+    "build:data": "tsx pipeline/cli.ts build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "rrule": "^2.8.1",
+    "undici": "^7.4.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "domhandler": "^6.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}

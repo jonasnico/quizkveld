@@ -1,0 +1,7 @@
+# Pipeline output is written with LF and its diff is how we detect upstream changes.
+# Pinning these keeps diffs identical on Windows and in CI.
+* text=auto eol=lf
+raw/latest.html text eol=lf
+data/*.json text eol=lf
+pipeline/__tests__/fixtures/*.html text eol=lf
+pnpm-lock.yaml text eol=lf
