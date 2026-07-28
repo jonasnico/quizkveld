@@ -207,6 +207,22 @@ gjort med `GITHUB_TOKEN` trigger ikke nye `push`-workflows, så uten `workflow_r
 ferske data aldri blitt publisert. Workflowen deklarerer `permissions:` eksplisitt, siden
 organisasjonen står på read-only som standard.
 
+### CI på pull requests
+
+`.github/workflows/ci.yml` kjører `pnpm test`, `pnpm typecheck` og `pnpm build` på hver
+pull request. Det overlapper med deploy-jobben med vilje: den kjører de samme sjekkene,
+men først på `main`, altså etter at endringen allerede er inne.
+
+Poenget er ikke redundansen, det er uavhengigheten. Uten denne jobben er «PR-en er grønn»
+utelukkende en påstand fra den som skrev koden. En sjekk som kjører uansett hvem som
+rapporterer, er det eneste som skiller *grønt* fra *noen sa grønt*.
+
+Jobben **rører verken kilden eller nettet**. Den bygger fra `data/quizzes.json` slik den
+ligger i repoet. En PR-sjekk er ingen grunn til å sende trafikk mot Norges Quizforbund.
+Bygget kjøres likevel, fordi flere av feilene i dette prosjektet har vært usynlige i kilden
+og bare synlige i utdataene - `compressHTML`-fella og manglende base-sti er begge av den
+typen.
+
 ## Pipeline
 
 Pipelinen ligger i `pipeline/` og er helt adskilt fra sidebygget. Hvert steg
