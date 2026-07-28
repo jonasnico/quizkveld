@@ -41,6 +41,28 @@ describe("mergeData", () => {
     expect(second.report.idChurn).toBe(0);
   });
 
+  it("reuses the previous generatedAt when nothing else changed", async () => {
+    const first = mergeData(await normalizedFixture(), { now: FIXED_NOW });
+    // Same day, later hour: lastSeen is a date so it does not move, and the only thing
+    // that would otherwise differ is the timestamp itself.
+    const later = new Date(FIXED_NOW.getTime() + 6 * 60 * 60 * 1000);
+    const second = mergeData(await normalizedFixture(), {
+      now: later,
+      previous: first.data,
+    });
+    expect(second.data.generatedAt).toBe(first.data.generatedAt);
+    expect(serialize(second.data)).toBe(serialize(first.data));
+  });
+
+  it("advances generatedAt as soon as something real changes", async () => {
+    const first = mergeData(await normalizedFixture(), { now: FIXED_NOW });
+    const later = new Date(FIXED_NOW.getTime() + 6 * 60 * 60 * 1000);
+    const trimmed = await normalizedFixture();
+    trimmed.quizzes = trimmed.quizzes.slice(1);
+    const second = mergeData(trimmed, { now: later, previous: first.data });
+    expect(second.data.generatedAt).toBe(later.toISOString());
+  });
+
   it("sorts venues and quizzes by id", async () => {
     const { data } = mergeData(await normalizedFixture(), { now: FIXED_NOW });
     const quizIds = data.quizzes.map((quiz) => quiz.id);

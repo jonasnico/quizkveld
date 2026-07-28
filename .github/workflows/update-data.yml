@@ -45,7 +45,19 @@ jobs:
         run: pnpm test
 
       - name: Hent kildesiden
-        run: pnpm pipeline scrape
+        id: scrape
+        run: |
+          pnpm pipeline scrape
+          # raw/latest.html is the source of truth for "did anything actually change".
+          # data/quizzes.json alone is a bad signal because lastSeen moves every day,
+          # which would otherwise commit a ~350 line no-op diff daily and bury the
+          # real changes.
+          if git diff --quiet -- raw/latest.html; then
+            echo "upstream_changed=false" >> "$GITHUB_OUTPUT"
+            echo "Kilden er uendret siden forrige kjøring."
+          else
+            echo "upstream_changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Bygg data
         id: build
@@ -73,6 +85,13 @@ jobs:
       - name: Se etter endringer
         id: diff
         run: |
+          # When neither the source page nor the geocache moved, the only thing left in
+          # data/quizzes.json is the daily lastSeen bump. Throw it away rather than
+          # commit noise.
+          if [ "${{ steps.scrape.outputs.upstream_changed }}" = "false" ] \
+             && git diff --quiet -- data/geocache.json; then
+            git checkout -- data/quizzes.json
+          fi
           if [ -n "$(git status --porcelain raw data)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else

@@ -167,6 +167,12 @@ export function mergeData(
     quizzes: [...quizzes.values()].sort(byId),
   };
 
+  // If nothing but the timestamp would change, keep the previous one. Otherwise every
+  // scheduled run produces a one-line diff and the daily job commits pure noise forever.
+  if (previous && isSameExceptGeneratedAt(previous, data)) {
+    data.generatedAt = previous.generatedAt;
+  }
+
   const changedIds = new Set([...newIds, ...removedIds]);
   // Measured against the larger of the two sets so the figure stays a meaningful
   // percentage even when the dataset grows or shrinks dramatically.
@@ -221,6 +227,11 @@ export function checkSafetyRails(report: BuildReport, options: BuildOptions = {}
 /** Serializes with sorted arrays and stable indentation so git diffs stay reviewable. */
 export function serialize(data: QuizData): string {
   return `${JSON.stringify(data, null, 2)}\n`;
+}
+
+/** True when two payloads differ only by their generatedAt timestamp. */
+export function isSameExceptGeneratedAt(a: QuizData, b: QuizData): boolean {
+  return serialize({ ...a, generatedAt: "" }) === serialize({ ...b, generatedAt: "" });
 }
 
 export async function build(
