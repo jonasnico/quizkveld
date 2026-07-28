@@ -25,7 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: pnpm/action-setup@v4
+      # v4 kjører på Node 20, som Actions har varslet utfasing av. v6 er verifisert grønn i
+      # denne jobben før den ble tatt i bruk i deploy.yml.
+      - uses: pnpm/action-setup@v6
 
       - uses: actions/setup-node@v5
         with:
