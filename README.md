@@ -37,6 +37,7 @@ går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
 | `src/lib/place.ts` | Slugger for sted og fylke, med deterministisk kollisjonsløsning |
 | `src/lib/model.ts` | Kobler quiz til sted, sorterer, grupperer, teller, skiller ut stale rader |
 | `src/lib/format.ts` | All norsk visningstekst ett sted |
+| `src/lib/attribution.ts` | Utleder hvilke datakilder som må krediteres, fra `geoSource` |
 | `src/scripts/filters.ts` | Klientfilter som skjuler kort som allerede er sendt ut |
 
 Sider: `/` (i kveld), `/i-morgen/`, `/denne-uka/`, `/steder/`, `/sted/<sted>/`,
@@ -65,6 +66,26 @@ Praktiske konsekvenser i UI-et:
   motstridende rapporter vi må ta stilling til uten å ha grunnlag for det.
 - `venue.url` presenteres nøytralt som «Nettside», aldri «offisiell side». Kilden merker
   døde lenker `broken_link` og vi lagrer dem uansett, så en del av de 229 virker ikke.
+
+### Datakreditering
+
+Bunnteksten har plass til flere datakilder enn Norges Quizforbund, fordi geokodingen i
+fase 2b henter koordinater fra kilder med lisensvilkår som *krever* kreditering i det
+publiserte produktet: OpenStreetMap er ODbL, Kartverket/Geonorge er NLOD.
+
+Krediteringen er **avledet, ikke hardkodet**. `dataCredits()` i `src/lib/attribution.ts`
+ser på hvilke `geoSource`-verdier som faktisk står på et sted *som har koordinater*, og
+viser bare de kildene. Bruker vi ingen OSM-koordinater, krediterer vi ikke OSM — å påstå
+at vi bruker en kilde vi ikke bruker er samme slags overdrivelse som å påstå at en quiz
+går en kveld kilden aldri lovet. I dag har ingen av de 322 stedene koordinater, så lista
+er tom og linja vises ikke i det hele tatt.
+
+`address` og `centroid` regnes som Kartverket-produkter (Adresse-API-et og kommunegeometri)
+og utløser samme NLOD-kreditering. `manual` skylder ingen noe. Dukker det opp en
+`geoSource` som ikke står i tabellen, logger vi en advarsel framfor å feile — den daglige
+deployen skal ikke stoppe — men advarselen sier eksplisitt at det kan være et lisensbrudd.
+**Den nøyaktige ordlyden hver lisens krever eies av fase 2b og står i `DATA.md`.** Oppdater
+konstantene i `attribution.ts` derfra, ikke fra hukommelsen.
 
 ### Tidssone
 
