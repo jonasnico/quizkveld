@@ -1,11 +1,64 @@
 import { describe, expect, it } from "vitest";
 
 import type { Venue } from "../../../pipeline/schema.js";
-import { buildPlaceSlugs, invert } from "../place.js";
+import { buildPlaceSlugs, fylkeOf, invert, legacyFylkeSlugs } from "../place.js";
 
-function venue(id: string, kommune: string, fylke: string): Venue {
-  return { id, name: id, rawName: id, kommune, fylke };
+function venue(id: string, kommune: string, fylke: string, fylkeNow?: string): Venue {
+  return { id, name: id, rawName: id, kommune, fylke, ...(fylkeNow ? { fylkeNow } : {}) };
 }
+
+describe("fylkeOf", () => {
+  it("navigates on today's county, not the one the source still names", () => {
+    expect(fylkeOf(venue("v1", "Bergen", "Hordaland", "Vestland"))).toBe("Vestland");
+  });
+
+  it("falls back to the source when Kartverket does not know the place", () => {
+    // Sandnesseter is the one venue in the live data with no `fylkeNow`. Dropping out of the
+    // navigation would be worse than being filed under a county that no longer exists.
+    expect(fylkeOf(venue("v1", "Sandnesseter", "Akershus"))).toBe("Akershus");
+  });
+});
+
+describe("legacyFylkeSlugs", () => {
+  it("points a dissolved county at the one that replaced it", () => {
+    const redirects = legacyFylkeSlugs([
+      venue("v1", "Bergen", "Hordaland", "Vestland"),
+      venue("v2", "Førde", "Sogn og Fjordane", "Vestland"),
+    ]);
+    expect(redirects.get("hordaland")).toBe("vestland");
+    expect(redirects.get("sogn-og-fjordane")).toBe("vestland");
+  });
+
+  it("never redirects a name that is still a county of its own", () => {
+    // Akershus and Svalbard appear as both the old and the new name. A redirect here would
+    // shadow the real page and take its content offline.
+    const redirects = legacyFylkeSlugs([
+      venue("v1", "Lørenskog", "Akershus", "Akershus"),
+      venue("v2", "Longyearbyen", "Svalbard", "Svalbard"),
+    ]);
+    expect(redirects.size).toBe(0);
+  });
+
+  it("sends a split county where most of its content went, whatever the row order", () => {
+    // Oppland went mostly to Innlandet, but Jevnaker went Oppland -> Viken -> Akershus.
+    // A URL can only point one way, and it must not depend on how the source sorted its
+    // table today.
+    const rows = [
+      venue("v1", "Lillehammer", "Oppland", "Innlandet"),
+      venue("v2", "Gjøvik", "Oppland", "Innlandet"),
+      venue("v3", "Jevnaker", "Oppland", "Akershus"),
+    ];
+    expect(legacyFylkeSlugs(rows).get("oppland")).toBe("innlandet");
+    expect(legacyFylkeSlugs([...rows].reverse()).get("oppland")).toBe("innlandet");
+  });
+
+  it("disappears on its own once the source stops using the old name", () => {
+    // Nothing here is maintained by hand, so a source that starts writing modern names
+    // simply stops producing redirects.
+    const redirects = legacyFylkeSlugs([venue("v1", "Bergen", "Vestland", "Vestland")]);
+    expect(redirects.size).toBe(0);
+  });
+});
 
 describe("buildPlaceSlugs", () => {
   it("transliterates Norwegian characters the same way venue ids do", () => {

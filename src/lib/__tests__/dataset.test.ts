@@ -5,7 +5,8 @@ import { describe, expect, it } from "vitest";
 import { QuizDataSchema } from "../../../pipeline/schema.js";
 import { addDays, weekWindow } from "../date.js";
 import { caveatOf, hasCategoryCaveat, hasCaveat, isUndated, occurrenceOn, occursOn, splitByDates } from "../occurrence.js";
-import { buildPlaceSlugs } from "../place.js";
+import { buildPlaceSlugs, fylkeOf, legacyFylkeSlugs } from "../place.js";
+import { slug } from "../../../pipeline/slug.js";
 import { countByCategory, joinQuizzes, partitionByFreshness, sortQuizzes } from "../model.js";
 
 /**
@@ -265,6 +266,67 @@ describe("weekly rows that claim certainty on nothing but a weekday", () => {
     const present = new Set(weekly.map((quiz) => quiz.recurrence.raw));
     const stale = Object.keys(REVIEWED).filter((raw) => !present.has(raw));
     expect(stale, "Fjern disse fra REVIEWED - radene finnes ikke lenger").toEqual([]);
+  });
+});
+
+describe("county navigation follows today's map", () => {
+  /**
+   * The source's `fylke` is pre-2020. Navigating on it stranded 78 venues behind counties
+   * that had not existed for six years, while Vestland, Trøndelag, Innlandet and Agder had
+   * no page at all - so someone looking for a quiz in Bergen had to guess "Hordaland".
+   *
+   * These assert the property, not today's numbers: whatever the source publishes next
+   * week, the navigation must offer counties that exist and must not lose a venue.
+   */
+  const DISSOLVED_2020 = [
+    "Hordaland",
+    "Sogn og Fjordane",
+    "Sør-Trøndelag",
+    "Nord-Trøndelag",
+    "Hedmark",
+    "Oppland",
+    "Aust-Agder",
+    "Vest-Agder",
+  ];
+
+  it("offers no county that was dissolved in 2020", () => {
+    const navigable = new Set(data.venues.map((venue) => fylkeOf(venue)));
+    expect([...navigable].filter((name) => DISSOLVED_2020.includes(name))).toEqual([]);
+  });
+
+  it("still files the venues those counties held", () => {
+    // The point of the change is that nothing moves out of reach, only under a new heading.
+    const affected = data.venues.filter((venue) => DISSOLVED_2020.includes(venue.fylke));
+    expect(affected.length).toBeGreaterThan(0);
+    const { byFylke } = buildPlaceSlugs(data.venues);
+    for (const venue of affected) {
+      expect(byFylke.get(fylkeOf(venue)), `${venue.name} (${venue.fylke})`).toBeTruthy();
+    }
+  });
+
+  it("gives every venue a county page, including those Kartverket does not know", () => {
+    const { byFylke } = buildPlaceSlugs(data.venues);
+    const stranded = data.venues.filter((venue) => !byFylke.get(fylkeOf(venue)));
+    expect(stranded.map((venue) => venue.name)).toEqual([]);
+  });
+
+  it("redirects every old county slug that no longer has a page", () => {
+    const { byFylke } = buildPlaceSlugs(data.venues);
+    const live = new Set(byFylke.values());
+    const redirects = legacyFylkeSlugs(data.venues);
+
+    const orphaned = [...new Set(data.venues.map((venue) => slug(venue.fylke)))]
+      .filter((old) => !live.has(old))
+      .filter((old) => !redirects.has(old));
+    expect(orphaned, "gamle fylkes-URL-er uten omdirigering").toEqual([]);
+  });
+
+  it("never redirects onto a slug that is not a real page", () => {
+    const { byFylke } = buildPlaceSlugs(data.venues);
+    const live = new Set(byFylke.values());
+    for (const [from, to] of legacyFylkeSlugs(data.venues)) {
+      expect(live.has(to), `${from} -> ${to}`).toBe(true);
+    }
   });
 });
 
