@@ -148,6 +148,36 @@ går nøyaktig så ofte som gjentakelsen sier. `caveatOf()` returnerer hvilket f
 forbeholdet i, så kortet kan si «Kilden skriver i sjangerfeltet: …» - ellers ser sitatet ut
 som en sjanger.
 
+#### Rekkverket som ikke er en ordliste
+
+Begge feilene som har sluppet gjennom her har vært *et nytt ord for «uregelmessig»*, ikke en
+ny type feil - først `unntatt sommer`, så `sporadisk`. En svarteliste mangler per definisjon
+det neste ordet, og begge ble bare funnet fordi noen tilfeldigvis leste rader.
+
+Så snus spørsmålet. En `weekly`-quiz påstår `certain` på grunnlag av ingenting annet enn
+ukedagen, og **248 av de 332 datofestede radene har en `raw` som er nøyaktig et ukedagsnavn**
+- bevis på at det ikke er noe der som kan overraske oss. Bare resten kan skjule noe, og for
+`weekly` er det seks rader.
+
+Testen `leaves no weekly row unexplained` feiler hvis en `weekly`-rad har tekst utover
+ukedagen som ingen regel fanger. Den har ikke noe ordforråd, så den virker fortsatt den dagen
+kilden finner på et ord vi aldri har sett. Rader som er lest og bevisst godkjent står i
+`REVIEWED` med begrunnelse, og en egen test fjerner et unntak som har overlevd raden det ble
+skrevet for.
+
+To av unntakene er **parserfeil i pipelinen, ikke her**:
+
+| `raw` | Hva som er galt |
+| --- | --- |
+| `Tirsdag (Oddetalsuker)` | Parseren ser etter `oddetallsuker`, kilden skrev én `l` |
+| `Fredag (annen hver)` | Parseren ser etter `annenhver`, kilden skrev det med mellomrom |
+
+Begge er annenhver-quizer lagret som `FREQ=WEEKLY`, så de vises hver uke. De er **med vilje
+ikke lagt inn i `CAVEAT`**: det ville vært en omvei rundt en parserfeil, og ville latt feil
+data ligge mens det så fikset ut. De eies oppstrøms, og når parseren kjenner dem igjen blir
+de `biweekly` og treffer «annenhver uke»-stien som allerede finnes - hvorpå unntaket i
+`REVIEWED` feiler og må ryddes bort.
+
 De 20 uregelmessige quizene (5 uten ukedag) forsvinner aldri stille - det finnes en test
 som holder på det. `time: null` (16 quizer) vises som «tidspunkt ikke oppgitt» og sorteres
 sist innenfor dagen, aldri som 00:00.

@@ -189,6 +189,85 @@ describe("caveats in the published dataset", () => {
   });
 });
 
+/**
+ * The guard rail that is not a word list.
+ *
+ * `CAVEAT` and `hasCategoryCaveat` are blacklists, and a blacklist is by definition missing
+ * the next word. Both mistakes that have slipped past so far were a *new word for
+ * "irregular"* rather than a new kind of mistake: `unntatt sommer` first, then `sporadisk`.
+ * Reading rows by hand caught them, but only because someone happened to look.
+ *
+ * So invert the question. A `weekly` quiz claims `certain` on the strength of nothing but
+ * its weekday, and 248 of the 332 dated rows have a `raw` that is *exactly* a weekday name -
+ * proof that there is nothing else in there to surprise us. Only the remainder can hide
+ * something, and for `weekly` that is six rows.
+ *
+ * This test fails when a `weekly` row carries text beyond the weekday that no rule catches.
+ * It needs no vocabulary, so it keeps working the day the source invents a word we have
+ * never seen.
+ */
+describe("weekly rows that claim certainty on nothing but a weekday", () => {
+  const BARE_WEEKDAY = /^(mandag|tirsdag|onsdag|torsdag|fredag|lørdag|søndag)(er)?$/i;
+
+  /**
+   * Rows looked at by a human and consciously left as `certain`.
+   *
+   * Keyed on the source text, so a rewording upstream drops the exemption rather than
+   * carrying it silently onto different words.
+   */
+  const REVIEWED: Record<string, string> = {
+    // The quiz runs weekly and the start date is long past. Nothing to hedge.
+    "Mandag (start 29.7)": "startdato passert, ukentlig er riktig",
+
+    // These two are biweekly quizzes that phase 1's recurrence parser did not recognise:
+    // it looks for `oddetallsuker` and the source wrote `Oddetalsuker` with one l, and it
+    // looks for `annenhver` and the source wrote `annen hver` with a space. Both are stored
+    // as FREQ=WEEKLY, so we show them every week when they run every other week.
+    //
+    // Deliberately not patched here. Adding them to `CAVEAT` would be a detour around a
+    // parser bug, and would leave the wrong data in place while looking fixed. They are
+    // owned upstream; once the parser recognises them they become `biweekly` and pick up
+    // the "annenhver uke - sjekk selv" path that already exists.
+    "Tirsdag (Oddetalsuker)": "parserfeil i pipelinen, eies oppstrøms",
+    "Fredag (annen hver)": "parserfeil i pipelinen, eies oppstrøms",
+  };
+
+  const weekly = data.quizzes.filter(
+    (quiz) => quiz.recurrence.kind === "weekly" && !isUndated(quiz),
+  );
+
+  it("proves most rows clean rather than trusting a word list", () => {
+    const bare = weekly.filter((quiz) => BARE_WEEKDAY.test(quiz.recurrence.raw.trim()));
+    // If this ratio ever collapses, the source has changed how it writes weekdays and the
+    // whole approach needs revisiting rather than the exemption list growing.
+    expect(bare.length).toBeGreaterThan(weekly.length * 0.9);
+  });
+
+  it("leaves no weekly row unexplained", () => {
+    const unexplained = weekly
+      .filter((quiz) => !BARE_WEEKDAY.test(quiz.recurrence.raw.trim()))
+      .filter((quiz) => !caveatOf(quiz))
+      .map((quiz) => quiz.recurrence.raw)
+      .filter((raw) => !(raw in REVIEWED));
+
+    expect(
+      unexplained,
+      "Ukentlige quizer med tekst utover ukedagen som ingen regel fanger. " +
+        "Les dem: enten er de harmløse og hører hjemme i REVIEWED, eller så mangler " +
+        "CAVEAT et ord.",
+    ).toEqual([]);
+  });
+
+  it("drops an exemption once the row it excuses is gone", () => {
+    // Without this the list would quietly outlive the rows it was written for - including
+    // the two parser bugs, whose exemptions must disappear the moment the pipeline fixes
+    // them and they turn into biweekly.
+    const present = new Set(weekly.map((quiz) => quiz.recurrence.raw));
+    const stale = Object.keys(REVIEWED).filter((raw) => !present.has(raw));
+    expect(stale, "Fjern disse fra REVIEWED - radene finnes ikke lenger").toEqual([]);
+  });
+});
+
 describe("staleness in the published dataset", () => {
   it("keeps stale rows out of the fresh half", () => {
     const { fresh, stale } = partitionByFreshness(items);
