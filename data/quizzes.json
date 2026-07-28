@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T01:27:14.221Z",
+  "generatedAt": "2026-07-28T05:12:15.888Z",
   "sourceUpdatedAt": "2026-07-27",
   "venues": [
     {
@@ -7,7 +7,14 @@
       "name": "Værtshuset",
       "rawName": "Værtshuset",
       "kommune": "Ålgård",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1122",
+      "kommuneName": "Gjesdal",
+      "fylkeNow": "Rogaland",
+      "lat": 58.7683064,
+      "lon": 5.8596776,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "aarnes-el-nero",
@@ -15,7 +22,14 @@
       "rawName": "El Nero",
       "kommune": "Årnes",
       "fylke": "Akershus",
-      "url": "http://www.facebook.com/group.php?gid=24429696245"
+      "kommuneNr": "3228",
+      "kommuneName": "Nes",
+      "fylkeNow": "Akershus",
+      "url": "http://www.facebook.com/group.php?gid=24429696245",
+      "lat": 60.17050371335,
+      "lon": 11.455117956844,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "aas-aas-stasjon",
@@ -23,14 +37,28 @@
       "rawName": "Ås stasjon",
       "kommune": "Ås",
       "fylke": "Akershus",
-      "url": "https://www.facebook.com/quizpaasstasjon/"
+      "kommuneNr": "3218",
+      "kommuneName": "Ås",
+      "fylkeNow": "Akershus",
+      "url": "https://www.facebook.com/quizpaasstasjon/",
+      "lat": 59.6632202,
+      "lon": 10.7943893,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "aasgaardstrand-naustet",
       "name": "Naustet",
       "rawName": "Naustet",
       "kommune": "Åsgårdstrand",
-      "fylke": "Vestfold"
+      "fylke": "Vestfold",
+      "kommuneNr": "3901",
+      "kommuneName": "Horten",
+      "fylkeNow": "Vestfold",
+      "lat": 59.3480702,
+      "lon": 10.4700094,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "alta-mikkeli-live",
@@ -38,7 +66,14 @@
       "rawName": "Mikkeli Live",
       "kommune": "Alta",
       "fylke": "Finnmark",
-      "url": "https://www.facebook.com/mikkelilive"
+      "kommuneNr": "5601",
+      "kommuneName": "Alta",
+      "fylkeNow": "Finnmark",
+      "url": "https://www.facebook.com/mikkelilive",
+      "lat": 69.966262,
+      "lon": 23.2733894,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "alta-studenthuset-city-scene",
@@ -46,7 +81,14 @@
       "rawName": "Studenthuset City Scene",
       "kommune": "Alta",
       "fylke": "Finnmark",
-      "url": "https://www.facebook.com/cityscenealta/"
+      "kommuneNr": "5601",
+      "kommuneName": "Alta",
+      "fylkeNow": "Finnmark",
+      "url": "https://www.facebook.com/cityscenealta/",
+      "lat": 69.9667688,
+      "lon": 23.275599,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "arendal-castelle-bar-og-restaurant",
@@ -54,7 +96,14 @@
       "rawName": "Castelle Bar og Restaurant",
       "kommune": "Arendal",
       "fylke": "Aust-Agder",
-      "url": "https://www.facebook.com/CastelleBar/?fref=ts"
+      "kommuneNr": "4203",
+      "kommuneName": "Arendal",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/CastelleBar/?fref=ts",
+      "lat": 58.460097,
+      "lon": 8.768517,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "arendal-moer",
@@ -62,7 +111,14 @@
       "rawName": "Mør",
       "kommune": "Arendal",
       "fylke": "Aust-Agder",
-      "url": "https://www.facebook.com/MORbiffhus/?fref=ts"
+      "kommuneNr": "4203",
+      "kommuneName": "Arendal",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/MORbiffhus/?fref=ts",
+      "lat": 58.426730044339,
+      "lon": 8.946946169612,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "arendal-symposium",
@@ -70,21 +126,42 @@
       "rawName": "Symposium",
       "kommune": "Arendal",
       "fylke": "Aust-Agder",
-      "url": "https://www.facebook.com/greskmat/"
+      "kommuneNr": "4203",
+      "kommuneName": "Arendal",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/greskmat/",
+      "lat": 58.4599,
+      "lon": 8.768753,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "asker-lancelot",
       "name": "Lancelot",
       "rawName": "Lancelot",
       "kommune": "Asker",
-      "fylke": "Akershus"
+      "fylke": "Akershus",
+      "kommuneNr": "3203",
+      "kommuneName": "Asker",
+      "fylkeNow": "Akershus",
+      "lat": 59.8337617,
+      "lon": 10.433726,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "asker-sjoeengen-kro",
       "name": "Sjøengen Kro",
       "rawName": "Sjøengen Kro",
       "kommune": "Asker",
-      "fylke": "Akershus"
+      "fylke": "Akershus",
+      "kommuneNr": "3203",
+      "kommuneName": "Asker",
+      "fylkeNow": "Akershus",
+      "lat": 59.8795638,
+      "lon": 10.5053487,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "baerum-folkebadet",
@@ -92,7 +169,14 @@
       "rawName": "Folkebadet",
       "kommune": "Bærum",
       "fylke": "Akershus",
-      "url": "https://www.sandvikafolkebad.no/"
+      "kommuneNr": "3201",
+      "kommuneName": "Bærum",
+      "fylkeNow": "Akershus",
+      "url": "https://www.sandvikafolkebad.no/",
+      "lat": 59.8904529,
+      "lon": 10.5247739,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "baerum-onkel-blaa",
@@ -100,7 +184,14 @@
       "rawName": "Onkel Blaa",
       "kommune": "Bærum",
       "fylke": "Akershus",
-      "url": "http://www.onkelblaa.no/"
+      "kommuneNr": "3201",
+      "kommuneName": "Bærum",
+      "fylkeNow": "Akershus",
+      "url": "http://www.onkelblaa.no/",
+      "lat": 59.918113,
+      "lon": 10.587464,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-amalies-hage",
@@ -108,7 +199,14 @@
       "rawName": "Amalies Hage",
       "kommune": "Bergen",
       "fylke": "Hordaland",
-      "url": "https://www.facebook.com/amalieshage"
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "url": "https://www.facebook.com/amalieshage",
+      "lat": 60.38992,
+      "lon": 5.332178,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-apollon-platebar",
@@ -116,14 +214,24 @@
       "rawName": "Apollon Platebar",
       "kommune": "Bergen",
       "fylke": "Hordaland",
-      "url": "https://www.facebook.com/apollonplatebar"
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "url": "https://www.facebook.com/apollonplatebar",
+      "lat": 60.389596,
+      "lon": 5.323226,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-bella-notte",
       "name": "Bella Notte",
       "rawName": "Bella Notte",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland"
     },
     {
       "id": "bergen-boerskjelleren",
@@ -131,14 +239,28 @@
       "rawName": "Børskjelleren",
       "kommune": "Bergen",
       "fylke": "Hordaland",
-      "url": "http://bergenmatbors.no/steder/borskjelleren"
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "url": "http://bergenmatbors.no/steder/borskjelleren",
+      "lat": 60.394084,
+      "lon": 5.325635,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-brian-boru",
       "name": "Brian Boru",
       "rawName": "Brian Boru",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.3952013,
+      "lon": 5.328317,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-cafe-opera",
@@ -146,7 +268,14 @@
       "rawName": "Cafe Opera",
       "kommune": "Bergen",
       "fylke": "Hordaland",
-      "url": "http://www.cafeopera.org/"
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "url": "http://www.cafeopera.org/",
+      "lat": 60.391848,
+      "lon": 5.319872,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-cornerquiz",
@@ -154,6 +283,9 @@
       "rawName": "CornerQuiz",
       "kommune": "Bergen",
       "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
       "url": "https://cornerteateret.ticketco.events/no/nb"
     },
     {
@@ -161,35 +293,66 @@
       "name": "Dark & Stormy",
       "rawName": "Dark & Stormy",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.395323,
+      "lon": 5.327942,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-diskuterbar",
       "name": "Diskuterbar",
       "rawName": "Diskuterbar",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland"
     },
     {
       "id": "bergen-dr-wiesner",
       "name": "Dr. Wiesner",
       "rawName": "Dr. Wiesner",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.400507,
+      "lon": 5.323018,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-elefanten",
       "name": "Elefanten",
       "rawName": "Elefanten",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.391625,
+      "lon": 5.320397,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-finnegan-s",
       "name": "Finnegan’s",
       "rawName": "Finnegan’s",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.392698,
+      "lon": 5.320736,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-hectors-hybel",
@@ -197,7 +360,14 @@
       "rawName": "Hectors Hybel",
       "kommune": "Bergen",
       "fylke": "Hordaland",
-      "url": "https://www.facebook.com/HectorsHybel"
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "url": "https://www.facebook.com/HectorsHybel",
+      "lat": 60.389361,
+      "lon": 5.324107,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-inside-bergen-rock-cafe",
@@ -205,6 +375,9 @@
       "rawName": "Inside Bergen Rock Cafe",
       "kommune": "Bergen",
       "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
       "url": "http://insiderock.no/"
     },
     {
@@ -213,6 +386,9 @@
       "rawName": "Inside Live & Rock Cafe",
       "kommune": "Bergen",
       "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
       "url": "http://insiderock.no"
     },
     {
@@ -220,7 +396,14 @@
       "name": "Kråken Bar",
       "rawName": "Kråken Bar",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.391548,
+      "lon": 5.321034,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-kvarteret",
@@ -228,6 +411,9 @@
       "rawName": "Kvarteret",
       "kommune": "Bergen",
       "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
       "url": "http://kvarteret.no/"
     },
     {
@@ -235,21 +421,42 @@
       "name": "Lille",
       "rawName": "Lille",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.391135,
+      "lon": 5.322025,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-litteraturhuset",
       "name": "Litteraturhuset",
       "rawName": "Litteraturhuset",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.3936283,
+      "lon": 5.3284453,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-nobel-bopel",
       "name": "Nobel Bopel",
       "rawName": "Nobel Bopel",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.3825993,
+      "lon": 5.325707,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-rick-s",
@@ -257,6 +464,9 @@
       "rawName": "Rick’s",
       "kommune": "Bergen",
       "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
       "url": "http://www.ricks.no/"
     },
     {
@@ -265,7 +475,14 @@
       "rawName": "Sjøsprøyt maritim quiz på Statsraaden Bar",
       "kommune": "Bergen",
       "fylke": "Hordaland",
-      "url": "https://www.facebook.com/events/136615673695145/"
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "url": "https://www.facebook.com/events/136615673695145/",
+      "lat": 60.398152,
+      "lon": 5.320125,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-the-tasting-room",
@@ -273,6 +490,9 @@
       "rawName": "The Tasting Room",
       "kommune": "Bergen",
       "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
       "url": "http://www.thetastingroom.no/"
     },
     {
@@ -280,28 +500,52 @@
       "name": "Verden I Bergen",
       "rawName": "Verden I Bergen",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.397283,
+      "lon": 5.326095,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "bergen-victoria-pub",
       "name": "Victoria pub",
       "rawName": "Victoria pub",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.393386,
+      "lon": 5.330328,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-vinyl",
       "name": "Vinyl",
       "rawName": "Vinyl",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland",
+      "lat": 60.395364,
+      "lon": 5.327618,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "bergen-wave-bar",
       "name": "Wave Bar",
       "rawName": "Wave Bar",
       "kommune": "Bergen",
-      "fylke": "Hordaland"
+      "fylke": "Hordaland",
+      "kommuneNr": "4601",
+      "kommuneName": "Bergen",
+      "fylkeNow": "Vestland"
     },
     {
       "id": "bjoerkelangen-basement",
@@ -309,7 +553,14 @@
       "rawName": "Basement",
       "kommune": "Bjørkelangen",
       "fylke": "Akershus",
-      "url": "http://www.basementpub.no/index1.htm"
+      "kommuneNr": "3226",
+      "kommuneName": "Aurskog-Høland",
+      "fylkeNow": "Akershus",
+      "url": "http://www.basementpub.no/index1.htm",
+      "lat": 59.808630764268,
+      "lon": 11.595625632191,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "bodoe-mon-ami",
@@ -317,21 +568,42 @@
       "rawName": "Mon Ami",
       "kommune": "Bodø",
       "fylke": "Nordland",
-      "url": "http://monamibodo.no/forside/?News=13"
+      "kommuneNr": "1804",
+      "kommuneName": "Bodø",
+      "fylkeNow": "Nordland",
+      "url": "http://monamibodo.no/forside/?News=13",
+      "lat": 67.309478280505,
+      "lon": 13.915441983793,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "bodoe-sku-bare",
       "name": "Sku Bare",
       "rawName": "Sku Bare",
       "kommune": "Bodø",
-      "fylke": "Nordland"
+      "fylke": "Nordland",
+      "kommuneNr": "1804",
+      "kommuneName": "Bodø",
+      "fylkeNow": "Nordland",
+      "lat": 67.309478280505,
+      "lon": 13.915441983793,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "boe-i-telemark-grillen",
       "name": "Grillen",
       "rawName": "Grillen",
       "kommune": "Bø i Telemark",
-      "fylke": "Telemark"
+      "fylke": "Telemark",
+      "kommuneNr": "4020",
+      "kommuneName": "Midt-Telemark",
+      "fylkeNow": "Telemark",
+      "lat": 59.429211567571,
+      "lon": 9.111842262805,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "bryne-thime-station",
@@ -339,7 +611,14 @@
       "rawName": "Thime Station",
       "kommune": "Bryne",
       "fylke": "Rogaland",
-      "url": "http://www.thime-station.no/"
+      "kommuneNr": "1121",
+      "kommuneName": "Time",
+      "fylkeNow": "Rogaland",
+      "url": "http://www.thime-station.no/",
+      "lat": 58.7352238,
+      "lon": 5.6484439,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "drammen-barkaden-bragernes",
@@ -347,7 +626,14 @@
       "rawName": "Barkaden Bragernes",
       "kommune": "Drammen",
       "fylke": "Buskerud",
-      "url": "https://www.barkaden.no/quiz/"
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNow": "Buskerud",
+      "url": "https://www.barkaden.no/quiz/",
+      "lat": 59.74427,
+      "lon": 10.204102,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "drammen-henrik-s",
@@ -355,6 +641,9 @@
       "rawName": "Henrik’s",
       "kommune": "Drammen",
       "fylke": "Buskerud",
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNow": "Buskerud",
       "url": "http://www.henriks.no/hp.asp"
     },
     {
@@ -363,14 +652,24 @@
       "rawName": "O’Learys",
       "kommune": "Drammen",
       "fylke": "Buskerud",
-      "url": "https://www.quizgutta.no/quiz-olearys-drammen"
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNow": "Buskerud",
+      "url": "https://www.quizgutta.no/quiz-olearys-drammen",
+      "lat": 59.7442244,
+      "lon": 10.2033519,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "drammen-unique",
       "name": "Unique",
       "rawName": "Unique",
       "kommune": "Drammen",
-      "fylke": "Buskerud"
+      "fylke": "Buskerud",
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNow": "Buskerud"
     },
     {
       "id": "droebak-bytinget",
@@ -378,7 +677,14 @@
       "rawName": "Bytinget",
       "kommune": "Drøbak",
       "fylke": "Akershus",
-      "url": "https://www.facebook.com/bytinget.drobak"
+      "kommuneNr": "3214",
+      "kommuneName": "Frogn",
+      "fylkeNow": "Akershus",
+      "url": "https://www.facebook.com/bytinget.drobak",
+      "lat": 59.6633581,
+      "lon": 10.6300118,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "egersund-grand-hotel",
@@ -386,7 +692,14 @@
       "rawName": "Grand Hotel",
       "kommune": "Egersund",
       "fylke": "Rogaland",
-      "url": "http://www.okkaquiz.no/"
+      "kommuneNr": "1101",
+      "kommuneName": "Eigersund",
+      "fylkeNow": "Rogaland",
+      "url": "http://www.okkaquiz.no/",
+      "lat": 58.403436214074,
+      "lon": 5.925943370661,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "elverum-central-scene",
@@ -394,21 +707,42 @@
       "rawName": "Central Scene",
       "kommune": "Elverum",
       "fylke": "Hedmark",
-      "url": "https://www.quizgutta.no/central-scene-elverum"
+      "kommuneNr": "3420",
+      "kommuneName": "Elverum",
+      "fylkeNow": "Innlandet",
+      "url": "https://www.quizgutta.no/central-scene-elverum",
+      "lat": 60.8808108,
+      "lon": 11.5635219,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "elverum-sound-garden-pub",
       "name": "Sound Garden Pub",
       "rawName": "Sound Garden Pub",
       "kommune": "Elverum",
-      "fylke": "Hedmark"
+      "fylke": "Hedmark",
+      "kommuneNr": "3420",
+      "kommuneName": "Elverum",
+      "fylkeNow": "Innlandet",
+      "lat": 60.972781466104,
+      "lon": 11.73445487119,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "fagerstrand-absolutt-hyggelig",
       "name": "Absolutt Hyggelig",
       "rawName": "Absolutt Hyggelig",
       "kommune": "Fagerstrand",
-      "fylke": "Akershus"
+      "fylke": "Akershus",
+      "kommuneNr": "3212",
+      "kommuneName": "Nesodden",
+      "fylkeNow": "Akershus",
+      "lat": 59.802570649648,
+      "lon": 10.635999942315,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "farsund-brygghuset",
@@ -416,7 +750,14 @@
       "rawName": "Brygghuset",
       "kommune": "Farsund",
       "fylke": "Vest-Agder",
-      "url": "https://www.facebook.com/brygghusetfarsund/"
+      "kommuneNr": "4206",
+      "kommuneName": "Farsund",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/brygghusetfarsund/",
+      "lat": 58.025551144116,
+      "lon": 6.559778887596,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "foerde-elvesus",
@@ -424,7 +765,14 @@
       "rawName": "Elvesus",
       "kommune": "Førde",
       "fylke": "Sogn og Fjordane",
-      "url": "https://www.elvesus.no/arrangement"
+      "kommuneNr": "4647",
+      "kommuneName": "Sunnfjord",
+      "fylkeNow": "Vestland",
+      "url": "https://www.elvesus.no/arrangement",
+      "lat": 61.4511734,
+      "lon": 5.8517644,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "fredrikstad-gulating-gamlebyen",
@@ -432,6 +780,9 @@
       "rawName": "Gulating Gamlebyen",
       "kommune": "Fredrikstad",
       "fylke": "Østfold",
+      "kommuneNr": "3107",
+      "kommuneName": "Fredrikstad",
+      "fylkeNow": "Østfold",
       "url": "https://www.facebook.com/GulatingPubGamlebyen/"
     },
     {
@@ -440,6 +791,9 @@
       "rawName": "Heim Fredrikstad",
       "kommune": "Fredrikstad",
       "fylke": "Østfold",
+      "kommuneNr": "3107",
+      "kommuneName": "Fredrikstad",
+      "fylkeNow": "Østfold",
       "url": "https://www.heim.no/events/heim-quiz#fredrikstad"
     },
     {
@@ -448,6 +802,9 @@
       "rawName": "Majoren",
       "kommune": "Fredrikstad",
       "fylke": "Østfold",
+      "kommuneNr": "3107",
+      "kommuneName": "Fredrikstad",
+      "fylkeNow": "Østfold",
       "url": "https://nb-no.facebook.com/majorenquiz/"
     },
     {
@@ -456,7 +813,14 @@
       "rawName": "TÆPS",
       "kommune": "Fredrikstad",
       "fylke": "Østfold",
-      "url": "https://www.facebook.com/taepsbar"
+      "kommuneNr": "3107",
+      "kommuneName": "Fredrikstad",
+      "fylkeNow": "Østfold",
+      "url": "https://www.facebook.com/taepsbar",
+      "lat": 59.2115688,
+      "lon": 10.9378593,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "gjerdrum-gamle-smia-sportspub",
@@ -464,7 +828,14 @@
       "rawName": "Gamle Smia Sportspub",
       "kommune": "Gjerdrum",
       "fylke": "Akershus",
-      "url": "http://www.gamlesmia.no/"
+      "kommuneNr": "3230",
+      "kommuneName": "Gjerdrum",
+      "fylkeNow": "Akershus",
+      "url": "http://www.gamlesmia.no/",
+      "lat": 60.078776654431,
+      "lon": 11.020612297111,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "gjoevik-heim-gjoevik",
@@ -472,7 +843,14 @@
       "rawName": "Heim Gjøvik",
       "kommune": "Gjøvik",
       "fylke": "Oppland",
-      "url": "https://www.heim.no/"
+      "kommuneNr": "3407",
+      "kommuneName": "Gjøvik",
+      "fylkeNow": "Innlandet",
+      "url": "https://www.heim.no/",
+      "lat": 60.7963885,
+      "lon": 10.6928717,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "gjoevik-studentenes-hus",
@@ -480,21 +858,42 @@
       "rawName": "Studentenes Hus",
       "kommune": "Gjøvik",
       "fylke": "Oppland",
-      "url": "http://huset.hig.no/quiz.php"
+      "kommuneNr": "3407",
+      "kommuneName": "Gjøvik",
+      "fylkeNow": "Innlandet",
+      "url": "http://huset.hig.no/quiz.php",
+      "lat": 60.787769,
+      "lon": 10.6794425,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "gran-city-pub",
       "name": "City Pub",
       "rawName": "City Pub",
       "kommune": "Gran",
-      "fylke": "Oppland"
+      "fylke": "Oppland",
+      "kommuneNr": "3446",
+      "kommuneName": "Gran",
+      "fylkeNow": "Innlandet",
+      "lat": 60.438539370659,
+      "lon": 10.429861664174,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "greaaker-olavs-pub",
       "name": "Olavs pub",
       "rawName": "Olavs pub",
       "kommune": "Greåker",
-      "fylke": "Østfold"
+      "fylke": "Østfold",
+      "kommuneNr": "3105",
+      "kommuneName": "Sarpsborg",
+      "fylkeNow": "Østfold",
+      "lat": 59.254954979116,
+      "lon": 11.229781137822,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "grimstad-bluebox-studenthuset",
@@ -502,7 +901,14 @@
       "rawName": "Bluebox (Studenthuset)",
       "kommune": "Grimstad",
       "fylke": "Aust-Agder",
-      "url": "https://www.facebook.com/blueboxquiz/"
+      "kommuneNr": "4202",
+      "kommuneName": "Grimstad",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/blueboxquiz/",
+      "lat": 58.3346755,
+      "lon": 8.5775165,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "grimstad-cafe-galleri",
@@ -510,14 +916,24 @@
       "rawName": "Café Galleri",
       "kommune": "Grimstad",
       "fylke": "Aust-Agder",
-      "url": "https://www.facebook.com/cafegalleri/?fref=ts"
+      "kommuneNr": "4202",
+      "kommuneName": "Grimstad",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/cafegalleri/?fref=ts",
+      "lat": 58.3424614,
+      "lon": 8.5923935,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "hafrsfjord-vigaa-pub",
       "name": "Vigå Pub",
       "rawName": "Vigå Pub",
       "kommune": "Hafrsfjord",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland"
     },
     {
       "id": "halden-samfundet",
@@ -525,14 +941,28 @@
       "rawName": "Samfundet",
       "kommune": "Halden",
       "fylke": "Østfold",
-      "url": "http://ukaihalden.no/hss/"
+      "kommuneNr": "3101",
+      "kommuneName": "Halden",
+      "fylkeNow": "Østfold",
+      "url": "http://ukaihalden.no/hss/",
+      "lat": 59.068055511312,
+      "lon": 11.537193173986,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "hamar-dirty-nelly",
       "name": "Dirty Nelly",
       "rawName": "Dirty Nelly",
       "kommune": "Hamar",
-      "fylke": "Hedmark"
+      "fylke": "Hedmark",
+      "kommuneNr": "3403",
+      "kommuneName": "Hamar",
+      "fylkeNow": "Innlandet",
+      "lat": 61.001493706565,
+      "lon": 11.164796442438,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "hamar-heim-hamar",
@@ -540,7 +970,14 @@
       "rawName": "Heim Hamar",
       "kommune": "Hamar",
       "fylke": "Hedmark",
-      "url": "https://www.heim.no/"
+      "kommuneNr": "3403",
+      "kommuneName": "Hamar",
+      "fylkeNow": "Innlandet",
+      "url": "https://www.heim.no/",
+      "lat": 61.001493706565,
+      "lon": 11.164796442438,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "hamar-o-learys",
@@ -548,14 +985,28 @@
       "rawName": "O’Learys",
       "kommune": "Hamar",
       "fylke": "Hedmark",
-      "url": "https://www.quizgutta.no/olearys-hamar"
+      "kommuneNr": "3403",
+      "kommuneName": "Hamar",
+      "fylkeNow": "Innlandet",
+      "url": "https://www.quizgutta.no/olearys-hamar",
+      "lat": 60.7925904,
+      "lon": 11.0740444,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "hamaroey-ulvsvaag-gjestgiveri",
       "name": "Ulvsvåg Gjestgiveri",
       "rawName": "Ulvsvåg Gjestgiveri",
       "kommune": "Hamarøy",
-      "fylke": "Nordland"
+      "fylke": "Nordland",
+      "kommuneNr": "1875",
+      "kommuneName": "Hábmer",
+      "fylkeNow": "Nordland",
+      "lat": 68.1157794,
+      "lon": 15.8649272,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "hammerfest-jernteppet",
@@ -563,7 +1014,14 @@
       "rawName": "Jernteppet",
       "kommune": "Hammerfest",
       "fylke": "Finnmark",
-      "url": "www.jernteppet.no/quiz"
+      "kommuneNr": "5603",
+      "kommuneName": "Hammerfest",
+      "fylkeNow": "Finnmark",
+      "url": "www.jernteppet.no/quiz",
+      "lat": 70.66338,
+      "lon": 23.68657,
+      "geoSource": "kartverket",
+      "geoConfidence": "medium"
     },
     {
       "id": "harstad-ludo-bar-scene",
@@ -571,7 +1029,14 @@
       "rawName": "Ludo Bar & Scene",
       "kommune": "Harstad",
       "fylke": "Troms",
-      "url": "http://post31.wix.com/ludo-website"
+      "kommuneNr": "5503",
+      "kommuneName": "Harstad",
+      "fylkeNow": "Troms",
+      "url": "http://post31.wix.com/ludo-website",
+      "lat": 68.929738345214,
+      "lon": 16.520913492956,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "harstad-vertshuset-nordlaendingen",
@@ -579,7 +1044,14 @@
       "rawName": "Vertshuset Nordlændingen",
       "kommune": "Harstad",
       "fylke": "Troms",
-      "url": "http://www.nordlaendingen.no/"
+      "kommuneNr": "5503",
+      "kommuneName": "Harstad",
+      "fylkeNow": "Troms",
+      "url": "http://www.nordlaendingen.no/",
+      "lat": 68.929738345214,
+      "lon": 16.520913492956,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "haugesund-cafe-mm",
@@ -587,7 +1059,14 @@
       "rawName": "Café MM",
       "kommune": "Haugesund",
       "fylke": "Rogaland",
-      "url": "http://inventum.no/cafe-mm/"
+      "kommuneNr": "1106",
+      "kommuneName": "Haugesund",
+      "fylkeNow": "Rogaland",
+      "url": "http://inventum.no/cafe-mm/",
+      "lat": 59.4120921,
+      "lon": 5.2690565,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "haugesund-flytten",
@@ -595,6 +1074,9 @@
       "rawName": "Flytten",
       "kommune": "Haugesund",
       "fylke": "Rogaland",
+      "kommuneNr": "1106",
+      "kommuneName": "Haugesund",
+      "fylkeNow": "Rogaland",
       "url": "http://www.flytten.com/"
     },
     {
@@ -603,6 +1085,9 @@
       "rawName": "Pitters Kafé",
       "kommune": "Haugesund",
       "fylke": "Rogaland",
+      "kommuneNr": "1106",
+      "kommuneName": "Haugesund",
+      "fylkeNow": "Rogaland",
       "url": "http://www.pitterskafe.no/"
     },
     {
@@ -610,7 +1095,10 @@
       "name": "Sørensen",
       "rawName": "Sørensen",
       "kommune": "Haugesund",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1106",
+      "kommuneName": "Haugesund",
+      "fylkeNow": "Rogaland"
     },
     {
       "id": "haugesund-stoedden",
@@ -618,6 +1106,9 @@
       "rawName": "Stødden",
       "kommune": "Haugesund",
       "fylke": "Rogaland",
+      "kommuneNr": "1106",
+      "kommuneName": "Haugesund",
+      "fylkeNow": "Rogaland",
       "url": "http://www.stodden.no/home/"
     },
     {
@@ -626,7 +1117,14 @@
       "rawName": "Bassgarasjen",
       "kommune": "Hønefoss",
       "fylke": "Buskerud",
-      "url": "https://www.facebook.com/DahlbergsMusikkQuiz/"
+      "kommuneNr": "3305",
+      "kommuneName": "Ringerike",
+      "fylkeNow": "Buskerud",
+      "url": "https://www.facebook.com/DahlbergsMusikkQuiz/",
+      "lat": 60.327406206203,
+      "lon": 10.021763528367,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "hoenefoss-humbar",
@@ -634,7 +1132,14 @@
       "rawName": "Humbar",
       "kommune": "Hønefoss",
       "fylke": "Buskerud",
-      "url": "https://www.facebook.com/humbarhonefoss?locale=nb_NO"
+      "kommuneNr": "3305",
+      "kommuneName": "Ringerike",
+      "fylkeNow": "Buskerud",
+      "url": "https://www.facebook.com/humbarhonefoss?locale=nb_NO",
+      "lat": 60.1704583,
+      "lon": 10.2589727,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "hokksund-sanden-hotell",
@@ -642,7 +1147,14 @@
       "rawName": "Sanden Hotell",
       "kommune": "Hokksund",
       "fylke": "Buskerud",
-      "url": "http://www.sandenhotell.no"
+      "kommuneNr": "3314",
+      "kommuneName": "Øvre Eiker",
+      "fylkeNow": "Buskerud",
+      "url": "http://www.sandenhotell.no",
+      "lat": 59.7746615,
+      "lon": 9.9116445,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "hokksund-vest-for-elven",
@@ -650,14 +1162,28 @@
       "rawName": "Vest for Elven",
       "kommune": "Hokksund",
       "fylke": "Buskerud",
-      "url": "http://www.vestforelven.info/"
+      "kommuneNr": "3314",
+      "kommuneName": "Øvre Eiker",
+      "fylkeNow": "Buskerud",
+      "url": "http://www.vestforelven.info/",
+      "lat": 59.74417085212,
+      "lon": 9.841214678157,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "holmestrand-kontoret",
       "name": "Kontoret",
       "rawName": "Kontoret",
       "kommune": "Holmestrand",
-      "fylke": "Vestfold"
+      "fylke": "Vestfold",
+      "kommuneNr": "3903",
+      "kommuneName": "Holmestrand",
+      "fylkeNow": "Vestfold",
+      "lat": 59.559125205886,
+      "lon": 10.153169341225,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "honningsvaag-noeden",
@@ -665,21 +1191,42 @@
       "rawName": "Nøden",
       "kommune": "Honningsvåg",
       "fylke": "Finnmark",
-      "url": "http://www.noden.no/"
+      "kommuneNr": "5620",
+      "kommuneName": "Nordkapp",
+      "fylkeNow": "Finnmark",
+      "url": "http://www.noden.no/",
+      "lat": 70.9828919,
+      "lon": 25.9701941,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "horten-saxon-king",
       "name": "Saxon King",
       "rawName": "Saxon King",
       "kommune": "Horten",
-      "fylke": "Vestfold"
+      "fylke": "Vestfold",
+      "kommuneNr": "3901",
+      "kommuneName": "Horten",
+      "fylkeNow": "Vestfold",
+      "lat": 59.4131188,
+      "lon": 10.4807512,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "hvittingfoss-landsbypuben",
       "name": "Landsbypuben",
       "rawName": "Landsbypuben",
       "kommune": "Hvittingfoss",
-      "fylke": "Buskerud"
+      "fylke": "Buskerud",
+      "kommuneNr": "3303",
+      "kommuneName": "Kongsberg",
+      "fylkeNow": "Buskerud",
+      "lat": 59.594550024483,
+      "lon": 9.670860058016,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "jessheim-gulating-pub-jessheim-sundbytunet",
@@ -687,6 +1234,9 @@
       "rawName": "Gulating Pub Jessheim, Sundbytunet",
       "kommune": "Jessheim",
       "fylke": "Akershus",
+      "kommuneNr": "3209",
+      "kommuneName": "Ullensaker",
+      "fylkeNow": "Akershus",
       "url": "https://www.facebook.com/sundbytunetquizliga/"
     },
     {
@@ -695,6 +1245,9 @@
       "rawName": "Heim Jessheim",
       "kommune": "Jessheim",
       "fylke": "Akershus",
+      "kommuneNr": "3209",
+      "kommuneName": "Ullensaker",
+      "fylkeNow": "Akershus",
       "url": "https://www.heim.no/"
     },
     {
@@ -703,6 +1256,9 @@
       "rawName": "O’Connors Jessheim",
       "kommune": "Jessheim",
       "fylke": "Akershus",
+      "kommuneNr": "3209",
+      "kommuneName": "Ullensaker",
+      "fylkeNow": "Akershus",
       "url": "https://www.facebook.com/profile.php?id=61574725628464"
     },
     {
@@ -711,6 +1267,9 @@
       "rawName": "Peppes Jessheim",
       "kommune": "Jessheim",
       "fylke": "Akershus",
+      "kommuneNr": "3209",
+      "kommuneName": "Ullensaker",
+      "fylkeNow": "Akershus",
       "url": "https://www.facebook.com/peppes.jessheim"
     },
     {
@@ -718,21 +1277,42 @@
       "name": "Torget",
       "rawName": "Torget",
       "kommune": "Jessheim",
-      "fylke": "Akershus"
+      "fylke": "Akershus",
+      "kommuneNr": "3209",
+      "kommuneName": "Ullensaker",
+      "fylkeNow": "Akershus",
+      "lat": 60.141911,
+      "lon": 11.173289,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "jevnaker-glassheim-rockeklubb",
       "name": "Glassheim Rockeklubb",
       "rawName": "Glassheim Rockeklubb",
       "kommune": "Jevnaker",
-      "fylke": "Oppland"
+      "fylke": "Oppland",
+      "kommuneNr": "3236",
+      "kommuneName": "Jevnaker",
+      "fylkeNow": "Akershus",
+      "lat": 60.282554411495,
+      "lon": 10.408457864144,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "jevnaker-hadeland-glassverk-mester-pizzeria",
       "name": "Hadeland Glassverk / Mester Pizzeria",
       "rawName": "Hadeland Glassverk / Mester Pizzeria",
       "kommune": "Jevnaker",
-      "fylke": "Oppland"
+      "fylke": "Oppland",
+      "kommuneNr": "3236",
+      "kommuneName": "Jevnaker",
+      "fylkeNow": "Akershus",
+      "lat": 60.2382935,
+      "lon": 10.3972524,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "kirkenes-ofelas",
@@ -740,7 +1320,14 @@
       "rawName": "Ofelas",
       "kommune": "Kirkenes",
       "fylke": "Finnmark",
-      "url": "http://www.ofelas.no/index.php?page_id=1"
+      "kommuneNr": "5605",
+      "kommuneName": "Sør-Varanger",
+      "fylkeNow": "Finnmark",
+      "url": "http://www.ofelas.no/index.php?page_id=1",
+      "lat": 69.537566053539,
+      "lon": 29.72613705747,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "kolbotn-vinoria",
@@ -748,7 +1335,14 @@
       "rawName": "Vinoria",
       "kommune": "Kolbotn",
       "fylke": "Akershus",
-      "url": "https://www.facebook.com/profile.php?id=100084571847533"
+      "kommuneNr": "3207",
+      "kommuneName": "Nordre Follo",
+      "fylkeNow": "Akershus",
+      "url": "https://www.facebook.com/profile.php?id=100084571847533",
+      "lat": 59.728992877047,
+      "lon": 10.892904270362,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "kongsberg-christians-kjeller",
@@ -756,7 +1350,14 @@
       "rawName": "Christians Kjeller",
       "kommune": "Kongsberg",
       "fylke": "Buskerud",
-      "url": "http://www.opsahlgarden.no/"
+      "kommuneNr": "3303",
+      "kommuneName": "Kongsberg",
+      "fylkeNow": "Buskerud",
+      "url": "http://www.opsahlgarden.no/",
+      "lat": 59.6640134,
+      "lon": 9.645518,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "kongsberg-energimoella",
@@ -764,7 +1365,14 @@
       "rawName": "Energimølla",
       "kommune": "Kongsberg",
       "fylke": "Buskerud",
-      "url": "http://www.energimolla.no/index.php?pageid=1631"
+      "kommuneNr": "3303",
+      "kommuneName": "Kongsberg",
+      "fylkeNow": "Buskerud",
+      "url": "http://www.energimolla.no/index.php?pageid=1631",
+      "lat": 59.594550024483,
+      "lon": 9.670860058016,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "kongsvinger-kafe-bohem",
@@ -772,7 +1380,14 @@
       "rawName": "Kafé Bohem",
       "kommune": "Kongsvinger",
       "fylke": "Hedmark",
-      "url": "http://www.facebook.com/group.php?gid=5554312899"
+      "kommuneNr": "3401",
+      "kommuneName": "Kongsvinger",
+      "fylkeNow": "Innlandet",
+      "url": "http://www.facebook.com/group.php?gid=5554312899",
+      "lat": 60.1967506,
+      "lon": 12.0081586,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "kopervik-cafe-mm",
@@ -780,7 +1395,14 @@
       "rawName": "Café MM",
       "kommune": "Kopervik",
       "fylke": "Rogaland",
-      "url": "http://inventum.no/cafe-mm-kopervik/"
+      "kommuneNr": "1149",
+      "kommuneName": "Karmøy",
+      "fylkeNow": "Rogaland",
+      "url": "http://inventum.no/cafe-mm-kopervik/",
+      "lat": 59.4120921,
+      "lon": 5.2690565,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "kristiansand-haandverkeren",
@@ -788,7 +1410,14 @@
       "rawName": "Håndverkeren",
       "kommune": "Kristiansand",
       "fylke": "Vest-Agder",
-      "url": "https://www.facebook.com/H%C3%A5ndverkeren-234926529998148/"
+      "kommuneNr": "4204",
+      "kommuneName": "Kristiansand",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/H%C3%A5ndverkeren-234926529998148/",
+      "lat": 58.146997,
+      "lon": 7.996654,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "kristiansand-javel",
@@ -796,7 +1425,14 @@
       "rawName": "Javel",
       "kommune": "Kristiansand",
       "fylke": "Vest-Agder",
-      "url": "http://www.javel.no/"
+      "kommuneNr": "4204",
+      "kommuneName": "Kristiansand",
+      "fylkeNow": "Agder",
+      "url": "http://www.javel.no/",
+      "lat": 58.1438806,
+      "lon": 7.9926064,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "kristiansand-oestsia",
@@ -804,6 +1440,9 @@
       "rawName": "Østsia",
       "kommune": "Kristiansand",
       "fylke": "Vest-Agder",
+      "kommuneNr": "4204",
+      "kommuneName": "Kristiansand",
+      "fylkeNow": "Agder",
       "url": "http://www.ostsia.no/"
     },
     {
@@ -811,7 +1450,10 @@
       "name": "Telford’s",
       "rawName": "Telford’s",
       "kommune": "Kristiansand",
-      "fylke": "Vest-Agder"
+      "fylke": "Vest-Agder",
+      "kommuneNr": "4204",
+      "kommuneName": "Kristiansand",
+      "fylkeNow": "Agder"
     },
     {
       "id": "langesund-bobben",
@@ -819,7 +1461,14 @@
       "rawName": "Bobben",
       "kommune": "Langesund",
       "fylke": "Telemark",
-      "url": "https://www.facebook.com/www.bobben.no/?locale=nb_NO"
+      "kommuneNr": "4012",
+      "kommuneName": "Bamble",
+      "fylkeNow": "Telemark",
+      "url": "https://www.facebook.com/www.bobben.no/?locale=nb_NO",
+      "lat": 59.01809151938,
+      "lon": 9.544323608348,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "langesund-wrightegaarden",
@@ -827,14 +1476,28 @@
       "rawName": "Wrightegaarden",
       "kommune": "Langesund",
       "fylke": "Telemark",
-      "url": "https://wrightegaarden.no/program/quiz?fbclid=IwZXh0bgNhZW0CMTAAAR1SOOHyCfmFJa1dNpQW8J0X9BVkdA5EFSpJWbwev_BXlW24lxq_nOr32t8_aem_AUMqp4gqhq7F3i2wDdv0gQiZitM53Qa8uxvbe33ph20zERyq71j8_ylVGWKUgvrM_EZCx1pUq_plV3ZlpH8qWouF"
+      "kommuneNr": "4012",
+      "kommuneName": "Bamble",
+      "fylkeNow": "Telemark",
+      "url": "https://wrightegaarden.no/program/quiz?fbclid=IwZXh0bgNhZW0CMTAAAR1SOOHyCfmFJa1dNpQW8J0X9BVkdA5EFSpJWbwev_BXlW24lxq_nOr32t8_aem_AUMqp4gqhq7F3i2wDdv0gQiZitM53Qa8uxvbe33ph20zERyq71j8_ylVGWKUgvrM_EZCx1pUq_plV3ZlpH8qWouF",
+      "lat": 59.0010804,
+      "lon": 9.7484779,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "levanger-dirty-nelly",
       "name": "Dirty Nelly",
       "rawName": "Dirty Nelly",
       "kommune": "Levanger",
-      "fylke": "Nord-Trøndelag"
+      "fylke": "Nord-Trøndelag",
+      "kommuneNr": "5037",
+      "kommuneName": "Levanger",
+      "fylkeNow": "Trøndelag",
+      "lat": 63.696451798535,
+      "lon": 11.223880448963,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "lierbyen-toget-pub",
@@ -842,7 +1505,14 @@
       "rawName": "Toget pub",
       "kommune": "Lierbyen",
       "fylke": "Buskerud",
-      "url": "http://togetpub.no/"
+      "kommuneNr": "3312",
+      "kommuneName": "Lier",
+      "fylkeNow": "Buskerud",
+      "url": "http://togetpub.no/",
+      "lat": 59.845333279797,
+      "lon": 10.211546015601,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "lillehammer-heim-lillehammer",
@@ -850,7 +1520,14 @@
       "rawName": "Heim Lillehammer",
       "kommune": "Lillehammer",
       "fylke": "Oppland",
-      "url": "https://www.heim.no/"
+      "kommuneNr": "3405",
+      "kommuneName": "Lillehammer",
+      "fylkeNow": "Innlandet",
+      "url": "https://www.heim.no/",
+      "lat": 61.133340791812,
+      "lon": 10.426585529541,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "lillehammer-nikkers-sport",
@@ -858,7 +1535,14 @@
       "rawName": "Nikkers Sport",
       "kommune": "Lillehammer",
       "fylke": "Oppland",
-      "url": "http://www.nikkers.no/events/quiz/"
+      "kommuneNr": "3405",
+      "kommuneName": "Lillehammer",
+      "fylkeNow": "Innlandet",
+      "url": "http://www.nikkers.no/events/quiz/",
+      "lat": 61.117349,
+      "lon": 10.4654378,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "lillesand-kafe-strandhaven",
@@ -866,7 +1550,14 @@
       "rawName": "Kafé Strandhaven",
       "kommune": "Lillesand",
       "fylke": "Aust-Agder",
-      "url": "https://www.facebook.com/kafestrandhaven/?fref=ts"
+      "kommuneNr": "4215",
+      "kommuneName": "Lillesand",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/kafestrandhaven/?fref=ts",
+      "lat": 58.2487361,
+      "lon": 8.3780198,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "lillestroem-barcode-lillestroem",
@@ -874,6 +1565,9 @@
       "rawName": "Barcode Lillestrøm",
       "kommune": "Lillestrøm",
       "fylke": "Akershus",
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNow": "Akershus",
       "url": "https://www.barcode-lillestrom.no/"
     },
     {
@@ -882,7 +1576,14 @@
       "rawName": "Martins Pub",
       "kommune": "Lillestrøm",
       "fylke": "Akershus",
-      "url": "http://www.martinspub.com/"
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNow": "Akershus",
+      "url": "http://www.martinspub.com/",
+      "lat": 59.9556628,
+      "lon": 11.0478959,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "lillestroem-o-connors-lillestroem",
@@ -890,6 +1591,9 @@
       "rawName": "O’Connors Lillestrøm",
       "kommune": "Lillestrøm",
       "fylke": "Akershus",
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNow": "Akershus",
       "url": "https://www.facebook.com/profile.php?id=61577826417175"
     },
     {
@@ -898,7 +1602,14 @@
       "rawName": "Republic Lillestrøm",
       "kommune": "Lillestrøm",
       "fylke": "Akershus",
-      "url": "https://www.quizgutta.no/republic-lillestr%C3%B8m"
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNow": "Akershus",
+      "url": "https://www.quizgutta.no/republic-lillestr%C3%B8m",
+      "lat": 59.9554909,
+      "lon": 11.0496788,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "longyearbyen-fruene",
@@ -906,6 +1617,9 @@
       "rawName": "Fruene",
       "kommune": "Longyearbyen",
       "fylke": "Svalbard",
+      "kommuneNr": "2100",
+      "kommuneName": "Svalbard",
+      "fylkeNow": "Svalbard",
       "url": "https://nb-no.facebook.com/pages/category/Interest/Fruene-As-116855955081446/"
     },
     {
@@ -914,7 +1628,14 @@
       "rawName": "Paulsens hotell",
       "kommune": "Lyngdal",
       "fylke": "Vest-Agder",
-      "url": "https://www.facebook.com/Paulsens-Hotell-333346873376568/?fref=ts"
+      "kommuneNr": "4225",
+      "kommuneName": "Lyngdal",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/Paulsens-Hotell-333346873376568/?fref=ts",
+      "lat": 58.1390501,
+      "lon": 7.066286,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "mandal-sjoeboden",
@@ -922,7 +1643,14 @@
       "rawName": "Sjøboden",
       "kommune": "Mandal",
       "fylke": "Vest-Agder",
-      "url": "https://www.facebook.com/sjobodenlivescene/"
+      "kommuneNr": "4205",
+      "kommuneName": "Lindesnes",
+      "fylkeNow": "Agder",
+      "url": "https://www.facebook.com/sjobodenlivescene/",
+      "lat": 58.0257698,
+      "lon": 7.4518475,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "minnesund-velhuset-paa-minnesund",
@@ -930,14 +1658,28 @@
       "rawName": "Velhuset på Minnesund",
       "kommune": "Minnesund",
       "fylke": "Akershus",
-      "url": "https://www.minnesund.info/post/_quiz"
+      "kommuneNr": "3240",
+      "kommuneName": "Eidsvoll",
+      "fylkeNow": "Akershus",
+      "url": "https://www.minnesund.info/post/_quiz",
+      "lat": 60.416296389984,
+      "lon": 11.255544272519,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "mjoendalen-olsen-paa-hjoernet",
       "name": "Olsen på hjørnet",
       "rawName": "Olsen på hjørnet",
       "kommune": "Mjøndalen",
-      "fylke": "Buskerud"
+      "fylke": "Buskerud",
+      "kommuneNr": "3301",
+      "kommuneName": "Drammen",
+      "fylkeNow": "Buskerud",
+      "lat": 59.7510685,
+      "lon": 10.0096083,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "mo-i-rana-onkel-oskar",
@@ -945,7 +1687,14 @@
       "rawName": "Onkel Oskar",
       "kommune": "Mo i Rana",
       "fylke": "Nordland",
-      "url": "http://www.onkeloskar.no/moirana/index.htm"
+      "kommuneNr": "1833",
+      "kommuneName": "Rana",
+      "fylkeNow": "Nordland",
+      "url": "http://www.onkeloskar.no/moirana/index.htm",
+      "lat": 66.439713155542,
+      "lon": 14.394593180474,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "molde-die-tankstelle",
@@ -953,7 +1702,14 @@
       "rawName": "Die Tankstelle",
       "kommune": "Molde",
       "fylke": "Møre og Romsdal",
-      "url": "https://www.myldr.as/tankstelle"
+      "kommuneNr": "1506",
+      "kommuneName": "Molde",
+      "fylkeNow": "Møre og Romsdal",
+      "url": "https://www.myldr.as/tankstelle",
+      "lat": 62.7365968,
+      "lon": 7.1558913,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "molde-fuzzy-platebar",
@@ -961,6 +1717,9 @@
       "rawName": "Fuzzy Platebar",
       "kommune": "Molde",
       "fylke": "Møre og Romsdal",
+      "kommuneNr": "1506",
+      "kommuneName": "Molde",
+      "fylkeNow": "Møre og Romsdal",
       "url": "www.fuzzyplatebar.no"
     },
     {
@@ -969,7 +1728,14 @@
       "rawName": "Kafé Kurt",
       "kommune": "Molde",
       "fylke": "Møre og Romsdal",
-      "url": "http://www.teatretvart.no/kaf-kurt/quizkvelder"
+      "kommuneNr": "1506",
+      "kommuneName": "Molde",
+      "fylkeNow": "Møre og Romsdal",
+      "url": "http://www.teatretvart.no/kaf-kurt/quizkvelder",
+      "lat": 62.7363349,
+      "lon": 7.155812,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "molde-tapp-og-kork",
@@ -977,14 +1743,28 @@
       "rawName": "Tapp og Kork",
       "kommune": "Molde",
       "fylke": "Møre og Romsdal",
-      "url": "https://www.facebook.com/Tappkork/"
+      "kommuneNr": "1506",
+      "kommuneName": "Molde",
+      "fylkeNow": "Møre og Romsdal",
+      "url": "https://www.facebook.com/Tappkork/",
+      "lat": 62.7374484,
+      "lon": 7.1575216,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "mosjoeen-gilles-cafe",
       "name": "Gilles Café",
       "rawName": "Gilles Café",
       "kommune": "Mosjøen",
-      "fylke": "Nordland"
+      "fylke": "Nordland",
+      "kommuneNr": "1824",
+      "kommuneName": "Vefsn",
+      "fylkeNow": "Nordland",
+      "lat": 65.8384763,
+      "lon": 13.187475,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "moss-evita-house",
@@ -992,21 +1772,42 @@
       "rawName": "Evita House",
       "kommune": "Moss",
       "fylke": "Østfold",
-      "url": "https://www.facebook.com/evitahousekaffebar"
+      "kommuneNr": "3103",
+      "kommuneName": "Moss",
+      "fylkeNow": "Østfold",
+      "url": "https://www.facebook.com/evitahousekaffebar",
+      "lat": 59.4181094,
+      "lon": 10.6782891,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "moss-underverket",
       "name": "Underverket",
       "rawName": "Underverket",
       "kommune": "Moss",
-      "fylke": "Østfold"
+      "fylke": "Østfold",
+      "kommuneNr": "3103",
+      "kommuneName": "Moss",
+      "fylkeNow": "Østfold",
+      "lat": 59.439502,
+      "lon": 10.6672534,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "naerboe-holdeplassen",
       "name": "Holdeplassen",
       "rawName": "Holdeplassen",
       "kommune": "Nærbø",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1119",
+      "kommuneName": "Hå",
+      "fylkeNow": "Rogaland",
+      "lat": 58.518408078893,
+      "lon": 5.567445886394,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "namsos-onkel-oskar",
@@ -1014,7 +1815,14 @@
       "rawName": "Onkel Oskar",
       "kommune": "Namsos",
       "fylke": "Nord-Trøndelag",
-      "url": "http://www.onkeloskar.no/namsos/"
+      "kommuneNr": "5007",
+      "kommuneName": "Namsos",
+      "fylkeNow": "Trøndelag",
+      "url": "http://www.onkeloskar.no/namsos/",
+      "lat": 64.466637214826,
+      "lon": 11.334504680879,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "narvik-malmen",
@@ -1022,7 +1830,14 @@
       "rawName": "Malmen",
       "kommune": "Narvik",
       "fylke": "Nordland",
-      "url": "https://malmen-narvik.no/"
+      "kommuneNr": "1806",
+      "kommuneName": "Narvik",
+      "fylkeNow": "Nordland",
+      "url": "https://malmen-narvik.no/",
+      "lat": 68.4385303,
+      "lon": 17.4289897,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "nesodden-flasken",
@@ -1030,7 +1845,14 @@
       "rawName": "Flasken",
       "kommune": "Nesodden",
       "fylke": "Akershus",
-      "url": "https://nb-no.facebook.com/Flasken-p%C3%A5-Flaskebekk-186963591318575/"
+      "kommuneNr": "3212",
+      "kommuneName": "Nesodden",
+      "fylkeNow": "Akershus",
+      "url": "https://nb-no.facebook.com/Flasken-p%C3%A5-Flaskebekk-186963591318575/",
+      "lat": 59.849685,
+      "lon": 10.6586415,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "nesodden-granbar",
@@ -1038,14 +1860,28 @@
       "rawName": "Granbar",
       "kommune": "Nesodden",
       "fylke": "Akershus",
-      "url": "https://www.facebook.com/Granbar.as"
+      "kommuneNr": "3212",
+      "kommuneName": "Nesodden",
+      "fylkeNow": "Akershus",
+      "url": "https://www.facebook.com/Granbar.as",
+      "lat": 59.802570649648,
+      "lon": 10.635999942315,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "nord-odal-fina-n-pub-pizza",
       "name": "Fina’n Pub & Pizza",
       "rawName": "Fina’n Pub & Pizza",
       "kommune": "Nord-Odal",
-      "fylke": "Hedmark"
+      "fylke": "Hedmark",
+      "kommuneNr": "3414",
+      "kommuneName": "Nord-Odal",
+      "fylkeNow": "Innlandet",
+      "lat": 60.439857058052,
+      "lon": 11.584875785726,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "notodden-bellman-pub",
@@ -1053,7 +1889,14 @@
       "rawName": "Bellman Pub",
       "kommune": "Notodden",
       "fylke": "Telemark",
-      "url": "http://www.bellmanpub.no/news.php"
+      "kommuneNr": "4005",
+      "kommuneName": "Notodden",
+      "fylkeNow": "Telemark",
+      "url": "http://www.bellmanpub.no/news.php",
+      "lat": 59.5596004,
+      "lon": 9.2591901,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-200",
@@ -1061,7 +1904,14 @@
       "rawName": "200",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.200oslo.com"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.200oslo.com",
+      "lat": 59.9222279,
+      "lon": 10.7613806,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-agora-lilleborg",
@@ -1069,7 +1919,14 @@
       "rawName": "Agora Lilleborg",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/profile.php?id=61556089076572"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/profile.php?id=61556089076572",
+      "lat": 59.9382588,
+      "lon": 10.764315,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-alexandria-sports-bar-music",
@@ -1077,7 +1934,14 @@
       "rawName": "Alexandria Sports Bar & Music",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/Alexandrialivesportsandmusic/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/Alexandrialivesportsandmusic/",
+      "lat": 59.9196039,
+      "lon": 10.7592139,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-arv-kaffe-og-retro",
@@ -1085,14 +1949,28 @@
       "rawName": "Arv Kaffe og Retro",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/arvkafferetro/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/arvkafferetro/",
+      "lat": 59.908157,
+      "lon": 10.769673,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-aye-aye-club",
       "name": "Aye Aye Club",
       "rawName": "Aye Aye Club",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.913345,
+      "lon": 10.74901,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-bagel-juice-vika",
@@ -1100,6 +1978,9 @@
       "rawName": "Bagel&Juice, Vika",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "http://www.bagelandjuice.no/html/vika.html"
     },
     {
@@ -1108,6 +1989,9 @@
       "rawName": "Bakgården",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/bakgaardenpaaloekka"
     },
     {
@@ -1116,7 +2000,14 @@
       "rawName": "Bar Polar",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/groups/1112515042110440/?fref=ts"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/groups/1112515042110440/?fref=ts",
+      "lat": 59.942383,
+      "lon": 10.770093,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-bd57",
@@ -1124,7 +2015,14 @@
       "rawName": "BD57",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.bd57.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.bd57.no/",
+      "lat": 59.9199499,
+      "lon": 10.7572416,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-bernie-s",
@@ -1132,7 +2030,14 @@
       "rawName": "Bernie’s",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://bernies.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://bernies.no/",
+      "lat": 59.9088228,
+      "lon": 10.7681299,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-boelgen-kro",
@@ -1140,7 +2045,14 @@
       "rawName": "Bølgen Kro (Mikrobølgen 29, Munkelia)",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "addressHint": "Mikrobølgen 29, Munkelia"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "addressHint": "Mikrobølgen 29, Munkelia",
+      "lat": 59.909025,
+      "lon": 10.722849,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-bohemen",
@@ -1148,7 +2060,14 @@
       "rawName": "Bohemen",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.bohemen.no"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.bohemen.no",
+      "lat": 59.914499,
+      "lon": 10.74084,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-brewgata",
@@ -1156,14 +2075,28 @@
       "rawName": "Brewgata",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.brewgata.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.brewgata.no/",
+      "lat": 59.9140589,
+      "lon": 10.7553601,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-brinner",
       "name": "Brinner",
       "rawName": "Brinner",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.92756,
+      "lon": 10.759307,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-broed-og-sirkus",
@@ -1171,7 +2104,14 @@
       "rawName": "Brød og Sirkus",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/events/274890584001564/?event_time_id=274890640668225"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/events/274890584001564/?event_time_id=274890640668225",
+      "lat": 59.913174,
+      "lon": 10.736285,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-cafe-chandro",
@@ -1179,6 +2119,9 @@
       "rawName": "Café Chandro",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/pages/Cafe-Chandro/422386777797328"
     },
     {
@@ -1187,8 +2130,15 @@
       "rawName": "Café Marienlyst\n(«Hullet i veggen»), Kirkeveien 104)",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "addressHint": "Kirkeveien 104",
-      "url": "https://www.facebook.com/p/Cafe-Marienlyst-61581217813783/"
+      "url": "https://www.facebook.com/p/Cafe-Marienlyst-61581217813783/",
+      "lat": 59.93333392052284,
+      "lon": 10.725721822344825,
+      "geoSource": "address",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-cafe-soer",
@@ -1196,7 +2146,14 @@
       "rawName": "Cafe Sør",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/cafesor"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/cafesor",
+      "lat": 59.9141746,
+      "lon": 10.7483395,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-cafekontoret",
@@ -1204,14 +2161,28 @@
       "rawName": "Cafékontoret",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/pg/Andrisquizen/posts/?ref=page_internal"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/pg/Andrisquizen/posts/?ref=page_internal",
+      "lat": 59.908703,
+      "lon": 10.7683761,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-carls",
       "name": "Carls",
       "rawName": "Carls",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9263482,
+      "lon": 10.7771311,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-colonel-mustard",
@@ -1219,7 +2190,14 @@
       "rawName": "Colonel Mustard",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/groups/435296794075341"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/groups/435296794075341",
+      "lat": 59.927827,
+      "lon": 10.751397,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-cultivate-food-gruenerloekka",
@@ -1227,6 +2205,9 @@
       "rawName": "Cultivate Food, Grünerløkka",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://cultivatefood.no/quiz-night/"
     },
     {
@@ -1235,7 +2216,14 @@
       "rawName": "Dapper",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/dapper.no"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/dapper.no",
+      "lat": 59.9211554,
+      "lon": 10.7582711,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-dattera-til-hagen",
@@ -1243,7 +2231,14 @@
       "rawName": "Dattera til Hagen",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://dattera.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://dattera.no/",
+      "lat": 59.91331,
+      "lon": 10.7601335,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-den-andre-kvissen-vespa-humla",
@@ -1251,7 +2246,14 @@
       "rawName": "Den Andre Kvissen (Vespa & Humla)",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/denandrekvissen"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/denandrekvissen",
+      "lat": 59.9248344,
+      "lon": 10.7628647,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-den-gamle-major",
@@ -1259,7 +2261,14 @@
       "rawName": "Den Gamle Major",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/groups/345103584581816"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/groups/345103584581816",
+      "lat": 59.9286373,
+      "lon": 10.7157436,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-doegnvill",
@@ -1267,21 +2276,42 @@
       "rawName": "Døgnvill",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://nb-no.facebook.com/DognvillBurger/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://nb-no.facebook.com/DognvillBurger/",
+      "lat": 59.9083027,
+      "lon": 10.7235853,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-dr-jekyll",
       "name": "Dr. Jekyll",
       "rawName": "Dr. Jekyll",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9136008,
+      "lon": 10.7331776,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-eckers-ullevaal",
       "name": "Eckers Ullevål",
       "rawName": "Eckers Ullevål",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9406056,
+      "lon": 10.728741,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-eilefs-landhandleri",
@@ -1289,7 +2319,14 @@
       "rawName": "Eilefs Landhandleri",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/eilefs"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/eilefs",
+      "lat": 59.9149559,
+      "lon": 10.7402933,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-feber",
@@ -1297,14 +2334,28 @@
       "rawName": "Feber",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/feberoslo/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/feberoslo/",
+      "lat": 59.9150438,
+      "lon": 10.7481893,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-flyfisher",
       "name": "Flyfisher",
       "rawName": "Flyfisher",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9275965,
+      "lon": 10.7323793,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-folk-i-storgata",
@@ -1312,7 +2363,14 @@
       "rawName": "Folk i Storgata",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/Folkistorgata"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/Folkistorgata",
+      "lat": 59.9153122,
+      "lon": 10.7562217,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-fru-burums",
@@ -1320,7 +2378,14 @@
       "rawName": "Fru Burums",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://fruburums.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://fruburums.no/",
+      "lat": 59.9159,
+      "lon": 10.716192,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-fryd-loeren",
@@ -1328,7 +2393,14 @@
       "rawName": "Fryd Løren",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.frydloren.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.frydloren.no/",
+      "lat": 59.930798,
+      "lon": 10.793232,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-fryd-manglerud",
@@ -1336,35 +2408,70 @@
       "rawName": "Fryd Manglerud",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/p/Fryd-Manglerud-61564902069829/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/p/Fryd-Manglerud-61564902069829/",
+      "lat": 59.8970259,
+      "lon": 10.8134677,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-glasset",
       "name": "Glasset",
       "rawName": "Glasset",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9175991,
+      "lon": 10.7383494,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-gloed",
       "name": "Glød",
       "rawName": "Glød",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9202725,
+      "lon": 10.7594727,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-gondol-bar-og-restaurant",
       "name": "Gondol bar og restaurant",
       "rawName": "Gondol bar og restaurant",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9612173,
+      "lon": 10.9242316,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-grefsenkollen",
       "name": "Grefsenkollen",
       "rawName": "Grefsenkollen",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.958984,
+      "lon": 10.8038193,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-groenland-boulebar",
@@ -1372,7 +2479,14 @@
       "rawName": "Grønland Boulebar",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/gronlandboulebar"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/gronlandboulebar",
+      "lat": 59.911661,
+      "lon": 10.766443,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-gruenerloekka-brygghus",
@@ -1380,7 +2494,14 @@
       "rawName": "Grünerløkka Brygghus",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/KaldQuiz"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/KaldQuiz",
+      "lat": 59.925007,
+      "lon": 10.759363,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-haandtryk",
@@ -1388,6 +2509,9 @@
       "rawName": "Haandtryk",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "http://www.haandtryk.no/"
     },
     {
@@ -1396,7 +2520,14 @@
       "rawName": "Hasle Linie Gastropub",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.hasleliniegastropub.no/hvaskjer"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.hasleliniegastropub.no/hvaskjer",
+      "lat": 59.926988,
+      "lon": 10.793769,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-heidi-s-bier-bar",
@@ -1404,7 +2535,14 @@
       "rawName": "Heidi’s Bier Bar",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://heidisbierbar.no/oslo/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://heidisbierbar.no/oslo/",
+      "lat": 59.9123124,
+      "lon": 10.7352408,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-hells-kitchen",
@@ -1412,7 +2550,14 @@
       "rawName": "Hells Kitchen",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.hellskitchenoslo.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.hellskitchenoslo.no/",
+      "lat": 59.9156423,
+      "lon": 10.7485562,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-highbury",
@@ -1420,7 +2565,14 @@
       "rawName": "Highbury",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.highbury.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.highbury.no/",
+      "lat": 59.927478,
+      "lon": 10.719017,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-hvaskjer-torshov",
@@ -1428,6 +2580,9 @@
       "rawName": "Hvaskjer, Torshov",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/hvaskjertorshov/?ref=aymt_homepage_panel"
     },
     {
@@ -1436,6 +2591,9 @@
       "rawName": "Il Teatro Bar & Restaurant",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/groups/quizmurerlosjenilteatro"
     },
     {
@@ -1444,7 +2602,14 @@
       "rawName": "Ingensteds",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.instagram.com/ingensteds/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.instagram.com/ingensteds/",
+      "lat": 59.919933,
+      "lon": 10.752742,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-josefine-vertshus",
@@ -1452,21 +2617,42 @@
       "rawName": "Josefine Vertshus",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.josefine.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.josefine.no/",
+      "lat": 59.9235175,
+      "lon": 10.7276089,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-kafe-albin",
       "name": "Kafé Albin",
       "rawName": "Kafé Albin",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9204565,
+      "lon": 10.717212,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-kafe-arv-retro",
       "name": "Kafé Arv & Retro",
       "rawName": "Kafé Arv & Retro",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.908157,
+      "lon": 10.769673,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-kjoekkenet-rockefeller",
@@ -1474,6 +2660,9 @@
       "rawName": "Kjøkkenet (Rockefeller)",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "http://www.rockefeller.no/"
     },
     {
@@ -1482,7 +2671,14 @@
       "rawName": "Klosterenga café og bar",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/klosterengacafe"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/klosterengacafe",
+      "lat": 59.907892,
+      "lon": 10.771562,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-kulturhuset",
@@ -1490,7 +2686,14 @@
       "rawName": "Kulturhuset",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.kulturhusetioslo.no/event-kalender"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.kulturhusetioslo.no/event-kalender",
+      "lat": 59.9145875,
+      "lon": 10.7506275,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-last-train",
@@ -1498,7 +2701,14 @@
       "rawName": "Last Train",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/pages/Last-Train/142822542449214"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/pages/Last-Train/142822542449214",
+      "lat": 59.9148041,
+      "lon": 10.7366951,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-lincoln-pub-torshov",
@@ -1506,6 +2716,9 @@
       "rawName": "Lincoln Pub, Torshov",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/profile.php?id=100057374952626#"
     },
     {
@@ -1514,7 +2727,14 @@
       "rawName": "Litteraturhuset",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.litteraturhuset.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.litteraturhuset.no/",
+      "lat": 59.9204315,
+      "lon": 10.728673,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-loekka-bar-kjoekken",
@@ -1522,7 +2742,14 @@
       "rawName": "Løkka Bar & Kjøkken",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/groups/1481818818990874/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/groups/1481818818990874/",
+      "lat": 59.9271309,
+      "lon": 10.761273,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-london-pub",
@@ -1530,7 +2757,14 @@
       "rawName": "London Pub",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.londonpub.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.londonpub.no/",
+      "lat": 59.915297,
+      "lon": 10.740624,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-nydalen-bryggeri-og-spiseri",
@@ -1538,6 +2772,9 @@
       "rawName": "Nydalen Bryggeri og Spiseri",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.nydalenbryggeri.no/hva-skjer"
     },
     {
@@ -1546,6 +2783,9 @@
       "rawName": "O’Connors",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://oconnors.no/oslo/"
     },
     {
@@ -1554,7 +2794,14 @@
       "rawName": "O’Reilly’s",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.oreillys.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.oreillys.no/",
+      "lat": 59.9219679,
+      "lon": 10.7571968,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-oche-torrgata",
@@ -1562,6 +2809,9 @@
       "rawName": "Oche Torrgata",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://oche.com/no/oslo"
     },
     {
@@ -1570,14 +2820,28 @@
       "rawName": "Olsen på Bryn",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/olsenbryn"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/olsenbryn",
+      "lat": 59.9075609,
+      "lon": 10.8182649,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-ophelia",
       "name": "Ophelia",
       "rawName": "Ophelia",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.918974,
+      "lon": 10.733822,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-opland-burger-steak",
@@ -1585,6 +2849,9 @@
       "rawName": "Opland Burger & Steak",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.burgerandsteak.com/bar"
     },
     {
@@ -1593,7 +2860,14 @@
       "rawName": "Oslo Mikrobryggeri",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://nb-no.facebook.com/events/752144665139412/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://nb-no.facebook.com/events/752144665139412/",
+      "lat": 59.9242717,
+      "lon": 10.7241227,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-pane-vino",
@@ -1601,7 +2875,14 @@
       "rawName": "Pane & Vino",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.panevino.no"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.panevino.no",
+      "lat": 59.9210411,
+      "lon": 10.7703904,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-petrus-bar-og-restaurant",
@@ -1609,7 +2890,14 @@
       "rawName": "Petrus Bar og Restaurant",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/share/rvPjBAkkZ47anqLW/?mibextid=LQQJ4d"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/share/rvPjBAkkZ47anqLW/?mibextid=LQQJ4d",
+      "lat": 59.9234496,
+      "lon": 10.7658543,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-pokalen",
@@ -1617,7 +2905,14 @@
       "rawName": "Pokalen",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.pokalenpub.no/aktiviteter"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.pokalenpub.no/aktiviteter",
+      "lat": 59.9071418,
+      "lon": 10.7618077,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-pokalen-parkveien",
@@ -1625,14 +2920,28 @@
       "rawName": "Pokalen Parkveien",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/events/531932568246975/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22search_results%22%2C%22surface%22%3A%22search%22%7D]%2C%22ref_notif_type%22%3Anull%7D"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/events/531932568246975/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22search_results%22%2C%22surface%22%3A%22search%22%7D]%2C%22ref_notif_type%22%3Anull%7D",
+      "lat": 59.9206095,
+      "lon": 10.7281598,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-pollett-bislett",
       "name": "Pollett Bislett",
       "rawName": "Pollett Bislett",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9250154,
+      "lon": 10.7312865,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-postkontoret-paa-toeyen",
@@ -1640,7 +2949,14 @@
       "rawName": "Postkontoret på Tøyen",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/toyenpostkontor/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/toyenpostkontor/",
+      "lat": 59.914102,
+      "lon": 10.775072,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-preik",
@@ -1648,7 +2964,14 @@
       "rawName": "Preik",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/preikoslo?locale=nb_NO"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/preikoslo?locale=nb_NO",
+      "lat": 59.9064553,
+      "lon": 10.7683441,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-proud-mary",
@@ -1656,6 +2979,9 @@
       "rawName": "Proud Mary",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://book.easytable.com/book/?id=37116&lang=auto&fbclid=IwZXh0bgNhZW0CMTAAAR1L29xbTEzPcHeV_Rrc2sBRw76J-ojwDYwraBf60AaUW4XC0dpm0Twieys_aem_pXQIoevc_SN08VN7e9GFXw#step=qty&type=23301"
     },
     {
@@ -1664,6 +2990,9 @@
       "rawName": "Quizmurerlosjen",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/groups/quizmurerlosjenstbar"
     },
     {
@@ -1672,14 +3001,28 @@
       "rawName": "Rabalder Bar Løkka",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.instagram.com/rabalderbaroslo/?hl=en"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.instagram.com/rabalderbaroslo/?hl=en",
+      "lat": 59.9203354,
+      "lon": 10.7591659,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-radisson-red-oekern",
       "name": "Radisson RED (Økern)",
       "rawName": "Radisson RED (Økern)",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.930415,
+      "lon": 10.7992653,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-ringnes-brygghus",
@@ -1687,7 +3030,14 @@
       "rawName": "Ringnes Brygghus",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/RingnesBrygghus/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/RingnesBrygghus/",
+      "lat": 59.9301846,
+      "lon": 10.759244,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-roeverstaden",
@@ -1695,6 +3045,9 @@
       "rawName": "Røverstaden",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/roverstaden/"
     },
     {
@@ -1703,6 +3056,9 @@
       "rawName": "Royal Gastropub",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/royalgastropub"
     },
     {
@@ -1711,6 +3067,9 @@
       "rawName": "SALT",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.salted.no/quiz-paa-salt"
     },
     {
@@ -1719,6 +3078,9 @@
       "rawName": "Samfunnet Bislet",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/Samfunnet-Bislet-267469569962730/"
     },
     {
@@ -1727,6 +3089,9 @@
       "rawName": "Saskia",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/pages/category/Bar/Saskia-631480130620902/"
     },
     {
@@ -1735,7 +3100,14 @@
       "rawName": "Shamrock",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/groups/1671606489787856/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/groups/1671606489787856/",
+      "lat": 59.9274247,
+      "lon": 10.7652371,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-skatten",
@@ -1743,7 +3115,14 @@
       "rawName": "Skatten",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.skattenoslo.no/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.skattenoslo.no/",
+      "lat": 59.9147444,
+      "lon": 10.7752721,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-skullerud-park",
@@ -1751,6 +3130,9 @@
       "rawName": "Skullerud Park",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.nye-skullerud.no/artikler/det-skulleru-visst-velkommen-til-quiz-p%C3%A5-skullerud?fbclid=IwY2xjawJkagdleHRuA2FlbQIxMAABHolYWG7BdyQWDu8thgWJMVETbNU0gWY3oWg8pHjOmTMML6abHZ7u2yasy3YR_aem_FVKLokPcWUDiol4wnreFIA"
     },
     {
@@ -1759,6 +3141,9 @@
       "rawName": "Smeltehagen",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/Smeltehagen"
     },
     {
@@ -1767,7 +3152,14 @@
       "rawName": "Smelteverket",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/groups/363059723827566/?locale=nb_NO"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/groups/363059723827566/?locale=nb_NO",
+      "lat": 59.9223742,
+      "lon": 10.7524786,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-soerenga-sjoemat",
@@ -1775,6 +3167,9 @@
       "rawName": "Sørenga Sjømat",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/events/2056523871291458/"
     },
     {
@@ -1783,6 +3178,9 @@
       "rawName": "Stasjonen (Tordenskiolds gate)",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://twitter.com/stasjoneng"
     },
     {
@@ -1791,6 +3189,9 @@
       "rawName": "Street Flavours (Økern Portal)",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.quizgutta.no/"
     },
     {
@@ -1799,7 +3200,14 @@
       "rawName": "Svovelstikka",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/profile.php?id=61556654163071&locale=nb_NO"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/profile.php?id=61556654163071&locale=nb_NO",
+      "lat": 59.9141047,
+      "lon": 10.7970385,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-syng-gruenerloekka",
@@ -1807,6 +3215,9 @@
       "rawName": "SYNG Grünerløkka",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://syng.no/syng/hva-skjer/"
     },
     {
@@ -1815,7 +3226,14 @@
       "rawName": "The Broker",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://nb-no.facebook.com/brokeroslo"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://nb-no.facebook.com/brokeroslo",
+      "lat": 59.9263259,
+      "lon": 10.721658,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-the-good-knight",
@@ -1823,7 +3241,14 @@
       "rawName": "The Good Knight",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://goodknight.no/whats-up/quizn-chips-allmennquiz/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://goodknight.no/whats-up/quizn-chips-allmennquiz/",
+      "lat": 59.916241,
+      "lon": 10.750901,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-the-good-knight-blaamandagquiz",
@@ -1831,7 +3256,14 @@
       "rawName": "The Good Knight (Blåmandagquiz)",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://goodknight.no/whats-up/blamandag/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://goodknight.no/whats-up/blamandag/",
+      "lat": 59.916241,
+      "lon": 10.750901,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-the-lannisters",
@@ -1839,6 +3271,9 @@
       "rawName": "The Lannisters",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/The-Lannisters-1107589772598434/"
     },
     {
@@ -1847,7 +3282,14 @@
       "rawName": "The Scotsman",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "http://www.scotsman.no"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "http://www.scotsman.no",
+      "lat": 59.9141161,
+      "lon": 10.7381596,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-the-toucan",
@@ -1855,7 +3297,14 @@
       "rawName": "The Toucan",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/thetoucanpublichouse"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/thetoucanpublichouse",
+      "lat": 59.91384,
+      "lon": 10.756428,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-trappa",
@@ -1863,14 +3312,24 @@
       "rawName": "Trappa",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/trappapub/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/trappapub/",
+      "lat": 59.9160042,
+      "lon": 10.7417622,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-uhoert",
       "name": "Uhørt",
       "rawName": "Uhørt",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo"
     },
     {
       "id": "oslo-vaalerenga-vertshus",
@@ -1878,7 +3337,14 @@
       "rawName": "Vålerenga Vertshus",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://vvertshus.no/?fbclid=IwY2xjawJ-yjpleHRuA2FlbQIxMABicmlkETBEN2RHTld6T0I1YzZjR0xXAR5gLj0rUKvgJTvxDneYtvTiyrn0tGPYQeRoAElVQxCpQMr2w4FlQMPEroyDuA_aem_3PQ3KhQ-hftdyFRJmq7vmg"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://vvertshus.no/?fbclid=IwY2xjawJ-yjpleHRuA2FlbQIxMABicmlkETBEN2RHTld6T0I1YzZjR0xXAR5gLj0rUKvgJTvxDneYtvTiyrn0tGPYQeRoAElVQxCpQMr2w4FlQMPEroyDuA_aem_3PQ3KhQ-hftdyFRJmq7vmg",
+      "lat": 59.909546,
+      "lon": 10.789509,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-valentino-pizzeria-og-gastropub",
@@ -1886,7 +3352,14 @@
       "rawName": "Valentino Pizzeria og Gastropub",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/valentinopizzeriaoslo?locale=nb_NO"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/valentinopizzeriaoslo?locale=nb_NO",
+      "lat": 59.9294227,
+      "lon": 10.7783229,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-vaterland-bar-scene",
@@ -1894,14 +3367,28 @@
       "rawName": "Vaterland Bar & Scene",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/hestedirektoratetsrockequiz"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/hestedirektoratetsrockequiz",
+      "lat": 59.913911,
+      "lon": 10.756104,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-verkstedet",
       "name": "Verkstedet",
       "rawName": "Verkstedet",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9176866,
+      "lon": 10.7540467,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-vesper-bar",
@@ -1909,28 +3396,52 @@
       "rawName": "Vesper bar",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://www.facebook.com/barcodequiz/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://www.facebook.com/barcodequiz/",
+      "lat": 59.9075101,
+      "lon": 10.7604517,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-via-village",
       "name": "VIA Village",
       "rawName": "VIA Village",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.918931,
+      "lon": 10.70268,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-victor-s-lounge",
       "name": "Victor’s Lounge",
       "rawName": "Victor’s Lounge",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "lat": 59.9177678,
+      "lon": 10.7183243,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "oslo-vika-kino",
       "name": "Vika Kino",
       "rawName": "Vika Kino",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo"
     },
     {
       "id": "oslo-vippa",
@@ -1938,6 +3449,9 @@
       "rawName": "Vippa",
       "kommune": "Oslo",
       "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
       "url": "https://www.facebook.com/vippaoslo/"
     },
     {
@@ -1946,7 +3460,14 @@
       "rawName": "Welhavens Skjenkestue",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "url": "https://facebook.com/WelhavensSkjenkestue/"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "url": "https://facebook.com/WelhavensSkjenkestue/",
+      "lat": 59.921129,
+      "lon": 10.7305248,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-wembley-pub",
@@ -1954,21 +3475,38 @@
       "rawName": "Wembley Pub (Schouterrassen 25)",
       "kommune": "Oslo",
       "fylke": "Oslo",
-      "addressHint": "Schouterrassen 25"
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo",
+      "addressHint": "Schouterrassen 25",
+      "lat": 59.931547492732065,
+      "lon": 10.78310771472158,
+      "geoSource": "address",
+      "geoConfidence": "high"
     },
     {
       "id": "oslo-wunderburger",
       "name": "Wunderburger",
       "rawName": "Wunderburger",
       "kommune": "Oslo",
-      "fylke": "Oslo"
+      "fylke": "Oslo",
+      "kommuneNr": "0301",
+      "kommuneName": "Oslo",
+      "fylkeNow": "Oslo"
     },
     {
       "id": "otta-pillarguri-cafe",
       "name": "Pillarguri Café",
       "rawName": "Pillarguri Café",
       "kommune": "Otta",
-      "fylke": "Oppland"
+      "fylke": "Oppland",
+      "kommuneNr": "3437",
+      "kommuneName": "Sel",
+      "fylkeNow": "Innlandet",
+      "lat": 61.77053,
+      "lon": 9.541369,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "porsgrunn-jimmy-s",
@@ -1976,6 +3514,9 @@
       "rawName": "Jimmy’s",
       "kommune": "Porsgrunn",
       "fylke": "Telemark",
+      "kommuneNr": "4001",
+      "kommuneName": "Porsgrunn",
+      "fylkeNow": "Telemark",
       "url": "http://www.jimmysrestaurant.no"
     },
     {
@@ -1984,28 +3525,52 @@
       "rawName": "Kafé K",
       "kommune": "Porsgrunn",
       "fylke": "Telemark",
-      "url": "http://www.kafek.no/program.htm"
+      "kommuneNr": "4001",
+      "kommuneName": "Porsgrunn",
+      "fylkeNow": "Telemark",
+      "url": "http://www.kafek.no/program.htm",
+      "lat": 59.1437826,
+      "lon": 9.6560358,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "porsgrunn-karjolen",
       "name": "Karjolen",
       "rawName": "Karjolen",
       "kommune": "Porsgrunn",
-      "fylke": "Telemark"
+      "fylke": "Telemark",
+      "kommuneNr": "4001",
+      "kommuneName": "Porsgrunn",
+      "fylkeNow": "Telemark",
+      "lat": 59.1381076,
+      "lon": 9.6511391,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "porsgrunn-park-bistro",
       "name": "Park Bistro",
       "rawName": "Park Bistro",
       "kommune": "Porsgrunn",
-      "fylke": "Telemark"
+      "fylke": "Telemark",
+      "kommuneNr": "4001",
+      "kommuneName": "Porsgrunn",
+      "fylkeNow": "Telemark"
     },
     {
       "id": "randaberg-pubben",
       "name": "Pubben",
       "rawName": "Pubben",
       "kommune": "Randaberg",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1127",
+      "kommuneName": "Randaberg",
+      "fylkeNow": "Rogaland",
+      "lat": 59.018361749162,
+      "lon": 5.569761907394,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "risoer-peterhead",
@@ -2013,7 +3578,14 @@
       "rawName": "Peterhead",
       "kommune": "Risør",
       "fylke": "Aust-Agder",
-      "url": "http://www.peterhead.no/"
+      "kommuneNr": "4201",
+      "kommuneName": "Risør",
+      "fylkeNow": "Agder",
+      "url": "http://www.peterhead.no/",
+      "lat": 58.7188717,
+      "lon": 9.2394904,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "roervik-henrys-bar",
@@ -2021,42 +3593,84 @@
       "rawName": "Henrys Bar",
       "kommune": "Rørvik",
       "fylke": "Nord-Trøndelag",
-      "url": "https://henrysbar.no/"
+      "kommuneNr": "5060",
+      "kommuneName": "Nærøysund",
+      "fylkeNow": "Trøndelag",
+      "url": "https://henrysbar.no/",
+      "lat": 64.928737535331,
+      "lon": 11.18228073899,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "rygge-lageret-pub",
       "name": "Lageret Pub",
       "rawName": "Lageret Pub",
       "kommune": "Rygge",
-      "fylke": "Østfold"
+      "fylke": "Østfold",
+      "kommuneNr": "3103",
+      "kommuneName": "Moss",
+      "fylkeNow": "Østfold",
+      "lat": 59.3780232,
+      "lon": 10.7485708,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "sandefjord-haukeroed-puben",
       "name": "Haukerød Puben",
       "rawName": "Haukerød Puben",
       "kommune": "Sandefjord",
-      "fylke": "Vestfold"
+      "fylke": "Vestfold",
+      "kommuneNr": "3907",
+      "kommuneName": "Sandefjord",
+      "fylkeNow": "Vestfold",
+      "lat": 59.079900335874,
+      "lon": 10.280432253305,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "sandefjord-james-clark-pub-restaurant",
       "name": "James Clark Pub & Restaurant",
       "rawName": "James Clark Pub & Restaurant",
       "kommune": "Sandefjord",
-      "fylke": "Vestfold"
+      "fylke": "Vestfold",
+      "kommuneNr": "3907",
+      "kommuneName": "Sandefjord",
+      "fylkeNow": "Vestfold",
+      "lat": 59.1275,
+      "lon": 10.228942,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "sandnes-bakgaarden",
       "name": "Bakgaarden",
       "rawName": "Bakgaarden",
       "kommune": "Sandnes",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1108",
+      "kommuneName": "Sandnes",
+      "fylkeNow": "Rogaland",
+      "lat": 58.983132221777,
+      "lon": 6.394641010059,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "sandnes-plagiat-bar",
       "name": "Plagiat Bar",
       "rawName": "Plagiat Bar",
       "kommune": "Sandnes",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1108",
+      "kommuneName": "Sandnes",
+      "fylkeNow": "Rogaland",
+      "lat": 58.983132221777,
+      "lon": 6.394641010059,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "sandnesseter-grendehuset",
@@ -2071,7 +3685,14 @@
       "rawName": "Dickens",
       "kommune": "Sarpsborg",
       "fylke": "Østfold",
-      "url": "http://www.dickens-sarpsborg.no/hva-skjer/fredags-quizen/"
+      "kommuneNr": "3105",
+      "kommuneName": "Sarpsborg",
+      "fylkeNow": "Østfold",
+      "url": "http://www.dickens-sarpsborg.no/hva-skjer/fredags-quizen/",
+      "lat": 59.283396,
+      "lon": 11.112189,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "sarpsborg-glenghuset",
@@ -2079,7 +3700,14 @@
       "rawName": "Glenghuset",
       "kommune": "Sarpsborg",
       "fylke": "Østfold",
-      "url": "http://www.glenghuset.com/index.php?side=program&mid=1"
+      "kommuneNr": "3105",
+      "kommuneName": "Sarpsborg",
+      "fylkeNow": "Østfold",
+      "url": "http://www.glenghuset.com/index.php?side=program&mid=1",
+      "lat": 59.2820385,
+      "lon": 11.1072045,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "sigerfjord-naustet",
@@ -2087,7 +3715,14 @@
       "rawName": "Naustet",
       "kommune": "Sigerfjord",
       "fylke": "Nordland",
-      "url": "http://www.vesteraalen.net/modules.php?op=modload&name=News&file=index"
+      "kommuneNr": "1870",
+      "kommuneName": "Sortland",
+      "fylkeNow": "Nordland",
+      "url": "http://www.vesteraalen.net/modules.php?op=modload&name=News&file=index",
+      "lat": 68.767296044111,
+      "lon": 15.367917881952,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "skien-bar-skien",
@@ -2095,7 +3730,14 @@
       "rawName": "BAR Skien",
       "kommune": "Skien",
       "fylke": "Telemark",
-      "url": "http://www.barskien.no"
+      "kommuneNr": "4003",
+      "kommuneName": "Skien",
+      "fylkeNow": "Telemark",
+      "url": "http://www.barskien.no",
+      "lat": 59.26624421784,
+      "lon": 9.531250204048,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "skjaerhalden-vertshuset-skjaerhalden",
@@ -2103,7 +3745,14 @@
       "rawName": "Vertshuset Skjærhalden",
       "kommune": "Skjærhalden",
       "fylke": "Østfold",
-      "url": "http://www.vertshus.net/"
+      "kommuneNr": "3110",
+      "kommuneName": "Hvaler",
+      "fylkeNow": "Østfold",
+      "url": "http://www.vertshus.net/",
+      "lat": 59.0249576,
+      "lon": 11.0373263,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "skjervoey-sydvesten-hotel-maritim",
@@ -2111,7 +3760,14 @@
       "rawName": "Sydvesten/Hotel Maritim",
       "kommune": "Skjervøy",
       "fylke": "Troms",
-      "url": "http://www.hotell-maritim.no/norsk/index.html"
+      "kommuneNr": "5542",
+      "kommuneName": "Skjervøy",
+      "fylkeNow": "Troms",
+      "url": "http://www.hotell-maritim.no/norsk/index.html",
+      "lat": 70.197787650905,
+      "lon": 20.702169556121,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "skjetten-olavsgaard-hotel",
@@ -2119,14 +3775,28 @@
       "rawName": "Olavsgaard Hotel",
       "kommune": "Skjetten",
       "fylke": "Akershus",
-      "url": "https://www.quizgutta.no/quiz-p%C3%A5-olavsgaard"
+      "kommuneNr": "3205",
+      "kommuneName": "Lillestrøm",
+      "fylkeNow": "Akershus",
+      "url": "https://www.quizgutta.no/quiz-p%C3%A5-olavsgaard",
+      "lat": 59.979401,
+      "lon": 10.9983053,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "slemmestad-slemmestad-mek",
       "name": "Slemmestad MEK",
       "rawName": "Slemmestad MEK",
       "kommune": "Slemmestad",
-      "fylke": "Akershus"
+      "fylke": "Akershus",
+      "kommuneNr": "3203",
+      "kommuneName": "Asker",
+      "fylkeNow": "Akershus",
+      "lat": 59.68163555365,
+      "lon": 10.47406489371,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "sogndal-meieriet",
@@ -2134,56 +3804,108 @@
       "rawName": "Meieriet",
       "kommune": "Sogndal",
       "fylke": "Sogn og Fjordane",
-      "url": "http://meieriet.no/"
+      "kommuneNr": "4640",
+      "kommuneName": "Sogndal",
+      "fylkeNow": "Vestland",
+      "url": "http://meieriet.no/",
+      "lat": 61.329791004608,
+      "lon": 6.720364623397,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "sortland-loftet-scene",
       "name": "Loftet Scene",
       "rawName": "Loftet Scene",
       "kommune": "Sortland",
-      "fylke": "Nordland"
+      "fylke": "Nordland",
+      "kommuneNr": "1870",
+      "kommuneName": "Sortland",
+      "fylkeNow": "Nordland",
+      "lat": 68.767296044111,
+      "lon": 15.367917881952,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "spydeberg-fredriks-pizza",
       "name": "Fredriks Pizza",
       "rawName": "Fredriks Pizza",
       "kommune": "Spydeberg",
-      "fylke": "Østfold"
+      "fylke": "Østfold",
+      "kommuneNr": "3118",
+      "kommuneName": "Indre Østfold",
+      "fylkeNow": "Østfold",
+      "lat": 59.610201170283,
+      "lon": 11.183294993879,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "stathelle-johnsegaarden",
       "name": "Johnsegården",
       "rawName": "Johnsegården",
       "kommune": "Stathelle",
-      "fylke": "Telemark"
+      "fylke": "Telemark",
+      "kommuneNr": "4012",
+      "kommuneName": "Bamble",
+      "fylkeNow": "Telemark",
+      "lat": 59.01809151938,
+      "lon": 9.544323608348,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "stavanger-arkivet",
       "name": "Arkivet",
       "rawName": "Arkivet",
       "kommune": "Stavanger",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "lat": 58.970948,
+      "lon": 5.731421,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-blaaveis",
       "name": "Blåveis",
       "rawName": "Blåveis",
       "kommune": "Stavanger",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland"
     },
     {
       "id": "stavanger-cardinal-pub",
       "name": "Cardinal Pub",
       "rawName": "Cardinal Pub",
       "kommune": "Stavanger",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "lat": 58.971298,
+      "lon": 5.731303,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-checkpoint-charlie",
       "name": "Checkpoint Charlie",
       "rawName": "Checkpoint Charlie",
       "kommune": "Stavanger",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "lat": 58.9699641,
+      "lon": 5.7288698,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-folken",
@@ -2191,6 +3913,9 @@
       "rawName": "Folken",
       "kommune": "Stavanger",
       "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
       "url": "http://www.folken.no/"
     },
     {
@@ -2199,14 +3924,28 @@
       "rawName": "Fri Bar",
       "kommune": "Stavanger",
       "fylke": "Rogaland",
-      "url": "https://www.facebook.com/frifargegaten/"
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "url": "https://www.facebook.com/frifargegaten/",
+      "lat": 58.9726497,
+      "lon": 5.7334981,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-gnu-bar",
       "name": "Gnu Bar",
       "rawName": "Gnu Bar",
       "kommune": "Stavanger",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "lat": 58.9707567,
+      "lon": 5.7282153,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-hanekam",
@@ -2214,14 +3953,28 @@
       "rawName": "Hanekam",
       "kommune": "Stavanger",
       "fylke": "Rogaland",
-      "url": "https://www.instagram.com/p/DEe2afRIwXa/"
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "url": "https://www.instagram.com/p/DEe2afRIwXa/",
+      "lat": 58.9727442,
+      "lon": 5.7330973,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-hinna-bistro",
       "name": "Hinna Bistro",
       "rawName": "Hinna Bistro",
       "kommune": "Stavanger",
-      "fylke": "Rogaland"
+      "fylke": "Rogaland",
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "lat": 58.921205,
+      "lon": 5.72471,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "stavanger-martinique",
@@ -2229,7 +3982,14 @@
       "rawName": "Martinique",
       "kommune": "Stavanger",
       "fylke": "Rogaland",
-      "url": "http://www.martinique.no/"
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "url": "http://www.martinique.no/",
+      "lat": 58.9703289,
+      "lon": 5.7389118,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stavanger-paa-kornet-craft-beer-pub",
@@ -2237,7 +3997,14 @@
       "rawName": "På Kornet Craft Beer Pub",
       "kommune": "Stavanger",
       "fylke": "Rogaland",
-      "url": "https://www.paakornet.no/"
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "url": "https://www.paakornet.no/",
+      "lat": 58.972942,
+      "lon": 5.7307323,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "stavanger-the-irishman",
@@ -2245,7 +4012,14 @@
       "rawName": "The Irishman",
       "kommune": "Stavanger",
       "fylke": "Rogaland",
-      "url": "https://www.facebook.com/theirishman91"
+      "kommuneNr": "1103",
+      "kommuneName": "Stavanger",
+      "fylkeNow": "Rogaland",
+      "url": "https://www.facebook.com/theirishman91",
+      "lat": 58.971599,
+      "lon": 5.734306,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "stjoerdal-banken-bar",
@@ -2253,7 +4027,14 @@
       "rawName": "Banken Bar",
       "kommune": "Stjørdal",
       "fylke": "Nord-Trøndelag",
-      "url": "http://www.bankenbar.com/public.aspx"
+      "kommuneNr": "5035",
+      "kommuneName": "Stjørdal",
+      "fylkeNow": "Trøndelag",
+      "url": "http://www.bankenbar.com/public.aspx",
+      "lat": 63.462705073318,
+      "lon": 11.134476243517,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "stjoerdal-bs-pub-kultur",
@@ -2261,7 +4042,14 @@
       "rawName": "BS Pub & Kultur",
       "kommune": "Stjørdal",
       "fylke": "Nord-Trøndelag",
-      "url": "https://nb-no.facebook.com/pg/BS-Pub-Kultur-as-199053506862384/posts/"
+      "kommuneNr": "5035",
+      "kommuneName": "Stjørdal",
+      "fylkeNow": "Trøndelag",
+      "url": "https://nb-no.facebook.com/pg/BS-Pub-Kultur-as-199053506862384/posts/",
+      "lat": 63.462705073318,
+      "lon": 11.134476243517,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "stokke-ysterietv",
@@ -2269,7 +4057,14 @@
       "rawName": "Ysterietv",
       "kommune": "Stokke",
       "fylke": "Vestfold",
-      "url": "http://ysterietcafe.weebly.com/quiz.html"
+      "kommuneNr": "3907",
+      "kommuneName": "Sandefjord",
+      "fylkeNow": "Vestfold",
+      "url": "http://ysterietcafe.weebly.com/quiz.html",
+      "lat": 59.2215324,
+      "lon": 10.2991743,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "stord-bakeriet-frugaard",
@@ -2277,7 +4072,14 @@
       "rawName": "Bakeriet Frugård",
       "kommune": "Stord",
       "fylke": "Hordaland",
-      "url": "http://arenaquiz.blogspot.com/"
+      "kommuneNr": "4614",
+      "kommuneName": "Stord",
+      "fylkeNow": "Vestland",
+      "url": "http://arenaquiz.blogspot.com/",
+      "lat": 59.781518,
+      "lon": 5.502237,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "toensberg-bryggeriet-pub",
@@ -2285,7 +4087,14 @@
       "rawName": "Bryggeriet Pub",
       "kommune": "Tønsberg",
       "fylke": "Vestfold",
-      "url": "http://www.bryggeriet.tv/index.html"
+      "kommuneNr": "3905",
+      "kommuneName": "Tønsberg",
+      "fylkeNow": "Vestfold",
+      "url": "http://www.bryggeriet.tv/index.html",
+      "lat": 59.354979471363,
+      "lon": 10.28204910833,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "toensberg-himmel-hav",
@@ -2293,14 +4102,24 @@
       "rawName": "Himmel & Hav",
       "kommune": "Tønsberg",
       "fylke": "Vestfold",
-      "url": "http://www.himmeloghav.net/"
+      "kommuneNr": "3905",
+      "kommuneName": "Tønsberg",
+      "fylkeNow": "Vestfold",
+      "url": "http://www.himmeloghav.net/",
+      "lat": 59.354979471363,
+      "lon": 10.28204910833,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "tromsoe-barstad",
       "name": "Barstad",
       "rawName": "Barstad",
       "kommune": "Tromsø",
-      "fylke": "Troms"
+      "fylke": "Troms",
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNow": "Troms"
     },
     {
       "id": "tromsoe-driv",
@@ -2308,21 +4127,38 @@
       "rawName": "Driv",
       "kommune": "Tromsø",
       "fylke": "Troms",
-      "url": "http://www.driv.no/"
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNow": "Troms",
+      "url": "http://www.driv.no/",
+      "lat": 69.6460797,
+      "lon": 18.9509877,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "tromsoe-haalogaland-teater",
       "name": "Hålogaland Teater",
       "rawName": "Hålogaland Teater",
       "kommune": "Tromsø",
-      "fylke": "Troms"
+      "fylke": "Troms",
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNow": "Troms",
+      "lat": 69.6418133,
+      "lon": 18.9442569,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "tromsoe-ikke-fast-sted",
       "name": "Ikke fast sted",
       "rawName": "Ikke fast sted",
       "kommune": "Tromsø",
-      "fylke": "Troms"
+      "fylke": "Troms",
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNow": "Troms"
     },
     {
       "id": "tromsoe-maskineriet",
@@ -2330,6 +4166,9 @@
       "rawName": "Maskineriet",
       "kommune": "Tromsø",
       "fylke": "Troms",
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNow": "Troms",
       "url": "https://nb-no.facebook.com/maskineri/"
     },
     {
@@ -2337,7 +4176,14 @@
       "name": "Storgata Camping",
       "rawName": "Storgata Camping",
       "kommune": "Tromsø",
-      "fylke": "Troms"
+      "fylke": "Troms",
+      "kommuneNr": "5501",
+      "kommuneName": "Tromsø",
+      "fylkeNow": "Troms",
+      "lat": 69.6456436,
+      "lon": 18.9497718,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-antikvariatet",
@@ -2345,7 +4191,14 @@
       "rawName": "Antikvariatet",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.facebook.com/karlsensquiz/"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.facebook.com/karlsensquiz/",
+      "lat": 63.4284213,
+      "lon": 10.4027996,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-boxer",
@@ -2353,6 +4206,9 @@
       "rawName": "Boxer",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
       "url": "https://www.facebook.com/Boxerquiz"
     },
     {
@@ -2361,6 +4217,9 @@
       "rawName": "Bror Bar (Piasquiz)",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
       "url": "https://www.facebook.com/Piasquiz/"
     },
     {
@@ -2369,7 +4228,14 @@
       "rawName": "Fru Lundgreen",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.facebook.com/events/7235623606480775/7235623626480773/"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.facebook.com/events/7235623606480775/7235623626480773/",
+      "lat": 63.4341987,
+      "lon": 10.4043334,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-good-omens",
@@ -2377,7 +4243,14 @@
       "rawName": "Good Omens",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.facebook.com/groups/1635228029881505"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.facebook.com/groups/1635228029881505",
+      "lat": 63.4346413,
+      "lon": 10.3964408,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-habitat",
@@ -2385,14 +4258,28 @@
       "rawName": "Habitat",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.facebook.com/habitattrondheim"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.facebook.com/habitattrondheim",
+      "lat": 63.433367,
+      "lon": 10.395369,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "trondheim-ladejarlen",
       "name": "Ladejarlen",
       "rawName": "Ladejarlen",
       "kommune": "Trondheim",
-      "fylke": "Sør-Trøndelag"
+      "fylke": "Sør-Trøndelag",
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "lat": 63.43622,
+      "lon": 10.420274,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-lille-london",
@@ -2400,7 +4287,14 @@
       "rawName": "Lille London",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.facebook.com/p/Lille-London-100063592810035/"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.facebook.com/p/Lille-London-100063592810035/",
+      "lat": 63.4340037,
+      "lon": 10.3981961,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-quizkverna",
@@ -2408,6 +4302,9 @@
       "rawName": "Quizkverna",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
       "url": "https://www.quizkverna.no/kalender"
     },
     {
@@ -2416,7 +4313,14 @@
       "rawName": "Samfundet",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "http://www.samfundet.no/detalj.php?id=8431"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "http://www.samfundet.no/detalj.php?id=8431",
+      "lat": 63.4224357,
+      "lon": 10.395434,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "trondheim-superhero-pizza",
@@ -2424,7 +4328,14 @@
       "rawName": "Superhero Pizza",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.facebook.com/SHP.trd"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.facebook.com/SHP.trd",
+      "lat": 63.433098,
+      "lon": 10.395999,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "trondheim-three-lions",
@@ -2432,7 +4343,14 @@
       "rawName": "Three Lions",
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
-      "url": "https://www.threelions.no/site/thursday-fun-quiz/"
+      "kommuneNr": "5001",
+      "kommuneName": "Trondheim",
+      "fylkeNow": "Trøndelag",
+      "url": "https://www.threelions.no/site/thursday-fun-quiz/",
+      "lat": 63.434132,
+      "lon": 10.401236,
+      "geoSource": "osm",
+      "geoConfidence": "medium"
     },
     {
       "id": "tvedestrand-dags-pub",
@@ -2440,7 +4358,14 @@
       "rawName": "Dags Pub",
       "kommune": "Tvedestrand",
       "fylke": "Aust-Agder",
-      "url": "https://nb-no.facebook.com/Dags-Pub-Tvedestrand-201893271673/"
+      "kommuneNr": "4213",
+      "kommuneName": "Tvedestrand",
+      "fylkeNow": "Agder",
+      "url": "https://nb-no.facebook.com/Dags-Pub-Tvedestrand-201893271673/",
+      "lat": 58.57706689148,
+      "lon": 9.194747640549,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "vadsoe-bajasso-se-ogsaa",
@@ -2448,7 +4373,14 @@
       "rawName": "Bajasso, se også",
       "kommune": "Vadsø",
       "fylke": "Finnmark",
-      "url": "http://www.bajasso.no/"
+      "kommuneNr": "5607",
+      "kommuneName": "Vadsø",
+      "fylkeNow": "Finnmark",
+      "url": "http://www.bajasso.no/",
+      "lat": 70.226719733928,
+      "lon": 29.782811767299,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "vardoe-nordpol-kro",
@@ -2456,14 +4388,28 @@
       "rawName": "Nordpol Kro",
       "kommune": "Vardø",
       "fylke": "Finnmark",
-      "url": "http://www.nordpolkro.no/"
+      "kommuneNr": "5634",
+      "kommuneName": "Vardø",
+      "fylkeNow": "Finnmark",
+      "url": "http://www.nordpolkro.no/",
+      "lat": 70.3734463,
+      "lon": 31.1008925,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "verdal-aboteket",
       "name": "Aboteket",
       "rawName": "Aboteket",
       "kommune": "Verdal",
-      "fylke": "Nord-Trøndelag"
+      "fylke": "Nord-Trøndelag",
+      "kommuneNr": "5038",
+      "kommuneName": "Verdal",
+      "fylkeNow": "Trøndelag",
+      "lat": 63.786225673567,
+      "lon": 11.920334982301,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "vestfossen-sans-og-samling",
@@ -2471,7 +4417,14 @@
       "rawName": "Sans og Samling",
       "kommune": "Vestfossen",
       "fylke": "Buskerud",
-      "url": "http://www.sos-vestfossen.no/"
+      "kommuneNr": "3314",
+      "kommuneName": "Øvre Eiker",
+      "fylkeNow": "Buskerud",
+      "url": "http://www.sos-vestfossen.no/",
+      "lat": 59.74417085212,
+      "lon": 9.841214678157,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     },
     {
       "id": "vikersund-kafe-1-etg",
@@ -2479,14 +4432,28 @@
       "rawName": "Kafe 1. etg.",
       "kommune": "Vikersund",
       "fylke": "Buskerud",
-      "url": "https://www.facebook.com/groups/540786082742686/"
+      "kommuneNr": "3316",
+      "kommuneName": "Modum",
+      "fylkeNow": "Buskerud",
+      "url": "https://www.facebook.com/groups/540786082742686/",
+      "lat": 59.966272,
+      "lon": 9.995557,
+      "geoSource": "osm",
+      "geoConfidence": "high"
     },
     {
       "id": "volda-studenthuset-rokken",
       "name": "Studenthuset Rokken",
       "rawName": "Studenthuset Rokken",
       "kommune": "Volda",
-      "fylke": "Møre og Romsdal"
+      "fylke": "Møre og Romsdal",
+      "kommuneNr": "1577",
+      "kommuneName": "Volda",
+      "fylkeNow": "Møre og Romsdal",
+      "lat": 62.080379777669,
+      "lon": 6.274410400791,
+      "geoSource": "centroid",
+      "geoConfidence": "low"
     }
   ],
   "quizzes": [

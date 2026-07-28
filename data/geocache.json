@@ -1,1 +1,1759 @@
-{}
+{
+  "aalgaard-vaertshuset": {
+    "lat": 58.7683064,
+    "lon": 5.8596776,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:14:40.694Z"
+  },
+  "aarnes-el-nero": {
+    "lat": 60.17050371335,
+    "lon": 11.455117956844,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:14:49.422Z"
+  },
+  "aas-aas-stasjon": {
+    "lat": 59.6632202,
+    "lon": 10.7943893,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:18:57.066Z"
+  },
+  "aasgaardstrand-naustet": {
+    "lat": 59.3480702,
+    "lon": 10.4700094,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:21:05.873Z"
+  },
+  "alta-mikkeli-live": {
+    "lat": 69.966262,
+    "lon": 23.2733894,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:21:15.146Z"
+  },
+  "alta-studenthuset-city-scene": {
+    "lat": 69.9667688,
+    "lon": 23.275599,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:21:15.150Z"
+  },
+  "arendal-castelle-bar-og-restaurant": {
+    "lat": 58.460097,
+    "lon": 8.768517,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:21:49.990Z"
+  },
+  "arendal-moer": {
+    "lat": 58.426730044339,
+    "lon": 8.946946169612,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:21:49.994Z"
+  },
+  "arendal-symposium": {
+    "lat": 58.4599,
+    "lon": 8.768753,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:21:50.007Z"
+  },
+  "asker-lancelot": {
+    "lat": 59.8337617,
+    "lon": 10.433726,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:23:00.575Z"
+  },
+  "asker-sjoeengen-kro": {
+    "lat": 59.8795638,
+    "lon": 10.5053487,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:23:00.582Z"
+  },
+  "baerum-folkebadet": {
+    "lat": 59.8904529,
+    "lon": 10.5247739,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:24:14.227Z"
+  },
+  "baerum-onkel-blaa": {
+    "lat": 59.918113,
+    "lon": 10.587464,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:24:14.234Z"
+  },
+  "bergen-amalies-hage": {
+    "lat": 60.38992,
+    "lon": 5.332178,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:24:23.497Z"
+  },
+  "bergen-apollon-platebar": {
+    "lat": 60.389596,
+    "lon": 5.323226,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:24:23.511Z"
+  },
+  "bergen-boerskjelleren": {
+    "lat": 60.394084,
+    "lon": 5.325635,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:34:57.580Z"
+  },
+  "bergen-brian-boru": {
+    "lat": 60.3952013,
+    "lon": 5.328317,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:34:57.661Z"
+  },
+  "bergen-cafe-opera": {
+    "lat": 60.391848,
+    "lon": 5.319872,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:34:57.772Z"
+  },
+  "bergen-dark-stormy": {
+    "lat": 60.395323,
+    "lon": 5.327942,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:00.136Z"
+  },
+  "bergen-dr-wiesner": {
+    "lat": 60.400507,
+    "lon": 5.323018,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:35:01.100Z"
+  },
+  "bergen-elefanten": {
+    "lat": 60.391625,
+    "lon": 5.320397,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:01.114Z"
+  },
+  "bergen-finnegan-s": {
+    "lat": 60.392698,
+    "lon": 5.320736,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:35:01.135Z"
+  },
+  "bergen-hectors-hybel": {
+    "lat": 60.389361,
+    "lon": 5.324107,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:01.156Z"
+  },
+  "bergen-kraaken-bar": {
+    "lat": 60.391548,
+    "lon": 5.321034,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:03.099Z"
+  },
+  "bergen-lille": {
+    "lat": 60.391135,
+    "lon": 5.322025,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:04.165Z"
+  },
+  "bergen-litteraturhuset": {
+    "lat": 60.3936283,
+    "lon": 5.3284453,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:35:04.178Z"
+  },
+  "bergen-nobel-bopel": {
+    "lat": 60.3825993,
+    "lon": 5.325707,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:35:04.193Z"
+  },
+  "bergen-sjoesproeyt-maritim-quiz-paa-statsraaden-bar": {
+    "lat": 60.398152,
+    "lon": 5.320125,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:35:05.118Z"
+  },
+  "bergen-verden-i-bergen": {
+    "lat": 60.397283,
+    "lon": 5.326095,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:35:06.116Z"
+  },
+  "bergen-victoria-pub": {
+    "lat": 60.393386,
+    "lon": 5.330328,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:06.128Z"
+  },
+  "bergen-vinyl": {
+    "lat": 60.395364,
+    "lon": 5.327618,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:35:06.141Z"
+  },
+  "bjoerkelangen-basement": {
+    "lat": 59.808630764268,
+    "lon": 11.595625632191,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:36:20.244Z"
+  },
+  "bodoe-mon-ami": {
+    "lat": 67.309478280505,
+    "lon": 13.915441983793,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:38:18.624Z"
+  },
+  "bodoe-sku-bare": {
+    "lat": 67.309478280505,
+    "lon": 13.915441983793,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:38:19.592Z"
+  },
+  "boe-i-telemark-grillen": {
+    "lat": 59.429211567571,
+    "lon": 9.111842262805,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:38:21.945Z"
+  },
+  "bryne-thime-station": {
+    "lat": 58.7352238,
+    "lon": 5.6484439,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:40:25.252Z"
+  },
+  "drammen-barkaden-bragernes": {
+    "lat": 59.74427,
+    "lon": 10.204102,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:41:07.568Z"
+  },
+  "drammen-o-learys": {
+    "lat": 59.7442244,
+    "lon": 10.2033519,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:41:07.678Z"
+  },
+  "droebak-bytinget": {
+    "lat": 59.6633581,
+    "lon": 10.6300118,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:42:19.343Z"
+  },
+  "egersund-grand-hotel": {
+    "lat": 58.403436214074,
+    "lon": 5.925943370661,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:43:30.666Z"
+  },
+  "elverum-central-scene": {
+    "lat": 60.8808108,
+    "lon": 11.5635219,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:44:53.175Z"
+  },
+  "elverum-sound-garden-pub": {
+    "lat": 60.972781466104,
+    "lon": 11.73445487119,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:44:53.284Z"
+  },
+  "fagerstrand-absolutt-hyggelig": {
+    "lat": 59.802570649648,
+    "lon": 10.635999942315,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:46:22.710Z"
+  },
+  "farsund-brygghuset": {
+    "lat": 58.025551144116,
+    "lon": 6.559778887596,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:49:59.455Z"
+  },
+  "foerde-elvesus": {
+    "lat": 61.4511734,
+    "lon": 5.8517644,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:50:05.315Z"
+  },
+  "fredrikstad-taeps": {
+    "lat": 59.2115688,
+    "lon": 10.9378593,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:50:44.695Z"
+  },
+  "gjerdrum-gamle-smia-sportspub": {
+    "lat": 60.078776654431,
+    "lon": 11.020612297111,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:51:13.296Z"
+  },
+  "gjoevik-heim-gjoevik": {
+    "lat": 60.7963885,
+    "lon": 10.6928717,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:51:54.888Z"
+  },
+  "gjoevik-studentenes-hus": {
+    "lat": 60.787769,
+    "lon": 10.6794425,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:51:54.897Z"
+  },
+  "gran-city-pub": {
+    "lat": 60.438539370659,
+    "lon": 10.429861664174,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:52:34.013Z"
+  },
+  "greaaker-olavs-pub": {
+    "lat": 59.254954979116,
+    "lon": 11.229781137822,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:53:03.724Z"
+  },
+  "grimstad-bluebox-studenthuset": {
+    "lat": 58.3346755,
+    "lon": 8.5775165,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:53:37.706Z"
+  },
+  "grimstad-cafe-galleri": {
+    "lat": 58.3424614,
+    "lon": 8.5923935,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:53:37.718Z"
+  },
+  "halden-samfundet": {
+    "lat": 59.068055511312,
+    "lon": 11.537193173986,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:55:37.231Z"
+  },
+  "hamar-dirty-nelly": {
+    "lat": 61.001493706565,
+    "lon": 11.164796442438,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:55:51.636Z"
+  },
+  "hamar-heim-hamar": {
+    "lat": 61.001493706565,
+    "lon": 11.164796442438,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:55:52.588Z"
+  },
+  "hamar-o-learys": {
+    "lat": 60.7925904,
+    "lon": 11.0740444,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:55:52.600Z"
+  },
+  "hamaroey-ulvsvaag-gjestgiveri": {
+    "lat": 68.1157794,
+    "lon": 15.8649272,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:56:35.768Z"
+  },
+  "hammerfest-jernteppet": {
+    "lat": 70.66338,
+    "lon": 23.68657,
+    "geoSource": "kartverket",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T03:56:59.123Z"
+  },
+  "harstad-ludo-bar-scene": {
+    "lat": 68.929738345214,
+    "lon": 16.520913492956,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:58:18.804Z"
+  },
+  "harstad-vertshuset-nordlaendingen": {
+    "lat": 68.929738345214,
+    "lon": 16.520913492956,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T03:58:19.769Z"
+  },
+  "haugesund-cafe-mm": {
+    "lat": 59.4120921,
+    "lon": 5.2690565,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T03:58:22.383Z"
+  },
+  "hoenefoss-bassgarasjen": {
+    "lat": 60.327406206203,
+    "lon": 10.021763528367,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:00:01.228Z"
+  },
+  "hoenefoss-humbar": {
+    "lat": 60.1704583,
+    "lon": 10.2589727,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:00:01.237Z"
+  },
+  "hokksund-sanden-hotell": {
+    "lat": 59.7746615,
+    "lon": 9.9116445,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:03:40.280Z"
+  },
+  "hokksund-vest-for-elven": {
+    "lat": 59.74417085212,
+    "lon": 9.841214678157,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:03:40.375Z"
+  },
+  "holmestrand-kontoret": {
+    "lat": 59.559125205886,
+    "lon": 10.153169341225,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:05:00.949Z"
+  },
+  "honningsvaag-noeden": {
+    "lat": 70.9828919,
+    "lon": 25.9701941,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:05:04.805Z"
+  },
+  "horten-saxon-king": {
+    "lat": 59.4131188,
+    "lon": 10.4807512,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:05:04.810Z"
+  },
+  "hvittingfoss-landsbypuben": {
+    "lat": 59.594550024483,
+    "lon": 9.670860058016,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:06:16.082Z"
+  },
+  "jessheim-torget": {
+    "lat": 60.141911,
+    "lon": 11.173289,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:08:16.430Z"
+  },
+  "jevnaker-glassheim-rockeklubb": {
+    "lat": 60.282554411495,
+    "lon": 10.408457864144,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:08:30.515Z"
+  },
+  "jevnaker-hadeland-glassverk-mester-pizzeria": {
+    "lat": 60.2382935,
+    "lon": 10.3972524,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:08:30.522Z"
+  },
+  "kirkenes-ofelas": {
+    "lat": 69.537566053539,
+    "lon": 29.72613705747,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:08:46.403Z"
+  },
+  "kolbotn-vinoria": {
+    "lat": 59.728992877047,
+    "lon": 10.892904270362,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:12:25.593Z"
+  },
+  "kongsberg-christians-kjeller": {
+    "lat": 59.6640134,
+    "lon": 9.645518,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:12:25.607Z"
+  },
+  "kongsberg-energimoella": {
+    "lat": 59.594550024483,
+    "lon": 9.670860058016,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:12:26.568Z"
+  },
+  "kongsvinger-kafe-bohem": {
+    "lat": 60.1967506,
+    "lon": 12.0081586,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:13:40.509Z"
+  },
+  "kopervik-cafe-mm": {
+    "lat": 59.4120921,
+    "lon": 5.2690565,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:14:17.587Z"
+  },
+  "kristiansand-haandverkeren": {
+    "lat": 58.146997,
+    "lon": 7.996654,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T05:06:11.258Z"
+  },
+  "kristiansand-javel": {
+    "lat": 58.1438806,
+    "lon": 7.9926064,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T05:06:11.266Z"
+  },
+  "langesund-bobben": {
+    "lat": 59.01809151938,
+    "lon": 9.544323608348,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:19:17.807Z"
+  },
+  "langesund-wrightegaarden": {
+    "lat": 59.0010804,
+    "lon": 9.7484779,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:19:17.810Z"
+  },
+  "levanger-dirty-nelly": {
+    "lat": 63.696451798535,
+    "lon": 11.223880448963,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:20:45.473Z"
+  },
+  "lierbyen-toget-pub": {
+    "lat": 59.845333279797,
+    "lon": 10.211546015601,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:23:02.649Z"
+  },
+  "lillehammer-heim-lillehammer": {
+    "lat": 61.133340791812,
+    "lon": 10.426585529541,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:27:09.751Z"
+  },
+  "lillehammer-nikkers-sport": {
+    "lat": 61.117349,
+    "lon": 10.4654378,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:27:09.756Z"
+  },
+  "lillesand-kafe-strandhaven": {
+    "lat": 58.2487361,
+    "lon": 8.3780198,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:27:13.074Z"
+  },
+  "lillestroem-martins-pub": {
+    "lat": 59.9556628,
+    "lon": 11.0478959,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:28:22.991Z"
+  },
+  "lillestroem-republic-lillestroem": {
+    "lat": 59.9554909,
+    "lon": 11.0496788,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:28:23.962Z"
+  },
+  "lyngdal-paulsens-hotell": {
+    "lat": 58.1390501,
+    "lon": 7.066286,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:29:36.680Z"
+  },
+  "mandal-sjoeboden": {
+    "lat": 58.0257698,
+    "lon": 7.4518475,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:29:41.958Z"
+  },
+  "minnesund-velhuset-paa-minnesund": {
+    "lat": 60.416296389984,
+    "lon": 11.255544272519,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:31:04.113Z"
+  },
+  "mjoendalen-olsen-paa-hjoernet": {
+    "lat": 59.7510685,
+    "lon": 10.0096083,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:31:04.121Z"
+  },
+  "mo-i-rana-onkel-oskar": {
+    "lat": 66.439713155542,
+    "lon": 14.394593180474,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:33:09.190Z"
+  },
+  "molde-die-tankstelle": {
+    "lat": 62.7365968,
+    "lon": 7.1558913,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:33:37.823Z"
+  },
+  "molde-kafe-kurt": {
+    "lat": 62.7363349,
+    "lon": 7.155812,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:33:37.912Z"
+  },
+  "molde-tapp-og-kork": {
+    "lat": 62.7374484,
+    "lon": 7.1575216,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:33:37.918Z"
+  },
+  "mosjoeen-gilles-cafe": {
+    "lat": 65.8384763,
+    "lon": 13.187475,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:34:55.286Z"
+  },
+  "moss-evita-house": {
+    "lat": 59.4181094,
+    "lon": 10.6782891,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:35:34.139Z"
+  },
+  "moss-underverket": {
+    "lat": 59.439502,
+    "lon": 10.6672534,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:35:34.144Z"
+  },
+  "naerboe-holdeplassen": {
+    "lat": 58.518408078893,
+    "lon": 5.567445886394,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:36:41.647Z"
+  },
+  "namsos-onkel-oskar": {
+    "lat": 64.466637214826,
+    "lon": 11.334504680879,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:36:56.689Z"
+  },
+  "narvik-malmen": {
+    "lat": 68.4385303,
+    "lon": 17.4289897,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:38:16.133Z"
+  },
+  "nesodden-flasken": {
+    "lat": 59.849685,
+    "lon": 10.6586415,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:38:16.136Z"
+  },
+  "nesodden-granbar": {
+    "lat": 59.802570649648,
+    "lon": 10.635999942315,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:38:16.227Z"
+  },
+  "nord-odal-fina-n-pub-pizza": {
+    "lat": 60.439857058052,
+    "lon": 11.584875785726,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:38:34.207Z"
+  },
+  "notodden-bellman-pub": {
+    "lat": 59.5596004,
+    "lon": 9.2591901,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:39:40.396Z"
+  },
+  "oslo-200": {
+    "lat": 59.9222279,
+    "lon": 10.7613806,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:03.734Z"
+  },
+  "oslo-agora-lilleborg": {
+    "lat": 59.9382588,
+    "lon": 10.764315,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:03.763Z"
+  },
+  "oslo-alexandria-sports-bar-music": {
+    "lat": 59.9196039,
+    "lon": 10.7592139,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:03.805Z"
+  },
+  "oslo-arv-kaffe-og-retro": {
+    "lat": 59.908157,
+    "lon": 10.769673,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:03.838Z"
+  },
+  "oslo-aye-aye-club": {
+    "lat": 59.913345,
+    "lon": 10.74901,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:03.865Z"
+  },
+  "oslo-bar-polar": {
+    "lat": 59.942383,
+    "lon": 10.770093,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:04.994Z"
+  },
+  "oslo-bd57": {
+    "lat": 59.9199499,
+    "lon": 10.7572416,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:05.016Z"
+  },
+  "oslo-bernie-s": {
+    "lat": 59.9088228,
+    "lon": 10.7681299,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:05.041Z"
+  },
+  "oslo-boelgen-kro": {
+    "lat": 59.909025,
+    "lon": 10.722849,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:06.352Z"
+  },
+  "oslo-bohemen": {
+    "lat": 59.914499,
+    "lon": 10.74084,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:06.374Z"
+  },
+  "oslo-brewgata": {
+    "lat": 59.9140589,
+    "lon": 10.7553601,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:06.398Z"
+  },
+  "oslo-brinner": {
+    "lat": 59.92756,
+    "lon": 10.759307,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:06.420Z"
+  },
+  "oslo-broed-og-sirkus": {
+    "lat": 59.913174,
+    "lon": 10.736285,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:06.446Z"
+  },
+  "oslo-cafe-marienlyst": {
+    "lat": 59.93333392052284,
+    "lon": 10.725721822344825,
+    "geoSource": "address",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:08.019Z"
+  },
+  "oslo-cafe-soer": {
+    "lat": 59.9141746,
+    "lon": 10.7483395,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:08.040Z"
+  },
+  "oslo-cafekontoret": {
+    "lat": 59.908703,
+    "lon": 10.7683761,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:08.066Z"
+  },
+  "oslo-carls": {
+    "lat": 59.9263482,
+    "lon": 10.7771311,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:08.088Z"
+  },
+  "oslo-colonel-mustard": {
+    "lat": 59.927827,
+    "lon": 10.751397,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:08.115Z"
+  },
+  "oslo-dapper": {
+    "lat": 59.9211554,
+    "lon": 10.7582711,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.023Z"
+  },
+  "oslo-dattera-til-hagen": {
+    "lat": 59.91331,
+    "lon": 10.7601335,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.052Z"
+  },
+  "oslo-den-andre-kvissen-vespa-humla": {
+    "lat": 59.9248344,
+    "lon": 10.7628647,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:09.093Z"
+  },
+  "oslo-den-gamle-major": {
+    "lat": 59.9286373,
+    "lon": 10.7157436,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.121Z"
+  },
+  "oslo-doegnvill": {
+    "lat": 59.9083027,
+    "lon": 10.7235853,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.145Z"
+  },
+  "oslo-dr-jekyll": {
+    "lat": 59.9136008,
+    "lon": 10.7331776,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:09.172Z"
+  },
+  "oslo-eckers-ullevaal": {
+    "lat": 59.9406056,
+    "lon": 10.728741,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.199Z"
+  },
+  "oslo-eilefs-landhandleri": {
+    "lat": 59.9149559,
+    "lon": 10.7402933,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.228Z"
+  },
+  "oslo-feber": {
+    "lat": 59.9150438,
+    "lon": 10.7481893,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.250Z"
+  },
+  "oslo-flyfisher": {
+    "lat": 59.9275965,
+    "lon": 10.7323793,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:09.273Z"
+  },
+  "oslo-folk-i-storgata": {
+    "lat": 59.9153122,
+    "lon": 10.7562217,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.302Z"
+  },
+  "oslo-fru-burums": {
+    "lat": 59.9159,
+    "lon": 10.716192,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.328Z"
+  },
+  "oslo-fryd-loeren": {
+    "lat": 59.930798,
+    "lon": 10.793232,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.354Z"
+  },
+  "oslo-fryd-manglerud": {
+    "lat": 59.8970259,
+    "lon": 10.8134677,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.381Z"
+  },
+  "oslo-glasset": {
+    "lat": 59.9175991,
+    "lon": 10.7383494,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:09.404Z"
+  },
+  "oslo-gloed": {
+    "lat": 59.9202725,
+    "lon": 10.7594727,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.426Z"
+  },
+  "oslo-gondol-bar-og-restaurant": {
+    "lat": 59.9612173,
+    "lon": 10.9242316,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.453Z"
+  },
+  "oslo-grefsenkollen": {
+    "lat": 59.958984,
+    "lon": 10.8038193,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.477Z"
+  },
+  "oslo-groenland-boulebar": {
+    "lat": 59.911661,
+    "lon": 10.766443,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:09.506Z"
+  },
+  "oslo-gruenerloekka-brygghus": {
+    "lat": 59.925007,
+    "lon": 10.759363,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:09.538Z"
+  },
+  "oslo-hasle-linie-gastropub": {
+    "lat": 59.926988,
+    "lon": 10.793769,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:10.054Z"
+  },
+  "oslo-heidi-s-bier-bar": {
+    "lat": 59.9123124,
+    "lon": 10.7352408,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:10.085Z"
+  },
+  "oslo-hells-kitchen": {
+    "lat": 59.9156423,
+    "lon": 10.7485562,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:10.111Z"
+  },
+  "oslo-highbury": {
+    "lat": 59.927478,
+    "lon": 10.719017,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:10.133Z"
+  },
+  "oslo-ingensteds": {
+    "lat": 59.919933,
+    "lon": 10.752742,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:12.065Z"
+  },
+  "oslo-josefine-vertshus": {
+    "lat": 59.9235175,
+    "lon": 10.7276089,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:12.094Z"
+  },
+  "oslo-kafe-albin": {
+    "lat": 59.9204565,
+    "lon": 10.717212,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:12.119Z"
+  },
+  "oslo-kafe-arv-retro": {
+    "lat": 59.908157,
+    "lon": 10.769673,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:12.174Z"
+  },
+  "oslo-klosterenga-cafe-og-bar": {
+    "lat": 59.907892,
+    "lon": 10.771562,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:13.074Z"
+  },
+  "oslo-kulturhuset": {
+    "lat": 59.9145875,
+    "lon": 10.7506275,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:13.098Z"
+  },
+  "oslo-last-train": {
+    "lat": 59.9148041,
+    "lon": 10.7366951,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:13.123Z"
+  },
+  "oslo-litteraturhuset": {
+    "lat": 59.9204315,
+    "lon": 10.728673,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:14.083Z"
+  },
+  "oslo-loekka-bar-kjoekken": {
+    "lat": 59.9271309,
+    "lon": 10.761273,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:14.120Z"
+  },
+  "oslo-london-pub": {
+    "lat": 59.915297,
+    "lon": 10.740624,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:14.145Z"
+  },
+  "oslo-o-reilly-s": {
+    "lat": 59.9219679,
+    "lon": 10.7571968,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:16.091Z"
+  },
+  "oslo-olsen-paa-bryn": {
+    "lat": 59.9075609,
+    "lon": 10.8182649,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:17.102Z"
+  },
+  "oslo-ophelia": {
+    "lat": 59.918974,
+    "lon": 10.733822,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:17.123Z"
+  },
+  "oslo-oslo-mikrobryggeri": {
+    "lat": 59.9242717,
+    "lon": 10.7241227,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:18.113Z"
+  },
+  "oslo-pane-vino": {
+    "lat": 59.9210411,
+    "lon": 10.7703904,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:18.141Z"
+  },
+  "oslo-petrus-bar-og-restaurant": {
+    "lat": 59.9234496,
+    "lon": 10.7658543,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:18.166Z"
+  },
+  "oslo-pokalen": {
+    "lat": 59.9071418,
+    "lon": 10.7618077,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:18.188Z"
+  },
+  "oslo-pokalen-parkveien": {
+    "lat": 59.9206095,
+    "lon": 10.7281598,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:18.215Z"
+  },
+  "oslo-pollett-bislett": {
+    "lat": 59.9250154,
+    "lon": 10.7312865,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:18.242Z"
+  },
+  "oslo-postkontoret-paa-toeyen": {
+    "lat": 59.914102,
+    "lon": 10.775072,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:18.273Z"
+  },
+  "oslo-preik": {
+    "lat": 59.9064553,
+    "lon": 10.7683441,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:18.295Z"
+  },
+  "oslo-rabalder-bar-loekka": {
+    "lat": 59.9203354,
+    "lon": 10.7591659,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:20.142Z"
+  },
+  "oslo-radisson-red-oekern": {
+    "lat": 59.930415,
+    "lon": 10.7992653,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:20.173Z"
+  },
+  "oslo-ringnes-brygghus": {
+    "lat": 59.9301846,
+    "lon": 10.759244,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:20.202Z"
+  },
+  "oslo-shamrock": {
+    "lat": 59.9274247,
+    "lon": 10.7652371,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:25.170Z"
+  },
+  "oslo-skatten": {
+    "lat": 59.9147444,
+    "lon": 10.7752721,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:25.196Z"
+  },
+  "oslo-smelteverket": {
+    "lat": 59.9223742,
+    "lon": 10.7524786,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:27.206Z"
+  },
+  "oslo-svovelstikka": {
+    "lat": 59.9141047,
+    "lon": 10.7970385,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:30.242Z"
+  },
+  "oslo-the-broker": {
+    "lat": 59.9263259,
+    "lon": 10.721658,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:31.246Z"
+  },
+  "oslo-the-good-knight": {
+    "lat": 59.916241,
+    "lon": 10.750901,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:31.271Z"
+  },
+  "oslo-the-good-knight-blaamandagquiz": {
+    "lat": 59.916241,
+    "lon": 10.750901,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:31.306Z"
+  },
+  "oslo-the-scotsman": {
+    "lat": 59.9141161,
+    "lon": 10.7381596,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:32.256Z"
+  },
+  "oslo-the-toucan": {
+    "lat": 59.91384,
+    "lon": 10.756428,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:32.279Z"
+  },
+  "oslo-trappa": {
+    "lat": 59.9160042,
+    "lon": 10.7417622,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:32.300Z"
+  },
+  "oslo-vaalerenga-vertshus": {
+    "lat": 59.909546,
+    "lon": 10.789509,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:33.278Z"
+  },
+  "oslo-valentino-pizzeria-og-gastropub": {
+    "lat": 59.9294227,
+    "lon": 10.7783229,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:33.309Z"
+  },
+  "oslo-vaterland-bar-scene": {
+    "lat": 59.913911,
+    "lon": 10.756104,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:33.340Z"
+  },
+  "oslo-verkstedet": {
+    "lat": 59.9176866,
+    "lon": 10.7540467,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:33.362Z"
+  },
+  "oslo-vesper-bar": {
+    "lat": 59.9075101,
+    "lon": 10.7604517,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:33.384Z"
+  },
+  "oslo-via-village": {
+    "lat": 59.918931,
+    "lon": 10.70268,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:33.411Z"
+  },
+  "oslo-victor-s-lounge": {
+    "lat": 59.9177678,
+    "lon": 10.7183243,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:40:33.439Z"
+  },
+  "oslo-welhavens-skjenkestue": {
+    "lat": 59.921129,
+    "lon": 10.7305248,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:35.286Z"
+  },
+  "oslo-wembley-pub": {
+    "lat": 59.931547492732065,
+    "lon": 10.78310771472158,
+    "geoSource": "address",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:36.270Z"
+  },
+  "otta-pillarguri-cafe": {
+    "lat": 61.77053,
+    "lon": 9.541369,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:40:44.969Z"
+  },
+  "porsgrunn-kafe-k": {
+    "lat": 59.1437826,
+    "lon": 9.6560358,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:41:51.359Z"
+  },
+  "porsgrunn-karjolen": {
+    "lat": 59.1381076,
+    "lon": 9.6511391,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:41:51.363Z"
+  },
+  "randaberg-pubben": {
+    "lat": 59.018361749162,
+    "lon": 5.569761907394,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:42:18.789Z"
+  },
+  "risoer-peterhead": {
+    "lat": 58.7188717,
+    "lon": 9.2394904,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:44:19.498Z"
+  },
+  "roervik-henrys-bar": {
+    "lat": 64.928737535331,
+    "lon": 11.18228073899,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:44:37.195Z"
+  },
+  "rygge-lageret-pub": {
+    "lat": 59.3780232,
+    "lon": 10.7485708,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:44:37.202Z"
+  },
+  "sandefjord-haukeroed-puben": {
+    "lat": 59.079900335874,
+    "lon": 10.280432253305,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:44:47.334Z"
+  },
+  "sandefjord-james-clark-pub-restaurant": {
+    "lat": 59.1275,
+    "lon": 10.228942,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:44:47.341Z"
+  },
+  "sandnes-bakgaarden": {
+    "lat": 58.983132221777,
+    "lon": 6.394641010059,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:46:02.844Z"
+  },
+  "sandnes-plagiat-bar": {
+    "lat": 58.983132221777,
+    "lon": 6.394641010059,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:46:03.836Z"
+  },
+  "sarpsborg-dickens": {
+    "lat": 59.283396,
+    "lon": 11.112189,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:46:03.841Z"
+  },
+  "sarpsborg-glenghuset": {
+    "lat": 59.2820385,
+    "lon": 11.1072045,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:46:03.854Z"
+  },
+  "sigerfjord-naustet": {
+    "lat": 68.767296044111,
+    "lon": 15.367917881952,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:46:08.337Z"
+  },
+  "skien-bar-skien": {
+    "lat": 59.26624421784,
+    "lon": 9.531250204048,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:47:23.655Z"
+  },
+  "skjaerhalden-vertshuset-skjaerhalden": {
+    "lat": 59.0249576,
+    "lon": 11.0373263,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:47:42.635Z"
+  },
+  "skjervoey-sydvesten-hotel-maritim": {
+    "lat": 70.197787650905,
+    "lon": 20.702169556121,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:48:49.411Z"
+  },
+  "skjetten-olavsgaard-hotel": {
+    "lat": 59.979401,
+    "lon": 10.9983053,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:48:49.418Z"
+  },
+  "slemmestad-slemmestad-mek": {
+    "lat": 59.68163555365,
+    "lon": 10.47406489371,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:48:50.390Z"
+  },
+  "sogndal-meieriet": {
+    "lat": 61.329791004608,
+    "lon": 6.720364623397,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:49:05.357Z"
+  },
+  "sortland-loftet-scene": {
+    "lat": 68.767296044111,
+    "lon": 15.367917881952,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:49:06.330Z"
+  },
+  "spydeberg-fredriks-pizza": {
+    "lat": 59.610201170283,
+    "lon": 11.183294993879,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:50:24.661Z"
+  },
+  "stathelle-johnsegaarden": {
+    "lat": 59.01809151938,
+    "lon": 9.544323608348,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:50:25.643Z"
+  },
+  "stavanger-arkivet": {
+    "lat": 58.970948,
+    "lon": 5.731421,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:25.650Z"
+  },
+  "stavanger-cardinal-pub": {
+    "lat": 58.971298,
+    "lon": 5.731303,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:26.660Z"
+  },
+  "stavanger-checkpoint-charlie": {
+    "lat": 58.9699641,
+    "lon": 5.7288698,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:26.668Z"
+  },
+  "stavanger-fri-bar": {
+    "lat": 58.9726497,
+    "lon": 5.7334981,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:27.663Z"
+  },
+  "stavanger-gnu-bar": {
+    "lat": 58.9707567,
+    "lon": 5.7282153,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:27.671Z"
+  },
+  "stavanger-hanekam": {
+    "lat": 58.9727442,
+    "lon": 5.7330973,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:27.683Z"
+  },
+  "stavanger-hinna-bistro": {
+    "lat": 58.921205,
+    "lon": 5.72471,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:50:27.692Z"
+  },
+  "stavanger-martinique": {
+    "lat": 58.9703289,
+    "lon": 5.7389118,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:27.707Z"
+  },
+  "stavanger-paa-kornet-craft-beer-pub": {
+    "lat": 58.972942,
+    "lon": 5.7307323,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:50:27.721Z"
+  },
+  "stavanger-the-irishman": {
+    "lat": 58.971599,
+    "lon": 5.734306,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:50:27.730Z"
+  },
+  "stjoerdal-banken-bar": {
+    "lat": 63.462705073318,
+    "lon": 11.134476243517,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:50:49.889Z"
+  },
+  "stjoerdal-bs-pub-kultur": {
+    "lat": 63.462705073318,
+    "lon": 11.134476243517,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:50:50.875Z"
+  },
+  "stokke-ysterietv": {
+    "lat": 59.2215324,
+    "lon": 10.2991743,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:50:50.880Z"
+  },
+  "stord-bakeriet-frugaard": {
+    "lat": 59.781518,
+    "lon": 5.502237,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:51:56.626Z"
+  },
+  "toensberg-bryggeriet-pub": {
+    "lat": 59.354979471363,
+    "lon": 10.28204910833,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:52:00.514Z"
+  },
+  "toensberg-himmel-hav": {
+    "lat": 59.354979471363,
+    "lon": 10.28204910833,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:52:01.491Z"
+  },
+  "tromsoe-driv": {
+    "lat": 69.6460797,
+    "lon": 18.9509877,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:52:48.384Z"
+  },
+  "tromsoe-haalogaland-teater": {
+    "lat": 69.6418133,
+    "lon": 18.9442569,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:52:48.390Z"
+  },
+  "tromsoe-storgata-camping": {
+    "lat": 69.6456436,
+    "lon": 18.9497718,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:52:50.377Z"
+  },
+  "trondheim-antikvariatet": {
+    "lat": 63.4284213,
+    "lon": 10.4027996,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:53:07.060Z"
+  },
+  "trondheim-fru-lundgreen": {
+    "lat": 63.4341987,
+    "lon": 10.4043334,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:53:08.141Z"
+  },
+  "trondheim-good-omens": {
+    "lat": 63.4346413,
+    "lon": 10.3964408,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:53:08.150Z"
+  },
+  "trondheim-habitat": {
+    "lat": 63.433367,
+    "lon": 10.395369,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:53:08.162Z"
+  },
+  "trondheim-ladejarlen": {
+    "lat": 63.43622,
+    "lon": 10.420274,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:53:08.174Z"
+  },
+  "trondheim-lille-london": {
+    "lat": 63.4340037,
+    "lon": 10.3981961,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:53:08.187Z"
+  },
+  "trondheim-samfundet": {
+    "lat": 63.4224357,
+    "lon": 10.395434,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:53:09.145Z"
+  },
+  "trondheim-superhero-pizza": {
+    "lat": 63.433098,
+    "lon": 10.395999,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:53:09.155Z"
+  },
+  "trondheim-three-lions": {
+    "lat": 63.434132,
+    "lon": 10.401236,
+    "geoSource": "osm",
+    "geoConfidence": "medium",
+    "resolvedAt": "2026-07-28T04:53:09.168Z"
+  },
+  "tvedestrand-dags-pub": {
+    "lat": 58.57706689148,
+    "lon": 9.194747640549,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:54:19.839Z"
+  },
+  "vadsoe-bajasso-se-ogsaa": {
+    "lat": 70.226719733928,
+    "lon": 29.782811767299,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:54:23.557Z"
+  },
+  "vardoe-nordpol-kro": {
+    "lat": 70.3734463,
+    "lon": 31.1008925,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:58:20.413Z"
+  },
+  "verdal-aboteket": {
+    "lat": 63.786225673567,
+    "lon": 11.920334982301,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:58:26.386Z"
+  },
+  "vestfossen-sans-og-samling": {
+    "lat": 59.74417085212,
+    "lon": 9.841214678157,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T04:58:27.368Z"
+  },
+  "vikersund-kafe-1-etg": {
+    "lat": 59.966272,
+    "lon": 9.995557,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-07-28T04:58:52.094Z"
+  },
+  "volda-studenthuset-rokken": {
+    "lat": 62.080379777669,
+    "lon": 6.274410400791,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-07-28T05:00:44.702Z"
+  }
+}
