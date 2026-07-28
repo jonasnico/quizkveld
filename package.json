@@ -7,7 +7,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.6.5",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -15,6 +15,9 @@
     ]
   },
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check-base.mjs",
+    "preview": "astro preview",
     "pipeline": "tsx pipeline/cli.ts",
     "scrape": "tsx pipeline/cli.ts scrape",
     "parse": "tsx pipeline/cli.ts parse",
@@ -23,15 +26,17 @@
     "build:data": "tsx pipeline/cli.ts build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit -p tsconfig.pipeline.json && astro check"
   },
   "dependencies": {
+    "astro": "^7",
     "cheerio": "^1.0.0",
     "rrule": "^2.8.1",
     "undici": "^7.4.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "@types/node": "^22.13.10",
     "domhandler": "^6.0.1",
     "tsx": "^4.19.3",

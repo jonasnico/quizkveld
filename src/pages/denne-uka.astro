@@ -1,0 +1,53 @@
+---
+import Base from "../layouts/Base.astro";
+import DaySection from "../components/DaySection.astro";
+import Filters from "../components/Filters.astro";
+import IrregularSection from "../components/IrregularSection.astro";
+import { loadSiteData } from "../lib/data.js";
+import { osloDate, weekWindow } from "../lib/date.js";
+import { splitByDates } from "../lib/occurrence.js";
+import { quizCount } from "../lib/format.js";
+
+const { items, slugs, meta } = await loadSiteData();
+
+const today = osloDate();
+// A rolling seven days rather than Monday-to-Sunday: someone looking on a Saturday wants
+// the coming week, not the two days left of this one.
+const dates = weekWindow(today);
+
+const { dated, undated } = splitByDates(items, dates);
+const total = [...dated.values()].reduce((sum, list) => sum + list.length, 0);
+---
+
+<Base
+  title="Pubquizer i Norge denne uka – quizkveld"
+  description="Alle pubquizer de neste sju dagene, dag for dag, sortert på sted og sjanger."
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+  current="denne-uka"
+>
+  <div class="intro">
+    <h1>Denne uka</h1>
+    <p>
+      De neste sju dagene, dag for dag. {quizCount(total)} står oppført til sammen – en quiz
+      som går hver uke teller én gang per dag den går.
+    </p>
+  </div>
+
+  <Filters items={items} />
+
+  {
+    dates.map((date) => (
+      <DaySection
+        date={date}
+        today={today}
+        items={dated.get(date) ?? []}
+        slugs={slugs}
+        grouping="sted"
+        emptyText="Ingen faste quizer denne dagen."
+      />
+    ))
+  }
+
+  <IrregularSection items={undated} slugs={slugs} grouping="sted" />
+</Base>

@@ -1,0 +1,78 @@
+name: Bygg og publiser nettstedet
+
+on:
+  push:
+    branches: [main]
+  # Datajobben committer nye quizdata til main med GITHUB_TOKEN, og pushes gjort med den
+  # tokenen utløser med vilje ikke nye push-workflows. Uten denne triggeren ville altså
+  # nettstedet aldri blitt bygget på nytt når dataene endret seg - som er hele poenget.
+  workflow_run:
+    workflows: ["Oppdater quizdata"]
+    types: [completed]
+  workflow_dispatch:
+
+# Organisasjonen har read-only som standard for GITHUB_TOKEN. En eksplisitt blokk her
+# overstyrer det for denne workflowen.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Én publisering av gangen. Vi avbryter ikke en pågående deploy, for da kan Pages bli
+# stående med et halvferdig artefakt.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # workflow_run fyrer også når datajobben feilet eller ble avbrutt. Da er det ingenting
+    # nytt å publisere.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # workflow_run kjører mot default branch, men henter som standard ut den commiten
+          # som utløste workflowen. Vi vil ha det siste på main, altså dataene datajobben
+          # nettopp committet.
+          ref: main
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installer avhengigheter
+        run: pnpm install --frozen-lockfile
+
+      - name: Kjør tester
+        run: pnpm test
+
+      - name: Typesjekk
+        run: pnpm typecheck
+
+      # `pnpm build` kjører astro build og deretter scripts/check-base.mjs, som feiler
+      # hvis en intern lenke mangler base-stien /quizkveld/.
+      - name: Bygg nettstedet
+        run: pnpm build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

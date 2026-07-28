@@ -1,0 +1,47 @@
+---
+import Base from "../../layouts/Base.astro";
+import { loadSiteData } from "../../lib/data.js";
+import { groupBy, placeSummary } from "../../lib/model.js";
+import { quizCount, venueCount } from "../../lib/format.js";
+import { href } from "../../lib/url.js";
+
+const { items, slugs, meta } = await loadSiteData();
+
+const places = placeSummary(items);
+const byFylke = groupBy(places, (place) => place.fylke);
+const venueTotal = new Set(items.map((item) => item.venue.id)).size;
+---
+
+<Base
+  title="Alle steder med pubquiz – quizkveld"
+  description="Alle stedene i Norge som har en pubquiz oppført, sortert på fylke."
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+  current="steder"
+>
+  <div class="intro">
+    <h1>Alle steder</h1>
+    <p>
+      {places.length} steder, {venueCount(venueTotal)} og {quizCount(items.length)} til sammen.
+      Fylkene er de kilden bruker, altså navnene fra før sammenslåingen i 2020.
+    </p>
+  </div>
+
+  {
+    [...byFylke].map(([fylke, inFylke]) => (
+      <section class="fylke-block">
+        <h2>
+          <a href={href("fylke", slugs.byFylke.get(fylke) ?? "")}>{fylke}</a>
+        </h2>
+        <ul class="place-grid">
+          {inFylke.map((place) => (
+            <li>
+              <a href={href("sted", slugs.bySted.get(place.sted) ?? "")}>{place.sted}</a>{" "}
+              <span class="place-grid__count">({place.count})</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Base>

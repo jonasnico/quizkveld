@@ -4,21 +4,104 @@ Finn din neste pubquiz - oversikt over quizkvelder i hele Norge.
 
 Data hentet fra [Norges Quizforbund](https://www.norgesquizforbund.no/arrangementer/finn-din-pubquiz/).
 
-> **Status:** fase 1 - datapipeline. Nettsiden (Astro) kommer i en senere fase.
+> **Status:** fase 2a - datapipeline og nettsted. Geokoding, kart og «nær meg» kommer i
+> fase 2b.
 
 ## Kom i gang
 
-Krever Node >= 22 og pnpm.
+Krever Node >= 22.12 (Astro 7-kravet) og pnpm.
 
 ```bash
 pnpm install
-pnpm test
+pnpm test        # pipeline + nettsted
+pnpm dev         # nettstedet på http://localhost:4321/quizkveld/
+pnpm build       # statisk bygg til dist/ + lenkesjekk
+pnpm preview     # serverer dist/ med riktig base-sti
 pnpm pipeline all
 ```
 
+`pnpm typecheck` kjører begge halvdelene: `tsc` mot `tsconfig.pipeline.json` for
+pipelinen, og `astro check` for `src/`.
+
+## Nettstedet
+
+Astro-prosjektet ligger i `src/` og er helt adskilt fra `pipeline/`. Den eneste koblingen
+går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
+`pipeline/paths.ts`. Ingenting i pipelinen vet at nettstedet finnes.
+
+| Fil | Rolle |
+| --- | --- |
+| `src/content.config.ts` | Content Layer: leser `data/quizzes.json` og validerer med `QuizDataSchema` |
+| `src/lib/date.ts` | Sivil dato og ukedag i **Europe/Oslo** |
+| `src/lib/occurrence.ts` | Om en quiz treffer en gitt dato, og hvor sikkert |
+| `src/lib/place.ts` | Slugger for sted og fylke, med deterministisk kollisjonsløsning |
+| `src/lib/model.ts` | Kobler quiz til sted, sorterer, grupperer, teller |
+| `src/lib/format.ts` | All norsk visningstekst ett sted |
+| `src/scripts/filters.ts` | Klientfilter som skjuler kort som allerede er sendt ut |
+
+Sider: `/` (i kveld), `/i-morgen/`, `/denne-uka/`, `/steder/`, `/sted/<sted>/`,
+`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~450 statiske sider totalt.
+
+### Tidssone
+
+«I kveld» regnes alltid i Europe/Oslo med `Intl`, aldri med `new Date().getDay()`. CI
+bygger i UTC, så en naiv dato ville vist feil kveld etter kl. 22 norsk tid om sommeren.
+Datoene er `YYYY-MM-DD`-strenger og all aritmetikk går via UTC-midnatt, som ikke har
+sommertid å snuble i.
+
+### Hvor sikkert vises en quiz
+
+| `recurrence.kind` | Visning |
+| --- | --- |
+| `weekly`, `monthly-nth`, `last-of-month` | Datofestet |
+| `biweekly` | Datofestet, men merket «annenhver uke - sjekk selv». RRULE-en har ingen DTSTART, så vi vet ukedagen, ikke hvilken uke i syklusen |
+| `irregular` | Aldri datofestet. Egen seksjon nederst med `recurrence.raw` ordrett |
+
+De 20 uregelmessige quizene (5 uten ukedag) forsvinner aldri stille - det finnes en test
+som holder på det. `time: null` (16 quizer) vises som «tidspunkt ikke oppgitt» og sorteres
+sist innenfor dagen, aldri som 00:00.
+
+`categoryNorm` er en array, så kategorifilteret matcher **inneholder**, ikke likhet.
+Sjangertellingene summerer derfor til mer enn antall quizer, og UI-et sier det rett ut.
+
+### Filtrering uten rammeverk
+
+Serveren rendrer hvert kort; `src/scripts/filters.ts` skrur bare `hidden` av og på og
+speiler valget i query-strengen (`?sted=Asker&ukedag=fredag&kategori=musikk`). Uten
+JavaScript får man hele lista, som fortsatt er brukbar.
+
+## Hosting
+
+Nettstedet ligger på GitHub Pages: <https://verdensherredomme.github.io/quizkveld>.
+
+`astro.config.mjs` har `site` og `base` som to navngitte konstanter. Bytte til eget domene
+er én endring hver pluss en CNAME-fil:
+
+```js
+const SITE = "https://quizkveld.no";
+const BASE = "/";
+```
+
+...og `public/CNAME` med innholdet `quizkveld.no`.
+
+Alle interne lenker går gjennom `href()` i `src/lib/url.ts`, som prefikser
+`import.meta.env.BASE_URL`. `scripts/check-base.mjs` kjører etter hvert bygg og feiler
+hvis en lenke i `dist/` har glemt base-stien - det er den klassiske prosjekt-Pages-fella.
+
+`compressHTML: true` er satt med vilje: Astro 7 bruker JSX-regler for mellomrom som
+standard, og de spiser mellomrommet mellom et ord og en lenke på neste linje.
+
+### Deploy
+
+`.github/workflows/deploy.yml` bygger og deployer. Den trigges av push til `main`,
+manuelt, **og** av at «Oppdater quizdata» blir ferdig. Det siste er ikke pynt: pushes
+gjort med `GITHUB_TOKEN` trigger ikke nye `push`-workflows, så uten `workflow_run` ville
+ferske data aldri blitt publisert. Workflowen deklarerer `permissions:` eksplisitt, siden
+organisasjonen står på read-only som standard.
+
 ## Pipeline
 
-Pipelinen ligger i `pipeline/` og er helt adskilt fra et framtidig sidebygg. Hvert steg
+Pipelinen ligger i `pipeline/` og er helt adskilt fra sidebygget. Hvert steg
 kan kjøres for seg:
 
 | Kommando | Hva den gjør |
@@ -40,7 +123,7 @@ Flagg: `--force`, `--min-rows=N`, `--max-id-churn=0.1`, `--skip-scrape`.
 | `data/quizzes.json` | Generert utdata: `{ generatedAt, sourceUpdatedAt, venues, quizzes }` |
 | `data/overrides.json` | Håndkorrigeringer nøklet på id. Vinner alltid over det som er skrapet |
 | `data/geocache.json` | Append-only geocache nøklet på sted-id |
-| `pipeline/schema.ts` | Zod-skjemaene. Gjenbrukes av Astro-siden via Content Layer senere |
+| `pipeline/schema.ts` | Zod-skjemaene. Gjenbrukes av nettstedet via Content Layer |
 
 ### Stabile id-er
 
@@ -109,15 +192,17 @@ antakelsen om 600-900 rader stemte ikke.
 
 Kilden har verken adresser eller koordinater, bare stedsnavn. `pipeline/geocode.ts`
 inneholder ferdig cache-lag og stige-driver; selve oppslagene er stubbet med
-`TODO(phase-2)` og implementeres senere i rekkefølgen Kartverket Adresse → Overpass/OSM →
-Kartverket Stedsnavn → kommunesentrum.
+`TODO(phase-2)` og implementeres i fase 2b i rekkefølgen Kartverket Adresse →
+Overpass/OSM → Kartverket Stedsnavn → kommunesentrum. Nettstedet nevner derfor verken
+avstand, kart eller «nær meg» ennå - `lat`/`lon` er tomme på alle 322 steder.
 
 ### Automatisk oppdatering
 
 `.github/workflows/update-data.yml` kjører daglig (04:00 UTC, altså 06:00 i Oslo om
 sommeren) og kan startes manuelt. Små endringer committes rett til `main`; slår en
 sikkerhetssjekk ut, bygges det på nytt med `--force` og resultatet havner i en pull
-request for gjennomgang.
+request for gjennomgang. Når den committer, trigger den deploy-workflowen via
+`workflow_run`.
 
 ## Kjente svakheter i kildedata
 

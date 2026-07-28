@@ -1,0 +1,46 @@
+---
+import type { QuizAtVenue } from "../lib/model.js";
+import type { PlaceSlugs } from "../lib/place.js";
+import type { CivilDate } from "../lib/date.js";
+import { dayHeading, longDate, quizCount } from "../lib/format.js";
+import QuizList from "./QuizList.astro";
+
+interface Props {
+  date: CivilDate;
+  today: CivilDate;
+  items: QuizAtVenue[];
+  slugs: PlaceSlugs;
+  grouping?: "fylke" | "sted" | "none";
+  showPlace?: boolean;
+  emptyText?: string;
+}
+
+const {
+  date,
+  today,
+  items,
+  slugs,
+  grouping = "fylke",
+  showPlace,
+  emptyText = "Ingen quizer denne dagen.",
+} = Astro.props;
+---
+
+<section class="day" data-day={date}>
+  <div class="day__heading">
+    <h2>{dayHeading(date, today)}</h2>
+    <span class="day__count">
+      <span data-day-count>{quizCount(items.length)}</span>
+      {` · ${longDate(date)}`}
+    </span>
+  </div>
+
+  <QuizList
+    items={items}
+    slugs={slugs}
+    date={date}
+    grouping={grouping}
+    showPlace={showPlace}
+    emptyText={emptyText}
+  />
+</section>

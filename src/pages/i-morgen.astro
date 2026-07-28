@@ -1,0 +1,48 @@
+---
+import Base from "../layouts/Base.astro";
+import DaySection from "../components/DaySection.astro";
+import Filters from "../components/Filters.astro";
+import IrregularSection from "../components/IrregularSection.astro";
+import { loadSiteData } from "../lib/data.js";
+import { addDays, osloDate } from "../lib/date.js";
+import { isUndated, occursOn } from "../lib/occurrence.js";
+import { longDate, quizCount } from "../lib/format.js";
+import { href } from "../lib/url.js";
+
+const { items, slugs, meta } = await loadSiteData();
+
+const today = osloDate();
+const tomorrow = addDays(today, 1);
+
+const listed = items.filter((item) => occursOn(item.quiz, tomorrow));
+const irregular = items.filter((item) => isUndated(item.quiz));
+---
+
+<Base
+  title="Pubquizer i Norge i morgen – quizkveld"
+  description="Se hvilke pubquizer som går i morgen, sortert på sted og sjanger."
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+  current="i-morgen"
+>
+  <div class="intro">
+    <h1>I morgen</h1>
+    <p>{quizCount(listed.length)} står oppført {longDate(tomorrow)}.</p>
+  </div>
+
+  <Filters items={items} showWeekday={false} />
+
+  <DaySection
+    date={tomorrow}
+    today={today}
+    items={listed}
+    slugs={slugs}
+    emptyText="Ingen faste quizer er oppført i morgen."
+  />
+
+  <p>
+    <a href={href()}>Se i kveld</a> · <a href={href("denne-uka")}>Se hele uka</a>
+  </p>
+
+  <IrregularSection items={irregular} slugs={slugs} />
+</Base>

@@ -1,0 +1,113 @@
+---
+import type { QuizAtVenue } from "../lib/model.js";
+import { countByCategory, countByWeekday, placeSummary } from "../lib/model.js";
+import { CATEGORY_NORMS, WEEKDAYS } from "../../pipeline/schema.js";
+import { categoryLabel, weekdayLabel } from "../lib/format.js";
+
+/**
+ * Client-side filtering over already-rendered HTML.
+ *
+ * Every quiz on the page is in the markup before any JavaScript runs, so without JS the
+ * page is a complete, readable list - the selects just do nothing. With JS they hide and
+ * show cards and keep the choice in the query string so a filtered view can be shared.
+ */
+
+interface Props {
+  items: QuizAtVenue[];
+  /** Hidden when the page is already scoped to one place. */
+  showPlace?: boolean;
+  showWeekday?: boolean;
+}
+
+const { items, showPlace = true, showWeekday = true } = Astro.props;
+
+const places = placeSummary(items);
+const categoryCounts = countByCategory(items);
+const weekdayCounts = countByWeekday(items);
+
+const categories = CATEGORY_NORMS.filter((category) => (categoryCounts.get(category) ?? 0) > 0);
+const weekdays = WEEKDAYS.filter((weekday) => (weekdayCounts.get(weekday) ?? 0) > 0);
+
+// The genre buckets overlap - 23 quizzes name more than one - so these counts add up to
+// more than the number of quizzes. Said out loud below rather than left to look like a bug.
+const categoryTotal = [...categoryCounts.values()].reduce((sum, n) => sum + n, 0);
+const overlaps = categoryTotal > items.length;
+---
+
+<form class="filters" data-filters aria-label="Filtrer quizer">
+  <noscript>
+    <p class="noscript">
+      Filtrene krever JavaScript. Hele oversikten står uansett under, så du mister ingen
+      quizer – du må bare bla selv.
+    </p>
+  </noscript>
+
+  <div class="filters__row">
+    {
+      showPlace && (
+        <div class="filters__group">
+          <label class="filters__label" for="filter-sted">
+            Sted
+          </label>
+          <select id="filter-sted" name="sted" data-filter="sted">
+            <option value="">Hele landet</option>
+            {places.map((place) => (
+              <option value={place.sted}>
+                {place.sted} ({place.count})
+              </option>
+            ))}
+          </select>
+        </div>
+      )
+    }
+
+    {
+      showWeekday && (
+        <div class="filters__group">
+          <label class="filters__label" for="filter-ukedag">
+            Ukedag
+          </label>
+          <select id="filter-ukedag" name="ukedag" data-filter="ukedag">
+            <option value="">Alle dager</option>
+            {weekdays.map((weekday) => (
+              <option value={weekday}>
+                {weekdayLabel(weekday)} ({weekdayCounts.get(weekday)})
+              </option>
+            ))}
+          </select>
+        </div>
+      )
+    }
+
+    <div class="filters__group">
+      <label class="filters__label" for="filter-kategori">Sjanger</label>
+      <select id="filter-kategori" name="kategori" data-filter="kategori">
+        <option value="">Alle sjangre</option>
+        {
+          categories.map((category) => (
+            <option value={category}>
+              {categoryLabel(category)} ({categoryCounts.get(category)})
+            </option>
+          ))
+        }
+      </select>
+    </div>
+  </div>
+
+  {
+    overlaps && (
+      <p class="filters__note">
+        Tallene for sjanger summerer til mer enn antall quizer. Det er med vilje: en quiz
+        kan være både allmenn og musikk, og da telles den i begge.
+      </p>
+    )
+  }
+
+  <p class="filters__status" data-filter-status hidden></p>
+
+  <button type="button" class="filters__reset" data-filter-reset hidden>Nullstill filtre</button>
+</form>
+
+<script>
+  import "../scripts/filters.ts";
+</script>

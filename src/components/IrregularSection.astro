@@ -1,0 +1,43 @@
+---
+import type { QuizAtVenue } from "../lib/model.js";
+import type { PlaceSlugs } from "../lib/place.js";
+import { quizCount } from "../lib/format.js";
+import QuizList from "./QuizList.astro";
+
+/**
+ * The quizzes that cannot be put on a calendar.
+ *
+ * 20 quizzes have recurrence text the pipeline refused to guess at - "Hver fjerde søndag",
+ * "Torsdag (eller fredag)", "Omtrent én gang per måned (sjekk facebookgruppa …)" - and 5
+ * of those do not even name a weekday. They get their own section on every dated view
+ * instead of being dropped, because a quiz that exists but is hard to schedule is still
+ * worth knowing about. The source's own wording is quoted verbatim; anything else would be
+ * us inventing a date.
+ */
+
+interface Props {
+  items: QuizAtVenue[];
+  slugs: PlaceSlugs;
+  grouping?: "fylke" | "sted" | "none";
+  showPlace?: boolean;
+  /** Extra context about which subset of the site this section belongs to. */
+  scope?: string;
+}
+
+const { items, slugs, grouping = "fylke", showPlace, scope } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section class="irregular" data-irregular>
+      <h2>Uregelmessige quizer</h2>
+      <p class="irregular__note">
+        {quizCount(items.length)} {scope ? `${scope} ` : ""}
+        følger ingen fast plan vi kan regne oss fram til, så de dukker ikke opp i listene
+        over. Her står det kilden faktisk skriver, ord for ord. Sjekk med stedet før du
+        drar.
+      </p>
+      <QuizList items={items} slugs={slugs} grouping={grouping} showPlace={showPlace} />
+    </section>
+  )
+}

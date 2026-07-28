@@ -1,0 +1,23 @@
+{
+  "comment": "Pipeline-only TypeScript config. The site build uses the root tsconfig.json, which Astro owns. Keeping them apart lets the pipeline stay on NodeNext resolution while the site uses bundler resolution.",
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": false,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
+  },
+  "include": ["pipeline/**/*.ts", "vitest.config.ts"]
+}

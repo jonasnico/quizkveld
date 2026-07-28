@@ -1,0 +1,88 @@
+---
+import type { QuizAtVenue } from "../lib/model.js";
+import type { Occurrence } from "../lib/occurrence.js";
+import { categoryLabel, recurrenceLabel, timeLabel } from "../lib/format.js";
+import { href } from "../lib/url.js";
+
+interface Props {
+  item: QuizAtVenue;
+  /**
+   * How firmly the quiz is tied to the date it is listed under. `likely` means the weekday
+   * is right but the week is not knowable - see src/lib/occurrence.ts.
+   */
+  occurrence?: Occurrence;
+  stedSlug: string;
+  /** Set on venue pages, where repeating the venue name on every card is noise. */
+  showVenue?: boolean;
+  /** Set when the list is already grouped under a place heading. */
+  showPlace?: boolean;
+}
+
+const { item, occurrence = "certain", stedSlug, showVenue = true, showPlace = true } = Astro.props;
+const { quiz, venue } = item;
+
+const uncertain = occurrence === "likely";
+const undated = occurrence === "undated";
+---
+
+<li
+  class="quiz-card"
+  data-quiz
+  data-quiz-id={quiz.id}
+  data-sted={venue.kommune}
+  data-fylke={venue.fylke}
+  data-weekday={quiz.weekday ?? ""}
+  data-categories={quiz.categoryNorm.join(" ")}
+>
+  {
+    quiz.time ? (
+      <p class="quiz-card__time">{quiz.time}</p>
+    ) : (
+      <p class="quiz-card__time quiz-card__time--unknown">{timeLabel(quiz.time)}</p>
+    )
+  }
+
+  {
+    showVenue && (
+      <p class="quiz-card__venue">
+        <a href={href("pub", venue.id)}>{venue.name}</a>
+      </p>
+    )
+  }
+
+  {
+    showPlace && (
+      <p class="quiz-card__place">
+        <a href={href("sted", stedSlug)}>{venue.kommune}</a>
+      </p>
+    )
+  }
+
+  {
+    undated ? (
+      <blockquote class="quiz-card__raw">
+        {quiz.recurrence.raw}
+        <cite>slik kilden beskriver det</cite>
+      </blockquote>
+    ) : (
+      <p class="quiz-card__meta">{recurrenceLabel(quiz.recurrence, quiz.weekday)}</p>
+    )
+  }
+
+  <ul class="badges">
+    {
+      quiz.categoryNorm.map((category) => (
+        <li class="badge badge--category">{categoryLabel(category)}</li>
+      ))
+    }
+    {
+      uncertain && (
+        <li class="badge badge--uncertain" title="Kilden sier annenhver uke, men ikke hvilken. Sjekk med stedet før du drar.">
+          Annenhver uke – sjekk selv
+        </li>
+      )
+    }
+  </ul>
+
+  {quiz.note && <p class="quiz-card__meta">{quiz.note}</p>}
+</li>

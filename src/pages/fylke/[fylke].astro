@@ -1,0 +1,74 @@
+---
+import type { GetStaticPaths } from "astro";
+import Base from "../../layouts/Base.astro";
+import DaySection from "../../components/DaySection.astro";
+import Filters from "../../components/Filters.astro";
+import IrregularSection from "../../components/IrregularSection.astro";
+import { loadSiteData } from "../../lib/data.js";
+import { osloDate } from "../../lib/date.js";
+import { isUndated, occursOn } from "../../lib/occurrence.js";
+import { placeSummary } from "../../lib/model.js";
+import { quizCount } from "../../lib/format.js";
+import { href } from "../../lib/url.js";
+
+export const getStaticPaths = (async () => {
+  const { items, slugs } = await loadSiteData();
+
+  return [...slugs.byFylke].map(([fylke, slug]) => ({
+    params: { fylke: slug },
+    props: { fylke, items: items.filter((item) => item.venue.fylke === fylke) },
+  }));
+}) satisfies GetStaticPaths;
+
+const { fylke, items } = Astro.props;
+const { slugs, meta } = await loadSiteData();
+
+const today = osloDate();
+const tonight = items.filter((item) => occursOn(item.quiz, today));
+const irregular = items.filter((item) => isUndated(item.quiz));
+const places = placeSummary(items);
+---
+
+<Base
+  title={`Pubquiz i ${fylke} – quizkveld`}
+  description={`Alle pubquizer i ${fylke}, sted for sted.`}
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+>
+  <p class="breadcrumbs">
+    <a href={href()}>Forsiden</a> ›
+    <a href={href("steder")}>Steder</a> ›
+    <span>{fylke}</span>
+  </p>
+
+  <div class="intro">
+    <h1>Pubquiz i {fylke}</h1>
+    <p>
+      {quizCount(items.length)} på {places.length} steder. Fylkesnavnet er det kilden bruker,
+      altså slik det het før sammenslåingen i 2020.
+    </p>
+    <ul class="place-grid">
+      {
+        places.map((place) => (
+          <li>
+            <a href={href("sted", slugs.bySted.get(place.sted) ?? "")}>{place.sted}</a>{" "}
+            <span class="place-grid__count">({place.count})</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <Filters items={items} showPlace={true} />
+
+  <DaySection
+    date={today}
+    today={today}
+    items={tonight}
+    slugs={slugs}
+    grouping="sted"
+    emptyText={`Ingen faste quizer i ${fylke} i kveld.`}
+  />
+
+  <IrregularSection items={irregular} slugs={slugs} grouping="sted" scope={`i ${fylke}`} />
+</Base>

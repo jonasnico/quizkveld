@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import { loadSiteData } from "../lib/data.js";
+import { href } from "../lib/url.js";
+
+const { meta } = await loadSiteData();
+---
+
+<Base
+  title="Fant ikke siden – quizkveld"
+  description="Siden finnes ikke."
+  generatedAt={meta.generatedAt}
+  sourceUpdatedAt={meta.sourceUpdatedAt}
+>
+  <div class="prose">
+    <h1>Her var det tomt</h1>
+    <p>
+      Siden du prøvde å åpne finnes ikke. Kanskje har et sted byttet navn hos kilden, eller
+      kanskje er lenken bare skrevet feil.
+    </p>
+    <p>
+      <a href={href()}>Se hva som skjer i kveld</a> eller
+      <a href={href("steder")}>bla gjennom alle steder</a>.
+    </p>
+  </div>
+</Base>
