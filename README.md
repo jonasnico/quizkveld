@@ -40,7 +40,7 @@ går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
 | `src/scripts/filters.ts` | Klientfilter som skjuler kort som allerede er sendt ut |
 
 Sider: `/` (i kveld), `/i-morgen/`, `/denne-uka/`, `/steder/`, `/sted/<sted>/`,
-`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~447 statiske sider totalt.
+`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~455 statiske sider totalt.
 
 ### Fylkene er dagens, ikke kildens
 
@@ -66,9 +66,15 @@ hjelper den som kjenner det gamle navnet, og det er ærlig om at inndelingen er 
 og ikke noe kilden har sagt. `formerFylker()` utleder linja fra dataene, så den forsvinner av
 seg selv den dagen kilden skriver moderne navn.
 
-Det er bevisst ingen omdirigeringssider fra de gamle URL-ene: sida hadde ingen innlenker da
-inndelingen ble byttet, så åtte ekstra sider ville vært vedlikehold uten mottaker. En setning
-som forklarer forskjellen er mer nyttig enn en omdirigering som skjuler den.
+De gamle URL-ene lever videre, for begge grepene trengs og de løser hver sitt problem: en
+omdirigering fanger et gammelt bokmerke, mens setningen hjelper henne som aldri hadde et,
+men bare leser fylkeslista og lurer på hvor Hordaland ble av. `legacyFylker()` utleder dem
+fra dataene, med `canonical` og `noindex`, så de forsvinner av seg selv sammen med resten.
+
+Sju av de åtte ble til nøyaktig ett nytt fylke og omdirigerer. **Oppland er unntaket**, og
+får en peker-side i stedet: det gikk mest til Innlandet, men Jevnaker gikk Oppland → Viken →
+Akershus. En URL kan bare peke ett sted, så en omdirigering til flertallet ville sendt de to
+Jevnaker-stedenes besøkende selvsikkert til feil fylke. Sida navngir begge, med antall.
 
 Kildens egen skrivemåte står også i rettings-e-posten: den skal hjelpe en frivillig å finne
 raden i *deres* tabell, og deres tabell sier Hordaland.
