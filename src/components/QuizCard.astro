@@ -36,10 +36,15 @@ const badgeLabel = biweekly ? "Annenhver uke – sjekk selv" : "Sjekk selv";
 const badgeTitle = biweekly
   ? "Kilden sier annenhver uke, men ikke hvilken. Sjekk med stedet før du drar."
   : `Kilden tar forbehold: «${caveat?.text ?? quiz.recurrence.raw}». Sjekk med stedet før du drar.`;
+
+// The modifier is what turns the spine solid, dashed or absent. Purely visual: every state
+// it marks is also stated in words inside the entry.
+const occurrenceClass =
+  occurrence === "certain" ? "" : ` quiz-card--${occurrence === "likely" ? "likely" : "undated"}`;
 ---
 
 <li
-  class="quiz-card"
+  class={`quiz-card${occurrenceClass}`}
   data-quiz
   data-quiz-id={quiz.id}
   data-sted={venue.kommune}
@@ -51,53 +56,61 @@ const badgeTitle = biweekly
     quiz.time ? (
       <p class="quiz-card__time">{quiz.time}</p>
     ) : (
-      <p class="quiz-card__time quiz-card__time--unknown">{timeLabel(quiz.time)}</p>
-    )
-  }
-
-  {
-    showVenue && (
-      <p class="quiz-card__venue">
-        <a href={href("pub", venue.id)}>{venue.name}</a>
+      /* Keeps the time column's rhythm when there is no time. The wording that carries the
+         information sits in the body below, as real text. */
+      <p class="quiz-card__time quiz-card__time--unknown" aria-hidden="true">
+        –
       </p>
     )
   }
 
-  {
-    showPlace && (
-      <p class="quiz-card__place">
-        <a href={href("sted", stedSlug)}>{venue.kommune}</a>
-      </p>
-    )
-  }
-
-  {
-    undated ? (
-      <blockquote class="quiz-card__raw">
-        {quiz.recurrence.raw}
-        <cite>slik kilden beskriver det</cite>
-      </blockquote>
-    ) : (
-      <p class="quiz-card__meta">{recurrenceLabel(quiz.recurrence, quiz.weekday)}</p>
-    )
-  }
-
-  {caveat && <p class="quiz-card__caveat">{caveatIntro}: «{caveat.text}»</p>}
-
-  <ul class="badges">
+  <div class="quiz-card__body">
     {
-      quiz.categoryNorm.map((category) => (
-        <li class="badge badge--category">{categoryLabel(category)}</li>
-      ))
-    }
-    {
-      uncertain && (
-        <li class="badge badge--uncertain" title={badgeTitle}>
-          {badgeLabel}
-        </li>
+      showVenue && (
+        <p class="quiz-card__venue">
+          <a href={href("pub", venue.id)}>{venue.name}</a>
+        </p>
       )
     }
-  </ul>
 
-  {quiz.note && <p class="quiz-card__meta">{quiz.note}</p>}
+    {
+      showPlace && (
+        <p class="quiz-card__place">
+          <a href={href("sted", stedSlug)}>{venue.kommune}</a>
+        </p>
+      )
+    }
+
+    {!quiz.time && <p class="quiz-card__meta">{timeLabel(quiz.time)}</p>}
+
+    {
+      undated ? (
+        <blockquote class="quiz-card__raw">
+          <p>{quiz.recurrence.raw}</p>
+          <cite>slik kilden beskriver det</cite>
+        </blockquote>
+      ) : (
+        <p class="quiz-card__meta">{recurrenceLabel(quiz.recurrence, quiz.weekday)}</p>
+      )
+    }
+
+    {caveat && <p class="quiz-card__caveat">{caveatIntro}: «{caveat.text}»</p>}
+
+    <ul class="badges">
+      {
+        quiz.categoryNorm.map((category) => (
+          <li class="badge badge--category">{categoryLabel(category)}</li>
+        ))
+      }
+      {
+        uncertain && (
+          <li class="badge badge--uncertain" title={badgeTitle}>
+            {badgeLabel}
+          </li>
+        )
+      }
+    </ul>
+
+    {quiz.note && <p class="quiz-card__meta">{quiz.note}</p>}
+  </div>
 </li>
