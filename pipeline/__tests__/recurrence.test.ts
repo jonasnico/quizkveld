@@ -234,3 +234,52 @@ describe("parseWeekday", () => {
     expect(parseWeekday("")).toBeNull();
   });
 });
+
+/**
+ * Week parity is what makes a biweekly quiz answerable.
+ *
+ * "INTERVAL=2" says every other week but not which one, so without parity the site can
+ * only say "maybe tonight". Parity is preferred over a DTSTART anchor because it is a
+ * property of the calendar rather than of one season, so it never expires.
+ */
+describe("week parity on biweekly", () => {
+  const ODD = [
+    "Torsdag (oddetallsuker)",
+    "Torsdag (annenhver - oddetallsuker)",
+    "Tirsdag (annenhver, oddetallsuker)",
+    "Torsdag (annenhver, ulik uke)",
+  ];
+  const EVEN = ["Torsdag (partallsuker)", "Mandag (annenhver - partallsuker)"];
+  const NONE = ["Torsdag (annenhver)", "Annenhver mandag"];
+
+  for (const raw of ODD) {
+    it(`reads ${JSON.stringify(raw)} as odd weeks`, () => {
+      const parsed = parseRecurrence(raw);
+      expect(parsed.kind).toBe("biweekly");
+      expect(parsed.weekParity).toBe("odd");
+    });
+  }
+
+  for (const raw of EVEN) {
+    it(`reads ${JSON.stringify(raw)} as even weeks`, () => {
+      const parsed = parseRecurrence(raw);
+      expect(parsed.kind).toBe("biweekly");
+      expect(parsed.weekParity).toBe("even");
+    });
+  }
+
+  for (const raw of NONE) {
+    it(`leaves parity unset for ${JSON.stringify(raw)}`, () => {
+      const parsed = parseRecurrence(raw);
+      expect(parsed.kind).toBe("biweekly");
+      expect(parsed.weekParity).toBeUndefined();
+    });
+  }
+
+  // "ulike uker" (odd) and "like uker" (even) differ by one leading letter and mean the
+  // opposite thing. Getting this backwards puts every affected quiz on the wrong week.
+  it("does not read 'ulike uker' as even", () => {
+    expect(parseRecurrence("Torsdag (annenhver, ulike uker)").weekParity).toBe("odd");
+    expect(parseRecurrence("Torsdag (annenhver, like uker)").weekParity).toBe("even");
+  });
+});

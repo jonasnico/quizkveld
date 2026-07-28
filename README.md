@@ -346,6 +346,32 @@ andre har, og som råtner stille når puben legger om. Kilden ber selv om rettel
 Et ferdig e-postutkast med alle oppføringene ligger i `_note.utboks` i
 `data/overrides.json`.
 
+**Annenhver uke: `weekParity`.** `INTERVAL=2` sier at quizen går annenhver uke, men ikke
+*hvilken*, så alene kan den ikke svare på «går den i kveld?». 16 av de 48 annenhver-radene
+sier det selv (`oddetallsuker`, `partallsuker`, `ulik uke`), og det havner i
+`recurrence.weekParity` som `odd` eller `even`. De øvrige 32 står uten, og skal vises som
+«annenhver uke - sjekk selv».
+
+Merk at paritet er valgt framfor en `DTSTART`-ankerdato med vilje. Ukenummer er en
+egenskap ved kalenderen og utløper aldri, mens en ankerdato er et faktum om én sesong -
+den eneste datoen i kilden er `høstsesong 2024 fra 28/8 til 4/12`, som gikk ut for lenge
+siden. Et utløpt anker gir feil uke annenhver gang, med full selvtillit.
+
+Fella er at `ulike uker` (oddetall) og `like uker` (partall) skiller seg med én bokstav og
+betyr det motsatte. Det finnes egen test for den.
+
+### Døde lenker
+
+Kilden kjører en lenkesjekker og streker over døde lenker med `class="broken_link"`. Det
+er en vurdering de allerede har gjort, så den bæres videre som `urlBroken` på stedet.
+
+Med ett unntak: **alle 103 Facebook-lenkene er markert døde**. En feilrate på 100 % er
+sjekkeren som blir blokkert, ikke 103 nedlagte sider - Instagram-lenkene på samme side er
+ikke markert, som er det som peker på Facebook spesifikt. Å sende flagget rått videre ville
+strøket ut nettopp de lenkene som er best vedlikeholdt, siden en pub sin Facebook-side
+gjerne er den kanalen de faktisk oppdaterer. Hoster i `CHECKER_BLIND_HOSTS` flagges derfor
+aldri. Etter det står 49 av 229 lenker som døde.
+
 ### Sikkerhetssjekker
 
 Byggingen stopper med exit-kode 2 hvis

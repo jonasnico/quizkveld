@@ -46,6 +46,25 @@ const LAST_OF_MONTH_RE =
 const MONTH_RE = /\b(?:mnd|md|maned|måned|maneden|måneden|manedlig|månedlig)\b/;
 const BIWEEKLY_RE =
   /\bannenhver\b|\bhver\s+andre\b|\boddetallsuker?\b|\bpartallsuker?\b|\bhveranden\b/;
+
+/**
+ * Which ISO week half of the biweekly rows fall in.
+ *
+ * "INTERVAL=2" says "every other week" but not *which* other week, so on its own it cannot
+ * answer "is it on tonight?". Week parity settles that, and unlike a start date it never
+ * expires - ISO week numbers are a property of the calendar, not of one season.
+ *
+ * Note the \b before "like": it keeps "ulike uker" (odd) from also matching the even
+ * pattern, since the two words differ by a single leading letter.
+ */
+const ODD_WEEK_RE = /\boddetallsuker?\b|\bulike?\s+uker?\b|\bodde\s+uker?\b/;
+const EVEN_WEEK_RE = /\bpartallsuker?\b|\blike?\s+uker?\b|\bjevne\s+uker?\b/;
+
+function findWeekParity(text: string): "odd" | "even" | undefined {
+  if (ODD_WEEK_RE.test(text)) return "odd";
+  if (EVEN_WEEK_RE.test(text)) return "even";
+  return undefined;
+}
 const AMBIGUOUS_RE =
   /\bvarierer\b|\bvarierende\b|\butvalgte\b|\buregelmessig\b|\bsporadisk\b|\bav\s+og\s+til\b|\bved\s+behov\b|\better\s+avtale\b|\bikke\s+fast\b|\bdiverse\b/;
 const ALTERNATIVE_RE = /\beller\b|\bevt\.?\b|\beventuelt\b/;
@@ -138,6 +157,7 @@ export function parseRecurrence(raw: string): Recurrence {
     // "andre tirsdag i maneden" - that is monthly, not biweekly.
     const ordinalMonthly = isMonthly && findOrdinals(text).length > 0;
     if (!ordinalMonthly) {
+      const parity = findWeekParity(text);
       return {
         kind: "biweekly",
         rrule: buildRrule({
@@ -146,6 +166,7 @@ export function parseRecurrence(raw: string): Recurrence {
           interval: 2,
         }),
         raw,
+        ...(parity ? { weekParity: parity } : {}),
       };
     }
   }

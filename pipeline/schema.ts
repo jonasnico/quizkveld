@@ -47,6 +47,15 @@ export const RecurrenceSchema = z.object({
   rrule: z.string().optional(),
   /** The original Norwegian text from the source, always preserved verbatim. */
   raw: z.string(),
+  /**
+   * Which ISO week a `biweekly` quiz falls in, when the source says so ("oddetallsuker",
+   * "partallsuker", "ulik uke"). An RRULE with INTERVAL=2 and no DTSTART only says "every
+   * other week" without saying which one, so this is what makes half of them exact.
+   *
+   * Week parity is deliberately preferred over a DTSTART anchor: it is absolute and never
+   * expires, whereas an anchor date is a fact about one season that silently rots.
+   */
+  weekParity: z.enum(["odd", "even"]).optional(),
 });
 export type Recurrence = z.infer<typeof RecurrenceSchema>;
 
@@ -80,6 +89,11 @@ export const VenueSchema = z.object({
   geoSource: GeoSourceSchema.optional(),
   geoConfidence: GeoConfidenceSchema.optional(),
   url: z.string().optional(),
+  /**
+   * True when the source itself marks the link as dead (it runs a link checker and strikes
+   * those through). Derived from the source on every scrape, so it heals when they fix it.
+   */
+  urlBroken: z.boolean().optional(),
   /** True when the venue was absent from the most recent scrape (soft delete). */
   stale: z.boolean().optional(),
 });
@@ -206,6 +220,8 @@ export const RawRowSchema = z.object({  fylke: z.string(),
   city: z.string(),
   venueRaw: z.string(),
   venueUrl: z.string().optional(),
+  /** The source marked this link as dead via its link checker. */
+  venueUrlBroken: z.boolean().optional(),
   weekdayRaw: z.string(),
   timeRaw: z.string(),
   categoryRaw: z.string(),

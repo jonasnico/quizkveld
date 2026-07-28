@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T04:39:28.247Z",
+  "generatedAt": "2026-07-28T05:00:50.000Z",
   "sourceUpdatedAt": "2026-07-27",
   "venues": [
     {
@@ -185,6 +185,7 @@
       "kommune": "Bærum",
       "fylke": "Akershus",
       "url": "http://www.onkelblaa.no/",
+      "urlBroken": true,
       "kommuneNr": "3201",
       "kommuneName": "Bærum",
       "fylkeNow": "Akershus",
@@ -244,6 +245,7 @@
       "kommune": "Bergen",
       "fylke": "Hordaland",
       "url": "http://bergenmatbors.no/steder/borskjelleren",
+      "urlBroken": true,
       "kommuneNr": "4601",
       "kommuneName": "Bergen",
       "fylkeNow": "Vestland",
@@ -432,6 +434,7 @@
       "kommune": "Bergen",
       "fylke": "Hordaland",
       "url": "http://kvarteret.no/",
+      "urlBroken": true,
       "kommuneNr": "4601",
       "kommuneName": "Bergen",
       "fylkeNow": "Vestland",
@@ -489,6 +492,7 @@
       "kommune": "Bergen",
       "fylke": "Hordaland",
       "url": "http://www.ricks.no/",
+      "urlBroken": true,
       "kommuneNr": "4601",
       "kommuneName": "Bergen",
       "fylkeNow": "Vestland",
@@ -519,6 +523,7 @@
       "kommune": "Bergen",
       "fylke": "Hordaland",
       "url": "http://www.thetastingroom.no/",
+      "urlBroken": true,
       "kommuneNr": "4601",
       "kommuneName": "Bergen",
       "fylkeNow": "Vestland",
@@ -590,6 +595,7 @@
       "kommune": "Bjørkelangen",
       "fylke": "Akershus",
       "url": "http://www.basementpub.no/index1.htm",
+      "urlBroken": true,
       "kommuneNr": "3226",
       "kommuneName": "Aurskog-Høland",
       "fylkeNow": "Akershus",
@@ -605,6 +611,7 @@
       "kommune": "Bodø",
       "fylke": "Nordland",
       "url": "http://monamibodo.no/forside/?News=13",
+      "urlBroken": true,
       "kommuneNr": "1804",
       "kommuneName": "Bodø",
       "fylkeNow": "Nordland",
@@ -648,6 +655,7 @@
       "kommune": "Bryne",
       "fylke": "Rogaland",
       "url": "http://www.thime-station.no/",
+      "urlBroken": true,
       "kommuneNr": "1121",
       "kommuneName": "Time",
       "fylkeNow": "Rogaland",
@@ -885,6 +893,7 @@
       "kommune": "Gjerdrum",
       "fylke": "Akershus",
       "url": "http://www.gamlesmia.no/",
+      "urlBroken": true,
       "kommuneNr": "3230",
       "kommuneName": "Gjerdrum",
       "fylkeNow": "Akershus",
@@ -915,6 +924,7 @@
       "kommune": "Gjøvik",
       "fylke": "Oppland",
       "url": "http://huset.hig.no/quiz.php",
+      "urlBroken": true,
       "kommuneNr": "3407",
       "kommuneName": "Gjøvik",
       "fylkeNow": "Innlandet",
@@ -1002,6 +1012,7 @@
       "kommune": "Halden",
       "fylke": "Østfold",
       "url": "http://ukaihalden.no/hss/",
+      "urlBroken": true,
       "kommuneNr": "3101",
       "kommuneName": "Halden",
       "fylkeNow": "Østfold",
@@ -1075,6 +1086,7 @@
       "kommune": "Hammerfest",
       "fylke": "Finnmark",
       "url": "www.jernteppet.no/quiz",
+      "urlBroken": true,
       "kommuneNr": "5603",
       "kommuneName": "Hammerfest",
       "fylkeNow": "Finnmark",
@@ -1090,6 +1102,7 @@
       "kommune": "Harstad",
       "fylke": "Troms",
       "url": "http://post31.wix.com/ludo-website",
+      "urlBroken": true,
       "kommuneNr": "5503",
       "kommuneName": "Harstad",
       "fylkeNow": "Troms",
@@ -1105,6 +1118,7 @@
       "kommune": "Harstad",
       "fylke": "Troms",
       "url": "http://www.nordlaendingen.no/",
+      "urlBroken": true,
       "kommuneNr": "5503",
       "kommuneName": "Harstad",
       "fylkeNow": "Troms",
@@ -1120,6 +1134,7 @@
       "kommune": "Haugesund",
       "fylke": "Rogaland",
       "url": "http://inventum.no/cafe-mm/",
+      "urlBroken": true,
       "kommuneNr": "1106",
       "kommuneName": "Haugesund",
       "fylkeNow": "Rogaland",
@@ -1135,6 +1150,7 @@
       "kommune": "Haugesund",
       "fylke": "Rogaland",
       "url": "http://www.flytten.com/",
+      "urlBroken": true,
       "kommuneNr": "1106",
       "kommuneName": "Haugesund",
       "fylkeNow": "Rogaland",
@@ -1179,6 +1195,7 @@
       "kommune": "Haugesund",
       "fylke": "Rogaland",
       "url": "http://www.stodden.no/home/",
+      "urlBroken": true,
       "kommuneNr": "1106",
       "kommuneName": "Haugesund",
       "fylkeNow": "Rogaland",
@@ -1239,6 +1256,7 @@
       "kommune": "Hokksund",
       "fylke": "Buskerud",
       "url": "http://www.vestforelven.info/",
+      "urlBroken": true,
       "kommuneNr": "3314",
       "kommuneName": "Øvre Eiker",
       "fylkeNow": "Buskerud",
@@ -1413,6 +1431,7 @@
       "kommune": "Kirkenes",
       "fylke": "Finnmark",
       "url": "http://www.ofelas.no/index.php?page_id=1",
+      "urlBroken": true,
       "kommuneNr": "5605",
       "kommuneName": "Sør-Varanger",
       "fylkeNow": "Finnmark",
@@ -1488,6 +1507,7 @@
       "kommune": "Kopervik",
       "fylke": "Rogaland",
       "url": "http://inventum.no/cafe-mm-kopervik/",
+      "urlBroken": true,
       "kommuneNr": "1149",
       "kommuneName": "Karmøy",
       "fylkeNow": "Rogaland",
@@ -1518,6 +1538,7 @@
       "kommune": "Kristiansand",
       "fylke": "Vest-Agder",
       "url": "http://www.javel.no/",
+      "urlBroken": true,
       "kommuneNr": "4204",
       "kommuneName": "Kristiansand",
       "fylkeNow": "Agder",
@@ -1533,6 +1554,7 @@
       "kommune": "Kristiansand",
       "fylke": "Vest-Agder",
       "url": "http://www.ostsia.no/",
+      "urlBroken": true,
       "kommuneNr": "4204",
       "kommuneName": "Kristiansand",
       "fylkeNow": "Agder",
@@ -1577,6 +1599,7 @@
       "kommune": "Langesund",
       "fylke": "Telemark",
       "url": "https://wrightegaarden.no/program/quiz?fbclid=IwZXh0bgNhZW0CMTAAAR1SOOHyCfmFJa1dNpQW8J0X9BVkdA5EFSpJWbwev_BXlW24lxq_nOr32t8_aem_AUMqp4gqhq7F3i2wDdv0gQiZitM53Qa8uxvbe33ph20zERyq71j8_ylVGWKUgvrM_EZCx1pUq_plV3ZlpH8qWouF",
+      "urlBroken": true,
       "kommuneNr": "4012",
       "kommuneName": "Bamble",
       "fylkeNow": "Telemark",
@@ -1606,6 +1629,7 @@
       "kommune": "Lierbyen",
       "fylke": "Buskerud",
       "url": "http://togetpub.no/",
+      "urlBroken": true,
       "kommuneNr": "3312",
       "kommuneName": "Lier",
       "fylkeNow": "Buskerud",
@@ -1666,6 +1690,7 @@
       "kommune": "Lillestrøm",
       "fylke": "Akershus",
       "url": "https://www.barcode-lillestrom.no/",
+      "urlBroken": true,
       "kommuneNr": "3205",
       "kommuneName": "Lillestrøm",
       "fylkeNow": "Akershus",
@@ -1798,6 +1823,7 @@
       "kommune": "Mo i Rana",
       "fylke": "Nordland",
       "url": "http://www.onkeloskar.no/moirana/index.htm",
+      "urlBroken": true,
       "kommuneNr": "1833",
       "kommuneName": "Rana",
       "fylkeNow": "Nordland",
@@ -1828,6 +1854,7 @@
       "kommune": "Molde",
       "fylke": "Møre og Romsdal",
       "url": "www.fuzzyplatebar.no",
+      "urlBroken": true,
       "kommuneNr": "1506",
       "kommuneName": "Molde",
       "fylkeNow": "Møre og Romsdal",
@@ -1843,6 +1870,7 @@
       "kommune": "Molde",
       "fylke": "Møre og Romsdal",
       "url": "http://www.teatretvart.no/kaf-kurt/quizkvelder",
+      "urlBroken": true,
       "kommuneNr": "1506",
       "kommuneName": "Molde",
       "fylkeNow": "Møre og Romsdal",
@@ -1930,6 +1958,7 @@
       "kommune": "Namsos",
       "fylke": "Nord-Trøndelag",
       "url": "http://www.onkeloskar.no/namsos/",
+      "urlBroken": true,
       "kommuneNr": "5007",
       "kommuneName": "Namsos",
       "fylkeNow": "Trøndelag",
@@ -2004,6 +2033,7 @@
       "kommune": "Notodden",
       "fylke": "Telemark",
       "url": "http://www.bellmanpub.no/news.php",
+      "urlBroken": true,
       "kommuneNr": "4005",
       "kommuneName": "Notodden",
       "fylkeNow": "Telemark",
@@ -2093,6 +2123,7 @@
       "kommune": "Oslo",
       "fylke": "Oslo",
       "url": "http://www.bagelandjuice.no/html/vika.html",
+      "urlBroken": true,
       "kommuneNr": "0301",
       "kommuneName": "Oslo",
       "fylkeNow": "Oslo",
@@ -2138,6 +2169,7 @@
       "kommune": "Oslo",
       "fylke": "Oslo",
       "url": "http://www.bd57.no/",
+      "urlBroken": true,
       "kommuneNr": "0301",
       "kommuneName": "Oslo",
       "fylkeNow": "Oslo",
@@ -2923,6 +2955,7 @@
       "kommune": "Oslo",
       "fylke": "Oslo",
       "url": "https://www.nydalenbryggeri.no/hva-skjer",
+      "urlBroken": true,
       "kommuneNr": "0301",
       "kommuneName": "Oslo",
       "fylkeNow": "Oslo",
@@ -3012,6 +3045,7 @@
       "kommune": "Oslo",
       "fylke": "Oslo",
       "url": "https://www.burgerandsteak.com/bar",
+      "urlBroken": true,
       "kommuneNr": "0301",
       "kommuneName": "Oslo",
       "fylkeNow": "Oslo",
@@ -3250,6 +3284,7 @@
       "kommune": "Oslo",
       "fylke": "Oslo",
       "url": "https://www.salted.no/quiz-paa-salt",
+      "urlBroken": true,
       "kommuneNr": "0301",
       "kommuneName": "Oslo",
       "fylkeNow": "Oslo",
@@ -3310,6 +3345,7 @@
       "kommune": "Oslo",
       "fylke": "Oslo",
       "url": "https://www.skattenoslo.no/",
+      "urlBroken": true,
       "kommuneNr": "0301",
       "kommuneName": "Oslo",
       "fylkeNow": "Oslo",
@@ -3768,6 +3804,7 @@
       "kommune": "Porsgrunn",
       "fylke": "Telemark",
       "url": "http://www.kafek.no/program.htm",
+      "urlBroken": true,
       "kommuneNr": "4001",
       "kommuneName": "Porsgrunn",
       "fylkeNow": "Telemark",
@@ -3825,6 +3862,7 @@
       "kommune": "Risør",
       "fylke": "Aust-Agder",
       "url": "http://www.peterhead.no/",
+      "urlBroken": true,
       "kommuneNr": "4201",
       "kommuneName": "Risør",
       "fylkeNow": "Agder",
@@ -3932,6 +3970,7 @@
       "kommune": "Sarpsborg",
       "fylke": "Østfold",
       "url": "http://www.dickens-sarpsborg.no/hva-skjer/fredags-quizen/",
+      "urlBroken": true,
       "kommuneNr": "3105",
       "kommuneName": "Sarpsborg",
       "fylkeNow": "Østfold",
@@ -3947,6 +3986,7 @@
       "kommune": "Sarpsborg",
       "fylke": "Østfold",
       "url": "http://www.glenghuset.com/index.php?side=program&mid=1",
+      "urlBroken": true,
       "kommuneNr": "3105",
       "kommuneName": "Sarpsborg",
       "fylkeNow": "Østfold",
@@ -3962,6 +4002,7 @@
       "kommune": "Sigerfjord",
       "fylke": "Nordland",
       "url": "http://www.vesteraalen.net/modules.php?op=modload&name=News&file=index",
+      "urlBroken": true,
       "kommuneNr": "1870",
       "kommuneName": "Sortland",
       "fylkeNow": "Nordland",
@@ -4007,6 +4048,7 @@
       "kommune": "Skjervøy",
       "fylke": "Troms",
       "url": "http://www.hotell-maritim.no/norsk/index.html",
+      "urlBroken": true,
       "kommuneNr": "5542",
       "kommuneName": "Skjervøy",
       "fylkeNow": "Troms",
@@ -4282,6 +4324,7 @@
       "kommune": "Stjørdal",
       "fylke": "Nord-Trøndelag",
       "url": "http://www.bankenbar.com/public.aspx",
+      "urlBroken": true,
       "kommuneNr": "5035",
       "kommuneName": "Stjørdal",
       "fylkeNow": "Trøndelag",
@@ -4342,6 +4385,7 @@
       "kommune": "Tønsberg",
       "fylke": "Vestfold",
       "url": "http://www.bryggeriet.tv/index.html",
+      "urlBroken": true,
       "kommuneNr": "3905",
       "kommuneName": "Tønsberg",
       "fylkeNow": "Vestfold",
@@ -4357,6 +4401,7 @@
       "kommune": "Tønsberg",
       "fylke": "Vestfold",
       "url": "http://www.himmeloghav.net/",
+      "urlBroken": true,
       "kommuneNr": "3905",
       "kommuneName": "Tønsberg",
       "fylkeNow": "Vestfold",
@@ -4592,6 +4637,7 @@
       "kommune": "Trondheim",
       "fylke": "Sør-Trøndelag",
       "url": "http://www.samfundet.no/detalj.php?id=8431",
+      "urlBroken": true,
       "kommuneNr": "5001",
       "kommuneName": "Trondheim",
       "fylkeNow": "Trøndelag",
@@ -4652,6 +4698,7 @@
       "kommune": "Vadsø",
       "fylke": "Finnmark",
       "url": "http://www.bajasso.no/",
+      "urlBroken": true,
       "kommuneNr": "5607",
       "kommuneName": "Vadsø",
       "fylkeNow": "Finnmark",
@@ -4667,6 +4714,7 @@
       "kommune": "Vardø",
       "fylke": "Finnmark",
       "url": "http://www.nordpolkro.no/",
+      "urlBroken": true,
       "kommuneNr": "5634",
       "kommuneName": "Vardø",
       "fylkeNow": "Finnmark",
@@ -4696,6 +4744,7 @@
       "kommune": "Vestfossen",
       "fylke": "Buskerud",
       "url": "http://www.sos-vestfossen.no/",
+      "urlBroken": true,
       "kommuneNr": "3314",
       "kommuneName": "Øvre Eiker",
       "fylkeNow": "Buskerud",
@@ -5543,7 +5592,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (partallsuker)"
+        "raw": "Torsdag (partallsuker)",
+        "weekParity": "even"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -6071,7 +6121,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (annenhver – oddetallsuker)"
+        "raw": "Torsdag (annenhver – oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Musikk",
       "categoryNorm": [
@@ -6103,7 +6154,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=MO;INTERVAL=2",
-        "raw": "Mandag (annenhver – partallsuker)"
+        "raw": "Mandag (annenhver – partallsuker)",
+        "weekParity": "even"
       },
       "category": "Musikk",
       "categoryNorm": [
@@ -6293,7 +6345,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=WE;INTERVAL=2",
-        "raw": "Onsdag (annenhver – oddetallsuker)"
+        "raw": "Onsdag (annenhver – oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -6484,7 +6537,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (annenhver – partallsuker)"
+        "raw": "Torsdag (annenhver – partallsuker)",
+        "weekParity": "even"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -7332,7 +7386,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (oddetallsuker)"
+        "raw": "Torsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -7412,7 +7467,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (oddetallsuker)"
+        "raw": "Torsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Kvalifisert gjetning",
       "categoryNorm": [
@@ -7766,7 +7822,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TU;INTERVAL=2",
-        "raw": "Tirsdag (annenhver, oddetallsuker)"
+        "raw": "Tirsdag (annenhver, oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -7928,7 +7985,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=WE;INTERVAL=2",
-        "raw": "Onsdag (oddetallsuker)"
+        "raw": "Onsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -8428,7 +8486,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (oddetallsuker)"
+        "raw": "Torsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -8907,7 +8966,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (oddetallsuker)"
+        "raw": "Torsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -9053,7 +9113,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=WE;INTERVAL=2",
-        "raw": "Onsdag (oddetallsuker)"
+        "raw": "Onsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Rock",
       "categoryNorm": [
@@ -9292,7 +9353,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (oddetallsuker)"
+        "raw": "Torsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -9803,7 +9865,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (annenhver, ulik uke)"
+        "raw": "Torsdag (annenhver, ulik uke)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
@@ -9851,7 +9914,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=WE;INTERVAL=2",
-        "raw": "Onsdag (oddetallsuker)"
+        "raw": "Onsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn med musikk",
       "categoryNorm": [
@@ -9916,7 +9980,8 @@
       "recurrence": {
         "kind": "biweekly",
         "rrule": "FREQ=WEEKLY;BYDAY=TH;INTERVAL=2",
-        "raw": "Torsdag (oddetallsuker)"
+        "raw": "Torsdag (oddetallsuker)",
+        "weekParity": "odd"
       },
       "category": "Allmenn",
       "categoryNorm": [
