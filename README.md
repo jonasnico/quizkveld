@@ -40,7 +40,31 @@ går én vei: `src/` importerer `pipeline/schema.ts`, `pipeline/slug.ts` og
 | `src/scripts/filters.ts` | Klientfilter som skjuler kort som allerede er sendt ut |
 
 Sider: `/` (i kveld), `/i-morgen/`, `/denne-uka/`, `/steder/`, `/sted/<sted>/`,
-`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~450 statiske sider totalt.
+`/fylke/<fylke>/`, `/pub/<sted-id>/`, `/om/`. ~455 statiske sider totalt.
+
+### Fylkene er dagens, ikke kildens
+
+Kildens `fylke` er fra før 2020 og sier fortsatt Hordaland, Sør-Trøndelag, Hedmark,
+Vest-Agder, Aust-Agder, Oppland, Nord-Trøndelag og Sogn og Fjordane. Alle åtte ble lagt ned
+i 2020, og de dekker **78 av 322 steder**. Navigerer man på dem, må den som leter etter quiz
+i Bergen vite at hun skal trykke «Hordaland» — og «Vestland» finnes ikke i det hele tatt.
+
+`fylkeOf()` i `place.ts` bruker `fylkeNow`, som pipelinen slår opp mot Kartverket **per
+sted**. At det ikke er en navnetabell er hele grunnen til at det er trygt: Jevnaker gikk
+Oppland → Viken → Akershus, og enhver håndskrevet aliastabell ville sendt den til Innlandet
+sammen med resten av Oppland.
+
+Ett sted (Sandnesseter) mangler `fylkeNow` fordi Kartverket ikke kjenner stedet, og faller
+tilbake på kildens fylke framfor å forsvinne ut av navigasjonen. Svalbard trenger ingen
+spesialhåndtering — det beholdt navnet sitt, så gammelt og nytt er samme streng.
+
+De gamle URL-ene omdirigeres, og `legacyFylkeSlugs()` utleder dem fra dataene på samme måte.
+De forsvinner altså av seg selv den dagen kilden skriver moderne navn. Et fylke som er delt
+i to peker dit mest av innholdet gikk, valgt på **antall** framfor radrekkefølge, slik at
+URL-en ikke flytter seg mellom to skrap.
+
+Kildens egen skrivemåte står igjen i rettings-e-posten: den skal hjelpe en frivillig å finne
+raden i *deres* tabell, og deres tabell sier Hordaland.
 
 ### Vi er et speil, aldri en kilde
 
