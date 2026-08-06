@@ -1119,6 +1119,13 @@
     "geoConfidence": "high",
     "resolvedAt": "2026-07-28T04:32:58.688Z"
   },
+  "oslo-kjoekken-og-bar": {
+    "lat": 59.914764,
+    "lon": 10.74771,
+    "geoSource": "osm",
+    "geoConfidence": "high",
+    "resolvedAt": "2026-08-06T06:33:47.647Z"
+  },
   "oslo-klosterenga-cafe-og-bar": {
     "lat": 59.907892,
     "lon": 10.771562,
