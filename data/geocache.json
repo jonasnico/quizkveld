@@ -391,6 +391,13 @@
     "geoConfidence": "high",
     "resolvedAt": "2026-07-28T04:38:14.674Z"
   },
+  "hafrsfjord-vigaa-pub": {
+    "lat": 59.101759412296,
+    "lon": 5.712455827913,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-08-08T04:59:41.786Z"
+  },
   "halden-samfundet": {
     "lat": 59.068055511312,
     "lon": 11.537193173986,
@@ -1623,6 +1630,13 @@
     "geoConfidence": "high",
     "resolvedAt": "2026-07-28T04:33:16.646Z"
   },
+  "stavanger-folken": {
+    "lat": 59.101759412296,
+    "lon": 5.712455827913,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-08-08T04:59:42.161Z"
+  },
   "stavanger-fri-bar": {
     "lat": 58.9726497,
     "lon": 5.7334981,
@@ -1643,6 +1657,13 @@
     "geoSource": "osm",
     "geoConfidence": "high",
     "resolvedAt": "2026-07-28T04:33:17.690Z"
+  },
+  "stavanger-hinna-bistro": {
+    "lat": 59.101759412296,
+    "lon": 5.712455827913,
+    "geoSource": "centroid",
+    "geoConfidence": "low",
+    "resolvedAt": "2026-08-08T04:59:42.544Z"
   },
   "stavanger-martinique": {
     "lat": 58.9703289,
